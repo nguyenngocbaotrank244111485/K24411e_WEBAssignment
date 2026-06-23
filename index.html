@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrintiFy VN — Thiết kế & In ấn cá nhân hóa</title>
+
+  <!-- CSS chung -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- CSS riêng trang chủ -->
+  <style>
+    /* ── Navbar ─────────────────────────── */
+    .navbar { background: #fff; }
+
+    /* ── Hero ───────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, #f3f0ff 0%, #fff 55%);
+      padding: 80px 0 64px;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: #ede9fe;
+      color: #6c5ce7;
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      margin-bottom: 18px;
+      color: #1a1a2e;
+    }
+    .hero-title span { color: #6c5ce7; }
+    .hero-desc {
+      font-size: 1.05rem;
+      color: #636e72;
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .hero-cta { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── Category grid ───────────────────── */
+    .categories { padding: 64px 0 48px; }
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .cat-card {
+      background: #fff;
+      border: 1.5px solid #dfe6e9;
+      border-radius: 14px;
+      padding: 24px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .cat-card:hover {
+      border-color: #6c5ce7;
+      box-shadow: 0 4px 20px rgba(108,92,231,.12);
+      transform: translateY(-2px);
+    }
+    .cat-icon { font-size: 2rem; margin-bottom: 10px; }
+    .cat-name { font-weight: 700; font-size: 0.9rem; color: #2d3436; }
+    .cat-count { font-size: 0.75rem; color: #636e72; margin-top: 3px; }
+
+    /* ── Sections chung ──────────────────── */
+    .products-section { padding: 48px 0 32px; }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #1a1a2e;
+      position: relative;
+      padding-left: 14px;
+    }
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 5px; bottom: 5px;
+      width: 4px;
+      border-radius: 2px;
+      background: #6c5ce7;
+    }
+    .view-all {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #6c5ce7;
+      text-decoration: none;
+    }
+    .view-all:hover { text-decoration: underline; }
+
+    /* ── Product grid ────────────────────── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 18px;
+    }
+    .product-card {
+      background: #fff;
+      border: 1px solid #dfe6e9;
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all .22s;
+    }
+    .product-card:hover {
+      box-shadow: 0 6px 28px rgba(0,0,0,.10);
+      transform: translateY(-3px);
+    }
+    .product-card-img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      background: #f8f9fa;
+    }
+    .product-card-body { padding: 14px 16px 16px; }
+    .product-card-badge {
+      display: inline-block;
+      background: #ede9fe;
+      color: #6c5ce7;
+      border-radius: 20px;
+      padding: 2px 9px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin-bottom: 7px;
+    }
+    .product-card-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #2d3436;
+      margin-bottom: 6px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.4;
+    }
+    .product-card-price {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #e17055;
+      margin-bottom: 12px;
+    }
+    .product-card-btn {
+      width: 100%;
+      padding: 8px;
+      background: #6c5ce7;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .product-card-btn:hover { background: #5a4bd1; }
+
+    /* Skeleton loading */
+    .skeleton-card {
+      background: #fff;
+      border: 1px solid #dfe6e9;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .skel {
+      background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+    }
+    @keyframes shimmer { from{background-position:200% 0} to{background-position:-200% 0} }
+    .skel-img { width:100%; aspect-ratio:1; }
+    .skel-body { padding: 14px 16px 16px; }
+    .skel-line { height: 12px; border-radius: 6px; margin-bottom: 8px; }
+    .skel-line.short { width: 60%; }
+    .skel-line.med   { width: 80%; }
+
+    /* ── Marketplace banner ──────────────── */
+    .marketplace-banner {
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d2d4e 100%);
+      border-radius: 20px;
+      padding: 48px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin: 48px 0;
+      flex-wrap: wrap;
+    }
+    .mp-text h2 {
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .mp-text p { color: #b2bec3; font-size: 0.95rem; max-width: 420px; }
+    .mp-cta {
+      background: #6c5ce7;
+      color: #fff;
+      padding: 13px 26px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background .2s;
+    }
+    .mp-cta:hover { background: #5a4bd1; }
+
+    /* ── Footer ──────────────────────────── */
+    .footer {
+      background: #1a1a2e;
+      color: #9ca3af;
+      padding: 56px 0 28px;
+      margin-top: 80px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand { font-size: 1.4rem; font-weight: 900; color: #fff; margin-bottom: 12px; }
+    .footer-brand span { color: #6c5ce7; }
+    .footer-desc { font-size: 0.875rem; line-height: 1.7; }
+    .footer-col h4 { color: #fff; font-size: 0.875rem; font-weight: 700; margin-bottom: 16px; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col a { font-size: 0.875rem; color: #9ca3af; transition: color .2s; }
+    .footer-col a:hover { color: #fff; }
+    .footer-bottom {
+      border-top: 1px solid #374151;
+      padding-top: 24px;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    /* ── Chatbot widget ──────────────────── */
+    #chatbot-toggle {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 1500;
+      width: 54px; height: 54px;
+      border-radius: 50%;
+      background: #6c5ce7;
+      color: #fff;
+      font-size: 1.4rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(108,92,231,.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .2s, background .2s;
+    }
+    #chatbot-toggle:hover { transform: scale(1.1); background: #5a4bd1; }
+    #chatbot-window {
+      position: fixed;
+      bottom: 94px; right: 28px;
+      width: 340px; height: 460px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.15);
+      z-index: 1499;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid #dfe6e9;
+    }
+    #chatbot-window.show { display: flex; }
+    .chat-header {
+      background: #6c5ce7;
+      color: #fff;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .chat-header-name { font-weight: 700; flex: 1; font-size: 0.9rem; }
+    .chat-close-btn { background: none; border: none; color: #fff; font-size: 1.1rem; cursor: pointer; opacity: .8; }
+    .chat-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .bubble {
+      max-width: 80%;
+      padding: 10px 14px;
+      border-radius: 16px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    .bubble.bot  { background: #f3f4f6; align-self: flex-start; border-bottom-left-radius: 4px; color: #2d3436; }
+    .bubble.user { background: #6c5ce7; color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+    .typing { display: flex; gap: 4px; align-items: center; padding: 10px 14px; }
+    .typing span { width: 7px; height: 7px; border-radius: 50%; background: #b2bec3; animation: bounce .9s infinite; }
+    .typing span:nth-child(2) { animation-delay: .15s; }
+    .typing span:nth-child(3) { animation-delay: .3s; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 40%{transform:translateY(-6px)} }
+    .chat-footer {
+      padding: 10px 14px;
+      border-top: 1px solid #f0f0f0;
+      display: flex;
+      gap: 8px;
+    }
+    #chat-input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1.5px solid #dfe6e9;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      outline: none;
+    }
+    #chat-input:focus { border-color: #6c5ce7; }
+    .chat-send-btn {
+      background: #6c5ce7;
+      color: #fff;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Toast container */
+    #toast-container {
+      position: fixed;
+      top: 80px; right: 20px;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+    }
+    .toast {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.12);
+      padding: 12px 18px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 260px;
+      border-left: 4px solid #00b894;
+      animation: slideIn .3s ease;
+    }
+    .toast.error { border-left-color: #d63031; }
+    .toast.warn  { border-left-color: #fdcb6e; }
+    @keyframes slideIn { from{transform:translateX(120%);opacity:0} to{transform:translateX(0);opacity:1} }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .marketplace-banner { flex-direction: column; text-align: center; }
+      .cat-grid { grid-template-columns: repeat(3, 1fr); }
+      #chatbot-window { width: calc(100vw - 40px); right: 20px; }
+    }
+    @media (max-width: 480px) {
+      .cat-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════ -->
+  <nav class="navbar">
+    <div class="container" style="display:flex;align-items:center;gap:40px;width:100%">
+
+      <!-- Logo -->
+      <a href="index.html" class="navbar-logo" style="font-size:1.4rem;font-weight:900;color:#6c5ce7;text-decoration:none;flex-shrink:0">
+        Printi<span style="color:#e17055">Fy</span> VN
+      </a>
+
+      <!-- Menu -->
+      <nav style="display:flex;gap:24px;flex:1" aria-label="Menu chính">
+        <a href="products.html"    style="font-size:0.9rem;font-weight:500;color:#636e72;text-decoration:none" id="nav-products">Sản phẩm</a>
+        <a href="marketplace.html" style="font-size:0.9rem;font-weight:500;color:#636e72;text-decoration:none" id="nav-market">Marketplace</a>
+        <a href="#about"           style="font-size:0.9rem;font-weight:500;color:#636e72;text-decoration:none">Giới thiệu</a>
+      </nav>
+
+      <!-- Actions -->
+      <div style="display:flex;align-items:center;gap:12px">
+
+        <!-- Giỏ hàng -->
+        <a href="cart.html" style="position:relative;display:flex;align-items:center;gap:6px;font-size:0.9rem;font-weight:600;color:#636e72;text-decoration:none;padding:8px 10px;border-radius:8px;transition:background .2s"
+           onmouseover="this.style.background='#f3f0ff';this.style.color='#6c5ce7'"
+           onmouseout="this.style.background='';this.style.color='#636e72'"
+           aria-label="Giỏ hàng">
+          🛒
+          <span id="cart-badge" style="position:absolute;top:-4px;right:-4px;background:#d63031;color:#fff;font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:none;align-items:center;justify-content:center">0</span>
+        </a>
+
+        <!-- Chưa đăng nhập -->
+        <div id="nav-login" style="display:flex;gap:8px">
+          <a href="login.html"    style="padding:8px 16px;border:1.5px solid #6c5ce7;color:#6c5ce7;border-radius:8px;font-size:0.875rem;font-weight:600;text-decoration:none">Đăng nhập</a>
+          <a href="register.html" style="padding:8px 16px;background:#6c5ce7;color:#fff;border-radius:8px;font-size:0.875rem;font-weight:600;text-decoration:none">Đăng ký</a>
+        </div>
+
+        <!-- Đã đăng nhập (JS sẽ show) -->
+        <div id="nav-user" style="display:none;align-items:center;gap:10px">
+          <span id="nav-username" style="font-size:0.9rem;font-weight:600;color:#2d3436"></span>
+          <a href="profile.html" style="width:34px;height:34px;border-radius:50%;background:#ede9fe;display:flex;align-items:center;justify-content:center;font-size:1rem;text-decoration:none" aria-label="Trang cá nhân">👤</a>
+          <button onclick="UserDB.logout(); location.reload()" style="background:none;border:none;font-size:0.8rem;color:#636e72;cursor:pointer;padding:4px 8px">Đăng xuất</button>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero-eyebrow">✨ Nền tảng in ấn cá nhân hóa #1 Việt Nam</span>
+      <h1 class="hero-title">
+        Thiết kế theo ý bạn<br>
+        <span>In theo ý bạn</span>
+      </h1>
+      <p class="hero-desc">
+        Tạo sản phẩm in ấn độc đáo với công cụ thiết kế trực tuyến. 
+        Áo thun, postcard, tote bag, standee và hơn 20 loại sản phẩm — 
+        tất cả chỉ trong vài phút.
+      </p>
+      <div class="hero-cta">
+        <a href="products.html" style="display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:#6c5ce7;color:#fff;border-radius:10px;font-weight:700;font-size:0.95rem;text-decoration:none;transition:background .2s"
+           onmouseover="this.style.background='#5a4bd1'" onmouseout="this.style.background='#6c5ce7'">
+          Khám phá sản phẩm →
+        </a>
+        <a href="#how-it-works" style="display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border:1.5px solid #dfe6e9;color:#636e72;border-radius:10px;font-weight:600;font-size:0.95rem;text-decoration:none;background:#fff;transition:all .2s"
+           onmouseover="this.style.borderColor='#6c5ce7';this.style.color='#6c5ce7'" onmouseout="this.style.borderColor='#dfe6e9';this.style.color='#636e72'">
+          Xem cách hoạt động
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       DANH MỤC SẢN PHẨM
+  ═══════════════════════════════════════════ -->
+  <section class="categories">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Danh mục sản phẩm</h2>
+      </div>
+      <div class="cat-grid" id="category-grid">
+        <!-- Render bằng JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SẢN PHẨM GỢI Ý (CHỈ HIỆN KHI ĐÃ ĐĂNG NHẬP)
+  ═══════════════════════════════════════════ -->
+  <section class="products-section" id="section-recommend" style="display:none">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">✨ Dành riêng cho bạn</h2>
+        <a href="products.html" class="view-all">Xem thêm</a>
+      </div>
+      <div class="product-grid" id="recommend-grid">
+        <!-- Render bởi recommendation.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SẢN PHẨM PHỔ BIẾN
+  ═══════════════════════════════════════════ -->
+  <section class="products-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">🔥 Phổ biến nhất</h2>
+        <a href="products.html" class="view-all">Xem tất cả</a>
+      </div>
+      <div class="product-grid" id="popular-grid">
+        <!-- Skeleton loading -->
+        <div class="skeleton-card"><div class="skel skel-img"></div><div class="skel-body"><div class="skel skel-line short"></div><div class="skel skel-line med"></div><div class="skel skel-line short"></div></div></div>
+        <div class="skeleton-card"><div class="skel skel-img"></div><div class="skel-body"><div class="skel skel-line short"></div><div class="skel skel-line med"></div><div class="skel skel-line short"></div></div></div>
+        <div class="skeleton-card"><div class="skel skel-img"></div><div class="skel-body"><div class="skel skel-line short"></div><div class="skel skel-line med"></div><div class="skel skel-line short"></div></div></div>
+        <div class="skeleton-card"><div class="skel skel-img"></div><div class="skel-body"><div class="skel skel-line short"></div><div class="skel skel-line med"></div><div class="skel skel-line short"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       MARKETPLACE BANNER
+  ═══════════════════════════════════════════ -->
+  <section>
+    <div class="container">
+      <div class="marketplace-banner">
+        <div class="mp-text">
+          <h2>💡 Biến thiết kế thành thu nhập</h2>
+          <p>Đăng bán thiết kế của bạn trên PrintiFy VN và kiếm tiền mỗi khi có người mua. Hàng nghìn khách hàng đang chờ tìm kiếm thiết kế độc đáo.</p>
+        </div>
+        <a href="marketplace.html" class="mp-cta">Bắt đầu bán ngay →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Printi<span>Fy</span> VN</div>
+          <p class="footer-desc">Nền tảng thiết kế và in ấn sản phẩm cá nhân hóa hàng đầu Việt Nam. Biến ý tưởng của bạn thành sản phẩm thực tế.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Sản phẩm</h4>
+          <ul>
+            <li><a href="products.html?cat=clothing">Áo thun & Hoodie</a></li>
+            <li><a href="products.html?cat=stationery">Postcard & In ấn</a></li>
+            <li><a href="products.html?cat=accessories">Phụ kiện</a></li>
+            <li><a href="products.html?cat=homeware">Đồ gia dụng</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Hỗ trợ</h4>
+          <ul>
+            <li><a href="#">Hướng dẫn thiết kế</a></li>
+            <li><a href="#">Chính sách đổi trả</a></li>
+            <li><a href="#">Câu hỏi thường gặp</a></li>
+            <li><a href="#">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Tài khoản</h4>
+          <ul>
+            <li><a href="login.html">Đăng nhập</a></li>
+            <li><a href="register.html">Đăng ký</a></li>
+            <li><a href="orders.html">Đơn hàng của tôi</a></li>
+            <li><a href="marketplace.html">Bán thiết kế</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 PrintiFy VN — Đồ án Phát triển Web Kinh doanh</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════
+       CHATBOT WIDGET
+  ═══════════════════════════════════════════ -->
+  <button id="chatbot-toggle" onclick="toggleChat()" aria-label="Mở chatbot tư vấn">💬</button>
+
+  <div id="chatbot-window" role="dialog" aria-label="Chatbot tư vấn PrintiFy">
+    <div class="chat-header">
+      <span>🤖</span>
+      <span class="chat-header-name">Trợ lý PrintiFy</span>
+      <button class="chat-close-btn" onclick="toggleChat()" aria-label="Đóng chatbot">✕</button>
+    </div>
+    <div class="chat-body" id="chat-body"></div>
+    <div class="chat-footer">
+      <input type="text" id="chat-input" placeholder="Hỏi về sản phẩm, giá, kiểu in..." 
+             onkeydown="if(event.key==='Enter') sendChat()">
+      <button class="chat-send-btn" onclick="sendChat()" aria-label="Gửi tin nhắn">➤</button>
+    </div>
+  </div>
+
+  <!-- Toast container -->
+  <div id="toast-container" aria-live="polite"></div>
+
+  <!-- ══════════════════════════════════════════
+       SCRIPTS
+       Thứ tự: storage.js trước, script trang sau
+  ═══════════════════════════════════════════ -->
+  <script src="js/storage.js"></script>
+  <script src="js/recommendation.js"></script>
+  <script src="js/chatbot.js"></script>
+
+  <script>
+    // ── Dữ liệu danh mục ─────────────────────────────────────
+    const CATEGORIES = [
+      { id: "clothing",   icon: "👕", name: "Áo & Quần",    count: 6  },
+      { id: "stationery", icon: "📮", name: "Stationery",   count: 9  },
+      { id: "accessories",icon: "🎀", name: "Phụ kiện",     count: 5  },
+      { id: "homeware",   icon: "🏠", name: "Gia dụng",     count: 4  },
+    ];
+
+    // ── Render danh mục ───────────────────────────────────────
+    function renderCategories() {
+      const grid = document.getElementById("category-grid");
+      grid.innerHTML = CATEGORIES.map(c => `
+        <div class="cat-card" onclick="window.location.href='products.html?cat=${c.id}'">
+          <div class="cat-icon">${c.icon}</div>
+          <div class="cat-name">${c.name}</div>
+          <div class="cat-count">${c.count} sản phẩm</div>
+        </div>
+      `).join("");
+    }
+
+    // ── Render 1 product card ─────────────────────────────────
+    function renderCard(product) {
+      return `
+        <div class="product-card" onclick="window.location.href='product-detail.html?id=${product.id}'">
+          <img class="product-card-img" src="${product.image}" alt="${product.name}" loading="lazy"
+               onerror="this.src='assets/images/placeholder.png'">
+          <div class="product-card-body">
+            <span class="product-card-badge">${product.category}</span>
+            <h3 class="product-card-name">${product.name}</h3>
+            <p class="product-card-price">${formatPrice(product.price)}</p>
+            <button class="product-card-btn"
+                    onclick="event.stopPropagation(); handleDesignClick('${product.id}')">
+              ✏️ Thiết kế ngay
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    // ── Nút Thiết kế ngay ─────────────────────────────────────
+    function handleDesignClick(productId) {
+      if (!UserDB.isLoggedIn()) {
+        // Chưa đăng nhập → lưu URL mục tiêu rồi chuyển sang đăng nhập
+        sessionStorage.setItem("pfy_returnUrl", `editor.html?id=${productId}`);
+        showToast("Vui lòng đăng nhập để bắt đầu thiết kế", "warn");
+        setTimeout(() => window.location.href = "login.html", 1200);
+        return;
+      }
+      window.location.href = `editor.html?id=${productId}`;
+    }
+
+    // ── Load & render sản phẩm phổ biến ──────────────────────
+    async function loadPopularProducts() {
+      // Tải sản phẩm từ JSON (chỉ fetch 1 lần, cache vào localStorage)
+      const products = await ProductDB.load("./data/products.json");
+      const popular  = products.filter(p => p.popular);
+      const grid     = document.getElementById("popular-grid");
+
+      if (popular.length === 0) {
+        grid.innerHTML = `<p style="color:#636e72;grid-column:1/-1">Chưa có sản phẩm nổi bật.</p>`;
+        return;
+      }
+
+      // Hiển thị tối đa 8 sản phẩm phổ biến
+      grid.innerHTML = popular.slice(0, 8).map(renderCard).join("");
+    }
+
+    // ── Recommendation section ─────────────────────────────────
+    function loadRecommendations() {
+      if (!UserDB.isLoggedIn()) return;
+
+      const history = HistoryDB.get();
+      if (history.length === 0) return; // Chưa xem SP nào
+
+      // Gợi ý dựa trên SP xem gần nhất
+      const lastId  = history[0];
+      const product = ProductDB.getById(lastId);
+      if (!product) return;
+
+      // Gọi recommendation module (recommendation.js sẽ export hàm này)
+      const suggestions = getRecommendations(product.id, 4);
+      if (suggestions.length === 0) return;
+
+      const section = document.getElementById("section-recommend");
+      const grid    = document.getElementById("recommend-grid");
+      section.style.display = "block";
+      grid.innerHTML = suggestions.map(renderCard).join("");
+    }
+
+    // ── Chatbot ───────────────────────────────────────────────
+    let chatOpen = false;
+
+    function toggleChat() {
+      chatOpen = !chatOpen;
+      const win = document.getElementById("chatbot-window");
+      win.classList.toggle("show", chatOpen);
+      if (chatOpen) {
+        loadChatHistory();
+        document.getElementById("chat-input").focus();
+      }
+    }
+
+    function loadChatHistory() {
+      const body = document.getElementById("chat-body");
+      const hist = ChatDB.get();
+
+      // Hiển thị lời chào nếu chưa có lịch sử
+      if (hist.length === 0) {
+        body.innerHTML = `
+          <div class="bubble bot">
+            Xin chào! 👋 Tôi là trợ lý PrintiFy. Tôi có thể giúp bạn chọn sản phẩm, 
+            tư vấn kiểu in hoặc chia sẻ ý tưởng thiết kế. Bạn cần tư vấn gì?
+          </div>`;
+        return;
+      }
+
+      // Render lại lịch sử chat
+      body.innerHTML = hist.map(m =>
+        `<div class="bubble ${m.role === "user" ? "user" : "bot"}">${m.parts[0].text}</div>`
+      ).join("");
+      body.scrollTop = body.scrollHeight;
+    }
+
+    async function sendChat() {
+      const input = document.getElementById("chat-input");
+      const text  = input.value.trim();
+      if (!text) return;
+      input.value = "";
+
+      // Hiện tin nhắn user
+      const body = document.getElementById("chat-body");
+      body.innerHTML += `<div class="bubble user">${text}</div>`;
+
+      // Typing indicator
+      const typing = document.createElement("div");
+      typing.className = "bubble bot typing";
+      typing.innerHTML = "<span></span><span></span><span></span>";
+      body.appendChild(typing);
+      body.scrollTop = body.scrollHeight;
+
+      // Lưu tin nhắn user
+      ChatDB.add("user", text);
+
+      try {
+        // Gọi chatbot.js (sẽ tự dùng Gemini API)
+        const reply = await getChatbotReply(text, ChatDB.get());
+        typing.remove();
+        ChatDB.add("model", reply);
+        body.innerHTML += `<div class="bubble bot">${reply}</div>`;
+      } catch (err) {
+        typing.remove();
+        body.innerHTML += `<div class="bubble bot">Xin lỗi, tôi đang gặp sự cố. Vui lòng thử lại sau ít giây.</div>`;
+      }
+      body.scrollTop = body.scrollHeight;
+    }
+
+    // ── Khởi chạy khi trang load ──────────────────────────────
+    document.addEventListener("DOMContentLoaded", async () => {
+      renderCategories();
+      await loadPopularProducts();
+      loadRecommendations();
+    });
+  </script>
+
+</body>
+</html>

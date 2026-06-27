@@ -1,0 +1,332 @@
+[
+    {
+        "status": "Hoàn tất",
+        "orders": [
+            {
+                "orderId": "PF1710000001",
+                "custId": "u001",
+                "items": [
+                    {
+                        "productId": "prod_ao01",
+                        "qty": 2,
+                        "price": 250000,
+                        "designId": "des_001"
+                    },
+                    {
+                        "productId": "prod_tote02",
+                        "qty": 1,
+                        "price": 180000,
+                        "designId": "des_002"
+                    }
+                ],
+                "shipInfo": {
+                    "name": "Nguyễn Văn An",
+                    "phone": "0901234567",
+                    "address": "123 Lý Thường Kiệt",
+                    "ward": "Phường 7",
+                    "district": "Quận 10",
+                    "city": "TP. Hồ Chí Minh"
+                },
+                "payMethod": "Chuyển khoản",
+                "totalAmount": 680000,
+                "createdAt": "2025-03-01T09:15:00Z",
+                "timeline": [
+                    { "status": "Chờ xác nhận", "time": "2025-03-01T09:15:00Z" },
+                    { "status": "Đang xử lý",   "time": "2025-03-01T10:30:00Z" },
+                    { "status": "Đang giao",     "time": "2025-03-02T08:00:00Z" },
+                    { "status": "Hoàn tất",      "time": "2025-03-03T14:20:00Z" }
+                ]
+            },
+            {
+                "orderId": "PF1710000002",
+                "custId": "u002",
+                "items": [
+                    {
+                        "productId": "prod_post03",
+                        "qty": 5,
+                        "price": 45000,
+                        "designId": "des_003"
+                    }
+                ],
+                "shipInfo": {
+                    "name": "Trần Thị Bảo",
+                    "phone": "0912345678",
+                    "address": "56 Nguyễn Huệ",
+                    "ward": "Phường Bến Nghé",
+                    "district": "Quận 1",
+                    "city": "TP. Hồ Chí Minh"
+                },
+                "payMethod": "Chuyển khoản",
+                "totalAmount": 225000,
+                "createdAt": "2025-03-05T11:00:00Z",
+                "timeline": [
+                    { "status": "Chờ xác nhận", "time": "2025-03-05T11:00:00Z" },
+                    { "status": "Đang xử lý",   "time": "2025-03-05T13:00:00Z" },
+                    { "status": "Đang giao",     "time": "2025-03-06T09:00:00Z" },
+                    { "status": "Hoàn tất",      "time": "2025-03-07T16:00:00Z" }
+                ]
+            },
+            {
+                "orderId": "PF1710000007",
+                "custId": "u003",
+                "items": [
+                    {
+                        "productId": "prod_acc04",
+                        "qty": 3,
+                        "price": 120000,
+                        "designId": "des_009"
+                    }
+                ],
+                "shipInfo": {
+                    "name": "Lê Quốc Cường",
+                    "phone": "0923456789",
+                    "address": "9 Đinh Tiên Hoàng",
+                    "ward": "Phường Đa Kao",
+                    "district": "Quận 1",
+                    "city": "TP. Hồ Chí Minh"
+                },
+                "payMethod": "Chuyển khoản",
+                "totalAmount": 360000,
+                "createdAt": "2025-03-25T13:00:00Z",
+                "timeline": [
+                    { "status": "Chờ xác nhận", "time": "2025-03-25T13:00:00Z" },
+                    { "status": "Đang xử lý",   "time": "2025-03-25T14:30:00Z" },
+                    { "status": "Đang giao",     "time": "2025-03-26T08:00:00Z" },
+                    { "status": "Hoàn tất",      "time": "2025-03-27T11:45:00Z" }
+                ]
+            },
+            {
+                "orderId": "PF1710000008",
+                "custId": "u006",
+                "items": [
+                    {
+                        "productId": "prod_home05",
+                        "qty": 2,
+                        "price": 320000,
+                        "designId": null
+                    },
+                    {
+                        "productId": "prod_post03",
+                        "qty": 4,
+                        "price": 45000,
+                        "designId": "des_010"
+                    }
+                ],
+                "shipInfo": {
+                    "name": "Vũ Thị Mai",
+                    "phone": "0956789012",
+                    "address": "47 Điện Biên Phủ",
+                    "ward": "Phường 25",
+                    "district": "Bình Thạnh",
+                    "city": "TP. Hồ Chí Minh"
+                },
+                "payMethod": "Chuyển khoản",
+                "totalAmount": 820000,
+                "createdAt": "2025-04-02T09:20:00Z",
+                "timeline": [
+                    { "status": "Chờ xác nhận", "time": "2025-04-02T09:20:00Z" },
+                    { "status": "Đang xử lý",   "time": "2025-04-02T11:00:00Z" },
+                    { "status": "Đang giao",     "time": "2025-04-03T08:30:00Z" },
+                    { "status": "Hoàn tất",      "time": "2025-04-04T17:00:00Z" }
+                ]
+            },
+            {
+                "orderId": "PF1710000005",
+                "custId": "u004",
+                "items": [
+                    {
+                        "productId": "prod_ao01",
+                        "qty": 3,
+                        "price": 250000,
+                        "designId": "des_007"
+                    },
+                    {
+                        "productId": "prod_home05",
+                        "qty": 1,
+                        "price": 320000,
+                        "designId": null
+                    }
+                ],
+                "shipInfo": {
+                    "name": "Phạm Minh Đức",
+                    "phone": "0934567890",
+                    "address": "88 Võ Thị Sáu",
+                    "ward": "Phường Tân Định",
+                    "district": "Quận 1",
+                    "city": "TP. Hồ Chí Minh"
+                },
+                "payMethod": "Chuyển khoản",
+                "totalAmount": 1070000,
+                "createdAt": "2025-03-18T08:45:00Z",
+                "timeline": [
+                    { "status": "Chờ xác nhận", "time": "2025-03-18T08:45:00Z" },
+                    { "status": "Đang xử lý",   "time": "2025-03-18T10:00:00Z" },
+                    { "status": "Đang giao",     "time": "2025-03-19T07:30:00Z" },
+                    { "status": "Hoàn tất",      "time": "2025-03-20T15:10:00Z" }
+                ]
+            }
+        ]
+    },
+    {
+        "status": "Đang giao",
+        "orders": [
+            {
+                "orderId": "PF1710000009",
+                "custId": "u001",
+                "items": [
+                    {
+                        "productId": "prod_tote02",
+                        "qty": 2,
+                        "price": 180000,
+                        "designId": "des_011"
+                    }
+                ],
+                "shipInfo": {
+                    "name": "Nguyễn Văn An",
+                    "phone": "0901234567",
+                    "address": "123 Lý Thường Kiệt",
+                    "ward": "Phường 7",
+                    "district": "Quận 10",
+                    "city": "TP. Hồ Chí Minh"
+                },
+                "payMethod": "Chuyển khoản",
+                "totalAmount": 360000,
+                "createdAt": "2025-04-08T10:00:00Z",
+                "timeline": [
+                    { "status": "Chờ xác nhận", "time": "2025-04-08T10:00:00Z" },
+                    { "status": "Đang xử lý",   "time": "2025-04-08T11:30:00Z" },
+                    { "status": "Đang giao",     "time": "2025-04-09T08:00:00Z" }
+                ]
+            },
+            {
+                "orderId": "PF1710000003",
+                "custId": "u003",
+                "items": [
+                    {
+                        "productId": "prod_ao01",
+                        "qty": 1,
+                        "price": 250000,
+                        "designId": "des_004"
+                    },
+                    {
+                        "productId": "prod_acc04",
+                        "qty": 2,
+                        "price": 120000,
+                        "designId": "des_005"
+                    }
+                ],
+                "shipInfo": {
+                    "name": "Lê Quốc Cường",
+                    "phone": "0923456789",
+                    "address": "9 Đinh Tiên Hoàng",
+                    "ward": "Phường Đa Kao",
+                    "district": "Quận 1",
+                    "city": "TP. Hồ Chí Minh"
+                },
+                "payMethod": "Chuyển khoản",
+                "totalAmount": 490000,
+                "createdAt": "2025-03-10T14:30:00Z",
+                "timeline": [
+                    { "status": "Chờ xác nhận", "time": "2025-03-10T14:30:00Z" },
+                    { "status": "Đang xử lý",   "time": "2025-03-10T16:00:00Z" },
+                    { "status": "Đang giao",     "time": "2025-03-11T09:00:00Z" }
+                ]
+            }
+        ]
+    },
+    {
+        "status": "Chờ xác nhận",
+        "orders": [
+            {
+                "orderId": "PF1710000010",
+                "custId": "u007",
+                "items": [
+                    {
+                        "productId": "prod_ao01",
+                        "qty": 1,
+                        "price": 250000,
+                        "designId": "des_012"
+                    },
+                    {
+                        "productId": "prod_acc04",
+                        "qty": 1,
+                        "price": 120000,
+                        "designId": "des_013"
+                    }
+                ],
+                "shipInfo": {
+                    "name": "Đặng Hữu Phước",
+                    "phone": "0967890123",
+                    "address": "33 Trần Hưng Đạo",
+                    "ward": "Phường Cầu Ông Lãnh",
+                    "district": "Quận 1",
+                    "city": "TP. Hồ Chí Minh"
+                },
+                "payMethod": "Chuyển khoản",
+                "totalAmount": 370000,
+                "createdAt": "2025-04-10T15:30:00Z",
+                "timeline": [
+                    { "status": "Chờ xác nhận", "time": "2025-04-10T15:30:00Z" }
+                ]
+            },
+            {
+                "orderId": "PF1710000006",
+                "custId": "u005",
+                "items": [
+                    {
+                        "productId": "prod_post03",
+                        "qty": 10,
+                        "price": 45000,
+                        "designId": "des_008"
+                    }
+                ],
+                "shipInfo": {
+                    "name": "Hoàng Thị Lan",
+                    "phone": "0945678901",
+                    "address": "22 Cách Mạng Tháng 8",
+                    "ward": "Phường 5",
+                    "district": "Quận 3",
+                    "city": "TP. Hồ Chí Minh"
+                },
+                "payMethod": "Chuyển khoản",
+                "totalAmount": 450000,
+                "createdAt": "2025-03-21T10:05:00Z",
+                "timeline": [
+                    { "status": "Chờ xác nhận", "time": "2025-03-21T10:05:00Z" }
+                ]
+            }
+        ]
+    },
+    {
+        "status": "Đã hủy",
+        "orders": [
+            {
+                "orderId": "PF1710000004",
+                "custId": "u002",
+                "items": [
+                    {
+                        "productId": "prod_tote02",
+                        "qty": 2,
+                        "price": 180000,
+                        "designId": "des_006"
+                    }
+                ],
+                "shipInfo": {
+                    "name": "Trần Thị Bảo",
+                    "phone": "0912345678",
+                    "address": "56 Nguyễn Huệ",
+                    "ward": "Phường Bến Nghé",
+                    "district": "Quận 1",
+                    "city": "TP. Hồ Chí Minh"
+                },
+                "payMethod": "Chuyển khoản",
+                "totalAmount": 360000,
+                "createdAt": "2025-03-15T08:00:00Z",
+                "timeline": [
+                    { "status": "Chờ xác nhận", "time": "2025-03-15T08:00:00Z" },
+                    { "status": "Đã hủy",        "time": "2025-03-15T09:30:00Z" }
+                ]
+            }
+        ]
+    }
+]

@@ -1,0 +1,30 @@
+[
+    {
+        "adId": "admin_01",
+        "adName": "Trân Nguyễn",
+        "adEmail": "trannguyen@printflow.com",
+        "password": "hashed_password_pf01",
+        "role": "Project Manager"
+    },
+    {
+        "adId": "admin_02",
+        "adName": "Phương An",
+        "adEmail": "phuongan@printflow.com",
+        "password": "hashed_password_pf02",
+        "role": "System Architect"
+    },
+    {
+        "adId": "admin_03",
+        "adName": "Thảo Châu",
+        "adEmail": "thaochau@printflow.com",
+        "password": "hashed_password_pf03",
+        "role": "Content Manager"
+    },
+    {
+        "adId": "admin_04",
+        "adName": "Trân Phạm",
+        "adEmail": "tranpham@printflow.com",
+        "password": "hashed_password_pf04",
+        "role": "Order Manager"
+    }
+]

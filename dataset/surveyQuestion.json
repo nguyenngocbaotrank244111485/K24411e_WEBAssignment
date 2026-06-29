@@ -2,104 +2,124 @@
   {
     "questionId": "Q01",
     "dimension": "PU",
-    "text": "Using Printify improves my shopping efficiency."
+    "text": "Using Printify improves my shopping efficiency.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 1
   },
   {
     "questionId": "Q02",
     "dimension": "PU",
-    "text": "The product customization feature is useful."
+    "text": "The product customization feature is useful.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 2
   },
   {
     "questionId": "Q03",
     "dimension": "PU",
-    "text": "The AI chatbot provides helpful recommendations."
+    "text": "The AI chatbot provides helpful recommendations.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 3
   },
   {
     "questionId": "Q04",
     "dimension": "PU",
-    "text": "Printify helps me find suitable products faster."
+    "text": "Printify helps me find suitable products faster.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 4
   },
   {
     "questionId": "Q05",
     "dimension": "PU",
-    "text": "Overall, Printify increases the effectiveness of my shopping."
+    "text": "Overall, Printify increases the effectiveness of my shopping.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 5
   },
 
   {
     "questionId": "Q06",
     "dimension": "PEOU",
-    "text": "Learning to use Printify is easy."
+    "text": "Learning to use Printify is easy.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 6
   },
   {
     "questionId": "Q07",
     "dimension": "PEOU",
-    "text": "The interface is clear and understandable."
+    "text": "The interface is clear and understandable.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 7
   },
   {
     "questionId": "Q08",
     "dimension": "PEOU",
-    "text": "Designing products is simple."
+    "text": "Designing products is simple.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 8
   },
   {
     "questionId": "Q09",
     "dimension": "PEOU",
-    "text": "The ordering process is straightforward."
+    "text": "The ordering process is straightforward.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 9
   },
   {
     "questionId": "Q10",
     "dimension": "PEOU",
-    "text": "Overall, Printify is easy to use."
+    "text": "Overall, Printify is easy to use.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 10
   },
 
   {
     "questionId": "Q11",
     "dimension": "SA",
-    "text": "I am satisfied with the product quality."
+    "text": "I am satisfied with the product quality.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 11
   },
   {
     "questionId": "Q12",
     "dimension": "SA",
-    "text": "I am satisfied with the website performance."
+    "text": "I am satisfied with the website performance.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 12
   },
   {
     "questionId": "Q13",
     "dimension": "SA",
-    "text": "I am satisfied with the customization features."
+    "text": "I am satisfied with the customization features.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 13
   },
   {
     "questionId": "Q14",
     "dimension": "SA",
-    "text": "I am satisfied with customer support."
+    "text": "I am satisfied with customer support.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 14
   },
   {
     "questionId": "Q15",
     "dimension": "SA",
-    "text": "Overall, I am satisfied with Printify."
+    "text": "Overall, I am satisfied with Printify.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 15
   },
 
   {
     "questionId": "Q16",
     "dimension": "PI",
-    "text": "I intend to use Printify again."
+    "text": "I intend to use Printify again.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 16
   },
   {
     "questionId": "Q17",
     "dimension": "PI",
-    "text": "I will recommend Printify to others."
+    "text": "I will recommend Printify to others.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 17
   },
   {
     "questionId": "Q18",
     "dimension": "PI",
-    "text": "I would purchase customized products again."
+    "text": "I would purchase customized products again.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 18
   },
   {
     "questionId": "Q19",
     "dimension": "PI",
-    "text": "I prefer Printify over similar platforms."
+    "text": "I prefer Printify over similar platforms.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 19
   },
   {
     "questionId": "Q20",
     "dimension": "PI",
-    "text": "I intend to continue using Printify in the future."
+    "text": "I intend to continue using Printify in the future.",
+    "scaleType": "Likert5", "isActive": true, "orderIndex": 20
   }
 ]

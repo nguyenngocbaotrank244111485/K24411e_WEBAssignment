@@ -1,0 +1,105 @@
+[
+  {
+    "questionId": "Q01",
+    "dimension": "PU",
+    "text": "Using Printify improves my shopping efficiency."
+  },
+  {
+    "questionId": "Q02",
+    "dimension": "PU",
+    "text": "The product customization feature is useful."
+  },
+  {
+    "questionId": "Q03",
+    "dimension": "PU",
+    "text": "The AI chatbot provides helpful recommendations."
+  },
+  {
+    "questionId": "Q04",
+    "dimension": "PU",
+    "text": "Printify helps me find suitable products faster."
+  },
+  {
+    "questionId": "Q05",
+    "dimension": "PU",
+    "text": "Overall, Printify increases the effectiveness of my shopping."
+  },
+
+  {
+    "questionId": "Q06",
+    "dimension": "PEOU",
+    "text": "Learning to use Printify is easy."
+  },
+  {
+    "questionId": "Q07",
+    "dimension": "PEOU",
+    "text": "The interface is clear and understandable."
+  },
+  {
+    "questionId": "Q08",
+    "dimension": "PEOU",
+    "text": "Designing products is simple."
+  },
+  {
+    "questionId": "Q09",
+    "dimension": "PEOU",
+    "text": "The ordering process is straightforward."
+  },
+  {
+    "questionId": "Q10",
+    "dimension": "PEOU",
+    "text": "Overall, Printify is easy to use."
+  },
+
+  {
+    "questionId": "Q11",
+    "dimension": "SA",
+    "text": "I am satisfied with the product quality."
+  },
+  {
+    "questionId": "Q12",
+    "dimension": "SA",
+    "text": "I am satisfied with the website performance."
+  },
+  {
+    "questionId": "Q13",
+    "dimension": "SA",
+    "text": "I am satisfied with the customization features."
+  },
+  {
+    "questionId": "Q14",
+    "dimension": "SA",
+    "text": "I am satisfied with customer support."
+  },
+  {
+    "questionId": "Q15",
+    "dimension": "SA",
+    "text": "Overall, I am satisfied with Printify."
+  },
+
+  {
+    "questionId": "Q16",
+    "dimension": "PI",
+    "text": "I intend to use Printify again."
+  },
+  {
+    "questionId": "Q17",
+    "dimension": "PI",
+    "text": "I will recommend Printify to others."
+  },
+  {
+    "questionId": "Q18",
+    "dimension": "PI",
+    "text": "I would purchase customized products again."
+  },
+  {
+    "questionId": "Q19",
+    "dimension": "PI",
+    "text": "I prefer Printify over similar platforms."
+  },
+  {
+    "questionId": "Q20",
+    "dimension": "PI",
+    "text": "I intend to continue using Printify in the future."
+  }
+]

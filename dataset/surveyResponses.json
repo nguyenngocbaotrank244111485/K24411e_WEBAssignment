@@ -1,0 +1,37 @@
+[
+  {
+    "responseId": "R001",
+    "userId": "U001",
+    "questionId": "Q01",
+    "score": 5,
+    "comment": "Customization is very useful."
+  },
+  {
+    "responseId": "R002",
+    "userId": "U002",
+    "questionId": "Q06",
+    "score": 4,
+    "comment": "The interface is easy to understand."
+  },
+  {
+    "responseId": "R003",
+    "userId": "U003",
+    "questionId": "Q11",
+    "score": 5,
+    "comment": "The print quality exceeded my expectations."
+  },
+  {
+    "responseId": "R004",
+    "userId": "U004",
+    "questionId": "Q16",
+    "score": 4,
+    "comment": "I will definitely use it again."
+  },
+  {
+    "responseId": "R005",
+    "userId": "U005",
+    "questionId": "Q20",
+    "score": 5,
+    "comment": "Great platform for personalized products."
+  }
+]

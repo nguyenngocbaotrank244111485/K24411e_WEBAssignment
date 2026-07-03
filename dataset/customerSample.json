@@ -3,6 +3,7 @@
         "custId": "u001",
         "custName": "Nguyễn Văn An",
         "custEmail": "vanan.nguyen@gmail.com",
+        "custPassword": "vanannguyen123",
         "custDOB": "1995-10-15",
         "custPhone": "0901234567"
     },
@@ -10,6 +11,7 @@
         "custId": "u002",
         "custName": "Trần Thị Bảo",
         "custEmail": "baotran98@yahoo.com",
+        "custPassword": "tranbaonguyen478",
         "custDOB": "1998-05-20",
         "custPhone": "0912345678"
     },
@@ -17,6 +19,7 @@
         "custId": "u003",
         "custName": "Lê Quốc Cường",
         "custEmail": "cuongle.dev@gmail.com",
+        "custPassword": "cuonglq111",
         "custDOB": "1992-12-01",
         "custPhone": "0923456789"
     },
@@ -24,6 +27,7 @@
         "custId": "u004",
         "custName": "Phạm Minh Đức",
         "custEmail": "ducpham.mkt@outlook.com",
+        "custPassword": "pdminh1789",
         "custDOB": "2000-03-25",
         "custPhone": "0934567890"
     },
@@ -31,6 +35,7 @@
         "custId": "u005",
         "custName": "Hoàng Thị Lan",
         "custEmail": "lanhoang.hr@gmail.com",
+        "custPassword": "hngthlan97",
         "custDOB": "1997-08-12",
         "custPhone": "0945678901"
     },
@@ -38,6 +43,7 @@
         "custId": "u006",
         "custName": "Vũ Thị Mai",
         "custEmail": "maivu.student@gmail.com",
+        "custPassword": "maivt301102",
         "custDOB": "2002-11-30",
         "custPhone": "0956789012"
     },
@@ -45,6 +51,7 @@
         "custId": "u007",
         "custName": "Đặng Hữu Phước",
         "custEmail": "phuocdang.art@gmail.com",
+        "custPassword": "dnghphuoc465",
         "custDOB": "1994-01-05",
         "custPhone": "0967890123"
     },
@@ -52,6 +59,7 @@
         "custId": "u008",
         "custName": "Bùi Xuân Huấn",
         "custEmail": "huanrose@gmail.com",
+        "custPassword": "kanojihane85",
         "custDOB": "1985-02-14",
         "custPhone": "0988888888"
     },
@@ -59,6 +67,7 @@
         "custId": "u009",
         "custName": "Ngô Bá Khá",
         "custEmail": "khabanhanh@gmail.com",
+        "custPassword": "badaonhango93",
         "custDOB": "1993-11-03",
         "custPhone": "0977777777"
     },
@@ -66,41 +75,47 @@
         "custId": "u010",
         "custName": "Lý Tiểu Long",
         "custEmail": "bruce.lee@vnn.vn",
+        "custPassword": "longlytieubru66",
         "custDOB": "1990-07-20",
         "custPhone": "0966666666"
     },
     {
         "custId": "u011",
         "custName": "Nguyễn Thanh Tùng",
-        "custEmail": "sky.mtp@gmail.com",
+        "custEmail": "skymtp@gmail.com",
+        "custPassword": "mtpforever94",
         "custDOB": "1994-07-05",
         "custPhone": "0944445555"
     },
     {
         "custId": "u012",
         "custName": "Phan Mạnh Quỳnh",
-        "custEmail": "quynh.vợ.người.ta@gmail.com",
+        "custEmail": "quynhvonguoita@gmail.com",
+        "custPassword": "dnghphuoc465",
         "custDOB": "1990-01-10",
         "custPhone": "0933332222"
     },
     {
         "custId": "u013",
         "custName": "Võ Hoàng Yến",
-        "custEmail": "yen.vo@model.com",
+        "custEmail": "yenvo.model@gmail.com",
+        "custPassword": "dnghphuoc465",
         "custDOB": "1988-10-29",
         "custPhone": "0922221111"
     },
     {
         "custId": "u014",
         "custName": "Hồ Ngọc Hà",
-        "custEmail": "ha.ho@singer.vn",
+        "custEmail": "haho.singer@gmail.vn",
+        "custPassword": "hahhn251184",
         "custDOB": "1984-11-25",
         "custPhone": "0911110000"
     },
     {
         "custId": "u015",
         "custName": "Đàm Vĩnh Hưng",
-        "custEmail": "mr.dam@gmail.com",
+        "custEmail": "mrdam@gmail.com",
+        "custPassword": "hungdamv1971",
         "custDOB": "1971-10-02",
         "custPhone": "0900009999"
     },
@@ -108,34 +123,39 @@
         "custId": "u016",
         "custName": "Nguyễn Cao Kỳ Duyên",
         "custEmail": "kyduyen.mc@gmail.com",
-        "custDOB": "1965-06-30",
+        "custPassword": "duyendangnhattg34",
+        "custDOB": "1985-06-30",
         "custPhone": "0899998888"
     },
     {
         "custId": "u017",
         "custName": "Trấn Thành",
         "custEmail": "thanh.cry@gmail.com",
+        "custPassword": "crythanh875",
         "custDOB": "1987-02-05",
         "custPhone": "0888887777"
     },
     {
         "custId": "u018",
         "custName": "Nguyễn Phương Hằng",
-        "custEmail": "hang.dai.nam@gmail.com",
+        "custEmail": "hangdainam@gmail.com",
+        "custPassword": "phuonghang123",
         "custDOB": "1971-01-26",
         "custPhone": "0877776666"
     },
     {
         "custId": "u019",
         "custName": "Đoàn Nguyên Đức",
-        "custEmail": "bau.duc@hagl.vn",
+        "custEmail": "bauduc@gmail.vn",
+        "custPassword": "duc62choibong",
         "custDOB": "1962-02-11",
         "custPhone": "0866665555"
     },
     {
         "custId": "u020",
         "custName": "Phạm Nhật Vượng",
-        "custEmail": "vuong.vin@gmail.com",
+        "custEmail": "vuongvin@gmail.com",
+        "custPassword": "vuongvingroup68",
         "custDOB": "1968-08-05",
         "custPhone": "0855554444"
     }

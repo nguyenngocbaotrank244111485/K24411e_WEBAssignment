@@ -7,7 +7,7 @@
     "custPasswordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
     "custDOB": "1995-10-15",
     "custPhone": "0901234567",
-    "custAvatar": "https://i.pravatar.cc/150?u=u001",
+    "custAvatar": "images/customer/NguyenVanAn.jpg",
     "custSex": "Nam",
     "secQuestion": "Tên con vật đầu tiên của bạn?",
     "secAnswers": "Mực"
@@ -20,7 +20,7 @@
     "custPasswordHash": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
     "custDOB": "1998-05-20",
     "custPhone": "0912345678",
-    "custAvatar": "https://i.pravatar.cc/150?u=u002",
+    "custAvatar": "images/customer/TranThiBao.jpg",
     "custSex": "Nữ",
     "secQuestion": "Thành phố nơi bạn sinh ra?",
     "secAnswers": "Đà Nẵng"
@@ -358,7 +358,7 @@
     "custPasswordHash": "e99a18c428cb38d5f260853678922e03",
     "custDOB": "1956-10-13",
     "custPhone": "0865554443",
-    "custAvatar": "https://i.pravatar.cc/150?u=u028",
+    "custAvatar": "images/customer/TruongMyLan.png",
     "custSex": "Nữ",
     "secQuestion": "Tên tập đoàn?",
     "secAnswers": "Vạn Thịnh Phát"

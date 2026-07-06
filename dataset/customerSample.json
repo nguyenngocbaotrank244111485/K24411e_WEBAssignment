@@ -534,7 +534,7 @@
     "custAvatar": "images/customer/Shizuka.jpg",
     "custSex": "Nữ",
     "secQuestion": "Sở thích hàng ngày của bạn là gì?",
-    "secAnswers": "Đi tắm"
+    "secAnswers": "Kéo đàn"
   },
   {
     "custId": "u042",
@@ -598,7 +598,7 @@
     "custPhone": "0841111046",
     "custAvatar": "images/customer/Zoro.jpg",
     "custSex": "Nam",
-    "secQuestion": "Điểm yếu lớn nhất của bạn là gì?",
+    "secQuestion": "Điểm mạnh lớn nhất của bạn là gì?",
     "secAnswers": "Lạc đường"
   },
   {
@@ -648,7 +648,7 @@
     "custPasswordHash": "7c4a8d09ca3762af61e59520943dc26494f8941b",
     "custDOB": "1950-02-15",
     "custPhone": "0841111050",
-    "custAvatar": "images/customer/Lolem.jpg",
+    "custAvatar": "images/customer/LoLem.jpg",
     "custSex": "Nữ",
     "secQuestion": "Bạn đánh rơi vật gì khi chạy khỏi hoàng cung?",
     "secAnswers": "Chiếc giày thủy tinh"

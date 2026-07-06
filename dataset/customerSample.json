@@ -33,7 +33,7 @@
     "custPasswordHash": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
     "custDOB": "1992-12-01",
     "custPhone": "0923456789",
-    "custAvatar": "https://i.pravatar.cc/150?u=u003",
+    "custAvatar": "images/customer/LeQuocCuong.jpg",
     "custSex": "Nam",
     "secQuestion": "Tên trường tiểu học của bạn?",
     "secAnswers": "Chu Văn An"
@@ -46,7 +46,7 @@
     "custPasswordHash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
     "custDOB": "2000-03-25",
     "custPhone": "0934567890",
-    "custAvatar": "https://i.pravatar.cc/150?u=u004",
+    "custAvatar": "images/customer/PhamMinhDuc.jpg",
     "custSex": "Nam",
     "secQuestion": "Món ăn yêu thích nhất?",
     "secAnswers": "Phở Bò"
@@ -59,7 +59,7 @@
     "custPasswordHash": "4b227777d4dd1fc61c6f8841445ce1a02493d7cea54d07270f12f913d867d264",
     "custDOB": "1997-08-12",
     "custPhone": "0945678901",
-    "custAvatar": "https://i.pravatar.cc/150?u=u005",
+    "custAvatar": "images/customer/HoangThiLan.jpg",
     "custSex": "Nữ",
     "secQuestion": "Tên mẹ của bạn là gì?",
     "secAnswers": "Hồng"
@@ -72,7 +72,7 @@
     "custPasswordHash": "f10e2821bbbea527ea02200352313bc05944519077f3350037e6a5d1c2512e7c",
     "custDOB": "2002-11-30",
     "custPhone": "0956789012",
-    "custAvatar": "https://i.pravatar.cc/150?u=u006",
+    "custAvatar": "images/customer/VuthiMai.jpg",
     "custSex": "Nữ",
     "secQuestion": "Thần tượng của bạn là ai?",
     "secAnswers": "BlackPink"
@@ -85,7 +85,7 @@
     "custPasswordHash": "6102148b111162464735508f714771239c2c50543f9a764d1f2b6068d875a6c3",
     "custDOB": "1994-01-05",
     "custPhone": "0967890123",
-    "custAvatar": "https://i.pravatar.cc/150?u=u007",
+    "custAvatar": "images/customer/DangHuuPhuoc.jpg",
     "custSex": "Nam",
     "secQuestion": "Số may mắn của bạn?",
     "secAnswers": "7"
@@ -98,7 +98,7 @@
     "custPasswordHash": "70624d775c747377f805a41753965d648b28ca31c03998399e525a74e543666d",
     "custDOB": "1985-02-14",
     "custPhone": "0988888888",
-    "custAvatar": "https://i.pravatar.cc/150?u=u008",
+    "custAvatar": "images/customer/BuiXuanHuan.jpg",
     "custSex": "Nam",
     "secQuestion": "Bạn thích học gì nhất?",
     "secAnswers": "Hóa học"
@@ -111,7 +111,7 @@
     "custPasswordHash": "2f654b0394747eb4d4a824e4f7a1f5926e8a4a58434771804f3f3c647b31174a",
     "custDOB": "1993-11-03",
     "custPhone": "0977777777",
-    "custAvatar": "https://i.pravatar.cc/150?u=u009",
+    "custAvatar": "images/customer/NgoBaKha.jpg",
     "custSex": "Nam",
     "secQuestion": "Kiểu tóc yêu thích?",
     "secAnswers": "Chó sói hoang dã"
@@ -124,7 +124,7 @@
     "custPasswordHash": "7c4a8d09ca3762af61e59520943dc26494f8941b",
     "custDOB": "1990-07-20",
     "custPhone": "0966666666",
-    "custAvatar": "https://i.pravatar.cc/150?u=u010",
+    "custAvatar": "images/customer/LyTieuLong.jpg",
     "custSex": "Nam",
     "secQuestion": "Môn võ yêu thích?",
     "secAnswers": "Triệt Quyền Đạo"
@@ -137,7 +137,7 @@
     "custPasswordHash": "57f59d4791a8775f0a0d4b8e235a92a54823293e",
     "custDOB": "1994-07-05",
     "custPhone": "0944445555",
-    "custAvatar": "https://i.pravatar.cc/150?u=u011",
+    "custAvatar": "images/customer/SonTungMTP.jpg",
     "custSex": "Nam",
     "secQuestion": "Quê quán?",
     "secAnswers": "Thái Bình"
@@ -150,9 +150,9 @@
     "custPasswordHash": "6102148b111162464735508f714771239c2c5054",
     "custDOB": "1990-01-10",
     "custPhone": "0933332222",
-    "custAvatar": "https://i.pravatar.cc/150?u=u012",
+    "custAvatar": "images/customer/PhanManhQuynh.jpg",
     "custSex": "Nam",
-    "secQuestion": "Vợ thích làm gì?",
+    "secQuestion": "Anh thích làm gì?",
     "secAnswers": "Viết lên cây"
   },
   {
@@ -163,7 +163,7 @@
     "custPasswordHash": "6102148b111162464735508f714771239c2c5054",
     "custDOB": "1988-10-29",
     "custPhone": "0922221111",
-    "custAvatar": "https://i.pravatar.cc/150?u=u013",
+    "custAvatar": "images/customer/VoHoangYen.jpg",
     "custSex": "Nữ",
     "secQuestion": "Nghề nghiệp?",
     "secAnswers": "Người mẫu"
@@ -176,7 +176,7 @@
     "custPasswordHash": "e10adc3949ba59abbe56e057f20f883e",
     "custDOB": "1984-11-25",
     "custPhone": "0911110000",
-    "custAvatar": "https://i.pravatar.cc/150?u=u014",
+    "custAvatar": "images/customer/HoNgocHa.jpg",
     "custSex": "Nữ",
     "secQuestion": "Thành phố yêu thích?",
     "secAnswers": "Paris"
@@ -189,7 +189,7 @@
     "custPasswordHash": "c4ca4238a0b923820dcc509a6f75849b",
     "custDOB": "1971-10-02",
     "custPhone": "0900009999",
-    "custAvatar": "https://i.pravatar.cc/150?u=u015",
+    "custAvatar": "images/customer/DamVinhHung.jpg",
     "custSex": "Nam",
     "secQuestion": "Bạn bị mất cái gì?",
     "secAnswers": "Ngón chân"
@@ -202,7 +202,7 @@
     "custPasswordHash": "c81e728d9d4c2f636f067f89cc14862c",
     "custDOB": "1985-06-30",
     "custPhone": "0899998888",
-    "custAvatar": "https://i.pravatar.cc/150?u=u016",
+    "custAvatar": "images/customer/NguyenCaoKyDuyen.jpg",
     "custSex": "Nữ",
     "secQuestion": "Nơi định cư?",
     "secAnswers": "California"
@@ -215,7 +215,7 @@
     "custPasswordHash": "eccbc87e4b5ce2fe28308fd9f2a7baf3",
     "custDOB": "1987-02-05",
     "custPhone": "0888887777",
-    "custAvatar": "https://i.pravatar.cc/150?u=u017",
+    "custAvatar": "images/customer/TranThanh.jpg",
     "custSex": "Nam",
     "secQuestion": "Món quà quý nhất?",
     "secAnswers": "Đồng hồ"
@@ -228,7 +228,7 @@
     "custPasswordHash": "a87ff679a2f3e71d9181a67b7542122c",
     "custDOB": "1971-01-26",
     "custPhone": "0877776666",
-    "custAvatar": "https://i.pravatar.cc/150?u=u018",
+    "custAvatar": "images/customer/PhuongHang.jpg",
     "custSex": "Nữ",
     "secQuestion": "Sở thích?",
     "secAnswers": "Kim cương"
@@ -241,7 +241,7 @@
     "custPasswordHash": "e4da3b7fbbce2345d7772b0674a318d5",
     "custDOB": "1962-02-11",
     "custPhone": "0866665555",
-    "custAvatar": "https://i.pravatar.cc/150?u=u019",
+    "custAvatar": "images/customer/DoanNguyenDuc.jpg",
     "custSex": "Nam",
     "secQuestion": "Đội bóng yêu thích?",
     "secAnswers": "HAGL"
@@ -254,7 +254,7 @@
     "custPasswordHash": "1679091c5a880faf6fb5e6087eb1b2dc",
     "custDOB": "1968-08-05",
     "custPhone": "0855554444",
-    "custAvatar": "https://i.pravatar.cc/150?u=u020",
+    "custAvatar": "images/customer/PhamNhatVuong.jpg",
     "custSex": "Nam",
     "secQuestion": "Công ty đầu tiên?",
     "secAnswers": "Technocom"
@@ -267,7 +267,7 @@
     "custPasswordHash": "8527a891e224136950ff32ca212b45cc",
     "custDOB": "1992-10-09",
     "custPhone": "0844443333",
-    "custAvatar": "https://i.pravatar.cc/150?u=u021",
+    "custAvatar": "images/customer/SoobinHS.jpg",
     "custSex": "Nam",
     "secQuestion": "Cuộc thi bạn thắng?",
     "secAnswers": "ATVNCG 2024"
@@ -280,7 +280,7 @@
     "custPasswordHash": "674f3c2ab23730f05393f2409f5894f2",
     "custDOB": "1989-12-30",
     "custPhone": "0833332222",
-    "custAvatar": "https://i.pravatar.cc/150?u=u022",
+    "custAvatar": "images/customer/LeDuongBL.jpg",
     "custSex": "Nam",
     "secQuestion": "Biệt danh hài hước?",
     "secAnswers": "Lee Min Ho Đồng Nai"
@@ -293,7 +293,7 @@
     "custPasswordHash": "37bc2f75bf1bcfe8450a1a41c200364c",
     "custDOB": "1989-05-13",
     "custPhone": "0822221111",
-    "custAvatar": "https://i.pravatar.cc/150?u=u023",
+    "custAvatar": "images/customer/DenVau.jpg",
     "custSex": "Nam",
     "secQuestion": "Nghề nghiệp trước khi rap?",
     "secAnswers": "Công nhân vệ sinh"
@@ -306,7 +306,7 @@
     "custPasswordHash": "1aabac6d068eef6a04e1c1995711181d",
     "custDOB": "1981-01-16",
     "custPhone": "0811112222",
-    "custAvatar": "https://i.pravatar.cc/150?u=u024",
+    "custAvatar": "images/customer/MyTam.jpg",
     "custSex": "Nữ",
     "secQuestion": "Tên fanclub của bạn?",
     "secAnswers": "Tri Âm"
@@ -319,7 +319,7 @@
     "custPasswordHash": "6102148b111162464735508f71477123",
     "custDOB": "1954-07-20",
     "custPhone": "0898887776",
-    "custAvatar": "https://i.pravatar.cc/150?u=u025",
+    "custAvatar": "images/customer/NguyenXuanPhuc.jpg",
     "custSex": "Nam",
     "secQuestion": "Nơi sinh?",
     "secAnswers": "Quảng Nam"
@@ -332,7 +332,7 @@
     "custPasswordHash": "44320b923820dcc509a6f75849b2c3a5",
     "custDOB": "1992-05-15",
     "custPhone": "0887776665",
-    "custAvatar": "https://i.pravatar.cc/150?u=u026",
+    "custAvatar": "images/customer/Hhenie.jpg",
     "custSex": "Nữ",
     "secQuestion": "Dân tộc của bạn?",
     "secAnswers": "Ê-đê"
@@ -345,7 +345,7 @@
     "custPasswordHash": "c1f7a46949ba59abbe56e057f20f883e",
     "custDOB": "1988-05-24",
     "custPhone": "0876665554",
-    "custAvatar": "https://i.pravatar.cc/150?u=u027",
+    "custAvatar": "images/customer/BinZ.jpg",
     "custSex": "Nam",
     "secQuestion": "Thành phố hiện tại?",
     "secAnswers": "Sài Gòn"
@@ -371,7 +371,7 @@
     "custPasswordHash": "5e884898da28047151d0e56f8dc62927",
     "custDOB": "1997-09-01",
     "custPhone": "0854443332",
-    "custAvatar": "https://i.pravatar.cc/150?u=u029",
+    "custAvatar": "images/customer/JungKook.jpg",
     "custSex": "Nam",
     "secQuestion": "Người bạn yêu thích?",
     "secAnswers": "Kim Taehyung"
@@ -384,9 +384,141 @@
     "custPasswordHash": "7f6ff154b32115167f1396155995254",
     "custDOB": "1985-05-20",
     "custPhone": "0843332221",
-    "custAvatar": "https://i.pravatar.cc/150?u=u030",
+    "custAvatar": "images/customer/ThoNguyen.jpg",
     "custSex": "Nữ",
     "secQuestion": "Chị học ngành gì?",
     "secAnswers": "Luật sư"
+  }
+]
+[
+  {
+    "custId": "u031",
+    "custName": "Doraemon",
+    "custEmail": "doraemon.future@msn.com",
+    "custPassword": "banhranngonqua",
+    "custPasswordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a",
+    "custDOB": "2112-09-03",
+    "custPhone": "0811223344",
+    "custAvatar": "images/customer/Doraemon.jpg",
+    "custSex": "Nam",
+    "secQuestion": "Bạn sợ con vật gì nhất?",
+    "secAnswers": "Con chuột"
+  },
+  {
+    "custId": "u032",
+    "custName": "Nobi Nobita",
+    "custEmail": "nobita.haudau@gmail.com",
+    "custPassword": "shizukalove",
+    "custPasswordHash": "a665a45920422f9d417e4867efdc4fb8a04a1f3f",
+    "custDOB": "1964-08-07",
+    "custPhone": "0822334455",
+    "custAvatar": "images/customer/Nobita.jpg",
+    "custSex": "Nam",
+    "secQuestion": "Bảo bối bạn mượn nhiều nhất?",
+    "secAnswers": "Cánh cửa thần kỳ"
+  },
+  {
+    "custId": "u033",
+    "custName": "Elsa",
+    "custEmail": "elsa.frozen@arendelle.com",
+    "custPassword": "letitgo123",
+    "custPasswordHash": "ef797c8118f02dfb649607dd5d3f8c7623048c9c",
+    "custDOB": "1817-12-22",
+    "custPhone": "0833445566",
+    "custAvatar": "images/customer/Elsa.jpg",
+    "custSex": "Nữ",
+    "secQuestion": "Em gái của bạn tên gì?",
+    "secAnswers": "Anna"
+  },
+  {
+    "custId": "u034",
+    "custName": "Son Goku",
+    "custEmail": "goku.saiyan@kame.vn",
+    "custPassword": "kamekameha77",
+    "custPasswordHash": "5e884898da28047151d0e56f8dc6292773603d0d",
+    "custDOB": "1984-04-16",
+    "custPhone": "0844556677",
+    "custAvatar": "images/customer/SonGoku.jpg",
+    "custSex": "Nam",
+    "secQuestion": "Tuyệt chiêu mạnh nhất của bạn?",
+    "secAnswers": "Quả cầu kinh khi"
+  },
+  {
+    "custId": "u035",
+    "custName": "Uzumaki Naruto",
+    "custEmail": "naruto.hokage@konoha.jp",
+    "custPassword": "dattebayo7",
+    "custPasswordHash": "4b227777d4dd1fc61c6f8841445ce1a02493d7ce",
+    "custDOB": "1997-10-10",
+    "custPhone": "0855667788",
+    "custAvatar": "images/customer/Naruto.jpg",
+    "custSex": "Nam",
+    "secQuestion": "Món ăn yêu thích của bạn?",
+    "secAnswers": "Mì Ramen Ichiraku"
+  },
+  {
+    "custId": "u036",
+    "custName": "Monkey D. Luffy",
+    "custEmail": "luffy.pirate@grandline.com",
+    "custPassword": "vuhaitac2024",
+    "custPasswordHash": "f10e2821bbbea527ea02200352313bc059445190",
+    "custDOB": "1999-05-05",
+    "custPhone": "0866778899",
+    "custAvatar": "images/customer/Luffy.jpg",
+    "custSex": "Nam",
+    "secQuestion": "Đồ vật quý giá nhất của bạn?",
+    "secAnswers": "Mũ rơm"
+  },
+  {
+    "custId": "u037",
+    "custName": "Edogawa Conan",
+    "custEmail": "conan.detective@beika.com",
+    "custPassword": "suthatduynhat",
+    "custPasswordHash": "6102148b111162464735508f714771239c2c5054",
+    "custDOB": "1994-05-04",
+    "custPhone": "0877889900",
+    "custAvatar": "images/customer/Conan.jpg",
+    "custSex": "Nam",
+    "secQuestion": "Tên thật của bạn là gì?",
+    "secAnswers": "Kudo Shinichi"
+  },
+  {
+    "custId": "u038",
+    "custName": "Tí Quậy",
+    "custEmail": "tiquay.hocduong@gmail.com",
+    "custPassword": "nghichngom123",
+    "custPasswordHash": "70624d775c747377f805a41753965d648b28ca31",
+    "custDOB": "2005-06-01",
+    "custPhone": "0888990011",
+    "custAvatar": "images/customer/TiQuay.jpg",
+    "custSex": "Nam",
+    "secQuestion": "Bạn thân nhất của bạn là ai?",
+    "secAnswers": "Tèo"
+  },
+  {
+    "custId": "u039",
+    "custName": "Mickey Mouse",
+    "custEmail": "mickey.disney@magic.com",
+    "custPassword": "mousehouse1928",
+    "custPasswordHash": "2f654b0394747eb4d4a824e4f7a1f5926e8a4a58",
+    "custDOB": "1928-11-18",
+    "custPhone": "0899001122",
+    "custAvatar": "images/customer/Mickey.jpg",
+    "custSex": "Nam",
+    "secQuestion": "Bạn gái của bạn tên gì?",
+    "secAnswers": "Minnie"
+  },
+  {
+    "custId": "u040",
+    "custName": "Pikachu",
+    "custEmail": "pika.pika@pokemon.com",
+    "custPassword": "pikapikachuuuu",
+    "custPasswordHash": "7c4a8d09ca3762af61e59520943dc26494f8941b",
+    "custDOB": "1996-02-27",
+    "custPhone": "0800112233",
+    "custAvatar": "images/customer/Pikachu.jpg",
+    "custSex": "Khác",
+    "secQuestion": "Chủ nhân của bạn là ai?",
+    "secAnswers": "Satoshi"
   }
 ]

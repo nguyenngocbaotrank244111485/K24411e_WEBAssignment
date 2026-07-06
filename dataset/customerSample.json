@@ -490,7 +490,7 @@
     "custPasswordHash": "70624d775c747377f805a41753965d648b28ca31",
     "custDOB": "2005-06-01",
     "custPhone": "0888990011",
-    "custAvatar": "images/customer/TiQuay.jpg",
+    "custAvatar": "images/customer/TiQuay.webp",
     "custSex": "Nam",
     "secQuestion": "Bạn thân nhất của bạn là ai?",
     "secAnswers": "Tèo"
@@ -520,5 +520,137 @@
     "custSex": "Khác",
     "secQuestion": "Chủ nhân của bạn là ai?",
     "secAnswers": "Satoshi"
+  }
+]
+[
+  {
+    "custId": "u041",
+    "custName": "Minamoto Shizuka",
+    "custEmail": "shizuka.cute@doraemon.jp",
+    "custPassword": "thich_tam_bien",
+    "custPasswordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a",
+    "custDOB": "1964-05-08",
+    "custPhone": "0841111041",
+    "custAvatar": "images/customer/Shizuka.jpg",
+    "custSex": "Nữ",
+    "secQuestion": "Sở thích hàng ngày của bạn là gì?",
+    "secAnswers": "Đi tắm"
+  },
+  {
+    "custId": "u042",
+    "custName": "Honekawa Suneo",
+    "custEmail": "suneo.richkid@doraemon.jp",
+    "custPassword": "monhon_daigia",
+    "custPasswordHash": "a665a45920422f9d417e4867efdc4fb8a04a1f3f",
+    "custDOB": "1964-02-29",
+    "custPhone": "0841111042",
+    "custAvatar": "images/customer/Suneo.jpg",
+    "custSex": "Nam",
+    "secQuestion": "Bạn tự hào nhất về điều gì?",
+    "secAnswers": "Sự giàu có"
+  },
+  {
+    "custId": "u043",
+    "custName": "Goda Takeshi (Chaien)",
+    "custEmail": "chaien.singer@doraemon.jp",
+    "custPassword": "giong_hat_vang",
+    "custPasswordHash": "ef797c8118f02dfb649607dd5d3f8c7623048c9c",
+    "custDOB": "1964-06-15",
+    "custPhone": "0841111043",
+    "custAvatar": "images/customer/Chaien.jpg",
+    "custSex": "Nam",
+    "secQuestion": "Ước mơ lớn nhất của bạn?",
+    "secAnswers": "Làm ca sĩ"
+  },
+  {
+    "custId": "u044",
+    "custName": "Uchiha Sasuke",
+    "custEmail": "sasuke.uchiha@konoha.com",
+    "custPassword": "tra_thu_toc_bang",
+    "custPasswordHash": "5e884898da28047151d0e56f8dc6292773603d0d",
+    "custDOB": "1997-07-23",
+    "custPhone": "0841111044",
+    "custAvatar": "images/customer/Sasuke.jpg",
+    "custSex": "Nam",
+    "secQuestion": "Kỹ năng đặc biệt của mắt bạn?",
+    "secAnswers": "Sharingan"
+  },
+  {
+    "custId": "u045",
+    "custName": "Haruno Sakura",
+    "custEmail": "sakura.medical@konoha.com",
+    "custPassword": "y_nhan_lang_la",
+    "custPasswordHash": "4b227777d4dd1fc61c6f8841445ce1a02493d7ce",
+    "custDOB": "1998-03-28",
+    "custPhone": "0841111045",
+    "custAvatar": "images/customer/Sakura.jpg",
+    "custSex": "Nữ",
+    "secQuestion": "Bạn yêu đơn phương ai từ nhỏ?",
+    "secAnswers": "Sasuke"
+  },
+  {
+    "custId": "u046",
+    "custName": "Roronoa Zoro",
+    "custEmail": "zoro.swordsman@onepiece.com",
+    "custPassword": "tam_kiem_phai",
+    "custPasswordHash": "f10e2821bbbea527ea02200352313bc059445190",
+    "custDOB": "1995-11-11",
+    "custPhone": "0841111046",
+    "custAvatar": "images/customer/Zoro.jpg",
+    "custSex": "Nam",
+    "secQuestion": "Điểm yếu lớn nhất của bạn là gì?",
+    "secAnswers": "Lạc đường"
+  },
+  {
+    "custId": "u047",
+    "custName": "Nami",
+    "custEmail": "nami.navigator@onepiece.com",
+    "custPassword": "thich_tien_va_cam",
+    "custPasswordHash": "6102148b111162464735508f714771239c2c5054",
+    "custDOB": "1998-07-03",
+    "custPhone": "0841111047",
+    "custAvatar": "images/customer/Nami.jpg",
+    "custSex": "Nữ",
+    "secQuestion": "Món đồ bạn yêu thích nhất?",
+    "secAnswers": "Bản đồ và tiền"
+  },
+  {
+    "custId": "u048",
+    "custName": "Mouri Ran",
+    "custEmail": "ran.karate@detective.com",
+    "custPassword": "cho_shinichi_10nam",
+    "custPasswordHash": "70624d775c747377f805a41753965d648b28ca31",
+    "custDOB": "1994-10-01",
+    "custPhone": "0841111048",
+    "custAvatar": "images/customer/RanMouri.jpg",
+    "custSex": "Nữ",
+    "secQuestion": "Môn võ sở trường của bạn?",
+    "secAnswers": "Karate"
+  },
+  {
+    "custId": "u049",
+    "custName": "Ben Tennyson (Ben 10)",
+    "custEmail": "ben10.alien@omnitrix.com",
+    "custPassword": "anh_hung_trai_dat",
+    "custPasswordHash": "2f654b0394747eb4d4a824e4f7a1f5926e8a4a58",
+    "custDOB": "1995-12-27",
+    "custPhone": "0841111049",
+    "custAvatar": "images/customer/Ben10.jpg",
+    "custSex": "Nam",
+    "secQuestion": "Thiết bị giúp bạn biến hình tên là gì?",
+    "secAnswers": "Omnitrix"
+  },
+  {
+    "custId": "u050",
+    "custName": "Cinderella (Lọ Lem)",
+    "custEmail": "lolem.princess@disney.com",
+    "custPassword": "giay_thuy_tinh_12h",
+    "custPasswordHash": "7c4a8d09ca3762af61e59520943dc26494f8941b",
+    "custDOB": "1950-02-15",
+    "custPhone": "0841111050",
+    "custAvatar": "images/customer/Lolem.jpg",
+    "custSex": "Nữ",
+    "secQuestion": "Bạn đánh rơi vật gì khi chạy khỏi hoàng cung?",
+    "secAnswers": "Chiếc giày thủy tinh"
   }
 ]

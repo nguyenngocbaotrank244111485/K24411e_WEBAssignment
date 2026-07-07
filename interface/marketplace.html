@@ -1,0 +1,272 @@
+<html>
+<head>
+  <title>PrintiFy — Marketplace</title>
+  <link rel="stylesheet" type="text/css" href="../css/maincss.css">
+</head>
+<body class="marketplace-page">
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo">Printi<span>Craft</span></div>
+
+  <div class="nav-links">
+    <a class="nav-link" href="index.html">Trang chủ</a>
+    <a class="nav-link" href="products.html">Sản phẩm</a>
+    <a class="nav-link active" href="marketplace.html">Marketplace</a>
+    <a class="nav-link" href="orders.html">Đơn hàng</a>
+  </div>
+
+  <div class="nav-actions">
+    <a class="nav-account" href="profile.html" title="Tài khoản">
+      <span class="nav-user-icon">👤</span>
+      <span>Tài khoản</span>
+    </a>
+    <a class="nav-cart" href="cart.html" title="Giỏ hàng">🛒</a>
+  </div>
+</nav>
+
+<!-- AUTH WARNING -->
+<div class="auth-warning" id="auth-warning">
+  ⚠️ Bạn cần <a href="auth.html" style="color:#DC2626;font-weight:600">đăng nhập</a> để sử dụng tính năng Marketplace.
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <h1>🛍 PrintiFy Marketplace</h1>
+  <p>Mua & bán thiết kế, sản phẩm in ấn từ cộng đồng PrintiFy</p>
+</div>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <button class="tab-btn" data-tab="5.3" onclick="switchTab('5.3')">🛍 Mua thiết kế / SP</button>
+  <button class="tab-btn" data-tab="5.1" onclick="switchTab('5.1')">🎨 Đăng bán thiết kế</button>
+  <button class="tab-btn" data-tab="5.2" onclick="switchTab('5.2')">📦 Đăng bán SP đã in</button>
+  <button class="tab-btn" data-tab="my"  onclick="switchTab('my')">📋 Listing của tôi</button>
+</div>
+
+<div class="main">
+
+  <!-- ══════════════════════════════════════════════
+       PANEL 5.1 — ĐĂNG BÁN THIẾT KẾ
+  ══════════════════════════════════════════════ -->
+  <div id="panel-51" class="tab-panel" style="display:none">
+
+    <div class="info-box">
+      💡 Thiết kế của bạn sẽ được nhúng watermark tự động để bảo vệ bản quyền.
+      Người mua chỉ nhận được ảnh gốc sau khi thanh toán thành công.
+      Phí sàn <strong>${PLATFORM_CONFIG?.feePercent || 20}%</strong> được tính trên giá bạn đặt.
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">
+        🎨 Thông tin thiết kế muốn đăng bán
+        <span class="section-subtitle">Chọn từ thiết kế đã lưu trong editor</span>
+      </div>
+
+      <form id="form-51" onsubmit="return false">
+        <div class="form-group" style="margin-bottom:14px">
+          <label class="form-label">Chọn thiết kế *</label>
+          <select class="form-select" id="design-select">
+            <option value="">-- Chọn thiết kế --</option>
+          </select>
+          <span class="form-hint">Thiết kế được lưu từ trang Editor (NV04)</span>
+
+          <!-- Preview ảnh thiết kế -->
+          <div class="design-preview-wrap" id="design-preview-wrap">
+            <img id="design-preview-img" src="" alt="Preview">
+            <div style="font-size:12px;color:#64748B">
+              Preview ảnh thiết kế<br>
+              <span style="color:#7C3AED">🔒 Watermark sẽ được nhúng trước khi đăng bán</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group full">
+            <label class="form-label">Tiêu đề *</label>
+            <input class="form-input" id="listing-title-51" type="text"
+                   placeholder="Vd: Thiết kế Rồng Việt — Phong cách Cổ điển" maxlength="100">
+          </div>
+
+          <div class="form-group full">
+            <label class="form-label">Mô tả *</label>
+            <textarea class="form-textarea" id="listing-desc-51"
+                      placeholder="Mô tả thiết kế, phong cách, phù hợp với sản phẩm nào..." maxlength="500"></textarea>
+          </div>
+
+          <div class="form-group full">
+            <label class="form-label">Tags (phân cách bằng dấu phẩy)</label>
+            <input class="form-input" id="listing-tags-51" type="text"
+                   placeholder="Vd: rồng, việt nam, truyền thống, áo thun">
+            <span class="form-hint">Tags giúp người mua tìm kiếm dễ hơn</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Giá bán (bạn nhận) *</label>
+            <input class="form-input" id="seller-price-51" type="number"
+                   min="10000" step="1000" placeholder="Vd: 80000">
+            <div class="price-display" id="display-price-51"></div>
+          </div>
+
+          <div class="form-group" style="display:flex;align-items:flex-end">
+            <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:12px;width:100%;font-size:12px;color:#64748B;line-height:1.7">
+              <strong>Cách tính phí sàn:</strong><br>
+              Giá hiển thị = Giá bạn nhận × (1 + 20%)<br>
+              Vd: 80.000₫ → hiển thị <strong>96.000₫</strong><br>
+              Phí sàn: 16.000₫
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px;display:flex;gap:10px">
+          <button class="btn-primary" id="btn-submit-51" onclick="submitDesignListing()">
+            🚀 Đăng bán thiết kế
+          </button>
+          <button class="btn-secondary" type="reset" onclick="document.getElementById('design-preview-wrap').style.display='none';document.getElementById('display-price-51').textContent=''">
+            Xóa form
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PANEL 5.2 — ĐĂNG BÁN SẢN PHẨM ĐÃ IN
+  ══════════════════════════════════════════════ -->
+  <div id="panel-52" class="tab-panel" style="display:none">
+
+    <div class="info-box">
+      📦 Chọn sản phẩm từ các đơn hàng <strong>đã hoàn tất</strong> để đăng bán lại.
+      Số lượng đăng bán không được vượt quá số lượng bạn đã nhận.
+    </div>
+
+    <div class="section-card">
+      <div class="section-title">Sản phẩm từ lịch sử mua hàng</div>
+      <div id="order-list-52">
+        <div class="empty-state">Đang tải...</div>
+      </div>
+    </div>
+
+    <!-- Form đăng bán (hiện sau khi chọn item) -->
+    <div id="form-52-wrap">
+      <div class="section-title" style="margin-bottom:14px">📝 Thông tin đăng bán</div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Tên sản phẩm *</label>
+          <input class="form-input" id="item-name-52" type="text" placeholder="Tên hiển thị trên marketplace">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Số lượng muốn bán *
+            <span class="max-qty-note" id="item-maxqty-52"></span>
+          </label>
+          <input class="form-input" id="item-qty-52" type="number" min="1" value="1">
+          <span class="form-hint" id="item-original-price-52"></span>
+        </div>
+
+        <div class="form-group full">
+          <label class="form-label">Mô tả (tùy chọn)</label>
+          <textarea class="form-textarea" id="item-desc-52"
+                    placeholder="Mô tả tình trạng sản phẩm, lý do bán lại..." maxlength="300"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Giá bán (bạn nhận) *</label>
+          <input class="form-input" id="seller-price-52" type="number"
+                 min="1000" step="1000" placeholder="Nhập giá">
+          <div class="price-display" id="display-price-52"></div>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;display:flex;gap:10px">
+        <button class="btn-primary" onclick="submitProductListing()">📦 Đăng bán sản phẩm</button>
+        <button class="btn-secondary" onclick="document.getElementById('form-52-wrap').style.display='none'; selectedOrderItem=null">
+          Hủy
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PANEL 5.3 — MUA THIẾT KẾ / SẢN PHẨM
+  ══════════════════════════════════════════════ -->
+  <div id="panel-53" class="tab-panel" style="display:none">
+
+    <!-- Toolbar: search + filter -->
+    <div class="buy-toolbar">
+      <input class="search-input" type="text" placeholder="🔍 Tìm thiết kế, tags..."
+             oninput="handleSearch53(this.value)">
+      <button class="filter-btn active" data-filter="all"     onclick="handleFilter53('all')">Tất cả</button>
+      <button class="filter-btn"        data-filter="design"  onclick="handleFilter53('design')">🎨 Thiết kế</button>
+      <button class="filter-btn"        data-filter="product" onclick="handleFilter53('product')">📦 Sản phẩm</button>
+    </div>
+
+    <!-- Listing grid -->
+    <div class="listing-grid" id="buy-listing-grid">
+      <div class="empty-state" style="grid-column:1/-1">Đang tải...</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PANEL MY — LISTING CỦA TÔI
+  ══════════════════════════════════════════════ -->
+  <div id="panel-my" class="tab-panel" style="display:none">
+    <div class="section-card">
+      <div class="section-title">📋 Listing của tôi</div>
+      <div id="my-listings-container">
+        <div class="empty-state">Đang tải...</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end main -->
+
+<!-- DETAIL MODAL -->
+<div class="modal-overlay" id="listing-modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>Chi tiết thiết kế</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-img-wrap">
+        <img id="modal-img" src="" alt="">
+        <div class="wm-note" id="modal-wm-note" style="display:none">
+          🔒 Đây là bản xem trước có watermark bảo vệ bản quyền người bán.<br>
+          Sau khi mua, bạn nhận được file thiết kế gốc không có watermark.
+        </div>
+      </div>
+
+      <div class="modal-title"  id="modal-title">—</div>
+      <div class="modal-desc"   id="modal-desc">—</div>
+
+      <div class="modal-meta">
+        <span id="modal-type"   style="font-size:12px;color:#6366F1;font-weight:500"></span>
+        <span id="modal-seller" style="font-size:12px;color:#94A3B8"></span>
+      </div>
+
+      <div class="modal-price" id="modal-price">—</div>
+
+      <!-- Số lượng (chỉ hiện với type=product) -->
+      <div class="modal-qty-wrap" id="modal-qty-wrap">
+        <span class="modal-qty-label" id="modal-qty-label">Còn lại: —</span>
+        <input type="number" class="modal-qty-input" id="modal-qty-input" min="1" value="1">
+      </div>
+
+      <div class="modal-actions">
+        <button id="modal-btn-editor">✏️ Mở trong Editor để chỉnh sửa thêm</button>
+        <button id="modal-btn-cart">🛒 Mua &amp; Thêm vào giỏ hàng</button>
+        <button id="modal-btn-report">🚩 Báo cáo vi phạm bản quyền</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../js/marketplace1.js"></script>
+<script src="../js/marketplace2.js"></script>
+</body>
+</html>

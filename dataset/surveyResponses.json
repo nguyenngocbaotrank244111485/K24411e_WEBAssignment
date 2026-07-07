@@ -1,0 +1,2070 @@
+[
+    {
+    "responseId": "sr001",
+    "custId": "u001",
+    "answers": [
+      { "questionId": "q01", "score": 4 },
+      { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 5 },
+      { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 4 },
+      { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 3 },
+      { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 4 },
+      { "questionId": "q10", "score": 4 },
+      { "questionId": "q11", "score": 5 },
+      { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 4 },
+      { "questionId": "q14", "score": 5 },
+      { "questionId": "q15", "score": 4 },
+      { "questionId": "q16", "score": 4 },
+      { "questionId": "q17", "score": 5 },
+      { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 5 },
+      { "questionId": "q20", "score": 4 }
+    ],
+    "comment": "The print quality exceeded my expectations.",
+    "submittedAt": "2026-06-05T19:32:00"
+    },
+      {
+    "responseId": "sr002",
+    "custId": "u002",
+    "answers": [
+      { "questionId": "q01", "score": 5 },
+      { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 5 },
+      { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 5 },
+      { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 4 },
+      { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 5 },
+      { "questionId": "q10", "score": 4 },
+      { "questionId": "q11", "score": 5 },
+      { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 4 },
+      { "questionId": "q14", "score": 5 },
+      { "questionId": "q15", "score": 4 },
+      { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 5 },
+      { "questionId": "q18", "score": 3 },
+      { "questionId": "q19", "score": 5 },
+      { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Customization is very useful.",
+    "submittedAt": "2026-06-12T10:18:20"
+  },
+    {
+    "responseId": "sr003",
+    "custId": "u005",
+    "answers": [
+      { "questionId": "q01", "score": 3 },
+      { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 5 },
+      { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 4 },
+      { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 3 },
+      { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 5 },
+      { "questionId": "q10", "score": 4 },
+      { "questionId": "q11", "score": 4 },
+      { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 5 },
+      { "questionId": "q14", "score": 5 },
+      { "questionId": "q15", "score": 5 },
+      { "questionId": "q16", "score": 4 },
+      { "questionId": "q17", "score": 5 },
+      { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 5 },
+      { "questionId": "q20", "score": 4 }
+    ],
+    "comment": "The interface is easy to understand.",
+    "submittedAt": "2026-06-13T13:55:40"
+  },
+    {
+    "responseId": "sr004",
+    "custId": "u006",
+    "answers": [
+      { "questionId": "q01", "score": 3 },
+      { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 5 },
+      { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 4 },
+      { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 4 },
+      { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 3 },
+      { "questionId": "q10", "score": 4 },
+      { "questionId": "q11", "score": 4 },
+      { "questionId": "q12", "score": 3 },
+      { "questionId": "q13", "score": 4 },
+      { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 4 },
+      { "questionId": "q16", "score": 4 },
+      { "questionId": "q17", "score": 2 },
+      { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 3 },
+      { "questionId": "q20", "score": 4 }
+    ],
+    "comment": "Great platform for personalized products.",
+    "submittedAt": "2026-06-17T18:10:15"
+  },
+    {
+    "responseId": "sr005",
+    "custId": "u004",
+    "answers": [
+      { "questionId": "q01", "score": 3 },
+      { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 4 },
+      { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 5 },
+      { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 4 },
+      { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 4 },
+      { "questionId": "q10", "score": 5 },
+      { "questionId": "q11", "score": 5 },
+      { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 4 },
+      { "questionId": "q14", "score": 5 },
+      { "questionId": "q15", "score": 4 },
+      { "questionId": "q16", "score": 4 },
+      { "questionId": "q17", "score": 5 },
+      { "questionId": "q18", "score": 5 },
+      { "questionId": "q19", "score": 5 },
+      { "questionId": "q20", "score": 4 }
+    ],
+    "comment": "I will definitely continue using the platform.",
+    "submittedAt": "2026-06-21T07:45:50"
+  },
+    {
+    "responseId": "sr006",
+    "custId": "u010",
+    "answers": [
+      { "questionId": "q01", "score": 2 },
+      { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 4 },
+      { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 4 },
+      { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 3 },
+      { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 4 },
+      { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 5 },
+      { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 4 },
+      { "questionId": "q14", "score": 5 },
+      { "questionId": "q15", "score": 4 },
+      { "questionId": "q16", "score": 4 },
+      { "questionId": "q17", "score": 2 },
+      { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 3 },
+      { "questionId": "q20", "score": 4 }
+    ],
+    "comment": "Marketplace is a great addition, but I wish there were more product options.",
+    "submittedAt": "2026-06-25T20:05:35"
+  },
+  {
+    "responseId": "sr007",
+    "custId": "u008",
+    "answers": [
+      { "questionId": "q01", "score": 4 },
+      { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 4 },
+      { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 4 },
+      { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 5 },
+      { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 4 },
+      { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 4 },
+      { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 5 },
+      { "questionId": "q14", "score": 5 },
+      { "questionId": "q15", "score": 4 },
+      { "questionId": "q16", "score": 4 },
+      { "questionId": "q17", "score": 3 },
+      { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 5 },
+      { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The chatbot was helpful when I wasn’t sure what product to choose.",
+    "submittedAt": "2026-06-26T21:08:15"
+  },
+  {
+    "responseId": "sr008",
+    "custId": "u009",
+    "answers": [
+      { "questionId": "q01", "score": 3 },
+      { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 3 },
+      { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 4 },
+      { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 3 },
+      { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 4 },
+      { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 4 },
+      { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 3 },
+      { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 4 },
+      { "questionId": "q16", "score": 4 },
+      { "questionId": "q17", "score": 3 },
+      { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 5 },
+      { "questionId": "q20", "score": 2 }
+    ],
+    "comment": "It would be better if I could add more graphic elements like icons, shapes, or decorations.",
+    "submittedAt": "2026-06-26T23:21:18"
+  },
+  {
+    "responseId": "sr009",
+    "custId": "u006",
+    "answers": [
+      { "questionId": "q01", "score": 4 },
+      { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 5 },
+      { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 3 },
+      { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 5 },
+      { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 3 },
+      { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 4 },
+      { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 5 },
+      { "questionId": "q14", "score": 5 },
+      { "questionId": "q15", "score": 5 },
+      { "questionId": "q16", "score": 4 },
+      { "questionId": "q17", "score": 4 },
+      { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 5 },
+      { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "I’d probably use this again if I need another custom product.",
+    "submittedAt": "2026-06-27T11:02:35"
+  },
+  {
+    "responseId": "sr010",
+    "custId": "u007",
+    "answers": [
+      { "questionId": "q01", "score": 3 },
+      { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 3 },
+      { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 2 },
+      { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 4 },
+      { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 4 },
+      { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 2 },
+      { "questionId": "q12", "score": 3 },
+      { "questionId": "q13", "score": 3 },
+      { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 4 },
+      { "questionId": "q16", "score": 3 },
+      { "questionId": "q17", "score": 3 },
+      { "questionId": "q18", "score": 3 },
+      { "questionId": "q19", "score": 4 },
+      { "questionId": "q20", "score": 4 }
+    ],
+    "comment": "The website works, but it still needs more variety in products, colors, and design features.",
+    "submittedAt": "2026-06-28T19:28:24"
+  }
+]
+[
+  {
+    "responseId": "sr011",
+    "custId": "u001",
+    "answers": [
+      { "questionId": "q01", "score": 5 },
+      { "questionId": "q02", "score": 3 },
+      { "questionId": "q03", "score": 4 },
+      { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 5 },
+      { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 1 },
+      { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 2 },
+      { "questionId": "q10", "score": 5 },
+      { "questionId": "q11", "score": 3 },
+      { "questionId": "q12", "score": 2 },
+      { "questionId": "q13", "score": 4 },
+      { "questionId": "q14", "score": 5 },
+      { "questionId": "q15", "score": 1 },
+      { "questionId": "q16", "score": 3 },
+      { "questionId": "q17", "score": 4 },
+      { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 5 },
+      { "questionId": "q20", "score": 4 }
+    ],
+    "comment": "Easy to use website, but I hope there will be more product categories.",
+    "submittedAt": "2026-06-29T09:12:15"
+  },
+  {
+    "responseId": "sr012",
+    "custId": "u002",
+    "answers": [
+      { "questionId": "q01", "score": 2 },
+      { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 3 },
+      { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 2 },
+      { "questionId": "q06", "score": 1 },
+      { "questionId": "q07", "score": 4 },
+      { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 3 },
+      { "questionId": "q10", "score": 2 },
+      { "questionId": "q11", "score": 4 },
+      { "questionId": "q12", "score": 1 },
+      { "questionId": "q13", "score": 5 },
+      { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 2 },
+      { "questionId": "q16", "score": 4 },
+      { "questionId": "q17", "score": 5 },
+      { "questionId": "q18", "score": 1 },
+      { "questionId": "q19", "score": 3 },
+      { "questionId": "q20", "score": 2 }
+    ],
+    "comment": "Checkout process was smooth and fast.",
+    "submittedAt": "2026-06-29T11:35:48"
+  },
+  {
+    "responseId": "sr013",
+    "custId": "u003",
+    "answers": [
+      { "questionId": "q01", "score": 3 },
+      { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 1 },
+      { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 2 },
+      { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 3 },
+      { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 4 },
+      { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 },
+      { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 2 },
+      { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 },
+      { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 2 },
+      { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 3 },
+      { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Good experience overall, but the loading speed can be improved.",
+    "submittedAt": "2026-06-30T08:24:36"
+  },
+  {
+    "responseId": "sr014",
+    "custId": "u004",
+    "answers": [
+      { "questionId": "q01", "score": 1 },
+      { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 4 },
+      { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 5 },
+      { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 1 },
+      { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 4 },
+      { "questionId": "q10", "score": 5 },
+      { "questionId": "q11", "score": 2 },
+      { "questionId": "q12", "score": 3 },
+      { "questionId": "q13", "score": 1 },
+      { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 5 },
+      { "questionId": "q16", "score": 2 },
+      { "questionId": "q17", "score": 3 },
+      { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 5 },
+      { "questionId": "q20", "score": 1 }
+    ],
+    "comment": "Customer support replied quickly and solved my issue.",
+    "submittedAt": "2026-06-30T14:16:52"
+  },
+  {
+    "responseId": "sr015",
+    "custId": "u005",
+    "answers": [
+      { "questionId": "q01", "score": 4 },
+      { "questionId": "q02", "score": 1 },
+      { "questionId": "q03", "score": 2 },
+      { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 3 },
+      { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 2 },
+      { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 1 },
+      { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 4 },
+      { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 2 },
+      { "questionId": "q14", "score": 1 },
+      { "questionId": "q15", "score": 4 },
+      { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 3 },
+      { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 4 },
+      { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The website design is clean and easy to navigate.",
+    "submittedAt": "2026-07-01T10:41:27"
+  },
+  {
+    "responseId": "sr016",
+    "custId": "u006",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 4 }, { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 2 }, { "questionId": "q06", "score": 1 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 4 },
+      { "questionId": "q11", "score": 1 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 4 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 3 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 1 },
+      { "questionId": "q19", "score": 2 }, { "questionId": "q20", "score": 3 }
+    ],
+    "comment": "More payment options would make the experience even better.",
+    "submittedAt": "2026-07-01T16:20:05"
+  },
+  {
+    "responseId": "sr017",
+    "custId": "u008",
+    "answers": [
+      { "questionId": "q01", "score": 3 }, { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 5 }, { "questionId": "q04", "score": 1 },
+      { "questionId": "q05", "score": 4 }, { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 2 }, { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 4 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 3 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 3 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 4 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Product quality met my expectations.",
+    "submittedAt": "2026-07-02T09:18:39"
+  },
+  {
+    "responseId": "sr018",
+    "custId": "u009",
+    "answers": [
+      { "questionId": "q01", "score": 2 }, { "questionId": "q02", "score": 3 },
+      { "questionId": "q03", "score": 1 }, { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 4 }, { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 1 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 4 },
+      { "questionId": "q11", "score": 2 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 1 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 4 }, { "questionId": "q16", "score": 2 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 1 },
+      { "questionId": "q19", "score": 4 }, { "questionId": "q20", "score": 3 }
+    ],
+    "comment": "I found the search function very useful.",
+    "submittedAt": "2026-07-02T15:27:18"
+  },
+  {
+    "responseId": "sr019",
+    "custId": "u010",
+    "answers": [
+      { "questionId": "q01", "score": 4 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 5 }, { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 3 }, { "questionId": "q06", "score": 1 },
+      { "questionId": "q07", "score": 2 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 5 }, { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 2 }, { "questionId": "q12", "score": 1 },
+      { "questionId": "q13", "score": 5 }, { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 3 }, { "questionId": "q16", "score": 2 },
+      { "questionId": "q17", "score": 1 }, { "questionId": "q18", "score": 5 },
+      { "questionId": "q19", "score": 4 }, { "questionId": "q20", "score": 3 }
+    ],
+    "comment": "Everything worked well, but shipping could be faster.",
+    "submittedAt": "2026-07-03T13:45:56"
+  },
+  {
+    "responseId": "sr020",
+    "custId": "u011",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 3 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 2 }, { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 4 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 2 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 5 }, { "questionId": "q16", "score": 1 },
+      { "questionId": "q17", "score": 2 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Satisfied with the overall shopping experience.",
+    "submittedAt": "2026-07-04T08:53:44"
+  }
+]
+[
+  {
+    "responseId": "sr021",
+    "custId": "u012",
+    "answers": [
+      { "questionId": "q01", "score": 4 },
+      { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 3 },
+      { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 4 },
+      { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 3 },
+      { "questionId": "q08", "score": 1 },
+      { "questionId": "q09", "score": 4 },
+      { "questionId": "q10", "score": 2 },
+      { "questionId": "q11", "score": 5 },
+      { "questionId": "q12", "score": 3 },
+      { "questionId": "q13", "score": 4 },
+      { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 1 },
+      { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 3 },
+      { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 2 },
+      { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The website is easy to navigate and checkout is simple.",
+    "submittedAt": "2026-07-05T09:14:32"
+  },
+  {
+    "responseId": "sr022",
+    "custId": "u013",
+    "answers": [
+      { "questionId": "q01", "score": 2 },
+      { "questionId": "q02", "score": 3 },
+      { "questionId": "q03", "score": 5 },
+      { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 1 },
+      { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 4 },
+      { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 3 },
+      { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 2 },
+      { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 4 },
+      { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 2 },
+      { "questionId": "q16", "score": 4 },
+      { "questionId": "q17", "score": 5 },
+      { "questionId": "q18", "score": 1 },
+      { "questionId": "q19", "score": 3 },
+      { "questionId": "q20", "score": 2 }
+    ],
+    "comment": "I like the design, but more color options would be great.",
+    "submittedAt": "2026-07-05T13:42:18"
+  },
+  {
+    "responseId": "sr023",
+    "custId": "u014",
+    "answers": [
+      { "questionId": "q01", "score": 5 },
+      { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 5 },
+      { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 2 },
+      { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 1 },
+      { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 4 },
+      { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 2 },
+      { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 4 },
+      { "questionId": "q14", "score": 1 },
+      { "questionId": "q15", "score": 3 },
+      { "questionId": "q16", "score": 2 },
+      { "questionId": "q17", "score": 5 },
+      { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 2 },
+      { "questionId": "q20", "score": 3 }
+    ],
+    "comment": "Everything works well, and product images are clear.",
+    "submittedAt": "2026-07-06T10:26:55"
+  },
+  {
+    "responseId": "sr024",
+    "custId": "u015",
+    "answers": [
+      { "questionId": "q01", "score": 1 },
+      { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 3 },
+      { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 5 },
+      { "questionId": "q06", "score": 1 },
+      { "questionId": "q07", "score": 2 },
+      { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 4 },
+      { "questionId": "q10", "score": 5 },
+      { "questionId": "q11", "score": 2 },
+      { "questionId": "q12", "score": 1 },
+      { "questionId": "q13", "score": 3 },
+      { "questionId": "q14", "score": 5 },
+      { "questionId": "q15", "score": 4 },
+      { "questionId": "q16", "score": 2 },
+      { "questionId": "q17", "score": 1 },
+      { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 5 },
+      { "questionId": "q20", "score": 3 }
+    ],
+    "comment": "Shipping was fast and the ordering process was smooth.",
+    "submittedAt": "2026-07-06T15:18:41"
+  },
+  {
+    "responseId": "sr025",
+    "custId": "u016",
+    "answers": [
+      { "questionId": "q01", "score": 3 },
+      { "questionId": "q02", "score": 1 },
+      { "questionId": "q03", "score": 2 },
+      { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 4 },
+      { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 5 },
+      { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 1 },
+      { "questionId": "q10", "score": 4 },
+      { "questionId": "q11", "score": 3 },
+      { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 2 },
+      { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 1 },
+      { "questionId": "q16", "score": 3 },
+      { "questionId": "q17", "score": 5 },
+      { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 4 },
+      { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Adding more filters would improve the shopping experience.",
+    "submittedAt": "2026-07-07T08:11:09"
+  },
+  {
+    "responseId": "sr026",
+    "custId": "u017",
+    "answers": [
+      { "questionId": "q01", "score": 5 },
+      { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 4 },
+      { "questionId": "q04", "score": 1 },
+      { "questionId": "q05", "score": 3 },
+      { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 2 },
+      { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 1 },
+      { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 5 },
+      { "questionId": "q12", "score": 2 },
+      { "questionId": "q13", "score": 4 },
+      { "questionId": "q14", "score": 1 },
+      { "questionId": "q15", "score": 3 },
+      { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 4 },
+      { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 },
+      { "questionId": "q20", "score": 1 }
+    ],
+    "comment": "Customer service was friendly and helpful.",
+    "submittedAt": "2026-07-07T17:29:53"
+  },
+  {
+    "responseId": "sr027",
+    "custId": "u018",
+    "answers": [
+      { "questionId": "q01", "score": 2 },
+      { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 1 },
+      { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 4 },
+      { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 5 },
+      { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 1 },
+      { "questionId": "q10", "score": 4 },
+      { "questionId": "q11", "score": 2 },
+      { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 3 },
+      { "questionId": "q14", "score": 1 },
+      { "questionId": "q15", "score": 4 },
+      { "questionId": "q16", "score": 2 },
+      { "questionId": "q17", "score": 5 },
+      { "questionId": "q18", "score": 3 },
+      { "questionId": "q19", "score": 1 },
+      { "questionId": "q20", "score": 4 }
+    ],
+    "comment": "The website loads quickly on both desktop and mobile.",
+    "submittedAt": "2026-07-08T11:47:20"
+  },
+  {
+    "responseId": "sr028",
+    "custId": "u019",
+    "answers": [
+      { "questionId": "q01", "score": 4 },
+      { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 5 },
+      { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 1 },
+      { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 2 },
+      { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 3 },
+      { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 4 },
+      { "questionId": "q12", "score": 2 },
+      { "questionId": "q13", "score": 5 },
+      { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 },
+      { "questionId": "q16", "score": 4 },
+      { "questionId": "q17", "score": 2 },
+      { "questionId": "q18", "score": 5 },
+      { "questionId": "q19", "score": 3 },
+      { "questionId": "q20", "score": 1 }
+    ],
+    "comment": "The products are nice, but I hope for more customization.",
+    "submittedAt": "2026-07-08T18:34:27"
+  },
+  {
+    "responseId": "sr029",
+    "custId": "u020",
+    "answers": [
+      { "questionId": "q01", "score": 3 },
+      { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 2 },
+      { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 1 },
+      { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 4 },
+      { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 5 },
+      { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 3 },
+      { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 2 },
+      { "questionId": "q14", "score": 5 },
+      { "questionId": "q15", "score": 1 },
+      { "questionId": "q16", "score": 3 },
+      { "questionId": "q17", "score": 4 },
+      { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 5 },
+      { "questionId": "q20", "score": 1 }
+    ],
+    "comment": "Overall I'm satisfied and would shop here again.",
+    "submittedAt": "2026-07-09T09:53:16"
+  },
+  {
+    "responseId": "sr030",
+    "custId": "u021",
+    "answers": [
+      { "questionId": "q01", "score": 5 },
+      { "questionId": "q02", "score": 3 },
+      { "questionId": "q03", "score": 2 },
+      { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 1 },
+      { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 4 },
+      { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 3 },
+      { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 },
+      { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 2 },
+      { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 },
+      { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 2 },
+      { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 3 },
+      { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Great shopping experience. I would definitely recommend this website.",
+    "submittedAt": "2026-07-09T20:15:44"
+  }
+]
+[
+  {
+    "responseId": "sr031",
+    "custId": "u022",
+    "answers": [
+      { "questionId": "q01", "score": 2 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 3 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 4 }, { "questionId": "q10", "score": 2 },
+      { "questionId": "q11", "score": 1 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 2 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 1 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Overall the website is good, but more product choices would be appreciated.",
+    "submittedAt": "2026-07-10T09:18:42"
+  },
+  {
+    "responseId": "sr032",
+    "custId": "u023",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 3 },
+      { "questionId": "q03", "score": 4 }, { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 5 }, { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 3 }, { "questionId": "q08", "score": 1 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 5 },
+      { "questionId": "q11", "score": 4 }, { "questionId": "q12", "score": 3 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 5 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 4 },
+      { "questionId": "q17", "score": 3 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 5 }, { "questionId": "q20", "score": 4 }
+    ],
+    "comment": "The interface is modern and user-friendly.",
+    "submittedAt": "2026-07-10T14:37:25"
+  },
+  {
+    "responseId": "sr033",
+    "custId": "u024",
+    "answers": [
+      { "questionId": "q01", "score": 3 }, { "questionId": "q02", "score": 1 },
+      { "questionId": "q03", "score": 5 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 2 }, { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 1 }, { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 4 }, { "questionId": "q10", "score": 2 },
+      { "questionId": "q11", "score": 3 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 3 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 2 }, { "questionId": "q20", "score": 1 }
+    ],
+    "comment": "Searching for products is convenient and accurate.",
+    "submittedAt": "2026-07-11T08:52:19"
+  },
+  {
+    "responseId": "sr034",
+    "custId": "u025",
+    "answers": [
+      { "questionId": "q01", "score": 4 }, { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 3 }, { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 2 }, { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 4 }, { "questionId": "q12", "score": 2 },
+      { "questionId": "q13", "score": 5 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "I hope there will be more promotions and discounts.",
+    "submittedAt": "2026-07-11T16:20:47"
+  },
+  {
+    "responseId": "sr035",
+    "custId": "u026",
+    "answers": [
+      { "questionId": "q01", "score": 1 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 2 }, { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 3 }, { "questionId": "q06", "score": 1 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 2 },
+      { "questionId": "q13", "score": 1 }, { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 5 }, { "questionId": "q16", "score": 3 },
+      { "questionId": "q17", "score": 2 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 1 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The payment process is secure and reliable.",
+    "submittedAt": "2026-07-12T10:09:33"
+  },
+  {
+    "responseId": "sr036",
+    "custId": "u027",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 2 }, { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 4 }, { "questionId": "q06", "score": 1 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 4 },
+      { "questionId": "q11", "score": 1 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 4 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 3 }, { "questionId": "q16", "score": 1 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 2 }, { "questionId": "q20", "score": 3 }
+    ],
+    "comment": "Everything works smoothly on mobile devices.",
+    "submittedAt": "2026-07-12T19:41:58"
+  },
+  {
+    "responseId": "sr037",
+    "custId": "u028",
+    "answers": [
+      { "questionId": "q01", "score": 2 }, { "questionId": "q02", "score": 3 },
+      { "questionId": "q03", "score": 4 }, { "questionId": "q04", "score": 1 },
+      { "questionId": "q05", "score": 5 }, { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 3 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 1 }, { "questionId": "q10", "score": 5 },
+      { "questionId": "q11", "score": 2 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 5 }, { "questionId": "q14", "score": 1 },
+      { "questionId": "q15", "score": 3 }, { "questionId": "q16", "score": 2 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 1 }, { "questionId": "q20", "score": 3 }
+    ],
+    "comment": "Customer support answered my questions quickly.",
+    "submittedAt": "2026-07-13T08:26:14"
+  },
+  {
+    "responseId": "sr038",
+    "custId": "u029",
+    "answers": [
+      { "questionId": "q01", "score": 4 }, { "questionId": "q02", "score": 1 },
+      { "questionId": "q03", "score": 5 }, { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 3 }, { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 1 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 4 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 1 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 3 }, { "questionId": "q16", "score": 4 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 1 }, { "questionId": "q20", "score": 4 }
+    ],
+    "comment": "Product descriptions are detailed and helpful.",
+    "submittedAt": "2026-07-13T13:54:39"
+  },
+  {
+    "responseId": "sr039",
+    "custId": "u030",
+    "answers": [
+      { "questionId": "q01", "score": 3 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 1 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 2 }, { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 4 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 3 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 3 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 4 }, { "questionId": "q20", "score": 1 }
+    ],
+    "comment": "The website meets my expectations overall.",
+    "submittedAt": "2026-07-14T09:12:06"
+  },
+  {
+    "responseId": "sr040",
+    "custId": "u031",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 3 }, { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 4 }, { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 3 },
+      { "questionId": "q19", "score": 2 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "I would recommend this website to my friends.",
+    "submittedAt": "2026-07-14T18:48:57"
+  }
+]
+[
+  {
+    "responseId": "sr041",
+    "custId": "u032",
+    "answers": [
+      { "questionId": "q01", "score": 4 }, { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 5 }, { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 4 },
+      { "questionId": "q11", "score": 2 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 1 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 4 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 2 }, { "questionId": "q18", "score": 1 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The shopping experience was enjoyable and easy to understand.",
+    "submittedAt": "2026-07-15T09:23:41"
+  },
+  {
+    "responseId": "sr042",
+    "custId": "u033",
+    "answers": [
+      { "questionId": "q01", "score": 2 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 4 }, { "questionId": "q04", "score": 1 },
+      { "questionId": "q05", "score": 3 }, { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 2 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 4 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 2 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 5 }, { "questionId": "q20", "score": 3 }
+    ],
+    "comment": "It would be great if there were more payment methods available.",
+    "submittedAt": "2026-07-15T15:18:54"
+  },
+  {
+    "responseId": "sr043",
+    "custId": "u034",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 3 },
+      { "questionId": "q03", "score": 1 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 2 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 4 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 5 },
+      { "questionId": "q11", "score": 1 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 5 }, { "questionId": "q16", "score": 2 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 3 },
+      { "questionId": "q19", "score": 1 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The product pages provide enough information before purchasing.",
+    "submittedAt": "2026-07-16T08:42:10"
+  },
+  {
+    "responseId": "sr044",
+    "custId": "u035",
+    "answers": [
+      { "questionId": "q01", "score": 3 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 2 }, { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 4 }, { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 3 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The checkout page is simple and doesn't take much time.",
+    "submittedAt": "2026-07-16T13:57:29"
+  },
+  {
+    "responseId": "sr045",
+    "custId": "u036",
+    "answers": [
+      { "questionId": "q01", "score": 1 }, { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 5 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 3 }, { "questionId": "q06", "score": 1 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 4 }, { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 2 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 4 }, { "questionId": "q14", "score": 1 },
+      { "questionId": "q15", "score": 3 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 2 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 1 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "I hope new products will be added more frequently.",
+    "submittedAt": "2026-07-17T10:15:46"
+  },
+  {
+    "responseId": "sr046",
+    "custId": "u037",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 3 }, { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 4 }, { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 5 }, { "questionId": "q16", "score": 1 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 3 },
+      { "questionId": "q19", "score": 2 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Everything is organized well and easy to find.",
+    "submittedAt": "2026-07-17T16:31:05"
+  },
+  {
+    "responseId": "sr047",
+    "custId": "u038",
+    "answers": [
+      { "questionId": "q01", "score": 4 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 2 }, { "questionId": "q04", "score": 1 },
+      { "questionId": "q05", "score": 3 }, { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 1 }, { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 4 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 1 },
+      { "questionId": "q15", "score": 3 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 1 }
+    ],
+    "comment": "The delivery tracking feature is very useful.",
+    "submittedAt": "2026-07-18T09:49:52"
+  },
+  {
+    "responseId": "sr048",
+    "custId": "u039",
+    "answers": [
+      { "questionId": "q01", "score": 3 }, { "questionId": "q02", "score": 1 },
+      { "questionId": "q03", "score": 4 }, { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 2 }, { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 1 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 5 }, { "questionId": "q10", "score": 2 },
+      { "questionId": "q11", "score": 3 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 5 }, { "questionId": "q14", "score": 1 },
+      { "questionId": "q15", "score": 2 }, { "questionId": "q16", "score": 3 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 2 }, { "questionId": "q20", "score": 1 }
+    ],
+    "comment": "The website feels reliable and secure.",
+    "submittedAt": "2026-07-18T14:28:37"
+  },
+  {
+    "responseId": "sr049",
+    "custId": "u040",
+    "answers": [
+      { "questionId": "q01", "score": 2 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 5 }, { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 4 }, { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 5 }, { "questionId": "q16", "score": 1 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Product quality is good for the price.",
+    "submittedAt": "2026-07-19T11:07:21"
+  },
+  {
+    "responseId": "sr050",
+    "custId": "u041",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 3 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 2 }, { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 4 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 2 },
+      { "questionId": "q13", "score": 4 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 3 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 4 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Overall, I'm happy with the service and would buy again.",
+    "submittedAt": "2026-07-19T18:43:16"
+  }
+]
+[
+  {
+    "responseId": "sr051",
+    "custId": "u042",
+    "answers": [
+      { "questionId": "q01", "score": 3 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 2 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 4 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 3 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The website is easy to use and has a clean interface.",
+    "submittedAt": "2026-07-20T08:15:24"
+  },
+  {
+    "responseId": "sr052",
+    "custId": "u043",
+    "answers": [
+      { "questionId": "q01", "score": 4 }, { "questionId": "q02", "score": 1 },
+      { "questionId": "q03", "score": 5 }, { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 3 }, { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 2 }, { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 1 }, { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 4 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 1 },
+      { "questionId": "q15", "score": 5 }, { "questionId": "q16", "score": 3 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 5 }, { "questionId": "q20", "score": 1 }
+    ],
+    "comment": "I enjoyed browsing the products and categories.",
+    "submittedAt": "2026-07-20T13:47:39"
+  },
+  {
+    "responseId": "sr053",
+    "custId": "u044",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 3 },
+      { "questionId": "q03", "score": 4 }, { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 3 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 3 },
+      { "questionId": "q19", "score": 2 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Everything was smooth from searching to checkout.",
+    "submittedAt": "2026-07-21T09:36:18"
+  },
+  {
+    "responseId": "sr054",
+    "custId": "u045",
+    "answers": [
+      { "questionId": "q01", "score": 2 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 1 }, { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 3 }, { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 2 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 5 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 2 }, { "questionId": "q16", "score": 1 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 2 }
+    ],
+    "comment": "More product reviews from customers would be helpful.",
+    "submittedAt": "2026-07-21T15:21:43"
+  },
+  {
+    "responseId": "sr055",
+    "custId": "u046",
+    "answers": [
+      { "questionId": "q01", "score": 1 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 4 }, { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 3 }, { "questionId": "q06", "score": 1 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 2 },
+      { "questionId": "q13", "score": 4 }, { "questionId": "q14", "score": 1 },
+      { "questionId": "q15", "score": 3 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 2 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 1 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The ordering process was quick and convenient.",
+    "submittedAt": "2026-07-22T10:08:56"
+  },
+  {
+    "responseId": "sr056",
+    "custId": "u047",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 3 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 2 }, { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 4 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 3 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The overall shopping experience exceeded my expectations.",
+    "submittedAt": "2026-07-22T16:42:11"
+  },
+  {
+    "responseId": "sr057",
+    "custId": "u048",
+    "answers": [
+      { "questionId": "q01", "score": 3 }, { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 5 }, { "questionId": "q04", "score": 1 },
+      { "questionId": "q05", "score": 4 }, { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 2 }, { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 1 }, { "questionId": "q10", "score": 4 },
+      { "questionId": "q11", "score": 3 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 1 },
+      { "questionId": "q15", "score": 4 }, { "questionId": "q16", "score": 3 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 4 }, { "questionId": "q20", "score": 1 }
+    ],
+    "comment": "The website performs well on my mobile phone.",
+    "submittedAt": "2026-07-23T08:54:37"
+  },
+  {
+    "responseId": "sr058",
+    "custId": "u049",
+    "answers": [
+      { "questionId": "q01", "score": 4 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 1 }, { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 2 }, { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 3 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 4 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "I found what I needed without any difficulties.",
+    "submittedAt": "2026-07-23T14:17:28"
+  },
+  {
+    "responseId": "sr059",
+    "custId": "u050",
+    "answers": [
+      { "questionId": "q01", "score": 2 }, { "questionId": "q02", "score": 3 },
+      { "questionId": "q03", "score": 4 }, { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 4 }, { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 5 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 2 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 5 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 2 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 5 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 2 }
+    ],
+    "comment": "More product variations would make the website even better.",
+    "submittedAt": "2026-07-24T09:29:14"
+  },
+  {
+    "responseId": "sr060",
+    "custId": "u051",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 2 }, { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 4 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 3 },
+      { "questionId": "q13", "score": 4 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 2 }, { "questionId": "q18", "score": 3 },
+      { "questionId": "q19", "score": 4 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Overall, I am satisfied and would purchase from this website again.",
+    "submittedAt": "2026-07-24T17:56:48"
+  }
+]
+[
+  {
+    "responseId": "sr061",
+    "custId": "u052",
+    "answers": [
+      { "questionId": "q01", "score": 4 }, { "questionId": "q02", "score": 3 },
+      { "questionId": "q03", "score": 5 }, { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 2 }, { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 4 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 5 }, { "questionId": "q16", "score": 1 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The website is responsive and easy to navigate.",
+    "submittedAt": "2026-07-25T08:21:36"
+  },
+  {
+    "responseId": "sr062",
+    "custId": "u053",
+    "answers": [
+      { "questionId": "q01", "score": 2 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 1 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 3 }, { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 1 }, { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 2 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 4 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "I found the product I wanted very quickly.",
+    "submittedAt": "2026-07-25T14:55:18"
+  },
+  {
+    "responseId": "sr063",
+    "custId": "u054",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 3 }, { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 4 }, { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 5 }, { "questionId": "q16", "score": 1 },
+      { "questionId": "q17", "score": 2 }, { "questionId": "q18", "score": 3 },
+      { "questionId": "q19", "score": 4 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Checkout was simple and payment was processed quickly.",
+    "submittedAt": "2026-07-26T09:42:07"
+  },
+  {
+    "responseId": "sr064",
+    "custId": "u055",
+    "answers": [
+      { "questionId": "q01", "score": 1 }, { "questionId": "q02", "score": 3 },
+      { "questionId": "q03", "score": 4 }, { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 2 }, { "questionId": "q06", "score": 1 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 4 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 2 },
+      { "questionId": "q13", "score": 4 }, { "questionId": "q14", "score": 1 },
+      { "questionId": "q15", "score": 3 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 2 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 5 }, { "questionId": "q20", "score": 3 }
+    ],
+    "comment": "The order confirmation email arrived immediately.",
+    "submittedAt": "2026-07-26T16:13:49"
+  },
+  {
+    "responseId": "sr065",
+    "custId": "u056",
+    "answers": [
+      { "questionId": "q01", "score": 3 }, { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 5 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 1 },
+      { "questionId": "q09", "score": 4 }, { "questionId": "q10", "score": 2 },
+      { "questionId": "q11", "score": 3 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 1 }, { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 2 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 3 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 1 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "I appreciate the clear product descriptions.",
+    "submittedAt": "2026-07-27T10:35:22"
+  },
+  {
+    "responseId": "sr066",
+    "custId": "u057",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 1 },
+      { "questionId": "q03", "score": 4 }, { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 3 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 1 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 1 },
+      { "questionId": "q15", "score": 3 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 2 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 1 }
+    ],
+    "comment": "The shopping cart worked perfectly throughout my purchase.",
+    "submittedAt": "2026-07-27T15:49:10"
+  },
+  {
+    "responseId": "sr067",
+    "custId": "u058",
+    "answers": [
+      { "questionId": "q01", "score": 2 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 3 }, { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 4 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 2 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The site loads fast even during busy hours.",
+    "submittedAt": "2026-07-28T08:17:53"
+  },
+  {
+    "responseId": "sr068",
+    "custId": "u059",
+    "answers": [
+      { "questionId": "q01", "score": 4 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 2 }, { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 1 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 2 },
+      { "questionId": "q11", "score": 4 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 2 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 5 }, { "questionId": "q20", "score": 3 }
+    ],
+    "comment": "Customer support resolved my issue professionally.",
+    "submittedAt": "2026-07-28T13:28:45"
+  },
+  {
+    "responseId": "sr069",
+    "custId": "u060",
+    "answers": [
+      { "questionId": "q01", "score": 3 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 1 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 2 }, { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 4 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 3 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 3 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 4 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "I would like to see more brands in the future.",
+    "submittedAt": "2026-07-29T09:44:31"
+  },
+  {
+    "responseId": "sr070",
+    "custId": "u061",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 3 }, { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 4 }, { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 5 }, { "questionId": "q16", "score": 1 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 3 },
+      { "questionId": "q19", "score": 2 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Overall, I am very satisfied with the entire shopping experience.",
+    "submittedAt": "2026-07-29T17:12:54"
+  }
+]
+[
+  {
+    "responseId": "sr071",
+    "custId": "u062",
+    "answers": [
+      { "questionId": "q01", "score": 2 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 5 }, { "questionId": "q04", "score": 1 },
+      { "questionId": "q05", "score": 3 }, { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 4 }, { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 1 }, { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 2 },
+      { "questionId": "q13", "score": 4 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 2 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The website is very convenient for online shopping.",
+    "submittedAt": "2026-07-30T08:18:45"
+  },
+  {
+    "responseId": "sr072",
+    "custId": "u063",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 1 },
+      { "questionId": "q03", "score": 3 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 2 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 4 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 1 }, { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 1 }
+    ],
+    "comment": "Everything worked perfectly during my purchase.",
+    "submittedAt": "2026-07-30T13:27:18"
+  },
+  {
+    "responseId": "sr073",
+    "custId": "u064",
+    "answers": [
+      { "questionId": "q01", "score": 4 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 2 }, { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 4 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 5 }, { "questionId": "q16", "score": 1 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Product images accurately match the actual items.",
+    "submittedAt": "2026-07-31T09:46:32"
+  },
+  {
+    "responseId": "sr074",
+    "custId": "u065",
+    "answers": [
+      { "questionId": "q01", "score": 3 }, { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 4 }, { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 3 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 5 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 3 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 2 }, { "questionId": "q20", "score": 3 }
+    ],
+    "comment": "The website makes comparing products very easy.",
+    "submittedAt": "2026-07-31T15:12:57"
+  },
+  {
+    "responseId": "sr075",
+    "custId": "u066",
+    "answers": [
+      { "questionId": "q01", "score": 1 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 3 }, { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 4 }, { "questionId": "q06", "score": 1 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 4 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 2 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 1 },
+      { "questionId": "q15", "score": 4 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 2 }, { "questionId": "q18", "score": 3 },
+      { "questionId": "q19", "score": 1 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "I received my order earlier than expected.",
+    "submittedAt": "2026-08-01T10:03:41"
+  },
+  {
+    "responseId": "sr076",
+    "custId": "u067",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 1 }, { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 2 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 4 }, { "questionId": "q08", "score": 1 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 2 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Customer support was polite and helpful.",
+    "submittedAt": "2026-08-01T16:48:09"
+  },
+  {
+    "responseId": "sr077",
+    "custId": "u068",
+    "answers": [
+      { "questionId": "q01", "score": 2 }, { "questionId": "q02", "score": 3 },
+      { "questionId": "q03", "score": 5 }, { "questionId": "q04", "score": 1 },
+      { "questionId": "q05", "score": 4 }, { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 1 }, { "questionId": "q10", "score": 4 },
+      { "questionId": "q11", "score": 2 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 1 },
+      { "questionId": "q15", "score": 4 }, { "questionId": "q16", "score": 2 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 3 },
+      { "questionId": "q19", "score": 4 }, { "questionId": "q20", "score": 1 }
+    ],
+    "comment": "Finding products through the search bar was easy.",
+    "submittedAt": "2026-08-02T09:21:15"
+  },
+  {
+    "responseId": "sr078",
+    "custId": "u069",
+    "answers": [
+      { "questionId": "q01", "score": 4 }, { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 3 }, { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 4 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 4 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The website is suitable for both beginners and experienced shoppers.",
+    "submittedAt": "2026-08-02T14:57:28"
+  },
+  {
+    "responseId": "sr079",
+    "custId": "u070",
+    "answers": [
+      { "questionId": "q01", "score": 3 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 2 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 4 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 3 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 4 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 2 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The quality of products met my expectations.",
+    "submittedAt": "2026-08-03T08:36:17"
+  },
+  {
+    "responseId": "sr080",
+    "custId": "u071",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 3 }, { "questionId": "q04", "score": 1 },
+      { "questionId": "q05", "score": 2 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 3 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 5 }, { "questionId": "q16", "score": 1 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Overall, I would definitely use this website again.",
+    "submittedAt": "2026-08-03T17:20:53"
+  }
+]
+[
+  {
+    "responseId": "sr081",
+    "custId": "u072",
+    "answers": [
+      { "questionId": "q01", "score": 4 }, { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 5 }, { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 2 }, { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 5 }, { "questionId": "q16", "score": 1 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The order process was clear and straightforward.",
+    "submittedAt": "2026-08-04T08:12:19"
+  },
+  {
+    "responseId": "sr082",
+    "custId": "u073",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 3 },
+      { "questionId": "q03", "score": 1 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 2 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 3 }, { "questionId": "q08", "score": 1 },
+      { "questionId": "q09", "score": 4 }, { "questionId": "q10", "score": 2 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 4 }
+    ],
+    "comment": "Payment options are sufficient for my needs.",
+    "submittedAt": "2026-08-04T14:37:55"
+  },
+  {
+    "responseId": "sr083",
+    "custId": "u074",
+    "answers": [
+      { "questionId": "q01", "score": 2 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 4 }, { "questionId": "q04", "score": 1 },
+      { "questionId": "q05", "score": 3 }, { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 2 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 4 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 2 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The website design looks modern and attractive.",
+    "submittedAt": "2026-08-05T09:28:42"
+  },
+  {
+    "responseId": "sr084",
+    "custId": "u075",
+    "answers": [
+      { "questionId": "q01", "score": 3 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 2 }, { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 4 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 3 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 5 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 3 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 2 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Product filtering made shopping much easier.",
+    "submittedAt": "2026-08-05T16:11:27"
+  },
+  {
+    "responseId": "sr085",
+    "custId": "u076",
+    "answers": [
+      { "questionId": "q01", "score": 1 }, { "questionId": "q02", "score": 3 },
+      { "questionId": "q03", "score": 5 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 2 }, { "questionId": "q06", "score": 1 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 4 }, { "questionId": "q10", "score": 2 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 1 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 2 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 1 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Delivery updates were accurate and timely.",
+    "submittedAt": "2026-08-06T10:22:36"
+  },
+  {
+    "responseId": "sr086",
+    "custId": "u077",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 4 }, { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 2 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 3 },
+      { "questionId": "q13", "score": 4 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 3 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 2 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "I would recommend this platform to my friends.",
+    "submittedAt": "2026-08-06T15:43:08"
+  },
+  {
+    "responseId": "sr087",
+    "custId": "u078",
+    "answers": [
+      { "questionId": "q01", "score": 4 }, { "questionId": "q02", "score": 1 },
+      { "questionId": "q03", "score": 3 }, { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 2 }, { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 1 }, { "questionId": "q10", "score": 2 },
+      { "questionId": "q11", "score": 4 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 4 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Searching for products was fast and efficient.",
+    "submittedAt": "2026-08-07T08:54:51"
+  },
+  {
+    "responseId": "sr088",
+    "custId": "u079",
+    "answers": [
+      { "questionId": "q01", "score": 3 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 2 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 4 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 3 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 2 }, { "questionId": "q18", "score": 3 },
+      { "questionId": "q19", "score": 4 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "I like the variety of products available.",
+    "submittedAt": "2026-08-07T13:39:16"
+  },
+  {
+    "responseId": "sr089",
+    "custId": "u080",
+    "answers": [
+      { "questionId": "q01", "score": 2 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 1 }, { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 3 }, { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 4 }, { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 1 }, { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 2 },
+      { "questionId": "q13", "score": 4 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 3 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 4 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The checkout process was faster than I expected.",
+    "submittedAt": "2026-08-08T09:16:47"
+  },
+  {
+    "responseId": "sr090",
+    "custId": "u081",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 3 },
+      { "questionId": "q03", "score": 4 }, { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 4 }, { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 5 }, { "questionId": "q16", "score": 1 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Overall, the shopping experience was satisfying and enjoyable.",
+    "submittedAt": "2026-08-08T17:41:22"
+  }
+]
+[
+  {
+    "responseId": "sr091",
+    "custId": "u082",
+    "answers": [
+      { "questionId": "q01", "score": 3 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 2 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 4 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "I really enjoyed the smooth shopping experience.",
+    "submittedAt": "2026-08-09T08:14:37"
+  },
+  {
+    "responseId": "sr092",
+    "custId": "u083",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 4 }, { "questionId": "q04", "score": 1 },
+      { "questionId": "q05", "score": 3 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 2 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 3 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 2 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The checkout process was fast and secure.",
+    "submittedAt": "2026-08-09T14:48:55"
+  },
+  {
+    "responseId": "sr093",
+    "custId": "u084",
+    "answers": [
+      { "questionId": "q01", "score": 2 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 5 }, { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 1 }, { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 4 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The product information was complete and useful.",
+    "submittedAt": "2026-08-10T09:36:12"
+  },
+  {
+    "responseId": "sr094",
+    "custId": "u085",
+    "answers": [
+      { "questionId": "q01", "score": 4 }, { "questionId": "q02", "score": 1 },
+      { "questionId": "q03", "score": 3 }, { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 2 }, { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 4 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 4 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "I found the search feature very accurate.",
+    "submittedAt": "2026-08-10T16:02:43"
+  },
+  {
+    "responseId": "sr095",
+    "custId": "u086",
+    "answers": [
+      { "questionId": "q01", "score": 1 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 4 }, { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 3 }, { "questionId": "q06", "score": 1 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 4 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 3 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 2 },
+      { "questionId": "q13", "score": 4 }, { "questionId": "q14", "score": 1 },
+      { "questionId": "q15", "score": 3 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 2 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 1 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Delivery was on time and the packaging was good.",
+    "submittedAt": "2026-08-11T10:27:06"
+  },
+  {
+    "responseId": "sr096",
+    "custId": "u087",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 3 },
+      { "questionId": "q03", "score": 2 }, { "questionId": "q04", "score": 4 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 4 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 3 },
+      { "questionId": "q13", "score": 4 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 3 },
+      { "questionId": "q19", "score": 2 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "The discounts and promotions were attractive.",
+    "submittedAt": "2026-08-11T15:50:28"
+  },
+  {
+    "responseId": "sr097",
+    "custId": "u088",
+    "answers": [
+      { "questionId": "q01", "score": 3 }, { "questionId": "q02", "score": 2 },
+      { "questionId": "q03", "score": 5 }, { "questionId": "q04", "score": 1 },
+      { "questionId": "q05", "score": 4 }, { "questionId": "q06", "score": 3 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 1 }, { "questionId": "q10", "score": 4 },
+      { "questionId": "q11", "score": 3 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 4 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 3 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 4 }, { "questionId": "q20", "score": 1 }
+    ],
+    "comment": "I appreciate the easy-to-understand interface.",
+    "submittedAt": "2026-08-12T08:45:39"
+  },
+  {
+    "responseId": "sr098",
+    "custId": "u089",
+    "answers": [
+      { "questionId": "q01", "score": 4 }, { "questionId": "q02", "score": 5 },
+      { "questionId": "q03", "score": 1 }, { "questionId": "q04", "score": 3 },
+      { "questionId": "q05", "score": 2 }, { "questionId": "q06", "score": 4 },
+      { "questionId": "q07", "score": 5 }, { "questionId": "q08", "score": 2 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 2 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 5 },
+      { "questionId": "q17", "score": 3 }, { "questionId": "q18", "score": 2 },
+      { "questionId": "q19", "score": 4 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Overall performance of the website was excellent.",
+    "submittedAt": "2026-08-12T14:31:57"
+  },
+  {
+    "responseId": "sr099",
+    "custId": "u090",
+    "answers": [
+      { "questionId": "q01", "score": 2 }, { "questionId": "q02", "score": 3 },
+      { "questionId": "q03", "score": 4 }, { "questionId": "q04", "score": 5 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 2 },
+      { "questionId": "q07", "score": 4 }, { "questionId": "q08", "score": 5 },
+      { "questionId": "q09", "score": 3 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 2 }, { "questionId": "q12", "score": 5 },
+      { "questionId": "q13", "score": 4 }, { "questionId": "q14", "score": 3 },
+      { "questionId": "q15", "score": 1 }, { "questionId": "q16", "score": 2 },
+      { "questionId": "q17", "score": 5 }, { "questionId": "q18", "score": 4 },
+      { "questionId": "q19", "score": 3 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "I would like to see more payment methods available.",
+    "submittedAt": "2026-08-13T09:18:21"
+  },
+  {
+    "responseId": "sr100",
+    "custId": "u091",
+    "answers": [
+      { "questionId": "q01", "score": 5 }, { "questionId": "q02", "score": 4 },
+      { "questionId": "q03", "score": 3 }, { "questionId": "q04", "score": 2 },
+      { "questionId": "q05", "score": 1 }, { "questionId": "q06", "score": 5 },
+      { "questionId": "q07", "score": 4 }, { "questionId": "q08", "score": 3 },
+      { "questionId": "q09", "score": 2 }, { "questionId": "q10", "score": 1 },
+      { "questionId": "q11", "score": 5 }, { "questionId": "q12", "score": 4 },
+      { "questionId": "q13", "score": 3 }, { "questionId": "q14", "score": 2 },
+      { "questionId": "q15", "score": 5 }, { "questionId": "q16", "score": 1 },
+      { "questionId": "q17", "score": 4 }, { "questionId": "q18", "score": 3 },
+      { "questionId": "q19", "score": 2 }, { "questionId": "q20", "score": 5 }
+    ],
+    "comment": "Overall, I am very satisfied and will continue shopping here.",
+    "submittedAt": "2026-08-13T17:05:44"
+  }
+]

@@ -1,8 +1,72 @@
 <html>
-    <title>
-        Đăng nhập
-    </title>
-    <body>
-        <h1>Nội dung trang</h1>
-    </body>
+<head>
+  <title>PrintiFy — Login</title>
+  <link rel="stylesheet" type="text/css" href="../css/maincss.css">
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <section class="section-card auth-card">
+      <div class="brand">
+        <div class="brand-logo">Print<span>Craft</span></div>
+        <p>Đăng nhập để tiếp tục thiết kế và đặt hàng.</p>
+      </div>
+
+      <form id="loginForm" class="auth-form">
+        <label class="auth-field">
+          <span>Email</span>
+          <input id="email" class="form-input" type="email" placeholder="name@gmail.com" autocomplete="email" required />
+        </label>
+
+        <label class="auth-field">
+          <span>Mật khẩu</span>
+          <input id="password" class="form-input" type="password" placeholder="••••••••" autocomplete="current-password" required />
+        </label>
+
+        <div class="actions-row">
+          <label class="remember">
+            <input id="rememberMe" type="checkbox" />
+            <span>Ghi nhớ đăng nhập</span>
+          </label>
+          <button type="button" id="forgotBtn" class="btn-secondary link-btn">Quên mật khẩu?</button>
+        </div>
+
+        <button class="btn-primary auth-submit" type="submit">Đăng nhập</button>
+        <p id="message" class="message" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <div id="modalOverlay" class="modal-overlay hidden">
+    <section id="forgotModal" class="modal-box auth-modal" aria-hidden="true">
+      <header class="modal-header">
+        <h2>Khôi phục mật khẩu</h2>
+        <button class="modal-close" id="closeModalBtn" aria-label="Đóng">✕</button>
+      </header>
+
+      <div class="modal-body">
+        <div class="step" id="stepEmail">
+          <p>Nhập email của bạn để xem câu hỏi bảo mật.</p>
+          <input id="forgotEmail" class="form-input" type="email" placeholder="name@gmail.com" />
+          <button id="lookupBtn" class="btn-primary">Tiếp tục</button>
+        </div>
+
+        <div class="step hidden" id="stepQuestion">
+          <p class="hint">Câu hỏi bảo mật:</p>
+          <div id="securityQuestion" class="question-box"></div>
+          <input id="securityAnswer" class="form-input" type="text" placeholder="Nhập câu trả lời" />
+          <button id="verifyAnswerBtn" class="btn-primary">Xác minh</button>
+        </div>
+
+        <div class="step hidden" id="stepReset">
+          <p>Tạo mật khẩu mới cho tài khoản này.</p>
+          <input id="newPassword" class="form-input" type="password" placeholder="Mật khẩu mới" />
+          <input id="confirmPassword" class="form-input" type="password" placeholder="Xác nhận mật khẩu" />
+          <button id="resetPasswordBtn" class="btn-primary">Đổi mật khẩu</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="../js/login.js"></script>
+</body>
 </html>

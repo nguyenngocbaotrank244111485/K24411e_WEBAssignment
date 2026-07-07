@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrintiFy — Register</title>
+  <link rel="stylesheet" href="../css/maincss.css">
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <section class="section-card auth-card">
+      <div class="brand">
+        <div class="brand-logo">Printi<span>Fy</span></div>
+        <p>Tạo tài khoản để bắt đầu thiết kế và mua hàng.</p>
+      </div>
+
+      <form id="registerForm" class="auth-form" novalidate>
+        <label class="auth-field">
+          <span>Họ tên</span>
+          <input id="fullName" class="form-input" type="text" placeholder="Nguyễn Văn A" required />
+        </label>
+
+        <label class="auth-field">
+          <span>Email</span>
+          <input id="email" class="form-input" type="email" placeholder="name@gmail.com" autocomplete="email" required />
+        </label>
+
+        <label class="auth-field">
+          <span>Mật khẩu</span>
+          <input id="password" class="form-input" type="password" placeholder="Ít nhất 8 ký tự, có chữ và số" autocomplete="new-password" required />
+        </label>
+
+        <label class="auth-field">
+          <span>Xác nhận mật khẩu</span>
+          <input id="confirmPassword" class="form-input" type="password" placeholder="Nhập lại mật khẩu" autocomplete="new-password" required />
+        </label>
+
+        <label class="auth-field">
+          <span>Câu hỏi bảo mật</span>
+          <select id="secQuestion" class="form-input" required>
+            <option value="">-- Chọn câu hỏi --</option>
+            <option value="Tên thú cưng đầu tiên của bạn là gì?">Tên thú cưng đầu tiên của bạn là gì?</option>
+            <option value="Bạn sinh ra ở thành phố nào?">Bạn sinh ra ở thành phố nào?</option>
+            <option value="Môn học yêu thích thời đi học là gì?">Môn học yêu thích thời đi học là gì?</option>
+          </select>
+        </label>
+
+        <label class="auth-field">
+          <span>Câu trả lời bảo mật</span>
+          <input id="secAnswer" class="form-input" type="text" placeholder="Nhập câu trả lời" required />
+        </label>
+
+        <label class="remember">
+          <input id="terms" type="checkbox" />
+          <span>Đồng ý với Điều khoản & Chính sách bảo mật</span>
+        </label>
+
+        <button id="sendOtpBtn" class="btn-secondary" type="button">Gửi OTP</button>
+
+        <div id="otpBox" class="step hidden">
+          <label class="auth-field">
+            <span>Nhập OTP 6 chữ số</span>
+            <input id="otpInput" class="form-input" type="text" inputmode="numeric" maxlength="6" placeholder="123456" />
+          </label>
+          <p id="otpInfo" class="message"></p>
+          <button id="verifyOtpBtn" class="btn-primary" type="button">Xác minh OTP</button>
+        </div>
+
+        <button class="btn-primary auth-submit" type="submit">Đăng ký</button>
+        <p id="message" class="message" aria-live="polite"></p>
+
+        <p class="auth-switch">
+          Đã có tài khoản? <a href="../interface/login.html">Đăng nhập</a>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <script src="../js/register.js"></script>
+</body>
+</html>

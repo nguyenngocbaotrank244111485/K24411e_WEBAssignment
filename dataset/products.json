@@ -505,36 +505,6 @@
           "printArea": {"x": 12, "y": 12, "width": 120, "height": 120},
           "canvasWidth": 180,
           "canvasHeight": 180
-        },
-        {
-          "productId": "p04004",
-          "cateId": "CAT-04",
-          "name": "Ví Canvas In Logo",
-          "category": "accessories",
-          "subcategory": "wallet",
-          "description": "Ví canvas nhỏ gọn, bền nhẹ, thích hợp in logo hoặc hoạ tiết cá tính.",
-          "price": 65000,
-          "colors": ["natural", "black"],
-          "sizes": ["One Size"],
-          "variants": [
-            {"color": "natural", "size": "One Size", "available": true, "quantity": 31},
-            {"color": "black", "size": "One Size", "available": true, "quantity": 24}
-          ],
-          "tags": ["ví canvas", "accessory", "in logo", "quà tặng"],
-          "image": "images/products/p304.png",
-          "images": [
-            "images/products/p304.png",
-            "images/products/p304_mockup.png"
-          ],
-          "inStock": true,
-          "isActive": true,
-          "popular": false,
-          "allowMarketplace": true,
-          "allowedFileTypes": ["jpg", "png", "webp"],
-          "maxFileSizeMB": 5,
-          "printArea": {"x": 80, "y": 70, "width": 220, "height": 180},
-          "canvasWidth": 320,
-          "canvasHeight": 240
         }
       ]
     },
@@ -705,46 +675,9 @@
           "printArea": {"x": 40, "y": 40, "width": 520, "height": 320},
           "canvasWidth": 600,
           "canvasHeight": 400
-        },
+        }
         {
           "productId": "p06002",
-          "cateId": "CAT-06",
-          "name": "Túi Giấy In Logo Thương Hiệu",
-          "category": "packaging",
-          "subcategory": "paperbag",
-          "description": "Túi giấy kraft/trắng cao cấp có quai, in logo thương hiệu toàn mặt túi.",
-          "price": 13000,
-          "colors": ["white", "kraft", "black"],
-          "sizes": ["small", "medium", "large"],
-          "variants": [
-            {"color": "white", "size": "small", "available": true, "quantity": 20},
-            {"color": "white", "size": "medium", "available": true, "quantity": 23},
-            {"color": "white", "size": "large", "available": true, "quantity": 26},
-            {"color": "kraft", "size": "small", "available": true, "quantity": 41},
-            {"color": "kraft", "size": "medium", "available": true, "quantity": 44},
-            {"color": "kraft", "size": "large", "available": true, "quantity": 16},
-            {"color": "black", "size": "small", "available": true, "quantity": 31},
-            {"color": "black", "size": "medium", "available": true, "quantity": 34},
-            {"color": "black", "size": "large", "available": true, "quantity": 37}
-          ],
-          "tags": ["túi giấy", "packaging", "bao bì", "thương hiệu"],
-          "image": "images/products/p902.png",
-          "images": [
-            "images/products/p902.png",
-            "images/products/p902_mockup.png"
-          ],
-          "inStock": true,
-          "isActive": true,
-          "popular": true,
-          "allowMarketplace": true,
-          "allowedFileTypes": ["jpg", "png", "webp"],
-          "maxFileSizeMB": 5,
-          "printArea": {"x": 60, "y": 80, "width": 280, "height": 340},
-          "canvasWidth": 400,
-          "canvasHeight": 500
-        },
-        {
-          "productId": "p06003",
           "cateId": "CAT-06",
           "name": "Nhãn Dán Sản Phẩm",
           "category": "packaging",
@@ -774,56 +707,20 @@
           "printArea": {"x": 20, "y": 20, "width": 260, "height": 160},
           "canvasWidth": 300,
           "canvasHeight": 200
-        },
+        }
         {
-          "productId": "p06004",
-          "cateId": "CAT-06",
-          "name": "Mác Sản Phẩm (Hangtag)",
-          "category": "packaging",
-          "subcategory": "hangtag",
-          "description": "Mác treo sản phẩm giấy mỹ thuật, bế hình theo yêu cầu, đục lỗ luồn dây.",
-          "price": 2000,
-          "colors": ["white", "kraft", "black"],
-          "sizes": ["4x6cm", "5x8cm"],
-          "variants": [
-            {"color": "white", "size": "4x6cm", "available": true, "quantity": 20},
-            {"color": "white", "size": "5x8cm", "available": true, "quantity": 23},
-            {"color": "kraft", "size": "4x6cm", "available": true, "quantity": 26},
-            {"color": "kraft", "size": "5x8cm", "available": true, "quantity": 41},
-            {"color": "black", "size": "4x6cm", "available": true, "quantity": 44},
-            {"color": "black", "size": "5x8cm", "available": true, "quantity": 16}
-          ],
-          "tags": ["mác sản phẩm", "hangtag", "thời trang", "packaging"],
-          "image": "images/products/p905.png",
-          "images": [
-            "images/products/p905.png",
-            "images/products/p905_mockup.png"
-          ],
-          "inStock": true,
-          "isActive": true,
-          "popular": false,
-          "allowMarketplace": true,
-          "allowedFileTypes": ["jpg", "png", "webp"],
-          "maxFileSizeMB": 5,
-          "printArea": {"x": 20, "y": 20, "width": 160, "height": 260},
-          "canvasWidth": 200,
-          "canvasHeight": 300
-        },
-        {
-          "productId": "p06005",
+          "productId": "p06003",
           "cateId": "CAT-06",
           "name": "Tem Niêm Phong",
           "category": "packaging",
           "subcategory": "seal",
           "description": "Tem niêm phong decal vỡ hoặc decal thường, in logo và chống bóc tách.",
           "price": 7000,
-          "colors": ["white", "transparent"],
+          "colors": ["white"],
           "sizes": ["2x8cm", "3x10cm"],
           "variants": [
             {"color": "white", "size": "2x8cm", "available": true, "quantity": 90},
-            {"color": "white", "size": "3x10cm", "available": true, "quantity": 72},
-            {"color": "transparent", "size": "2x8cm", "available": true, "quantity": 84},
-            {"color": "transparent", "size": "3x10cm", "available": true, "quantity": 65}
+            {"color": "white", "size": "3x10cm", "available": true, "quantity": 72}
           ],
           "tags": ["tem niêm phong", "seal", "packaging", "logo"],
           "image": "images/products/p903.png",
@@ -842,7 +739,7 @@
           "canvasHeight": 150
         },
         {
-          "productId": "p06006",
+          "productId": "p06004",
           "cateId": "CAT-06",
           "name": "Túi Quà Tặng Cao Cấp",
           "category": "packaging",
@@ -916,36 +813,6 @@
         {
           "productId": "p07002",
           "cateId": "CAT-07",
-          "name": "Catalogue Giới Thiệu Sản Phẩm",
-          "category": "office",
-          "subcategory": "catalogue",
-          "description": "Catalogue nhiều trang, đóng ghim hoặc keo gáy, in offset chất lượng cao.",
-          "price": 45000,
-          "colors": ["white"],
-          "sizes": ["A4", "A5"],
-          "variants": [
-            {"color": "white", "size": "A4", "available": true, "quantity": 20},
-            {"color": "white", "size": "A5", "available": true, "quantity": 23}
-          ],
-          "tags": ["catalogue", "brochure", "văn phòng", "office"],
-          "image": "images/products/p913.png",
-          "images": [
-            "images/products/p913.png",
-            "images/products/p913_mockup.png"
-          ],
-          "inStock": true,
-          "isActive": true,
-          "popular": false,
-          "allowMarketplace": true,
-          "allowedFileTypes": ["jpg", "png", "webp"],
-          "maxFileSizeMB": 5,
-          "printArea": {"x": 30, "y": 30, "width": 360, "height": 500},
-          "canvasWidth": 420,
-          "canvasHeight": 560
-        },
-        {
-          "productId": "p07003",
-          "cateId": "CAT-07",
           "name": "Thiệp Mời Sự Kiện",
           "category": "office",
           "subcategory": "invitation",
@@ -978,7 +845,7 @@
           "canvasHeight": 300
         },
         {
-          "productId": "p07004",
+          "productId": "p07003",
           "cateId": "CAT-07",
           "name": "Thẻ Nhựa Nhân Viên",
           "category": "office",
@@ -1007,7 +874,7 @@
           "canvasHeight": 220
         },
         {
-          "productId": "p07005",
+          "productId": "p07004",
           "cateId": "CAT-07",
           "name": "Sổ Tay Doanh Nghiệp",
           "category": "office",
@@ -1035,35 +902,6 @@
           "printArea": {"x": 25, "y": 25, "width": 330, "height": 460},
           "canvasWidth": 380,
           "canvasHeight": 520
-        },
-        {
-          "productId": "p07006",
-          "cateId": "CAT-07",
-          "name": "Lịch Bàn 12 Tháng",
-          "category": "office",
-          "subcategory": "deskcalendar",
-          "description": "Lịch bàn in 12 tháng, đế carton cứng, phù hợp quà tặng doanh nghiệp dịp cuối năm.",
-          "price": 22000,
-          "colors": ["white"],
-          "sizes": ["15x20cm"],
-          "variants": [
-            {"color": "white", "size": "15x20cm", "available": true, "quantity": 54}
-          ],
-          "tags": ["lịch bàn", "calendar", "doanh nghiệp", "office"],
-          "image": "images/products/p914.png",
-          "images": [
-            "images/products/p914.png",
-            "images/products/p914_mockup.png"
-          ],
-          "inStock": true,
-          "isActive": true,
-          "popular": false,
-          "allowMarketplace": true,
-          "allowedFileTypes": ["jpg", "png", "webp"],
-          "maxFileSizeMB": 5,
-          "printArea": {"x": 20, "y": 20, "width": 260, "height": 180},
-          "canvasWidth": 320,
-          "canvasHeight": 220
         }
       ]
     }

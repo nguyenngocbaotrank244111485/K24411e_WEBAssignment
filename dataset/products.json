@@ -139,8 +139,8 @@
           "tags": ["sweater", "oversize", "nỉ", "graphic"],
           "image": "images/products/White Sweater Mockup front.png",
           "images": [
-            "images/products/p004.png",
-            "images/products/p004_mockup.png"
+            "https://unsplash.com/photos/woman-in-blue-sweater-covering-her-face-with-her-hand-mcdao5RP4hI",
+            "https://unsplash.com/photos/a-young-man-poses-in-a-cozy-sweater-BmJ5I9NB2Z0"
           ],
           "inStock": true,
           "isActive": true,
@@ -177,8 +177,8 @@
           "tags": ["postcard", "thiệp", "quà tặng", "in ấn", "stationery"],
           "image": "images/products/Postcard.png",
           "images": [
-            "images/products/p002.png",
-            "images/products/p002_mockup.png"
+            "https://unsplash.com/photos/white-and-brown-house-photos-U_DJOoSDhNo",
+            "https://unsplash.com/photos/postcards-from-vietnam-are-on-display-AvlW63zC_Zs"
           ],
           "inStock": true,
           "isActive": true,
@@ -209,8 +209,8 @@
           "tags": ["sổ tay", "notebook", "in logo", "quà tặng"],
           "image": "images/products/SoTayBiaCung.png",
           "images": [
-            "images/products/p103.png",
-            "images/products/p103_mockup.png"
+            "https://unsplash.com/photos/brown-and-white-book-on-white-paper-sx0VVRZpj6s",
+            "https://unsplash.com/photos/flat-lay-photography-of-string-lights-beside-notebooks-OgfL8m0gv98"
           ],
           "inStock": true,
           "isActive": true,
@@ -239,8 +239,8 @@
           "tags": ["bookmark", "đánh dấu", "quà tặng", "stationery"],
           "image": "images/products/Bookmark.png",
           "images": [
-            "images/products/p104.png",
-            "images/products/p104_mockup.png"
+            "https://unsplash.com/photos/four-multicolored-ornaments-bYy9hndOx0k",
+            "https://unsplash.com/photos/a-bookmark-featuring-a-wave-inspired-design-vvF8SOIvPbo"
           ],
           "inStock": true,
           "isActive": true,
@@ -278,8 +278,8 @@
           "tags": ["gối", "pillow", "in hình", "homeware", "quà tặng", "decor"],
           "image": "images/products/White Square Pillow Mockup.png",
           "images": [
-            "images/products/p008.png",
-           "images/products/p008_mockup.png"],
+           "https://bizweb.dktcdn.net/thumb/1024x1024/100/320/888/products/vo-goi-om-elegant-h130.jpg",
+           "https://down-vn.img.susercontent.com/file/vn-11134207-81ztc-mkc8brq1txj7de"],
           "inStock": true,
           "isActive": true,
           "popular": false,
@@ -306,8 +306,8 @@
           "tags": ["vỏ gối", "pillowcase", "in hình", "homeware", "phòng ngủ"],
           "image": "images/products/White Pillowcase Mockup.png",
           "images": [
-            "images/products/p014.png",
-            "images/products/p014_mockup.png"
+            "https://unsplash.com/photos/three-green-orange-and-white-throw-pillows-on-sofa-40NvXW1VPyQ",
+            "https://unsplash.com/photos/white-and-black-i-love-you-throw-pillow-uzKhxFX-Quo"
           ],
           "inStock": false,
           "isActive": true,
@@ -335,8 +335,8 @@
           "tags": ["ly sứ", "mug", "in hình", "quà tặng"],
           "image": "images/products/White Ceramic Mug Mockup.png",
           "images": [
-            "images/products/p203.png",
-            "images/products/p203_mockup.png"
+            "https://unsplash.com/photos/a-hand-holding-a-coffee-mug-in-front-of-a-hedge-pqJdx3r_m5E",
+            "https://unsplash.com/photos/a-coffee-cup-sitting-on-top-of-a-stone-wall-DurAk6t-DCE"
           ],
           "inStock": true,
           "isActive": true,
@@ -364,8 +364,8 @@
           "tags": ["lót ly", "coaster", "gỗ", "decor"],
           "image": "images/products/Wooden Coaster Mockup.png",
           "images": [
-            "images/products/p204.png",
-            "images/products/p204_mockup.png"
+            "https://unsplash.com/photos/a-couple-of-glasses-of-beer-sitting-on-top-of-a-table-1upRw-fD8pk",
+            "https://unsplash.com/photos/a-wooden-box-on-a-counter-2XMFw4R5rD8"
           ],
           "inStock": true,
           "isActive": true,
@@ -403,8 +403,8 @@
           "tags": ["tote bag", "túi vải", "canvas", "eco", "thời trang"],
           "image": "images/products/White Tote Bag Mockup.png",
           "images": [
-            "images/products/p005.png",
-            "images/products/p005_mockup.png"
+            "https://unsplash.com/photos/a-bag-hanging-on-the-side-of-a-red-car-RieFEGFoeSM",
+            "https://unsplash.com/photos/woman-holding-a-tote-bag-with-wedding-illustration-BcTrqfKro8Q"
           ],
           "inStock": true,
           "isActive": true,
@@ -433,8 +433,8 @@
           "tags": ["standee", "mica", "để bàn", "decor", "in UV", "merchandise"],
           "image": "images/products/Blank Table Standee Mockup.png",
           "images": [
-            "images/products/p007.png",
-            "images/products/p007_mockup.png"
+            "https://unsplash.com/photos/a-sign-that-says-order-pay-here-on-a-glass-table-Muq1Qj-dCPE",
+            "https://unsplash.com/photos/calendar-shows-april-2026-on-a-clear-stand-KvGDi6Fxue"
           ],
           "inStock": true,
           "isActive": true,
@@ -463,8 +463,8 @@
           "tags": ["móc khóa", "mica", "quà tặng", "branding"],
           "image": "images/products/Blank Keychain Mockup.png",
           "images": [
-            "images/products/p303.png",
-            "images/products/p303_mockup.png"
+            "https://unsplash.com/photos/a-close-up-of-a-couple-of-key-chains-X6P42vrC-v4",
+            "https://unsplash.com/photos/a-couple-of-key-chains-sitting-on-top-of-a-blue-and-yellow-ribbon-kSKglyFpm3k"
           ],
           "inStock": true,
           "isActive": true,
@@ -501,8 +501,8 @@
           "tags": ["poster", "tờ rơi", "quảng cáo", "in offset"],
           "image": "images/products/Poster or ToRoi.png",
           "images": [
-            "images/products/p401.png",
-            "images/products/p401_mockup.png"
+            "https://nhainphat.com/wp-content/uploads/2023/02/to-roi-08.png",
+            "https://inbacha.com/wp-content/uploads/2021/05/To-roi-1.jpg"
           ],
           "inStock": true,
           "isActive": true,
@@ -531,8 +531,8 @@
           "tags": ["gift voucher", "thẻ quà tặng", "quảng cáo"],
           "image": "images/products/Gift Voucher.png",
           "images": [
-            "images/products/p402.png",
-            "images/products/p402_mockup.png"
+            "https://inanthangloi.com/wp-content/uploads/2024/08/da52169b4fa9ad81d33d58efb16833a7.jpg",
+            "https://inbaoviet.com/wp-content/uploads/2022/07/salon-and-spa-gift-voucher-template-illustration-free-vector-1536x1536.webp"
           ],
           "inStock": true,
           "isActive": true,
@@ -561,8 +561,8 @@
           "tags": ["banner", "quảng cáo", "sự kiện", "promo"],
           "image": "images/products/Roll up Banner Mockup.png",
           "images": [
-            "images/products/p403.png",
-            "images/products/p403_mockup.png"
+            "https://vprintshop.eu/551-large_default/textile-advertising-banner.jpg",
+            "https://cdn.bannerbuzz.com.au/media/catalog/product/a/1/a101_bbrdpf02_1_uk.jpg"
           ],
           "inStock": true,
           "isActive": true,
@@ -591,8 +591,8 @@
           "tags": ["standee", "quảng cáo", "event", "display"],
           "image": "images/products/X-Standee Mockup.png",
           "images": [
-            "images/products/p404.png",
-            "images/products/p404_mockup.png"
+            "https://thegioiinan.com/images/faq/The_gioi_in_an_20230221165905457230221_standee_1.png",
+            "https://thegioiinan.com/images/faq/The_gioi_in_an_20230221165906457230221_standee_2.png"
           ],
           "inStock": true,
           "isActive": true,
@@ -633,8 +633,8 @@
           "tags": ["hộp giấy", "packaging", "bao bì", "in offset"],
           "image": "images/products/White Cardboard Box Mockup.png",
           "images": [
-            "images/products/p901.png",
-            "images/products/p901_mockup.png"
+            "https://unsplash.com/photos/black-leather-flip-case-on-white-surface-GM-kX1FzULw",
+            "https://unsplash.com/photos/brown-and-white-cardboard-box-g2oHJrqcJlQ"
           ],
           "inStock": true,
           "isActive": true,
@@ -665,8 +665,8 @@
           "tags": ["nhãn dán", "label", "decal", "packaging"],
           "image": "images/products/RoundSquare Label Mockup.png",
           "images": [
-            "images/products/p904.png",
-            "images/products/p904_mockup.png"
+            "https://unsplash.com/photos/a-glass-jar-with-a-green-lid-XlCVWeYS82s",
+            "https://unsplash.com/photos/two-red-strawberry-soda-cans-on-pink-background-iTcjuLJoWnM"
           ],
           "inStock": true,
           "isActive": true,
@@ -695,8 +695,8 @@
           "tags": ["tem niêm phong", "seal", "packaging", "logo"],
           "image": "images/products/Seal Sticker Mockup.png",
           "images": [
-            "images/products/p903.png",
-            "images/products/p903_mockup.png"
+            "https://inhopruou.com/wp-content/uploads/2024/08/in-tem-dan-thung-carton-4.jpg",
+            "https://inhopruou.com/wp-content/uploads/2024/08/in-tem-dan-thung-carton-1.jpg"
           ],
           "inStock": true,
           "isActive": true,
@@ -729,8 +729,8 @@
           "tags": ["túi quà", "gift bag", "bao bì", "cao cấp"],
           "image": "images/products/White Paper Gift Bag Mockup.png",
           "images": [
-            "images/products/p906.png",
-            "images/products/p906_mockup.png"
+            "https://unsplash.com/photos/two-shopping-bags-with-logos-on-a-light-background-KqOeBSbC1Ns",
+            "https://unsplash.com/photos/a-paper-bag-with-a-candle-inside-of-it-8Ve8bu02pyE"
           ],
           "inStock": true,
           "isActive": true,
@@ -767,8 +767,8 @@
           "tags": ["danh thiếp", "business card", "văn phòng", "office"],
           "image": "images/products/Business Card Mockup.png",
           "images": [
-            "images/products/p911.png",
-            "images/products/p911_mockup.png"
+            "https://unsplash.com/photos/a-pair-of-business-cards-sitting-on-top-of-a-marble-counter-6nEQKmu0tFo",
+            "https://unsplash.com/photos/a-close-up-of-a-business-card-on-a-table-t1iHPPrRJcw"
           ],
           "inStock": true,
           "isActive": true,
@@ -801,8 +801,8 @@
           "tags": ["thiệp mời", "invitation", "sự kiện", "office"],
           "image": "images/products/Invitation Card Mockup.png",
           "images": [
-            "images/products/p915.png",
-            "images/products/p915_mockup.png"
+            "https://indongloi.com/wp-content/uploads/2025/11/Cach-viet-thu-moi-1.jpg",
+            "https://thegioiinan.com/hinhanh/sanpham/inan_133/tin_660/The_gioi_in_an_tin_imagebanner_20240325101415176.jpg"
           ],
           "inStock": true,
           "isActive": true,
@@ -830,8 +830,8 @@
           "tags": ["thẻ nhựa", "plastic card", "văn phòng", "office"],
           "image": "images/products/ID Card Mockup.png",
           "images": [
-            "images/products/p917.png",
-            "images/products/p917_mockup.png"
+            "https://kprint.vn/wp-content/uploads/2019/07/in-th%E1%BA%BB-%C4%91eo-nh%C3%A2n-vi%C3%AAn-1.jpg",
+            "https://vietadv.vn/wp-content/uploads/2021/08/in-the-nhan-vien-tai-ho-chi-minh.jpg"
           ],
           "inStock": true,
           "isActive": true,
@@ -860,8 +860,8 @@
           "tags": ["sổ tay", "doanh nghiệp", "office", "quà tặng"],
           "image": "images/products/Leather Notebook Mockup.png",
           "images": [
-            "images/products/p912.png",
-            "images/products/p912_mockup.png"
+            "https://ingiodong.com/wp-content/uploads/2024/10/so-tay-lo-xo-A5-Yoolife.jpg",
+            "https://inminhkhoi.com.vn/wp-content/uploads/2024/02/So-lo-xo-bia-cung-A5-ivt.jpg"
           ],
           "inStock": true,
           "isActive": true,

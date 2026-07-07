@@ -64,7 +64,7 @@
             {"color": "navy", "size": "XL", "available": true, "quantity": 37}
           ],
           "tags": ["hoodie", "oversize", "nỉ", "streetwear"],
-          "image": "images/products/hoodie_oversize.png",
+          "image": "images/products/White Hoodie Mockup front.png",
           "images": [
             "https://unsplash.com/photos/white-zip-up-jacket-hanging-on-brown-wooden-clothes-hanger-kJXGTOY1wLQ",
             "https://unsplash.com/photos/a-man-in-a-white-hoodie-is-holding-a-camera-NezSr__TVFQ"],
@@ -100,7 +100,7 @@
             {"color": "navy", "size": "XL", "available": true, "quantity": 12}
           ],
           "tags": ["áo polo", "unisex", "cotton", "logo"],
-          "image": "images/products/p003.png",
+          "image": "images/products/White Polo Shirt Mockup front.png",
           "images": [
             "https://unsplash.com/photos/man-in-black-polo-shirt-CQgxaBhuzhA",
             "https://unsplash.com/photos/woman-in-black-polo-shirt-smiling-lEUuK3MNvAY"
@@ -137,7 +137,7 @@
             {"color": "navy", "size": "XL", "available": true, "quantity": 5}
           ],
           "tags": ["sweater", "oversize", "nỉ", "graphic"],
-          "image": "images/products/p004.png",
+          "image": "images/products/White Sweater Mockup front.png",
           "images": [
             "images/products/p004.png",
             "images/products/p004_mockup.png"
@@ -158,7 +158,7 @@
       "cateId": "CAT-02",
       "name": "Văn phòng phẩm",
       "slug": "stationery",
-      "productCount": 4,
+      "productCount": 3,
       "products": [
         {
           "productId": "p02001",
@@ -175,7 +175,7 @@
             {"color": "white", "size": "A5", "available": true, "quantity": 23}
           ],
           "tags": ["postcard", "thiệp", "quà tặng", "in ấn", "stationery"],
-          "image": "images/products/p002.png",
+          "image": "images/products/Postcard.png",
           "images": [
             "images/products/p002.png",
             "images/products/p002_mockup.png"
@@ -193,36 +193,6 @@
         {
           "productId": "p02002",
           "cateId": "CAT-02",
-          "name": "Sticker Sheet Custom",
-          "category": "stationery",
-          "subcategory": "sticker",
-          "description": "Tờ sticker A5 in offset hoặc decal UV, cắt theo viền, chống nước.",
-          "price": 10000,
-          "colors": ["white", "transparent"],
-          "sizes": ["A5"],
-          "variants": [
-            {"color": "white", "size": "A5", "available": true, "quantity": 20},
-            {"color": "transparent", "size": "A5", "available": true, "quantity": 23}
-          ],
-          "tags": ["sticker", "decal", "in ấn", "chống nước", "trang trí"],
-          "image": "images/products/p011.png",
-          "images": [
-            "images/products/p011.png",
-            "images/products/p011_mockup.png"
-          ],
-          "inStock": true,
-          "isActive": true,
-          "popular": false,
-          "allowMarketplace": true,
-          "allowedFileTypes": ["jpg", "png", "webp"],
-          "maxFileSizeMB": 5,
-          "printArea": {"x": 15, "y": 15, "width": 570, "height": 800},
-          "canvasWidth": 600,
-          "canvasHeight": 830
-        },
-        {
-          "productId": "p02003",
-          "cateId": "CAT-02",
           "name": "Sổ Tay Bìa Cứng",
           "category": "stationery",
           "subcategory": "notebook",
@@ -237,7 +207,7 @@
             {"color": "kraft", "size": "A6", "available": true, "quantity": 22}
           ],
           "tags": ["sổ tay", "notebook", "in logo", "quà tặng"],
-          "image": "images/products/p103.png",
+          "image": "images/products/SoTayBiaCung.png",
           "images": [
             "images/products/p103.png",
             "images/products/p103_mockup.png"
@@ -253,7 +223,7 @@
           "canvasHeight": 300
         },
         {
-          "productId": "p02004",
+          "productId": "p02003",
           "cateId": "CAT-02",
           "name": "Bookmark Thiết Kế Riêng",
           "category": "stationery",
@@ -267,7 +237,7 @@
             {"color": "gold", "size": "4x14cm", "available": true, "quantity": 30}
           ],
           "tags": ["bookmark", "đánh dấu", "quà tặng", "stationery"],
-          "image": "images/products/p104.png",
+          "image": "images/products/Bookmark.png",
           "images": [
             "images/products/p104.png",
             "images/products/p104_mockup.png"
@@ -306,7 +276,7 @@
             {"color": "white", "size": "45x45cm", "available": true, "quantity": 26}
           ],
           "tags": ["gối", "pillow", "in hình", "homeware", "quà tặng", "decor"],
-          "image": "images/products/p008.png",
+          "image": "images/products/White Square Pillow Mockup.png",
           "images": [
             "images/products/p008.png",
            "images/products/p008_mockup.png"],
@@ -334,7 +304,7 @@
             {"color": "white", "size": "50x70cm", "available": false, "quantity": 0}
           ],
           "tags": ["vỏ gối", "pillowcase", "in hình", "homeware", "phòng ngủ"],
-          "image": "images/products/p014.png",
+          "image": "images/products/White Pillowcase Mockup.png",
           "images": [
             "images/products/p014.png",
             "images/products/p014_mockup.png"
@@ -363,7 +333,7 @@
             {"color": "white", "size": "11oz", "available": true, "quantity": 42}
           ],
           "tags": ["ly sứ", "mug", "in hình", "quà tặng"],
-          "image": "images/products/p203.png",
+          "image": "images/products/White Ceramic Mug Mockup.png",
           "images": [
             "images/products/p203.png",
             "images/products/p203_mockup.png"
@@ -392,7 +362,7 @@
             {"color": "wood", "size": "9x9cm", "available": true, "quantity": 75}
           ],
           "tags": ["lót ly", "coaster", "gỗ", "decor"],
-          "image": "images/products/p204.png",
+          "image": "images/products/Wooden Coaster Mockup.png",
           "images": [
             "images/products/p204.png",
             "images/products/p204_mockup.png"
@@ -413,7 +383,7 @@
       "cateId": "CAT-04",
       "name": "Phụ kiện",
       "slug": "accessories",
-      "productCount": 4,
+      "productCount": 3,
       "products": [
         {
           "productId": "p04001",
@@ -431,7 +401,7 @@
             {"color": "navy", "size": "One Size", "available": true, "quantity": 26}
           ],
           "tags": ["tote bag", "túi vải", "canvas", "eco", "thời trang"],
-          "image": "images/products/p005.png",
+          "image": "images/products/White Tote Bag Mockup.png",
           "images": [
             "images/products/p005.png",
             "images/products/p005_mockup.png"
@@ -461,7 +431,7 @@
             {"color": "transparent", "size": "A4", "available": true, "quantity": 23}
           ],
           "tags": ["standee", "mica", "để bàn", "decor", "in UV", "merchandise"],
-          "image": "images/products/p007.png",
+          "image": "images/products/Blank Table Standee Mockup.png",
           "images": [
             "images/products/p007.png",
             "images/products/p007_mockup.png"
@@ -491,7 +461,7 @@
             {"color": "transparent", "size": "6cm", "available": true, "quantity": 44}
           ],
           "tags": ["móc khóa", "mica", "quà tặng", "branding"],
-          "image": "images/products/p303.png",
+          "image": "images/products/Blank Keychain Mockup.png",
           "images": [
             "images/products/p303.png",
             "images/products/p303_mockup.png"
@@ -529,7 +499,7 @@
             {"color": "white", "size": "A4", "available": true, "quantity": 23}
           ],
           "tags": ["poster", "tờ rơi", "quảng cáo", "in offset"],
-          "image": "images/products/p401.png",
+          "image": "images/products/Poster or ToRoi.png",
           "images": [
             "images/products/p401.png",
             "images/products/p401_mockup.png"
@@ -559,7 +529,7 @@
             {"color": "white", "size": "A5", "available": true, "quantity": 23}
           ],
           "tags": ["gift voucher", "thẻ quà tặng", "quảng cáo"],
-          "image": "images/products/p402.png",
+          "image": "images/products/Gift Voucher.png",
           "images": [
             "images/products/p402.png",
             "images/products/p402_mockup.png"
@@ -589,7 +559,7 @@
             {"color": "white", "size": "80x180cm", "available": true, "quantity": 14}
           ],
           "tags": ["banner", "quảng cáo", "sự kiện", "promo"],
-          "image": "images/products/p403.png",
+          "image": "images/products/Roll up Banner Mockup.png",
           "images": [
             "images/products/p403.png",
             "images/products/p403_mockup.png"
@@ -619,7 +589,7 @@
             {"color": "white", "size": "A0", "available": true, "quantity": 7}
           ],
           "tags": ["standee", "quảng cáo", "event", "display"],
-          "image": "images/products/p404.png",
+          "image": "images/products/X-Standee Mockup.png",
           "images": [
             "images/products/p404.png",
             "images/products/p404_mockup.png"
@@ -640,7 +610,7 @@
       "cateId": "CAT-06",
       "name": "Bao bì & Đóng gói",
       "slug": "packaging",
-      "productCount": 6,
+      "productCount": 4,
       "products": [
         {
           "productId": "p06001",
@@ -661,7 +631,7 @@
             {"color": "kraft", "size": "large", "available": true, "quantity": 16}
           ],
           "tags": ["hộp giấy", "packaging", "bao bì", "in offset"],
-          "image": "images/products/p901.png",
+          "image": "images/products/White Cardboard Box Mockup.png",
           "images": [
             "images/products/p901.png",
             "images/products/p901_mockup.png"
@@ -693,7 +663,7 @@
             {"color": "transparent", "size": "5x5cm", "available": true, "quantity": 41}
           ],
           "tags": ["nhãn dán", "label", "decal", "packaging"],
-          "image": "images/products/p904.png",
+          "image": "images/products/RoundSquare Label Mockup.png",
           "images": [
             "images/products/p904.png",
             "images/products/p904_mockup.png"
@@ -723,7 +693,7 @@
             {"color": "white", "size": "3x10cm", "available": true, "quantity": 72}
           ],
           "tags": ["tem niêm phong", "seal", "packaging", "logo"],
-          "image": "images/products/p903.png",
+          "image": "images/products/Seal Sticker Mockup.png",
           "images": [
             "images/products/p903.png",
             "images/products/p903_mockup.png"
@@ -757,7 +727,7 @@
             {"color": "black", "size": "medium", "available": true, "quantity": 19}
           ],
           "tags": ["túi quà", "gift bag", "bao bì", "cao cấp"],
-          "image": "images/products/p906.png",
+          "image": "images/products/White Paper Gift Bag Mockup.png",
           "images": [
             "images/products/p906.png",
             "images/products/p906_mockup.png"
@@ -778,7 +748,7 @@
       "cateId": "CAT-07",
       "name": "Văn phòng",
       "slug": "office",
-      "productCount": 6,
+      "productCount": 4,
       "products": [
         {
           "productId": "p07001",
@@ -795,7 +765,7 @@
             {"color": "black", "size": "9x5.4cm", "available": true, "quantity": 23}
           ],
           "tags": ["danh thiếp", "business card", "văn phòng", "office"],
-          "image": "images/products/p911.png",
+          "image": "images/products/Business Card Mockup.png",
           "images": [
             "images/products/p911.png",
             "images/products/p911_mockup.png"
@@ -829,7 +799,7 @@
             {"color": "black", "size": "A5", "available": true, "quantity": 16}
           ],
           "tags": ["thiệp mời", "invitation", "sự kiện", "office"],
-          "image": "images/products/p915.png",
+          "image": "images/products/Invitation Card Mockup.png",
           "images": [
             "images/products/p915.png",
             "images/products/p915_mockup.png"
@@ -858,7 +828,7 @@
             {"color": "white", "size": "8.5x5.4cm", "available": true, "quantity": 20}
           ],
           "tags": ["thẻ nhựa", "plastic card", "văn phòng", "office"],
-          "image": "images/products/p917.png",
+          "image": "images/products/ID Card Mockup.png",
           "images": [
             "images/products/p917.png",
             "images/products/p917_mockup.png"
@@ -888,7 +858,7 @@
             {"color": "navy", "size": "A5", "available": true, "quantity": 18}
           ],
           "tags": ["sổ tay", "doanh nghiệp", "office", "quà tặng"],
-          "image": "images/products/p912.png",
+          "image": "images/products/Leather Notebook Mockup.png",
           "images": [
             "images/products/p912.png",
             "images/products/p912_mockup.png"

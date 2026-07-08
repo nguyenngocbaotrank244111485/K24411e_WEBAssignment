@@ -41,12 +41,18 @@ document.addEventListener("DOMContentLoaded", async () => {
   renderSimilarProducts(product, products);
 });
 
-/* ---------- LOAD DATA ---------- */
+/* ---------- LOAD DATA (fetch + flatten categories + cache) ---------- */
 async function loadAllProducts() {
   try {
     const res = await fetch("../dataset/products.json");
     const data = await res.json();
-    const active = data.filter(p => p.isActive !== false);
+
+    const flat = (data.categories || []).flatMap(cat => cat.products || []);
+
+    const active = flat
+      .filter(p => p.isActive !== false)
+      .map(p => ({ ...p, id: p.productId })); // chuẩn hóa productId -> id
+
     localStorage.setItem("printify_products_cache", JSON.stringify(active));
     return active;
   } catch (err) {
@@ -81,8 +87,9 @@ function renderDetail(p) {
   document.getElementById("breadcrumb-name").textContent = p.name;
   document.title = `PrintiFy — ${p.name}`;
 
-  // Gallery
-  const images = (p.images && p.images.length ? p.images : [p.image]);
+ // Gallery — chỉ dùng p.image (local, đáng tin cậy).
+  // Bỏ p.images vì hiện là link trang Unsplash (không phải file ảnh trực tiếp) → luôn lỗi.
+  const images = [p.image];
   document.getElementById("gallery-main-img").src = `../${images[0]}`;
   document.getElementById("gallery-main-img").onerror = function () {
     this.src = "../images/placeholder.png";
@@ -92,11 +99,17 @@ function renderDetail(p) {
   }
 
   const thumbsWrap = document.getElementById("gallery-thumbs");
-  thumbsWrap.innerHTML = images.map((img, i) => `
-    <div class="gallery-thumb ${i === 0 ? "active" : ""}" onclick="switchGalleryImage('${img}', this)">
-      <img src="../${img}" onerror="this.src='../images/placeholder.png'">
-    </div>
-  `).join("");
+  // Chỉ 1 ảnh -> ẩn khu vực thumbnail luôn cho gọn (thay vì hiện 1 thumb trùng ảnh chính)
+  if (images.length <= 1) {
+    thumbsWrap.style.display = "none";
+  } else {
+    thumbsWrap.style.display = "flex";
+    thumbsWrap.innerHTML = images.map((img, i) => `
+      <div class="gallery-thumb ${i === 0 ? "active" : ""}" onclick="switchGalleryImage('${img}', this)">
+        <img src="../${img}" onerror="this.src='../images/placeholder.png'">
+      </div>
+    `).join("");
+  }
 
   // Info
   document.getElementById("detail-cat-badge").textContent = CATEGORY_LABELS[p.category] || p.category;

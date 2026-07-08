@@ -312,3 +312,65 @@ body.products-page{
     gap: 10px;
   }
 }
+/* ===== HOVER OVERLAY: thêm giỏ hàng / bắt đầu thiết kế ===== */
+.product-img-wrap{
+  position: relative;
+  overflow: hidden; /* để overlay không tràn ra ngoài border-radius */
+}
+
+.hover-overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 8, 20, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+
+.product-card:hover .hover-overlay{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hover-btn{
+  width: 80%;
+  max-width: 200px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform .12s ease, filter .15s ease;
+}
+.hover-btn:hover{
+  transform: translateY(-1px);
+}
+.hover-btn:disabled{
+  opacity: .5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.hover-btn-cart{
+  background: linear-gradient(180deg, #f06fc7 0%, #dc49a9 100%);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(220, 73, 169, .3);
+}
+
+.hover-btn-design{
+  background: #fff;
+  color: #5b4250;
+}
+
+/* Trên mobile/touch không có hover thật, luôn ẩn overlay để không che ảnh khi chạm */
+@media (hover: none){
+  .hover-overlay{
+    display: none;
+  }
+}

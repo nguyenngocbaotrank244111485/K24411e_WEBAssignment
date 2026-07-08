@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrintiFy — Đơn hàng của tôi</title>
+<link rel="stylesheet" type="text/css" href="../css/maincss.css">
+<link rel="stylesheet" type="text/css" href="../css/orders.css">
+</head>
+<body class="orders-page">
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo-badge">
+    <span class="logo-black">Printi</span><span class="logo-purple">Fy</span>
+  </div>
+
+  <div class="nav-links">
+    <a class="nav-link" href="index.html">Trang chủ</a>
+    <a class="nav-link" href="products.html">Sản phẩm</a>
+    <a class="nav-link" href="marketplace.html">Marketplace</a>
+    <a class="nav-link active" href="orders.html">Đơn hàng</a>
+  </div>
+
+  <div class="nav-actions">
+    <a class="nav-account" href="profile.html" title="Tài khoản">
+      <span class="nav-user-icon">👤</span>
+      <span>Tài khoản</span>
+    </a>
+    <a class="nav-cart" href="cart.html" title="Giỏ hàng">
+      🛒
+      <span class="cart-badge" id="cart-badge" style="display:none">0</span>
+    </a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <h1>📦 Đơn hàng của tôi</h1>
+  <p>Theo dõi trạng thái và lịch sử mua hàng của bạn</p>
+</div>
+
+<div class="main" id="orders-main">
+
+  <!-- ══════════ CHƯA ĐĂNG NHẬP ══════════ -->
+  <div class="guest-block" id="guest-block" style="display:none">
+    <div class="guest-icon">🔒</div>
+    <h2>Bạn chưa đăng nhập</h2>
+    <p>Vui lòng đăng nhập để xem đơn hàng của bạn.</p>
+    <div class="guest-actions">
+      <a class="btn-secondary" href="login.html">Đăng nhập</a>
+      <a class="btn-primary" href="register.html">Đăng ký</a>
+    </div>
+  </div>
+
+  <!-- ══════════ ĐÃ ĐĂNG NHẬP ══════════ -->
+  <div id="orders-content" style="display:none">
+
+    <!-- FILTER TABS THEO TRẠNG THÁI -->
+    <div class="status-tabs" id="status-tabs">
+      <button class="status-tab active" data-status="all" onclick="filterByStatus('all')">Tất cả</button>
+      <button class="status-tab" data-status="Chờ xác nhận" onclick="filterByStatus('Chờ xác nhận')">Chờ xác nhận</button>
+      <button class="status-tab" data-status="Đang xử lý" onclick="filterByStatus('Đang xử lý')">Đang xử lý</button>
+      <button class="status-tab" data-status="Đang giao" onclick="filterByStatus('Đang giao')">Đang giao</button>
+      <button class="status-tab" data-status="Hoàn tất" onclick="filterByStatus('Hoàn tất')">Hoàn tất</button>
+      <button class="status-tab" data-status="Đã hủy" onclick="filterByStatus('Đã hủy')">Đã hủy</button>
+    </div>
+
+    <!-- DANH SÁCH ĐƠN HÀNG -->
+    <div class="orders-list" id="orders-list">
+      <!-- render bằng JS -->
+    </div>
+
+    <!-- EMPTY (không có đơn theo bộ lọc / hoàn toàn không có đơn) -->
+    <div class="empty-orders" id="empty-orders" style="display:none">
+      <div class="empty-icon">📦</div>
+      <h2 id="empty-orders-title">Bạn chưa có đơn hàng nào</h2>
+      <p id="empty-orders-desc">Hãy khám phá sản phẩm và bắt đầu mua sắm!</p>
+      <a class="btn-explore" href="products.html">Bắt đầu mua sắm</a>
+    </div>
+  </div>
+
+</div><!-- end main -->
+
+<!-- ══════════ MODAL: CHI TIẾT ĐƠN HÀNG ══════════ -->
+<div class="modal-overlay" id="order-detail-modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>Chi tiết đơn hàng <span id="modal-order-id"></span></h3>
+      <button class="modal-close" onclick="closeOrderDetailModal()">✕</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="modal-status-row">
+        <span class="status-badge" id="modal-status-badge">—</span>
+        <span class="modal-order-date" id="modal-order-date"></span>
+      </div>
+
+      <!-- Timeline -->
+      <div class="order-timeline" id="order-timeline"></div>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-section-title">📦 Sản phẩm</div>
+      <div class="modal-items-list" id="modal-items-list"></div>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-section-title">📍 Thông tin giao hàng</div>
+      <div class="modal-shipping-grid" id="modal-shipping-grid"></div>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-summary-row">
+        <span>Tổng thanh toán</span>
+        <strong id="modal-total">0₫</strong>
+      </div>
+
+      <!-- Action buttons theo trạng thái -->
+      <div class="modal-actions" id="modal-actions"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ MODAL: YÊU CẦU HOÀN HÀNG (NV11) ══════════ -->
+<div class="modal-overlay" id="return-request-modal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>Yêu cầu hoàn hàng</h3>
+      <button class="modal-close" onclick="closeReturnModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-hint">Đơn hàng <strong id="return-order-id"></strong></p>
+
+      <div class="form-group">
+        <label class="form-label">Lý do *</label>
+        <select class="form-select" id="return-reason">
+          <option value="">-- Chọn lý do --</option>
+          <option value="Sản phẩm lỗi">Sản phẩm lỗi</option>
+          <option value="In sai">In sai</option>
+          <option value="Không đúng mô tả">Không đúng mô tả</option>
+          <option value="Lý do khác">Lý do khác</option>
+        </select>
+        <span class="field-error" id="err-return-reason"></span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Mô tả chi tiết * <span class="form-hint-inline">(tối thiểu 20 ký tự)</span></label>
+        <textarea class="form-textarea" id="return-description" placeholder="Mô tả chi tiết vấn đề bạn gặp phải..."></textarea>
+        <span class="field-error" id="err-return-description"></span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Hình ảnh minh chứng * <span class="form-hint-inline">(tối đa 3 ảnh, JPG/PNG)</span></label>
+        <input type="file" id="return-images" accept="image/jpeg,image/png" multiple onchange="handleReturnImages(event)">
+        <div class="return-image-preview" id="return-image-preview"></div>
+        <span class="field-error" id="err-return-images"></span>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-secondary" onclick="closeReturnModal()">Hủy</button>
+        <button class="btn-primary" onclick="submitReturnRequest()">📨 Gửi yêu cầu</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM MODAL: hủy đơn -->
+<div class="confirm-modal-backdrop" id="confirm-modal" style="display:none">
+  <div class="confirm-modal">
+    <h3 id="confirm-title">Hủy đơn hàng</h3>
+    <p id="confirm-desc">Bạn có chắc muốn hủy đơn hàng này?</p>
+    <div class="confirm-modal-actions">
+      <button class="confirm-btn-cancel" onclick="closeConfirmModal()">Không</button>
+      <button class="confirm-btn-ok" id="confirm-btn-ok">Xác nhận hủy</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/storage.js"></script>
+<script src="../js/orders.js"></script>
+</body>
+</html>

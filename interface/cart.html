@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrintiFy — Giỏ hàng</title>
+<link rel="stylesheet" type="text/css" href="../css/maincss.css">
+<link rel="stylesheet" type="text/css" href="../css/cart.css">
+</head>
+<body class="cart-page">
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo-badge">
+    <span class="logo-black">Printi</span><span class="logo-purple">Fy</span>
+  </div>
+
+  <div class="nav-links">
+    <a class="nav-link" href="index.html">Trang chủ</a>
+    <a class="nav-link" href="products.html">Sản phẩm</a>
+    <a class="nav-link" href="marketplace.html">Marketplace</a>
+    <a class="nav-link" href="orders.html">Đơn hàng</a>
+  </div>
+
+  <div class="nav-actions">
+    <a class="nav-account" href="profile.html" title="Tài khoản">
+      <span class="nav-user-icon">👤</span>
+      <span>Tài khoản</span>
+    </a>
+    <a class="nav-cart active" href="cart.html" title="Giỏ hàng">
+      🛒
+      <span class="cart-badge" id="cart-badge" style="display:none">0</span>
+    </a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <h1>🛒 Giỏ hàng của bạn</h1>
+  <p>Kiểm tra lại sản phẩm trước khi tiến hành đặt hàng</p>
+</div>
+
+<div class="main">
+
+  <div class="cart-layout" id="cart-layout">
+
+    <!-- ══════════ DANH SÁCH SẢN PHẨM ══════════ -->
+    <div class="cart-items-col">
+
+      <div class="cart-list-header">
+        <label class="select-all-wrap">
+          <input type="checkbox" id="select-all" onchange="toggleSelectAll(this)">
+          <span>Chọn tất cả</span>
+        </label>
+        <button class="btn-clear-cart" onclick="confirmClearCart()">🗑 Xóa tất cả</button>
+      </div>
+
+      <div id="cart-items-container">
+        <!-- render bằng JS -->
+      </div>
+    </div>
+
+    <!-- ══════════ TÓM TẮT ĐƠN HÀNG ══════════ -->
+    <aside class="cart-summary-col">
+      <div class="summary-card">
+        <div class="summary-title">Tóm tắt đơn hàng</div>
+
+        <div class="summary-row">
+          <span>Tạm tính (<span id="summary-item-count">0</span> sản phẩm)</span>
+          <span id="summary-subtotal">0₫</span>
+        </div>
+        <div class="summary-row">
+          <span>Phí vận chuyển</span>
+          <span id="summary-shipping">0₫</span>
+        </div>
+
+        <!-- Mã giảm giá -->
+        <div class="promo-box">
+          <input type="text" id="promo-input" placeholder="Nhập mã giảm giá">
+          <button class="btn-apply-promo" onclick="applyPromoCode()">Áp dụng</button>
+        </div>
+        <div class="promo-message" id="promo-message"></div>
+
+        <div class="summary-divider"></div>
+
+        <div class="summary-row summary-total">
+          <span>Tổng cộng</span>
+          <span id="summary-total">0₫</span>
+        </div>
+
+        <button class="btn-checkout" id="btn-checkout" onclick="proceedToCheckout()">
+          Tiến hành đặt hàng →
+        </button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ══════════ EMPTY CART STATE ══════════ -->
+  <div class="empty-cart" id="empty-cart" style="display:none">
+    <div class="empty-cart-icon">🛒</div>
+    <h2>Giỏ hàng của bạn đang trống</h2>
+    <p>Hãy khám phá các sản phẩm và bắt đầu thiết kế ngay!</p>
+    <a class="btn-explore" href="products.html">Khám phá sản phẩm</a>
+  </div>
+
+</div><!-- end main -->
+
+<!-- CONFIRM MODAL: xóa sản phẩm / xóa tất cả -->
+<div class="confirm-modal-backdrop" id="confirm-modal" style="display:none">
+  <div class="confirm-modal">
+    <h3 id="confirm-title">Xác nhận xóa</h3>
+    <p id="confirm-desc">Bạn có chắc muốn xóa sản phẩm này khỏi giỏ hàng?</p>
+    <div class="confirm-modal-actions">
+      <button class="confirm-btn-cancel" onclick="closeConfirmModal()">Hủy</button>
+      <button class="confirm-btn-ok" id="confirm-btn-ok">Xóa</button>
+    </div>
+  </div>
+</div>
+
+<script src="../js/storage.js"></script>
+<script src="../js/cart.js"></script>
+</body>
+</html>

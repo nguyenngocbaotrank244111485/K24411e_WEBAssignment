@@ -4,6 +4,7 @@ const OTP_KEY = 'pending_register_otp';
 const OTP_EMAIL_KEY = 'pending_register_email';
 const OTP_EXPIRE_KEY = 'pending_register_expire';
 const OTP_TRY_KEY = 'pending_register_try';
+const OTP_POOL = ['184726', '305918', '642731', '908154', '517390','726184', '918305', '731642', '154908', '390517'];
 
 const $ = (id) => document.getElementById(id);
 
@@ -43,12 +44,12 @@ function genUserId() {
 }
 
 function genOtp() {
-  return String(Math.floor(100000 + Math.random() * 900000));
+  return OTP_POOL[Math.floor(Math.random() * OTP_POOL.length)];
 }
 
 function startOtpFlow(email) {
   const otp = genOtp();
-  const expireAt = Date.now() + 5 * 60 * 1000; // 5 phút
+  const expireAt = Date.now() + 5 * 60 * 1000;
 
   localStorage.setItem(OTP_KEY, otp);
   localStorage.setItem(OTP_EMAIL_KEY, email);
@@ -56,10 +57,18 @@ function startOtpFlow(email) {
   localStorage.setItem(OTP_TRY_KEY, '0');
 
   $('otpBox').classList.remove('hidden');
-  $('otpInfo').textContent = `OTP đã được tạo. Hết hạn sau 5 phút.`;
-  setMessage('OTP đã được gửi đến email của bạn. (Trong bản front-end, OTP được hiển thị ở console)', 'success');
+  $('otpInfo').textContent = `OTP đã được tạo và có hiệu lực trong 5 phút.`;
 
-  // Demo front-end: hiện OTP trong console để test
+  const popup = $('otpPopup');
+  const popupText = $('otpPopupText');
+  const popupClose = $('otpPopupClose');
+
+  popupText.textContent = `Mã OTP của bạn là: ${otp}`;
+  popup.classList.remove('hidden');
+
+  popupClose.onclick = () => popup.classList.add('hidden');
+
+  setMessage(`OTP đã được gửi đến email của bạn.`, 'success');
   console.log('OTP đăng ký:', otp);
 }
 

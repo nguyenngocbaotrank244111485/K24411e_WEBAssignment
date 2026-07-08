@@ -59,7 +59,6 @@ async function sha256Hex(text) {
 function normalize(v) {
   return String(v ?? '').trim().toLowerCase();
 }
-
 async function verifyPassword(customer, inputPassword) {
   const overrides = getOverrides();
   const override = overrides[customer.custId];
@@ -69,12 +68,17 @@ async function verifyPassword(customer, inputPassword) {
     return h === override.custPasswordHash;
   }
 
+  // Demo: ưu tiên plain password nếu có trong JSON
+  if (customer.custPassword) {
+    if (inputPassword === customer.custPassword) return true;
+  }
+
   if (customer.custPasswordHash) {
     const h = await sha256Hex(inputPassword);
     return h === customer.custPasswordHash;
   }
 
-  return inputPassword === customer.custPassword; // fallback demo only
+  return false;
 }
 
 async function loadCustomers() {
@@ -122,7 +126,7 @@ $('loginForm').addEventListener('submit', async (e) => {
   }
 
   showMessage('Đăng nhập thành công. Đang chuyển trang...', 'success');
-  setTimeout(() => { window.location.href = './homepage.html'; }, 700);
+  setTimeout(() => { window.location.href = '../interface/index.html'; }, 700);
 });
 
 $('forgotBtn').addEventListener('click', openModal);

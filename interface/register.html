@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PrintiFy — Register</title>
-  <link rel="stylesheet" href="../css/maincss.css">
+  <link rel="stylesheet" type="text/css" href="../css/maincss.css">
+  <link rel="stylesheet" type="text/css" href="../css/registercss.css">
 </head>
 <body class="auth-page">
   <main class="auth-shell">
@@ -73,9 +74,15 @@
           Đã có tài khoản? <a href="../interface/login.html">Đăng nhập</a>
         </p>
       </form>
+      <div id="otpPopup" class="otp-popup hidden">
+        <div class="otp-popup-card">
+          <h3>Mã OTP đã được tạo</h3>
+          <p id="otpPopupText"></p>
+          <button type="button" id="otpPopupClose" class="btn-primary">Đóng</button>
+        </div>
+      </div>
     </section>
   </main>
-
   <script src="../js/register.js"></script>
 </body>
 </html>

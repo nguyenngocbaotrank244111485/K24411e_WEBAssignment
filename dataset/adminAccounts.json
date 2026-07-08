@@ -1,33 +1,33 @@
 [
     {
-        "adId": "admin_01",
+        "adId": "admin01",
         "adName": "Trân Nguyễn",
-        "adEmail": "trannguyen@printflow.com",
-        "password": "hashed_password_pf01",
+        "adEmail": "trannnbk24411e@st.uel.edu.vn",
+        "password": "konnichiwa",
         "role": "Project Manager",
         "adAvatar": "images/admin/NTran.jpg"
     },
     {
-        "adId": "admin_02",
+        "adId": "admin02",
         "adName": "Phương An",
-        "adEmail": "phuongan@printflow.com",
-        "password": "hashed_password_pf02",
+        "adEmail": "anntpk24411e@st.uel.edu.vn",
+        "password": "goodmorning",
         "role": "System Architect",
         "adAvatar": "images/admin/An.jpg"
     },
     {
-        "adId": "admin_03",
+        "adId": "admin03",
         "adName": "Thảo Châu",
-        "adEmail": "thaochau@printflow.com",
-        "password": "hashed_password_pf03",
+        "adEmail": "chauttk24411e@st.uel.edu.vn",
+        "password": "bonjourr",
         "role": "Content Manager",
         "adAvatar": "images/admin/Chau.jpg"
     },
     {
-        "adId": "admin_04",
+        "adId": "admin04",
         "adName": "Trân Phạm",
-        "adEmail": "tranpham@printflow.com",
-        "password": "hashed_password_pf04",
+        "adEmail": "tranpnbk24411e@st.uel.edu.vn",
+        "password": "helloworld",
         "role": "Order Manager",
         "adAvatar": "images/admin/PTran.jpg"
     }

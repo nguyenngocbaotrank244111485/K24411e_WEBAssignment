@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrintiFy — Admin</title>
+  <link rel="stylesheet" href="../css/maincss.css" />
+  <link rel="stylesheet" href="../css/admincss.css" />
+</head>
+<body class="admin-page">
+  <div id="adminLoginWrap" class="admin-login-wrap">
+    <div class="admin-login-card">
+      <h1 class="admin-login-title">PrintiFy Admin</h1>
+      <form id="adminLoginForm">
+        <label>Email / Username</label>
+        <input id="adminEmail" type="text" placeholder="Nhập email hoặc username">
+
+        <label>Mật khẩu</label>
+        <input id="adminPassword" type="password" placeholder="Nhập mật khẩu">
+
+        <div id="adminLoginMsg" class="message"></div>
+
+        <button type="submit" class="btn-primary">Đăng nhập</button>
+      </form>
+    </div>
+  </div>
+  <div id="adminApp" class="admin-shell hidden">
+    <header class="admin-topbar">
+      <div class="admin-brand">
+        <span class="admin-brand-mark">Printi<span>Fy</span></span>
+        <span class="admin-status-pill">Đang hoạt động</span>
+      </div>
+
+      <div class="admin-topbar-right">
+        <div class="admin-userbox" id="adminUserBox">
+          <div class="admin-avatar" id="adminAvatar">AD</div>
+          <div class="admin-user-meta">
+            <strong id="adminDisplayName">Admin</strong>
+            <span id="adminDisplayRole">Quản trị hệ thống</span>
+          </div>
+        </div>
+
+        <button class="btn-secondary admin-logout-btn" id="btnLogoutAdmin" type="button">Đăng xuất</button>
+      </div>
+    </header>
+
+    <div class="admin-layout">
+      <aside class="admin-sidebar">
+        <div class="sidebar-section-title">TỔNG QUAN</div>
+        <button class="admin-nav active" data-tab="dashboard" type="button">Dashboard</button>
+
+        <div class="sidebar-section-title">QUẢN LÝ</div>
+        <button class="admin-nav" data-tab="products" type="button">Sản phẩm</button>
+        <button class="admin-nav" data-tab="orders" type="button">Đơn hàng</button>
+        <button class="admin-nav" data-tab="returns" type="button">Hoàn hàng</button>
+
+        <div class="sidebar-section-title">PHÂN TÍCH</div>
+        <button class="admin-nav" data-tab="tam" type="button">Khảo sát TAM</button>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-footer-label">Phiên admin</div>
+          <div id="adminSessionInfo" class="sidebar-footer-value">Chưa đăng nhập</div>
+        </div>
+      </aside>
+
+      <main class="admin-main">
+        <!-- DASHBOARD -->
+        <section id="tab-dashboard" class="admin-tab-panel">
+          <div class="page-hero">
+            <div>
+              <h1>Tổng quan Admin Dashboard</h1>
+              <p>Giám sát đơn hàng, doanh thu, sản phẩm bán chạy, hoàn hàng và phản hồi TAM.</p>
+            </div>
+
+            <div class="page-hero-actions">
+              <select id="timeRangeFilter" class="form-input compact">
+                <option value="today">Hôm nay</option>
+                <option value="7d" selected>7 ngày</option>
+                <option value="30d">30 ngày</option>
+                <option value="all">Tất cả</option>
+              </select>
+              <button class="btn-primary" id="btnExportReport" type="button">Xuất báo cáo</button>
+            </div>
+          </div>
+
+          <div id="dashboardEmpty" class="empty-state hidden">Không có dữ liệu trong khoảng thời gian này.</div>
+
+          <section class="stat-grid" id="dashboardStats"></section>
+
+          <section class="grid-2">
+            <div class="section-card">
+              <div class="section-head">
+                <h2>SP bán chạy top 5</h2>
+                <span class="section-sub">Tính theo số lượng trong đơn</span>
+              </div>
+              <div id="topProductsChart" class="chart-list"></div>
+            </div>
+
+            <div class="section-card">
+              <div class="section-head">
+                <h2>Doanh thu theo ngày</h2>
+                <span class="section-sub">Dựa trên đơn hoàn tất</span>
+              </div>
+              <div id="revenueTimelineChart" class="timeline-chart"></div>
+            </div>
+          </section>
+
+          <section class="grid-2">
+            <div class="section-card">
+              <div class="section-head">
+                <h2>Marketplace nổi bật</h2>
+                <span class="section-sub">Listing đang bán gần đây</span>
+              </div>
+              <div id="marketplaceList" class="compact-list"></div>
+            </div>
+
+            <div class="section-card">
+              <div class="section-head">
+                <h2>Khảo sát TAM gần đây</h2>
+                <span class="section-sub">Phản hồi mới nhất</span>
+              </div>
+              <div id="recentSurveyComments" class="compact-list"></div>
+            </div>
+          </section>
+        </section>
+
+        <!-- PRODUCTS -->
+        <section id="tab-products" class="admin-tab-panel hidden">
+          <div class="page-hero">
+            <div>
+              <h1>Quản lý sản phẩm</h1>
+              <p>Đọc/sửa DS3 Products, hiển thị catalog, ẩn/hiện sản phẩm không xóa cứng.</p>
+            </div>
+            <div class="page-hero-actions">
+              <button class="btn-primary" id="btnAddProduct" type="button">+ Thêm sản phẩm</button>
+            </div>
+          </div>
+
+          <div class="section-card">
+            <div class="toolbar-row">
+              <input id="productSearch" class="form-input" type="text" placeholder="Tìm tên / category / tag..." />
+              <select id="productCategoryFilter" class="form-input compact">
+                <option value="">Tất cả category</option>
+              </select>
+              <select id="productStatusFilter" class="form-input compact">
+                <option value="">Tất cả trạng thái</option>
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+              </select>
+              <select id="productStockFilter" class="form-input compact">
+                <option value="">Tất cả tồn kho</option>
+                <option value="in">Còn hàng</option>
+                <option value="out">Hết hàng</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="section-card">
+            <div class="table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Ảnh</th>
+                    <th>Mã SP</th>
+                    <th>Tên</th>
+                    <th>Category</th>
+                    <th>Giá</th>
+                    <th>Kho</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                  </tr>
+                </thead>
+                <tbody id="productsTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ORDERS -->
+        <section id="tab-orders" class="admin-tab-panel hidden">
+          <div class="page-hero">
+            <div>
+              <h1>Quản lý đơn hàng</h1>
+              <p>Đọc/sửa DS6 Orders, theo dõi timeline và cập nhật trạng thái xử lý.</p>
+            </div>
+          </div>
+
+          <div class="section-card">
+            <div class="toolbar-row">
+              <input id="orderSearch" class="form-input" type="text" placeholder="Tìm mã đơn / khách hàng..." />
+              <select id="orderStatusFilter" class="form-input compact">
+                <option value="">Tất cả trạng thái</option>
+                <option>Chờ xác nhận</option>
+                <option>Đang xử lý</option>
+                <option>Đang giao</option>
+                <option>Hoàn tất</option>
+                <option>Đã hủy</option>
+              </select>
+              <select id="orderPaymentFilter" class="form-input compact">
+                <option value="">Tất cả phương thức</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="section-card">
+            <div class="table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Mã đơn</th>
+                    <th>Khách</th>
+                    <th>Ngày tạo</th>
+                    <th>Tổng tiền</th>
+                    <th>Trạng thái</th>
+                    <th>Thanh toán</th>
+                    <th>Hành động</th>
+                  </tr>
+                </thead>
+                <tbody id="ordersTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- RETURNS -->
+        <section id="tab-returns" class="admin-tab-panel hidden">
+          <div class="page-hero">
+            <div>
+              <h1>Xét duyệt yêu cầu hoàn hàng</h1>
+              <p>Đọc/sửa DS11 ReturnRequests, đối chiếu đơn gốc và xử lý chấp nhận / từ chối.</p>
+            </div>
+          </div>
+
+          <div class="section-card">
+            <div class="toolbar-row">
+              <input id="returnSearch" class="form-input" type="text" placeholder="Tìm request / order / khách..." />
+              <select id="returnStatusFilter" class="form-input compact">
+                <option value="">Tất cả trạng thái</option>
+                <option value="pending">Đang xét duyệt</option>
+                <option value="approved">Đã chấp nhận</option>
+                <option value="denied">Từ chối</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="section-card">
+            <div class="table-wrap">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Request</th>
+                    <th>Order</th>
+                    <th>Khách</th>
+                    <th>Lý do</th>
+                    <th>Ngày gửi</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                  </tr>
+                </thead>
+                <tbody id="returnsTbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAM -->
+        <section id="tab-tam" class="admin-tab-panel hidden">
+          <div class="page-hero">
+            <div>
+              <h1>Quản lý khảo sát TAM</h1>
+              <p>Đọc/sửa DS13 SurveyQuestions, DS14 SurveyResponses và thống kê PU / PEOU / SA / PI.</p>
+            </div>
+            <div class="page-hero-actions">
+              <button class="btn-primary" id="btnAddQuestion" type="button">+ Thêm câu hỏi</button>
+              <button class="btn-secondary" id="btnExportTam" type="button">Xuất báo cáo</button>
+            </div>
+          </div>
+
+          <div class="section-card">
+            <div class="tam-tabs">
+              <button class="tam-tab active" data-tamtab="questions" type="button">Câu hỏi khảo sát</button>
+              <button class="tam-tab" data-tamtab="stats" type="button">Thống kê</button>
+            </div>
+          </div>
+
+          <div id="tamQuestionsPanel">
+            <div class="section-card">
+              <div class="toolbar-row">
+                <input id="questionSearch" class="form-input" type="text" placeholder="Tìm nội dung câu hỏi..." />
+                <select id="dimensionFilter" class="form-input compact">
+                  <option value="">Tất cả dimension</option>
+                  <option value="PU">PU</option>
+                  <option value="EOU">EOU</option>
+                  <option value="SAT">SAT</option>
+                  <option value="PI">PI</option>
+                </select>
+                <label class="remember">
+                  <input id="staffViewOnly" type="checkbox" />
+                  Chế độ staff (ẩn sửa/xóa)
+                </label>
+              </div>
+            </div>
+
+            <div class="section-card">
+              <div class="table-wrap">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th>Order</th>
+                      <th>Dimension</th>
+                      <th>ID</th>
+                      <th>Nội dung</th>
+                      <th>Active</th>
+                      <th>Hành động</th>
+                    </tr>
+                  </thead>
+                  <tbody id="questionsTbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div id="tamStatsPanel" class="hidden">
+            <section class="stat-grid four" id="tamStatsCards"></section>
+
+            <section class="grid-2">
+              <div class="section-card">
+                <div class="section-head">
+                  <h2>Điểm trung bình theo dimension</h2>
+                  <span class="section-sub">PU / EOU / SAT / PI</span>
+                </div>
+                <div id="tamAverageBars" class="chart-list"></div>
+              </div>
+
+              <div class="section-card">
+                <div class="section-head">
+                  <h2>Phân phối điểm 1–5</h2>
+                  <span class="section-sub">Tổng hợp toàn bộ phản hồi</span>
+                </div>
+                <div id="tamDistribution" class="distribution-chart"></div>
+              </div>
+            </section>
+
+            <section class="section-card">
+              <div class="section-head">
+                <h2>Comment gần đây</h2>
+                <span class="section-sub">Phản hồi người dùng</span>
+              </div>
+              <div id="tamCommentList" class="comment-list"></div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modalOverlay" class="modal-overlay hidden">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 id="modalTitle">Modal</h3>
+        <button id="btnCloseModal" class="icon-btn" type="button">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="../js/admin.js"></script>
+</body>
+</html>

@@ -14,7 +14,7 @@
           "subcategory": "tshirt",
           "description": "Áo thun cotton 100% thoáng mát, form rộng unisex phù hợp mọi dáng người.",
           "price": 160000,
-          "colors": ["white", "black", "navy",
+          "colors": ["white", "black", "navy"],
           "sizes": ["M", "L", "XL"],
           "variants": [
             {"color": "white", "size": "M", "available": true, "quantity": 20},
@@ -25,10 +25,10 @@
             {"color": "black", "size": "XL", "available": true, "quantity": 16},
             {"color": "navy", "size": "M", "available": true, "quantity": 31},
             {"color": "navy", "size": "L", "available": true, "quantity": 34},
-            {"color": "navy", "size": "XL", "available": true, "quantity": 37},
+            {"color": "navy", "size": "XL", "available": true, "quantity": 37}
           ],
           "tags": ["áo thun", "unisex", "basic", "cotton", "in hình"],
-          "image": "images/products/Tshirt2.png",
+          "image": "../images/products/Tshirt.png",
           "images": [
             "https://unsplash.com/photos/woman-in-white-crew-neck-t-shirt-FTrGeAy0RW4",
             "https://unsplash.com/photos/man-standing-in-front-of-door-dG4Eb_oC5iM"],
@@ -64,7 +64,7 @@
             {"color": "navy", "size": "XL", "available": true, "quantity": 37}
           ],
           "tags": ["hoodie", "oversize", "nỉ", "streetwear"],
-          "image": "images/products/White Hoodie Mockup front.png",
+          "image": "../images/products/White Hoodie Mockup front.png",
           "images": [
             "https://unsplash.com/photos/white-zip-up-jacket-hanging-on-brown-wooden-clothes-hanger-kJXGTOY1wLQ",
             "https://unsplash.com/photos/a-man-in-a-white-hoodie-is-holding-a-camera-NezSr__TVFQ"],
@@ -100,7 +100,7 @@
             {"color": "navy", "size": "XL", "available": true, "quantity": 12}
           ],
           "tags": ["áo polo", "unisex", "cotton", "logo"],
-          "image": "images/products/White Polo Shirt Mockup front.png",
+          "image": "../images/products/White Polo Shirt Mockup front.png",
           "images": [
             "https://unsplash.com/photos/man-in-black-polo-shirt-CQgxaBhuzhA",
             "https://unsplash.com/photos/woman-in-black-polo-shirt-smiling-lEUuK3MNvAY"
@@ -137,7 +137,7 @@
             {"color": "navy", "size": "XL", "available": true, "quantity": 5}
           ],
           "tags": ["sweater", "oversize", "nỉ", "graphic"],
-          "image": "images/products/White Sweater Mockup front.png",
+          "image": "../images/products/White Sweater Mockup front.png",
           "images": [
             "https://unsplash.com/photos/woman-in-blue-sweater-covering-her-face-with-her-hand-mcdao5RP4hI",
             "https://unsplash.com/photos/a-young-man-poses-in-a-cozy-sweater-BmJ5I9NB2Z0"
@@ -175,7 +175,7 @@
             {"color": "white", "size": "A5", "available": true, "quantity": 23}
           ],
           "tags": ["postcard", "thiệp", "quà tặng", "in ấn", "stationery"],
-          "image": "images/products/Postcard.png",
+          "image": "../images/products/Postcard.png",
           "images": [
             "https://unsplash.com/photos/white-and-brown-house-photos-U_DJOoSDhNo",
             "https://unsplash.com/photos/postcards-from-vietnam-are-on-display-AvlW63zC_Zs"
@@ -207,7 +207,7 @@
             {"color": "kraft", "size": "A6", "available": true, "quantity": 22}
           ],
           "tags": ["sổ tay", "notebook", "in logo", "quà tặng"],
-          "image": "images/products/SoTayBiaCung.png",
+          "image": "../images/products/SoTayBiaCung.png",
           "images": [
             "https://unsplash.com/photos/brown-and-white-book-on-white-paper-sx0VVRZpj6s",
             "https://unsplash.com/photos/flat-lay-photography-of-string-lights-beside-notebooks-OgfL8m0gv98"
@@ -237,7 +237,7 @@
             {"color": "gold", "size": "4x14cm", "available": true, "quantity": 30}
           ],
           "tags": ["bookmark", "đánh dấu", "quà tặng", "stationery"],
-          "image": "images/products/Bookmark.png",
+          "image": "../images/products/Bookmark.png",
           "images": [
             "https://unsplash.com/photos/four-multicolored-ornaments-bYy9hndOx0k",
             "https://unsplash.com/photos/a-bookmark-featuring-a-wave-inspired-design-vvF8SOIvPbo"
@@ -276,7 +276,7 @@
             {"color": "white", "size": "45x45cm", "available": true, "quantity": 26}
           ],
           "tags": ["gối", "pillow", "in hình", "homeware", "quà tặng", "decor"],
-          "image": "images/products/White Square Pillow Mockup.png",
+          "image": "../images/products/White Square Pillow Mockup.png",
           "images": [
            "https://bizweb.dktcdn.net/thumb/1024x1024/100/320/888/products/vo-goi-om-elegant-h130.jpg",
            "https://down-vn.img.susercontent.com/file/vn-11134207-81ztc-mkc8brq1txj7de"],
@@ -304,7 +304,7 @@
             {"color": "white", "size": "50x70cm", "available": false, "quantity": 0}
           ],
           "tags": ["vỏ gối", "pillowcase", "in hình", "homeware", "phòng ngủ"],
-          "image": "images/products/White Pillowcase Mockup.png",
+          "image": "../images/products/White Pillowcase Mockup.png",
           "images": [
             "https://unsplash.com/photos/three-green-orange-and-white-throw-pillows-on-sofa-40NvXW1VPyQ",
             "https://unsplash.com/photos/white-and-black-i-love-you-throw-pillow-uzKhxFX-Quo"
@@ -333,7 +333,7 @@
             {"color": "white", "size": "11oz", "available": true, "quantity": 42}
           ],
           "tags": ["ly sứ", "mug", "in hình", "quà tặng"],
-          "image": "images/products/White Ceramic Mug Mockup.png",
+          "image": "../images/products/White Ceramic Mug Mockup.png",
           "images": [
             "https://unsplash.com/photos/a-hand-holding-a-coffee-mug-in-front-of-a-hedge-pqJdx3r_m5E",
             "https://unsplash.com/photos/a-coffee-cup-sitting-on-top-of-a-stone-wall-DurAk6t-DCE"
@@ -362,7 +362,7 @@
             {"color": "wood", "size": "9x9cm", "available": true, "quantity": 75}
           ],
           "tags": ["lót ly", "coaster", "gỗ", "decor"],
-          "image": "images/products/Wooden Coaster Mockup.png",
+          "image": "../images/products/Wooden Coaster Mockup.png",
           "images": [
             "https://unsplash.com/photos/a-couple-of-glasses-of-beer-sitting-on-top-of-a-table-1upRw-fD8pk",
             "https://unsplash.com/photos/a-wooden-box-on-a-counter-2XMFw4R5rD8"
@@ -401,7 +401,7 @@
             {"color": "navy", "size": "One Size", "available": true, "quantity": 26}
           ],
           "tags": ["tote bag", "túi vải", "canvas", "eco", "thời trang"],
-          "image": "images/products/White Tote Bag Mockup.png",
+          "image": "../images/products/White Tote Bag Mockup.png",
           "images": [
             "https://unsplash.com/photos/a-bag-hanging-on-the-side-of-a-red-car-RieFEGFoeSM",
             "https://unsplash.com/photos/woman-holding-a-tote-bag-with-wedding-illustration-BcTrqfKro8Q"
@@ -431,7 +431,7 @@
             {"color": "transparent", "size": "A4", "available": true, "quantity": 23}
           ],
           "tags": ["standee", "mica", "để bàn", "decor", "in UV", "merchandise"],
-          "image": "images/products/Blank Table Standee Mockup.png",
+          "image": "../images/products/Blank Table Standee Mockup.png",
           "images": [
             "https://unsplash.com/photos/a-sign-that-says-order-pay-here-on-a-glass-table-Muq1Qj-dCPE",
             "https://unsplash.com/photos/calendar-shows-april-2026-on-a-clear-stand-KvGDi6Fxue"
@@ -461,7 +461,7 @@
             {"color": "transparent", "size": "6cm", "available": true, "quantity": 44}
           ],
           "tags": ["móc khóa", "mica", "quà tặng", "branding"],
-          "image": "images/products/Blank Keychain Mockup.png",
+          "image": "../images/products/Blank Keychain Mockup.png",
           "images": [
             "https://unsplash.com/photos/a-close-up-of-a-couple-of-key-chains-X6P42vrC-v4",
             "https://unsplash.com/photos/a-couple-of-key-chains-sitting-on-top-of-a-blue-and-yellow-ribbon-kSKglyFpm3k"
@@ -499,7 +499,7 @@
             {"color": "white", "size": "A4", "available": true, "quantity": 23}
           ],
           "tags": ["poster", "tờ rơi", "quảng cáo", "in offset"],
-          "image": "images/products/Poster or ToRoi.png",
+          "image": "../images/products/Poster or ToRoi.png",
           "images": [
             "https://nhainphat.com/wp-content/uploads/2023/02/to-roi-08.png",
             "https://inbacha.com/wp-content/uploads/2021/05/To-roi-1.jpg"
@@ -529,7 +529,7 @@
             {"color": "white", "size": "A5", "available": true, "quantity": 23}
           ],
           "tags": ["gift voucher", "thẻ quà tặng", "quảng cáo"],
-          "image": "images/products/Gift Voucher.png",
+          "image": "../images/products/Gift Voucher.png",
           "images": [
             "https://inanthangloi.com/wp-content/uploads/2024/08/da52169b4fa9ad81d33d58efb16833a7.jpg",
             "https://inbaoviet.com/wp-content/uploads/2022/07/salon-and-spa-gift-voucher-template-illustration-free-vector-1536x1536.webp"
@@ -559,7 +559,7 @@
             {"color": "white", "size": "80x180cm", "available": true, "quantity": 14}
           ],
           "tags": ["banner", "quảng cáo", "sự kiện", "promo"],
-          "image": "images/products/Roll up Banner Mockup.png",
+          "image": "../images/products/Roll up Banner Mockup.png",
           "images": [
             "https://vprintshop.eu/551-large_default/textile-advertising-banner.jpg",
             "https://cdn.bannerbuzz.com.au/media/catalog/product/a/1/a101_bbrdpf02_1_uk.jpg"
@@ -589,7 +589,7 @@
             {"color": "white", "size": "A0", "available": true, "quantity": 7}
           ],
           "tags": ["standee", "quảng cáo", "event", "display"],
-          "image": "images/products/X-Standee Mockup.png",
+          "image": "../images/products/X-Standee Mockup.png",
           "images": [
             "https://thegioiinan.com/images/faq/The_gioi_in_an_20230221165905457230221_standee_1.png",
             "https://thegioiinan.com/images/faq/The_gioi_in_an_20230221165906457230221_standee_2.png"
@@ -631,7 +631,7 @@
             {"color": "kraft", "size": "large", "available": true, "quantity": 16}
           ],
           "tags": ["hộp giấy", "packaging", "bao bì", "in offset"],
-          "image": "images/products/White Cardboard Box Mockup.png",
+          "image": "../images/products/White Cardboard Box Mockup.png",
           "images": [
             "https://unsplash.com/photos/black-leather-flip-case-on-white-surface-GM-kX1FzULw",
             "https://unsplash.com/photos/brown-and-white-cardboard-box-g2oHJrqcJlQ"
@@ -645,7 +645,7 @@
           "printArea": {"x": 40, "y": 40, "width": 520, "height": 320},
           "canvasWidth": 600,
           "canvasHeight": 400
-        }
+        },
         {
           "productId": "p06002",
           "cateId": "CAT-06",
@@ -663,7 +663,7 @@
             {"color": "transparent", "size": "5x5cm", "available": true, "quantity": 41}
           ],
           "tags": ["nhãn dán", "label", "decal", "packaging"],
-          "image": "images/products/RoundSquare Label Mockup.png",
+          "image": "../images/products/RoundSquare Label Mockup.png",
           "images": [
             "https://unsplash.com/photos/a-glass-jar-with-a-green-lid-XlCVWeYS82s",
             "https://unsplash.com/photos/two-red-strawberry-soda-cans-on-pink-background-iTcjuLJoWnM"
@@ -677,7 +677,7 @@
           "printArea": {"x": 20, "y": 20, "width": 260, "height": 160},
           "canvasWidth": 300,
           "canvasHeight": 200
-        }
+        },
         {
           "productId": "p06003",
           "cateId": "CAT-06",
@@ -693,7 +693,7 @@
             {"color": "white", "size": "3x10cm", "available": true, "quantity": 72}
           ],
           "tags": ["tem niêm phong", "seal", "packaging", "logo"],
-          "image": "images/products/Seal Sticker Mockup.png",
+          "image": "../images/products/Seal Sticker Mockup.png",
           "images": [
             "https://inhopruou.com/wp-content/uploads/2024/08/in-tem-dan-thung-carton-4.jpg",
             "https://inhopruou.com/wp-content/uploads/2024/08/in-tem-dan-thung-carton-1.jpg"
@@ -727,7 +727,7 @@
             {"color": "black", "size": "medium", "available": true, "quantity": 19}
           ],
           "tags": ["túi quà", "gift bag", "bao bì", "cao cấp"],
-          "image": "images/products/White Paper Gift Bag Mockup.png",
+          "image": "../images/products/White Paper Gift Bag Mockup.png",
           "images": [
             "https://unsplash.com/photos/two-shopping-bags-with-logos-on-a-light-background-KqOeBSbC1Ns",
             "https://unsplash.com/photos/a-paper-bag-with-a-candle-inside-of-it-8Ve8bu02pyE"
@@ -765,7 +765,7 @@
             {"color": "black", "size": "9x5.4cm", "available": true, "quantity": 23}
           ],
           "tags": ["danh thiếp", "business card", "văn phòng", "office"],
-          "image": "images/products/Business Card Mockup.png",
+          "image": "../images/products/Business Card Mockup.png",
           "images": [
             "https://unsplash.com/photos/a-pair-of-business-cards-sitting-on-top-of-a-marble-counter-6nEQKmu0tFo",
             "https://unsplash.com/photos/a-close-up-of-a-business-card-on-a-table-t1iHPPrRJcw"
@@ -799,7 +799,7 @@
             {"color": "black", "size": "A5", "available": true, "quantity": 16}
           ],
           "tags": ["thiệp mời", "invitation", "sự kiện", "office"],
-          "image": "images/products/Invitation Card Mockup.png",
+          "image": "../images/products/Invitation Card Mockup.png",
           "images": [
             "https://indongloi.com/wp-content/uploads/2025/11/Cach-viet-thu-moi-1.jpg",
             "https://thegioiinan.com/hinhanh/sanpham/inan_133/tin_660/The_gioi_in_an_tin_imagebanner_20240325101415176.jpg"
@@ -828,7 +828,7 @@
             {"color": "white", "size": "8.5x5.4cm", "available": true, "quantity": 20}
           ],
           "tags": ["thẻ nhựa", "plastic card", "văn phòng", "office"],
-          "image": "images/products/ID Card Mockup.png",
+          "image": "../images/products/ID Card Mockup.png",
           "images": [
             "https://kprint.vn/wp-content/uploads/2019/07/in-th%E1%BA%BB-%C4%91eo-nh%C3%A2n-vi%C3%AAn-1.jpg",
             "https://vietadv.vn/wp-content/uploads/2021/08/in-the-nhan-vien-tai-ho-chi-minh.jpg"
@@ -858,7 +858,7 @@
             {"color": "navy", "size": "A5", "available": true, "quantity": 18}
           ],
           "tags": ["sổ tay", "doanh nghiệp", "office", "quà tặng"],
-          "image": "images/products/Leather Notebook Mockup.png",
+          "image": "../images/products/Leather Notebook Mockup.png",
           "images": [
             "https://ingiodong.com/wp-content/uploads/2024/10/so-tay-lo-xo-A5-Yoolife.jpg",
             "https://inminhkhoi.com.vn/wp-content/uploads/2024/02/So-lo-xo-bia-cung-A5-ivt.jpg"

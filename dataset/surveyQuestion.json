@@ -63,31 +63,31 @@
 
   {
     "questionId": "Q11",
-    "dimension": "SA",
+    "dimension": "SAT",
     "text": "I am satisfied with the product quality.",
     "scaleType": "Likert5", "isActive": true, "orderIndex": 11
   },
   {
     "questionId": "Q12",
-    "dimension": "SA",
+    "dimension": "SAT",
     "text": "I am satisfied with the website performance.",
     "scaleType": "Likert5", "isActive": true, "orderIndex": 12
   },
   {
     "questionId": "Q13",
-    "dimension": "SA",
+    "dimension": "SAT",
     "text": "I am satisfied with the customization features.",
     "scaleType": "Likert5", "isActive": true, "orderIndex": 13
   },
   {
     "questionId": "Q14",
-    "dimension": "SA",
+    "dimension": "SAT",
     "text": "I am satisfied with customer support.",
     "scaleType": "Likert5", "isActive": true, "orderIndex": 14
   },
   {
     "questionId": "Q15",
-    "dimension": "SA",
+    "dimension": "SAT",
     "text": "Overall, I am satisfied with Printify.",
     "scaleType": "Likert5", "isActive": true, "orderIndex": 15
   },

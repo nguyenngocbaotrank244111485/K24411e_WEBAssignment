@@ -577,7 +577,7 @@ function renderTAMQuestions() {
 }
 
 function renderTAMStats() {
-  const dims = ['PU', 'EOU', 'SAT', 'PI'];
+  const dims = ['PU', 'PEOU', 'SAT', 'PI'];
 
   $('tamStatsCards').innerHTML = dims.map(dim => {
     const avg = averageForDimension(dim);
@@ -728,7 +728,7 @@ function renderQuestionModal(q = null) {
         <div class="form-group">
           <label class="form-label">Dimension</label>
           <select class="form-input" id="mq-dimension">
-            ${['PU', 'EOU', 'SAT', 'PI'].map(d => `<option value="${d}" ${q?.dimension === d ? 'selected' : ''}>${d}</option>`).join('')}
+            ${['PU', 'PEOU', 'SAT', 'PI'].map(d => `<option value="${d}" ${q?.dimension === d ? 'selected' : ''}>${d}</option>`).join('')}
           </select>
         </div>
         <div class="form-group full">

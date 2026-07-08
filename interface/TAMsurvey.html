@@ -1,0 +1,51 @@
+<html>
+<head>
+  <title>PrintiFy — Khảo sát TAM</title>
+  <link rel="stylesheet" type="text/css" href="../css/TAMsurveycss.css">
+</head>
+<body class="survey-page">
+
+  <header class="survey-topbar">
+    <div class="survey-brand">Printi<span>Fy</span></div>
+    <div class="survey-topbar-right">
+      <span id="surveyUserLabel">Chưa đăng nhập</span>
+      <a href="../interface/login.html" class="survey-link-btn">Đăng nhập</a>
+    </div>
+  </header>
+
+  <main class="survey-shell">
+    <section class="survey-card">
+      <div class="survey-hero">
+        <h1>Khảo sát TAM</h1>
+        <p>Vui lòng đánh giá theo thang điểm 1–5. Chỉ người dùng đã đăng nhập mới có thể gửi phản hồi.</p>
+      </div>
+
+      <div id="surveyAuthNotice" class="survey-notice hidden">
+        Bạn cần đăng nhập để làm khảo sát.
+      </div>
+
+      <div id="surveyFormWrap" class="hidden">
+        <form id="surveyForm">
+          <div id="surveyQuestions"></div>
+
+          <div class="survey-comment-box">
+            <label for="surveyComment">Góp ý thêm</label>
+            <textarea id="surveyComment" placeholder="Nhập nhận xét của bạn..." maxlength="500"></textarea>
+          </div>
+
+          <div class="survey-actions">
+            <button type="submit" class="survey-submit-btn">Gửi khảo sát</button>
+            <button type="button" class="survey-reset-btn" id="btnResetSurvey">Làm lại</button>
+          </div>
+
+          <p id="surveyMessage" class="survey-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="surveyToast" class="survey-toast hidden"></div>
+
+  <script src="../js/TAMsurvey.js"></script>
+</body>
+</html>

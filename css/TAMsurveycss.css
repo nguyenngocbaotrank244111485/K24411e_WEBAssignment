@@ -1,0 +1,224 @@
+.survey-page{
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f8ddea 0%, #f7eef4 100%);
+  color: #2f2030;
+}
+
+.hidden{ display:none !important; }
+
+.survey-topbar{
+  height: 64px;
+  padding: 0 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background: linear-gradient(90deg, #f5a8df 0%, #f1a4db 45%, #f8d8ef 100%);
+  box-shadow: 0 1px 0 rgba(0,0,0,.04);
+}
+
+.survey-brand{
+  font-size: 28px;
+  font-weight: 900;
+  color: #2d1531;
+}
+.survey-brand span{ color:#7c3aed; }
+
+.survey-topbar-right{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight: 700;
+  color:#4b3250;
+}
+
+.survey-link-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background:#fff;
+  color:#7c3aed;
+  text-decoration:none;
+  border:1px solid #e9c7dd;
+}
+
+.survey-shell{
+  max-width: 980px;
+  margin: 26px auto;
+  padding: 0 16px 28px;
+}
+
+.survey-card{
+  background:#fff;
+  border:1px solid #f0cde0;
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(135, 56, 115, .10);
+  padding: 26px;
+}
+
+.survey-hero{
+  margin-bottom: 18px;
+}
+.survey-hero h1{
+  margin: 0 0 8px;
+  font-size: 30px;
+  color:#4b2140;
+}
+.survey-hero p{
+  margin:0;
+  color:#725b67;
+  line-height:1.6;
+}
+
+.survey-notice{
+  background:#fff4f8;
+  border:1px solid #f2bfd8;
+  color:#9b1c5a;
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.survey-dim{
+  margin-top: 18px;
+  border:1px solid #f3d2e3;
+  border-radius: 20px;
+  overflow:hidden;
+  background:#fff;
+}
+
+.survey-dim-head{
+  padding: 16px 18px;
+  background: linear-gradient(180deg, #fff8fc 0%, #fff 100%);
+  border-bottom:1px solid #f4d8e6;
+}
+
+.survey-dim-title{
+  margin:0 0 4px;
+  font-size: 18px;
+  font-weight: 900;
+  color:#5a2348;
+}
+
+.survey-dim-desc{
+  margin:0;
+  font-size: 13px;
+  color:#7d6670;
+}
+
+.survey-question{
+  padding: 16px 18px;
+  border-top:1px solid #f7e4ee;
+}
+.survey-question:first-child{ border-top:none; }
+
+.survey-q-text{
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  color:#30232b;
+  margin-bottom: 12px;
+}
+
+.likert-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.likert-item{
+  position:relative;
+}
+.likert-item input{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+.likert-item label{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width: 54px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border:1px solid #e7c6d8;
+  background:#fff;
+  cursor:pointer;
+  font-weight:700;
+  color:#5c4654;
+  transition: all .15s ease;
+}
+.likert-item input:checked + label{
+  background: linear-gradient(180deg, #f06fc7 0%, #dc49a9 100%);
+  color:#fff;
+  border-color:transparent;
+  box-shadow: 0 10px 18px rgba(220,73,169,.18);
+}
+
+.survey-comment-box{
+  margin-top: 18px;
+  padding: 16px 18px;
+  border:1px solid #f3d2e3;
+  border-radius: 18px;
+  background:#fff8fc;
+}
+.survey-comment-box label{
+  display:block;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color:#5a2348;
+}
+.survey-comment-box textarea{
+  width:100%;
+  min-height:120px;
+  resize:vertical;
+  border:1px solid #e7c6d8;
+  border-radius: 14px;
+  padding: 12px 14px;
+  outline:none;
+  font: inherit;
+}
+
+.survey-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top: 18px;
+}
+.survey-submit-btn,
+.survey-reset-btn{
+  border:none;
+  border-radius: 14px;
+  padding: 12px 18px;
+  font-weight: 900;
+  cursor:pointer;
+}
+.survey-submit-btn{
+  background: linear-gradient(180deg, #f06fc7 0%, #dc49a9 100%);
+  color:#fff;
+}
+.survey-reset-btn{
+  background:#fff;
+  color:#6b4a61;
+  border:1px solid #e7c6d8;
+}
+
+.survey-message{
+  margin-top: 12px;
+  min-height: 20px;
+  font-size: 13px;
+  color:#b91c1c;
+}
+
+.survey-toast{
+  position:fixed;
+  bottom:24px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#1f1720;
+  color:#fff;
+  padding: 12px 18px;
+  border-radius: 999px;
+  z-index:9999;
+}

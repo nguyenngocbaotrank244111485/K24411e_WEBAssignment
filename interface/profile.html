@@ -27,31 +27,34 @@
   </div>
 
   <div class="nav-actions">
-    <a class="nav-account active" href="../interface/profile.html" title="Tài khoản">
-      <span class="nav-user-icon">👤</span>
-      <span>Tài khoản</span>
-    </a>
-    <a class="nav-cart" href="../interface/cart.html" title="Giỏ hàng">
-      🛒
-      <span class="cart-badge" id="cart-badge" style="display:none">0</span>
-    </a>
+    <div data-auth-guest style="display:flex;gap:8px">
+      <a href="../interface/login.html" data-go-login class="btn-login">Đăng nhập</a>
+      <a href="../interface/register.html" data-go-register class="btn-register">Đăng ký</a>
+    </div>
+
+    <div data-auth-user style="display:none;align-items:center;gap:12px">
+      <a href="../interface/profile.html" class="nav-profile">
+        👤 <span data-auth-name></span>
+      </a>
+      <button class="logout-btn" onclick="confirmLogout()">Đăng xuất</button>
+    </div>
   </div>
 </nav>
 
 <div class="main" id="profile-main">
 
-  <!-- ══════════ CHƯA ĐĂNG NHẬP ══════════ -->
+  <!-- ══════════NOT SIGNED IN══════════ -->
   <div class="guest-block" id="guest-block" style="display:none">
     <div class="guest-icon">🔒</div>
     <h2>Bạn chưa đăng nhập</h2>
     <p>Đăng nhập để xem thông tin tài khoản, lịch sử xem và đơn hàng.</p>
     <div class="guest-actions">
-      <a class="btn-secondary" href="../interface/login.html">Đăng nhập</a>
-      <a class="btn-primary" href="../interface/register.html">Đăng ký</a>
+      <a class="btn-secondary" href="../interface/login.html" data-go-login>Đăng nhập</a>
+      <a class="btn-primary" href="../interface/register.html" data-go-register>Đăng ký</a>
     </div>
   </div>
 
-  <!-- ══════════ ĐÃ ĐĂNG NHẬP ══════════ -->
+  <!-- ══════════SIGNED IN══════════ -->
   <div class="profile-layout" id="profile-layout" style="display:none">
 
     <!-- ══════════ SIDEBAR ══════════ -->

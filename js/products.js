@@ -24,10 +24,11 @@ const CATEGORY_LABELS = {
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
-  await loadProducts();
-  buildCategoryFilters();
-  applyFilters();
-  updateCartBadge();
+    syncAuthUI();
+    await loadProducts();
+    buildCategoryFilters();
+    applyFilters();
+    updateCartBadge();
 });
 
 /* ---------- LOAD DATA (fetch + flatten categories + cache) ---------- */
@@ -197,26 +198,37 @@ function renderProducts() {
 }
 
 function startDesign(productId) {
-  const product = ALL_PRODUCTS.find(p => p.id === productId);
-  if (!product) {
-    showToast("Không tìm thấy sản phẩm để thiết kế.");
-    return;
-  }
 
-  const defaultColor = (product.colors && product.colors[0]) || "white";
-  const defaultSize  = (product.sizes && product.sizes[0]) || "M";
-
-  // Lưu context để editor đọc thêm nếu cần
-  sessionStorage.setItem("printify_design_context", JSON.stringify({
-    productId: product.id,
-    productName: product.name,
-    color: defaultColor,
-    size: defaultSize
-  }));
-
-  // Editor đã fetch product theo productId + color + size
-  window.location.href =
-    `editor.html?productId=${encodeURIComponent(product.id)}&color=${encodeURIComponent(defaultColor)}&size=${encodeURIComponent(defaultSize)}`;
+    const product = ALL_PRODUCTS.find(p => p.id === productId);
+    if (!product) {
+        showToast("Không tìm thấy sản phẩm.");
+        return;
+    }
+    const color =
+        product.colors?.[0] || "white";
+    const size =
+        product.sizes?.[0] || "M";
+    sessionStorage.setItem(
+        "printify_design_context",
+        JSON.stringify({
+            productId,
+            productName: product.name,
+            color,
+            size
+        })
+    );
+    if (!getCurrentUser()) {
+        redirectToLogin(
+            window.location.origin +
+            window.location.pathname.replace(
+                "products.html",
+                `editor.html?productId=${productId}&color=${color}&size=${size}`
+            )
+        );
+        return;
+    }
+    location.href =
+        `editor.html?productId=${productId}&color=${color}&size=${size}`;
 }
 
 /* ---------- QUICK ADD TO CART (từ hover trên grid) ---------- */
@@ -229,16 +241,20 @@ function quickAddToCart(productId) {
     return;
   }
 
-  const session = sessionStorage.getItem("printify_session");
-  if (!session) {
-    showToast("Vui lòng đăng nhập để thêm vào giỏ hàng.");
-    return;
-  }
-
   const defaultColor = (product.colors && product.colors[0]) || null;
   const defaultSize = (product.sizes && product.sizes[0]) || null;
+  const user=getCurrentUser();
 
-  const cart = JSON.parse(localStorage.getItem("printify_cart") || "[]");
+  const key=`printify_cart_${user.userId}`;
+
+  const cart=
+  JSON.parse(
+  localStorage.getItem(key)||"[]"
+  );
+  localStorage.setItem(
+    key,
+    JSON.stringify(cart)
+  );
 
   const existing = cart.find(item =>
     item.productId === product.id &&
@@ -286,14 +302,25 @@ function formatVND(amount) {
   return amount.toLocaleString("vi-VN") + "₫";
 }
 
-function updateCartBadge() {
-  const cart = JSON.parse(localStorage.getItem("printify_cart") || "[]");
-  const totalQty = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
-  const badge = document.getElementById("cart-badge");
-  if (totalQty > 0) {
-    badge.textContent = totalQty;
-    badge.style.display = "flex";
-  } else {
-    badge.style.display = "none";
-  }
+function updateCartBadge(){
+    const user=getCurrentUser();
+    if(!user){
+        document.getElementById("cart-badge").style.display="none";
+        return;
+    }
+    const key=`printify_cart_${user.userId}`;
+    const cart=JSON.parse(
+        localStorage.getItem(key)||"[]"
+    );
+    const qty=cart.reduce(
+        (s,i)=>s+(i.qty||1),
+        0
+    );
+    const badge=document.getElementById("cart-badge");
+    if(qty){
+        badge.style.display="flex";
+        badge.textContent=qty;
+    }else{
+        badge.style.display="none";
+    }
 }

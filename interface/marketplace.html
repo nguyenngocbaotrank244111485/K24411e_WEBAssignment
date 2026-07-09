@@ -1,7 +1,9 @@
 <html>
 <head>
   <title>PrintiFy — Marketplace</title>
-  <link rel="stylesheet" type="text/css" href="../css/maincss.css">
+  <link rel="stylesheet" type="text/css" href="../css/marketplacecss.css">
+  <link rel="stylesheet" type="text/css" href="../css/chatbotcss.css">
+  <link rel="icon" href="../images/favicon.png">
 </head>
 <body class="marketplace-page">
 
@@ -20,22 +22,23 @@
   </div>
 
   <div class="nav-actions">
-  <div data-auth-guest style="display:flex;gap:8px">
-    <a href="../interface/login.html" data-go-login class="btn-login">Đăng nhập</a>
-    <a href="../interface/register.html" data-go-register class="btn-register">Đăng ký</a>
-  </div>
+    <div data-auth-guest style="display:flex;gap:8px">
+      <a href="../interface/login.html" data-go-login class="btn-login">Đăng nhập</a>
+      <a href="../interface/register.html" data-go-register class="btn-register">Đăng ký</a>
+    </div>
 
-  <div data-auth-user style="display:none;align-items:center;gap:12px">
-    <a href="../interface/profile.html" class="nav-profile">
-      👤 <span data-auth-name></span>
-    </a>
-    <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+    <div data-auth-user style="display:none;align-items:center;gap:12px">
+      <a href="../interface/profile.html" class="nav-profile">
+        👤 <span data-auth-name></span>
+      </a>
+      <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+    </div>
   </div>
-</div>
+</nav>
 
 <!-- AUTH WARNING -->
-<div class="auth-warning" id="auth-warning">
-  ⚠️ Bạn cần <a href="../interface/login.html" style="color:#DC2626;font-weight:600">đăng nhập</a> để sử dụng tính năng Marketplace.
+<div class="auth-warning" id="auth-warning" style="display:none;">
+  ⚠️ Bạn cần đăng nhập để đăng bán hoặc mua trên Marketplace.
 </div>
 
 <!-- PAGE HEADER -->

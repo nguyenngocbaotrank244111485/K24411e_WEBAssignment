@@ -120,7 +120,9 @@ function renderDetail(p) {
   document.getElementById("breadcrumb-name").textContent = p.name;
   document.title = `PrintiFy — ${p.name}`;
 
-  const images = [p.image];
+  const images = p.images?.length
+    ? [p.image, ...p.images]
+    : [p.image];
   document.getElementById("gallery-main-img").src = `../${images[0]}`;
   document.getElementById("gallery-main-img").onerror = function () {
     this.src = "../images/placeholder.png";
@@ -175,7 +177,13 @@ function renderDetail(p) {
     btn.innerHTML = "🎨 Bắt đầu thiết kế (Tạm hết hàng)";
   }
 }
-
+function getImagePath(path) {
+    if (!path) return "../images/placeholder.png";
+    if (path.startsWith("http")) {
+        return path;
+    }
+    return path;
+}
 /* ---------- GALLERY SWITCH ---------- */
 function switchGalleryImage(img, thumbEl) {
   document.getElementById("gallery-main-img").src = `../${img}`;
@@ -210,40 +218,41 @@ function handleStartDesign() {
 }
 
 function handleUseDefault() {
-  if (!ensureAuthForAction()) return;
-  addDefaultToCart();
+    addDefaultToCart();
 }
 
 function addDefaultToCart() {
-  const cart = JSON.parse(localStorage.getItem("printify_cart") || "[]");
-
-  const existing = cart.find(item =>
-    item.productId === currentProduct.id &&
-    item.color === selectedColor &&
-    item.size === selectedSize &&
-    !item.designData
-  );
-
-  if (existing) {
-    existing.qty += 1;
-  } else {
-    cart.push({
-      cartItemId: "CI" + Date.now(),
-      productId: currentProduct.id,
-      name: currentProduct.name,
-      price: currentProduct.price,
-      color: selectedColor,
-      size: selectedSize,
-      qty: 1,
-      designData: null
-    });
-  }
-
-  localStorage.setItem("printify_cart", JSON.stringify(cart));
-  updateCartBadge();
-  showToast("Đã thêm vào giỏ hàng!");
+    if (!ensureAuthForAction()) return;
+    const cart =
+        JSON.parse(localStorage.getItem("printify_cart") || "[]");
+    const existing = cart.find(item =>
+        item.productId === currentProduct.id &&
+        item.color === selectedColor &&
+        item.size === selectedSize &&
+        !item.designData
+    );
+    if (existing) {
+        existing.qty++;
+    } else {
+        cart.push({
+            cartItemId: "CI" + Date.now(),
+            productId: currentProduct.id,
+            name: currentProduct.name,
+            image: currentProduct.image,
+            price: currentProduct.price,
+            color: selectedColor,
+            size: selectedSize,
+            qty: 1,
+            designData: null
+        });
+    }
+    localStorage.setItem(
+        "printify_cart",
+        JSON.stringify(cart)
+    );
+    updateCartBadge();
+    showToast("Đã thêm vào giỏ hàng!");
 }
-
 /* ---------- VIEW HISTORY (DS7) — không đăng nhập thì bỏ qua, không chặn trang ---------- */
 function recordViewHistory(productId) {
   const session = getCurrentUser();

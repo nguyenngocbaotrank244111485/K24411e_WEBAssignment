@@ -336,7 +336,17 @@ body.products-page{
   opacity: 1;
   pointer-events: auto;
 }
-
+.logout-btn{
+  width: 80%;
+  max-width: 200px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform .12s ease, filter .15s ease;
+}
 .hover-btn{
   width: 80%;
   max-width: 200px;

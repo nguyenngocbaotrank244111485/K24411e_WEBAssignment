@@ -373,7 +373,7 @@ section{
 
 .product-card-btn{
   width: 100%;
-  min-height: 44px;
+  min-height: 36px;
   border: none;
   border-radius: 14px;
   background: linear-gradient(135deg, var(--pf-pink), var(--pf-purple));

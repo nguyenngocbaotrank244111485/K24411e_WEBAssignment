@@ -1,24 +1,18 @@
 /* =========================
    PROFILE PAGE LOGIC
-   Đọc/ghi DS1 UserInfo (localStorage 'printify_users'),
-   DS2 Session (sessionStorage 'printify_session'),
-   DS7 ViewHistory, DS6 Orders (chỉ đọc, hiển thị gần đây)
+   Dùng auth.js mới:
+   - getCurrentUser()
+   - isLoggedIn()
+   - setCurrentUser()
+   - clearCurrentUser()
    ========================= */
 
 let currentUser = null;
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   updateCartBadge();
 
-  const session = getSession();
-  if (!session) {
-    showGuestState();
-    return;
-  }
-
-  const users = getUsers();
-  currentUser = users.find(u => u.userId === session.userId);
-
+  currentUser = loadCurrentProfileUser();
   if (!currentUser) {
     showGuestState();
     return;
@@ -28,19 +22,132 @@ document.addEventListener("DOMContentLoaded", () => {
   renderSidebar();
   renderInfoTab();
   renderSavedShipping();
-  renderHistoryTab();
+  await renderHistoryTab();
   renderRecentOrdersTab();
 });
 
+/* ---------- HELPERS ---------- */
+function normalize(v) {
+  return String(v ?? "").trim().toLowerCase();
+}
+
+function getUserKey(user) {
+  return user?.userId || user?.custId || user?.adId || user?.id || "";
+}
+
+function getUserName(user) {
+  return user?.name || user?.custName || user?.adName || "—";
+}
+
+function getUserEmail(user) {
+  return user?.email || user?.custEmail || user?.adEmail || "—";
+}
+
+function getUserAvatar(user) {
+  return user?.avatar || user?.custAvatar || user?.adAvatar || "../images/default-avatar.png";
+}
+
+function getPasswordHash(user) {
+  return user?.passwordHash || user?.custPasswordHash || user?.password || "";
+}
+
+function getUsers() {
+  try {
+    return JSON.parse(localStorage.getItem("printify_users") || "[]");
+  } catch {
+    return [];
+  }
+}
+
+function getProductsCache() {
+  try {
+    return JSON.parse(localStorage.getItem("printify_products_cache") || "[]");
+  } catch {
+    return [];
+  }
+}
+
+async function getProductsForHistory() {
+  const cached = getProductsCache();
+  if (cached.length) return cached;
+
+  try {
+    const res = await fetch("../dataset/products.json");
+    if (!res.ok) return [];
+    const data = await res.json();
+    const flat = Array.isArray(data)
+      ? data
+      : (data.categories || []).flatMap(cat => cat.products || []);
+    return flat;
+  } catch {
+    return [];
+  }
+}
+
+function loadCurrentProfileUser() {
+  const sessionUser = typeof getCurrentUser === "function" ? getCurrentUser() : null;
+  if (!sessionUser) return null;
+
+  const users = getUsers();
+  const sid = normalize(getUserKey(sessionUser));
+  const semail = normalize(getUserEmail(sessionUser));
+
+  const stored = users.find(u =>
+    normalize(getUserKey(u)) === sid ||
+    normalize(getUserEmail(u)) === semail
+  );
+
+  return stored ? { ...stored, ...sessionUser } : sessionUser;
+}
+
+function persistCurrentUser() {
+  if (!currentUser) return;
+
+  const users = getUsers();
+  const uid = normalize(getUserKey(currentUser));
+  const uemail = normalize(getUserEmail(currentUser));
+
+  const idx = users.findIndex(u =>
+    normalize(getUserKey(u)) === uid ||
+    normalize(getUserEmail(u)) === uemail
+  );
+
+  const payload = { ...currentUser };
+
+  if (idx !== -1) {
+    users[idx] = { ...users[idx], ...payload };
+  } else {
+    users.push(payload);
+  }
+
+  localStorage.setItem("printify_users", JSON.stringify(users));
+
+  const remember = !!localStorage.getItem("printify_current_customer");
+  if (typeof setCurrentUser === "function") {
+    setCurrentUser(payload, remember);
+  } else {
+    sessionStorage.setItem("printify_current_customer", JSON.stringify(payload));
+    if (remember) {
+      localStorage.setItem("printify_current_customer", JSON.stringify(payload));
+    }
+  }
+
+  currentUser = payload;
+}
+
 /* ---------- STATE SWITCH ---------- */
 function showGuestState() {
-  document.getElementById("guest-block").style.display = "block";
-  document.getElementById("profile-layout").style.display = "none";
+  const guestBlock = document.getElementById("guest-block");
+  const profileLayout = document.getElementById("profile-layout");
+  if (guestBlock) guestBlock.style.display = "block";
+  if (profileLayout) profileLayout.style.display = "none";
 }
 
 function showProfileState() {
-  document.getElementById("guest-block").style.display = "none";
-  document.getElementById("profile-layout").style.display = "grid";
+  const guestBlock = document.getElementById("guest-block");
+  const profileLayout = document.getElementById("profile-layout");
+  if (guestBlock) guestBlock.style.display = "none";
+  if (profileLayout) profileLayout.style.display = "grid";
 }
 
 /* ---------- TAB SWITCH ---------- */
@@ -48,6 +155,7 @@ function switchTab(tabName) {
   document.querySelectorAll(".profile-nav-btn").forEach(btn => {
     btn.classList.toggle("active", btn.dataset.tab === tabName);
   });
+
   document.querySelectorAll(".profile-tab-panel").forEach(panel => {
     panel.classList.toggle("active", panel.id === `tab-${tabName}`);
   });
@@ -55,32 +163,50 @@ function switchTab(tabName) {
 
 /* ---------- SIDEBAR ---------- */
 function renderSidebar() {
-  const avatarSrc = currentUser.avatar || "../images/default-avatar.png";
-  document.getElementById("sidebar-avatar").src = avatarSrc;
-  document.getElementById("sidebar-avatar").onerror = function () {
-    this.src = "../images/default-avatar.png";
-  };
-  document.getElementById("sidebar-name").textContent = currentUser.name || currentUser.custNname || "—";
-  document.getElementById("sidebar-email").textContent = currentUser.email || currentUser.custEmail || "—";
+  const avatarSrc = getUserAvatar(currentUser);
+
+  const sidebarAvatar = document.getElementById("sidebar-avatar");
+  if (sidebarAvatar) {
+    sidebarAvatar.src = avatarSrc;
+    sidebarAvatar.onerror = function () {
+      this.src = "../images/default-avatar.png";
+    };
+  }
+
+  const sidebarName = document.getElementById("sidebar-name");
+  const sidebarEmail = document.getElementById("sidebar-email");
+  if (sidebarName) sidebarName.textContent = getUserName(currentUser);
+  if (sidebarEmail) sidebarEmail.textContent = getUserEmail(currentUser);
 }
 
 /* ---------- TAB: THÔNG TIN TÀI KHOẢN ---------- */
 function renderInfoTab() {
-  const avatarSrc = currentUser.avatar || "../images/default-avatar.png";
-  document.getElementById("info-avatar").src = avatarSrc;
-  document.getElementById("info-avatar").onerror = function () {
-    this.src = "../images/default-avatar.png";
-  };
-  document.getElementById("edit-name").value = currentUser.name || currentUser.custNname || "";
-  document.getElementById("edit-email").value = currentUser.email || currentUser.custEmail || "";
-
-  if (currentUser.secQuestion) {
-    document.getElementById("sec-question").value = currentUser.secQuestion;
+  const infoAvatar = document.getElementById("info-avatar");
+  if (infoAvatar) {
+    infoAvatar.src = getUserAvatar(currentUser);
+    infoAvatar.onerror = function () {
+      this.src = "../images/default-avatar.png";
+    };
   }
+
+  const editName = document.getElementById("edit-name");
+  const editEmail = document.getElementById("edit-email");
+  if (editName) editName.value = getUserName(currentUser);
+  if (editEmail) editEmail.value = getUserEmail(currentUser);
+
+  const secQuestion = document.getElementById("sec-question");
+  if (secQuestion && currentUser.secQuestion) {
+    secQuestion.value = currentUser.secQuestion;
+  }
+
+  const secAnswer = document.getElementById("sec-answer");
+  if (secAnswer) secAnswer.value = "";
 }
 
 /* ---------- AVATAR UPLOAD ---------- */
 function handleAvatarChange(event) {
+  if (!currentUser) return;
+
   const file = event.target.files[0];
   if (!file) return;
 
@@ -98,10 +224,15 @@ function handleAvatarChange(event) {
   const reader = new FileReader();
   reader.onload = function (e) {
     const base64 = e.target.result;
-    document.getElementById("info-avatar").src = base64;
-    document.getElementById("sidebar-avatar").src = base64;
+
     currentUser.avatar = base64;
     persistCurrentUser();
+
+    const infoAvatar = document.getElementById("info-avatar");
+    const sidebarAvatar = document.getElementById("sidebar-avatar");
+    if (infoAvatar) infoAvatar.src = base64;
+    if (sidebarAvatar) sidebarAvatar.src = base64;
+
     showToast("Đã cập nhật ảnh đại diện!");
   };
   reader.readAsDataURL(file);
@@ -109,28 +240,34 @@ function handleAvatarChange(event) {
 
 /* ---------- SAVE PROFILE INFO ---------- */
 function saveProfileInfo() {
-  const nameInput = document.getElementById("edit-name");
-  const name = nameInput.value.trim();
+  if (!currentUser) return;
 
-  document.getElementById("err-edit-name").textContent = "";
-  nameInput.classList.remove("field-invalid");
+  const nameInput = document.getElementById("edit-name");
+  const name = nameInput ? nameInput.value.trim() : "";
+
+  const err = document.getElementById("err-edit-name");
+  if (err) err.textContent = "";
+  if (nameInput) nameInput.classList.remove("field-invalid");
 
   if (!name) {
-    document.getElementById("err-edit-name").textContent = "Vui lòng nhập họ và tên.";
-    nameInput.classList.add("field-invalid");
+    if (err) err.textContent = "Vui lòng nhập họ và tên.";
+    if (nameInput) nameInput.classList.add("field-invalid");
     return;
   }
 
   currentUser.name = name;
   persistCurrentUser();
   renderSidebar();
+
   showToast("Đã lưu thông tin tài khoản!");
 }
 
 /* ---------- SAVED SHIPPING INFO ---------- */
 function renderSavedShipping() {
   const container = document.getElementById("saved-shipping-display");
-  const info = currentUser.savedShippingInfo;
+  if (!container) return;
+
+  const info = currentUser.savedShippingInfo || currentUser.shippingInfo || null;
 
   if (!info) {
     container.innerHTML = `<div class="empty-mini">Chưa có thông tin giao hàng nào được lưu. Thông tin sẽ được lưu tự động sau khi bạn đặt hàng lần đầu.</div>`;
@@ -145,42 +282,59 @@ function renderSavedShipping() {
   `;
 }
 
-/* ---------- TAB: LỊCH SỬ XEM SẢN PHẨM (DS7) ---------- */
-function renderHistoryTab() {
+/* ---------- TAB: LỊCH SỬ XEM SẢN PHẨM ---------- */
+async function renderHistoryTab() {
   const grid = document.getElementById("history-grid");
-  const key = `printify_viewhistory_${currentUser.userId}`;
-  const history = JSON.parse(localStorage.getItem(key) || "[]");
+  if (!grid || !currentUser) return;
 
-  if (history.length === 0) {
+  const key = `printify_viewhistory_${getUserKey(currentUser)}`;
+  let history = [];
+  try {
+    history = JSON.parse(localStorage.getItem(key) || "[]");
+  } catch {
+    history = [];
+  }
+
+  if (!history.length) {
     grid.innerHTML = `<div class="empty-mini" style="grid-column:1/-1">Bạn chưa xem sản phẩm nào.</div>`;
     return;
   }
 
-  const products = getProductsCache();
+  const products = await getProductsForHistory();
 
-  grid.innerHTML = history.map(h => {
-    const product = products.find(p => p.id === h.productId);
+  const normalizedHistory = history
+    .map(item => typeof item === "string" ? { productId: item, viewedAt: null } : item)
+    .filter(item => item && item.productId);
+
+  const html = normalizedHistory.map(h => {
+    const product = products.find(p => (p.productId || p.id) === h.productId);
     if (!product) return "";
+
     return `
-      <div class="history-card" onclick="window.location.href='productDetail.html?id=${product.id}'">
+      <div class="history-card" onclick="window.location.href='productDetail.html?id=${product.productId || product.id}'">
         <div class="history-img-wrap">
-          <img src="../${product.image}" onerror="this.src='../images/placeholder.png'">
+          <img src="../${product.image || 'images/placeholder.png'}" onerror="this.src='../images/placeholder.png'">
         </div>
         <div class="history-info">
-          <div class="history-name">${product.name}</div>
-          <div class="history-time">${formatRelativeTime(h.viewedAt)}</div>
+          <div class="history-name">${product.name || "—"}</div>
+          <div class="history-time">${h.viewedAt ? formatRelativeTime(h.viewedAt) : "Vừa xem"}</div>
         </div>
       </div>
     `;
   }).join("");
+
+  grid.innerHTML = html || `<div class="empty-mini" style="grid-column:1/-1">Bạn chưa xem sản phẩm nào.</div>`;
 }
 
-/* ---------- TAB: ĐƠN HÀNG GẦN ĐÂY (DS6, chỉ đọc) ---------- */
+/* ---------- TAB: ĐƠN HÀNG GẦN ĐÂY ---------- */
 function renderRecentOrdersTab() {
   const container = document.getElementById("recent-orders-list");
+  if (!container || !currentUser) return;
+
+  const userId = getUserKey(currentUser);
   const orders = JSON.parse(localStorage.getItem("printify_orders") || "[]")
-    .filter(o => o.userId === currentUser.userId)
-    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    .filter(o => (o.userId || o.custId) === userId || o.userId === userId || o.custId === userId)
+    .sort((a, b) => new Date(b.createdAt || b.orderDate || 0) - new Date(a.createdAt || a.orderDate || 0))
     .slice(0, 5);
 
   if (orders.length === 0) {
@@ -191,17 +345,19 @@ function renderRecentOrdersTab() {
   container.innerHTML = orders.map(order => `
     <div class="recent-order-row" onclick="window.location.href='orders.html'">
       <div>
-        <div class="ro-id">${order.orderId}</div>
-        <div class="ro-date">${formatDate(order.createdAt)}</div>
+        <div class="ro-id">${order.orderId || "—"}</div>
+        <div class="ro-date">${formatDate(order.createdAt || order.orderDate || new Date().toISOString())}</div>
       </div>
-      <span class="status-badge ${statusToClass(order.status)}">${order.status}</span>
-      <div class="ro-total">${formatVND(order.payment?.amount || 0)}</div>
+      <span class="status-badge ${statusToClass(order.status)}">${order.status || "—"}</span>
+      <div class="ro-total">${formatVND(order.payment?.amount || order.total || 0)}</div>
     </div>
   `).join("");
 }
 
 /* ---------- SECURITY: ĐỔI MẬT KHẨU ---------- */
 function changePassword() {
+  if (!currentUser) return;
+
   clearSecurityErrors();
 
   const current = document.getElementById("current-password").value;
@@ -211,10 +367,12 @@ function changePassword() {
   let isValid = true;
 
   const currentHash = simpleHash(current);
+  const storedHash = getPasswordHash(currentUser);
+
   if (!current) {
     setError("err-current-password", "current-password", "Vui lòng nhập mật khẩu hiện tại.");
     isValid = false;
-  } else if (currentHash !== currentUser.passwordHash) {
+  } else if (storedHash && currentHash !== storedHash) {
     setError("err-current-password", "current-password", "Mật khẩu hiện tại không đúng.");
     isValid = false;
   }
@@ -235,7 +393,10 @@ function changePassword() {
 
   if (!isValid) return;
 
-  currentUser.passwordHash = simpleHash(newPass);
+  const hash = simpleHash(newPass);
+  currentUser.passwordHash = hash;
+  currentUser.custPasswordHash = hash;
+
   persistCurrentUser();
 
   document.getElementById("current-password").value = "";
@@ -247,18 +408,24 @@ function changePassword() {
 
 function clearSecurityErrors() {
   ["current-password", "new-password", "confirm-password"].forEach(id => {
-    document.getElementById(id).classList.remove("field-invalid");
-    document.getElementById("err-" + id).textContent = "";
+    const input = document.getElementById(id);
+    const err = document.getElementById("err-" + id);
+    if (input) input.classList.remove("field-invalid");
+    if (err) err.textContent = "";
   });
 }
 
 function setError(errId, inputId, message) {
-  document.getElementById(errId).textContent = message;
-  document.getElementById(inputId).classList.add("field-invalid");
+  const err = document.getElementById(errId);
+  const input = document.getElementById(inputId);
+  if (err) err.textContent = message;
+  if (input) input.classList.add("field-invalid");
 }
 
 /* ---------- SECURITY: CÂU HỎI BẢO MẬT ---------- */
 function saveSecurityQuestion() {
+  if (!currentUser) return;
+
   const question = document.getElementById("sec-question").value;
   const answer = document.getElementById("sec-answer").value.trim();
 
@@ -269,6 +436,8 @@ function saveSecurityQuestion() {
 
   currentUser.secQuestion = question;
   currentUser.secAnswer = simpleHash(answer.toLowerCase());
+  currentUser.secAnswers = currentUser.secAnswer; // tương thích code cũ
+
   persistCurrentUser();
 
   document.getElementById("sec-answer").value = "";
@@ -277,43 +446,26 @@ function saveSecurityQuestion() {
 
 /* ---------- LOGOUT ---------- */
 function confirmLogout() {
-  document.getElementById("confirm-modal").style.display = "flex";
+  const modal = document.getElementById("confirm-modal");
+  if (modal) modal.style.display = "flex";
 }
 
 function closeConfirmModal() {
-  document.getElementById("confirm-modal").style.display = "none";
+  const modal = document.getElementById("confirm-modal");
+  if (modal) modal.style.display = "none";
 }
 
 function doLogout() {
-  sessionStorage.removeItem("printify_session");
+  if (typeof clearCurrentUser === "function") {
+    clearCurrentUser();
+  } else {
+    sessionStorage.removeItem("printify_current_customer");
+    localStorage.removeItem("printify_current_customer");
+  }
   window.location.href = "index.html";
 }
 
-/* ---------- PERSIST HELPERS ---------- */
-function getSession() {
-  const raw = sessionStorage.getItem("printify_session");
-  return raw ? JSON.parse(raw) : null;
-}
-
-function getUsers() {
-  return JSON.parse(localStorage.getItem("printify_users") || "[]");
-}
-
-function persistCurrentUser() {
-  const users = getUsers();
-  const index = users.findIndex(u => u.userId === currentUser.userId);
-  if (index !== -1) {
-    users[index] = currentUser;
-    localStorage.setItem("printify_users", JSON.stringify(users));
-  }
-}
-
-function getProductsCache() {
-  const cached = localStorage.getItem("printify_products_cache");
-  return cached ? JSON.parse(cached) : [];
-}
-
-/* Hàm băm mật khẩu đơn giản (demo, KHÔNG dùng cho production thật) */
+/* ---------- FORMAT HELPERS ---------- */
 function simpleHash(str) {
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
@@ -323,23 +475,29 @@ function simpleHash(str) {
   return "h" + hash.toString(36);
 }
 
-/* ---------- FORMAT HELPERS ---------- */
 function formatVND(amount) {
-  return amount.toLocaleString("vi-VN") + "₫";
+  return Number(amount || 0).toLocaleString("vi-VN") + "₫";
 }
 
 function formatDate(isoString) {
   const d = new Date(isoString);
+  if (Number.isNaN(d.getTime())) return "—";
   return d.toLocaleDateString("vi-VN");
 }
 
 function formatRelativeTime(isoString) {
-  const diffMs = Date.now() - new Date(isoString).getTime();
+  const d = new Date(isoString);
+  if (Number.isNaN(d.getTime())) return "Vừa xem";
+
+  const diffMs = Date.now() - d.getTime();
   const diffMin = Math.floor(diffMs / 60000);
+
   if (diffMin < 1) return "Vừa xem";
   if (diffMin < 60) return `${diffMin} phút trước`;
+
   const diffHour = Math.floor(diffMin / 60);
   if (diffHour < 24) return `${diffHour} giờ trước`;
+
   const diffDay = Math.floor(diffHour / 24);
   return `${diffDay} ngày trước`;
 }
@@ -357,8 +515,10 @@ function statusToClass(status) {
 
 function updateCartBadge() {
   const cart = JSON.parse(localStorage.getItem("printify_cart") || "[]");
-  const totalQty = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
+  const totalQty = cart.reduce((sum, item) => sum + (Number(item.qty) || 0), 0);
   const badge = document.getElementById("cart-badge");
+  if (!badge) return;
+
   if (totalQty > 0) {
     badge.textContent = totalQty;
     badge.style.display = "flex";

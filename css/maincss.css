@@ -1517,6 +1517,7 @@ body.auth-page{
 .auth-error{
   border-color: #ef4444 !important;
   box-shadow: 0 0 0 4px rgba(239,68,68,.10) !important;
+<<<<<<< HEAD
 }
 /* =========================
    PRINTIFY ADMIN THEME
@@ -2507,4 +2508,6 @@ body.admin-page{
   .admin-sidebar{
     position: static;
   }
+=======
+>>>>>>> main
 }

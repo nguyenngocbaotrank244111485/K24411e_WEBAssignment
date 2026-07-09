@@ -4,6 +4,13 @@
    gọi module recommendation (NV12) để lấy 4 SP tương tự
    ========================= */
 
+<<<<<<< HEAD
+=======
+let currentProduct = null;
+let selectedColor = null;
+let selectedSize = null;
+
+>>>>>>> main
 const CATEGORY_LABELS = {
   clothing: "Quần áo",
   stationery: "Văn phòng phẩm",
@@ -14,6 +21,7 @@ const CATEGORY_LABELS = {
   office: "Văn phòng"
 };
 
+<<<<<<< HEAD
 let currentProduct = null;
 let selectedColor = null;
 let selectedSize = null;
@@ -21,6 +29,10 @@ let selectedSize = null;
 document.addEventListener("DOMContentLoaded", async () => {
   updateCartBadge();
   bindLoginModalLinks();
+=======
+document.addEventListener("DOMContentLoaded", async () => {
+  updateCartBadge();
+>>>>>>> main
 
   const productId = getProductIdFromURL();
   if (!productId) {
@@ -37,6 +49,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   currentProduct = product;
+<<<<<<< HEAD
   renderDetail(product);          // ✅ luôn hiển thị, không cần đăng nhập
   recordViewHistory(product.id);  // chỉ ghi nếu đã đăng nhập, không chặn hiển thị
   renderSimilarProducts(product, products);
@@ -74,6 +87,13 @@ function ensureAuthForAction() {
   return false;
 }
 
+=======
+  renderDetail(product);
+  recordViewHistory(product.id);
+  renderSimilarProducts(product, products);
+});
+
+>>>>>>> main
 /* ---------- LOAD DATA (fetch + flatten categories + cache) ---------- */
 async function loadAllProducts() {
   try {
@@ -84,7 +104,11 @@ async function loadAllProducts() {
 
     const active = flat
       .filter(p => p.isActive !== false)
+<<<<<<< HEAD
       .map(p => ({ ...p, id: p.productId }));
+=======
+      .map(p => ({ ...p, id: p.productId })); // chuẩn hóa productId -> id
+>>>>>>> main
 
     localStorage.setItem("printify_products_cache", JSON.stringify(active));
     return active;
@@ -120,9 +144,15 @@ function renderDetail(p) {
   document.getElementById("breadcrumb-name").textContent = p.name;
   document.title = `PrintiFy — ${p.name}`;
 
+<<<<<<< HEAD
   const images = p.images?.length
     ? [p.image, ...p.images]
     : [p.image];
+=======
+ // Gallery — chỉ dùng p.image (local, đáng tin cậy).
+  // Bỏ p.images vì hiện là link trang Unsplash (không phải file ảnh trực tiếp) → luôn lỗi.
+  const images = [p.image];
+>>>>>>> main
   document.getElementById("gallery-main-img").src = `../${images[0]}`;
   document.getElementById("gallery-main-img").onerror = function () {
     this.src = "../images/placeholder.png";
@@ -132,6 +162,10 @@ function renderDetail(p) {
   }
 
   const thumbsWrap = document.getElementById("gallery-thumbs");
+<<<<<<< HEAD
+=======
+  // Chỉ 1 ảnh -> ẩn khu vực thumbnail luôn cho gọn (thay vì hiện 1 thumb trùng ảnh chính)
+>>>>>>> main
   if (images.length <= 1) {
     thumbsWrap.style.display = "none";
   } else {
@@ -143,6 +177,10 @@ function renderDetail(p) {
     `).join("");
   }
 
+<<<<<<< HEAD
+=======
+  // Info
+>>>>>>> main
   document.getElementById("detail-cat-badge").textContent = CATEGORY_LABELS[p.category] || p.category;
   document.getElementById("detail-name").textContent = p.name;
   document.getElementById("detail-price").textContent = formatVND(p.price);
@@ -150,6 +188,10 @@ function renderDetail(p) {
   document.getElementById("detail-tags").innerHTML =
     (p.tags || []).map(t => `<span class="tag">${t}</span>`).join("");
 
+<<<<<<< HEAD
+=======
+  // Colors
+>>>>>>> main
   if (p.colors && p.colors.length) {
     selectedColor = p.colors[0];
     document.getElementById("option-colors").innerHTML = p.colors.map((c, i) => `
@@ -163,6 +205,10 @@ function renderDetail(p) {
     document.getElementById("color-block").style.display = "none";
   }
 
+<<<<<<< HEAD
+=======
+  // Sizes
+>>>>>>> main
   if (p.sizes && p.sizes.length) {
     selectedSize = p.sizes[0];
     document.getElementById("option-sizes").innerHTML = p.sizes.map((s, i) => `
@@ -172,11 +218,17 @@ function renderDetail(p) {
     document.getElementById("size-block").style.display = "none";
   }
 
+<<<<<<< HEAD
+=======
+  // Out of stock: disable "bắt đầu thiết kế" nhưng vẫn cho xem/thiết kế theo mô tả NV03
+  // (mô tả gốc: "vẫn cho phép xem và thiết kế" -> giữ nút bật, chỉ cảnh báo)
+>>>>>>> main
   if (!p.inStock) {
     const btn = document.getElementById("btn-start-design");
     btn.innerHTML = "🎨 Bắt đầu thiết kế (Tạm hết hàng)";
   }
 }
+<<<<<<< HEAD
 function getImagePath(path) {
     if (!path) return "../images/placeholder.png";
     if (path.startsWith("http")) {
@@ -184,6 +236,9 @@ function getImagePath(path) {
     }
     return path;
 }
+=======
+
+>>>>>>> main
 /* ---------- GALLERY SWITCH ---------- */
 function switchGalleryImage(img, thumbEl) {
   document.getElementById("gallery-main-img").src = `../${img}`;
@@ -205,15 +260,26 @@ function selectSize(size, el) {
   el.classList.add("active");
 }
 
+<<<<<<< HEAD
 /* ---------- ACTIONS: bắt đầu thiết kế / dùng mặc định (CẦN đăng nhập) ---------- */
 function handleStartDesign() {
   if (!ensureAuthForAction()) return;
 
+=======
+/* ---------- ACTIONS: bắt đầu thiết kế / dùng mặc định ---------- */
+function handleStartDesign() {
+  const session = getSession();
+  if (!session) {
+    document.getElementById("login-required-modal").classList.add("show");
+    return;
+  }
+>>>>>>> main
   const params = new URLSearchParams({
     productId: currentProduct.id,
     color: selectedColor || "",
     size: selectedSize || ""
   });
+<<<<<<< HEAD
   window.location.href = `../interface/editor.html?${params.toString()}`;
 }
 
@@ -260,16 +326,80 @@ function recordViewHistory(productId) {
   if (!userId) return;
 
   const key = `printify_viewhistory_${userId}`;
+=======
+  window.location.href = `editor.html?${params.toString()}`;
+}
+
+function handleUseDefault() {
+  const session = getSession();
+  if (!session) {
+    document.getElementById("login-required-modal").classList.add("show");
+    return;
+  }
+  // Bỏ qua thiết kế, thêm thẳng vào giỏ với designData = null
+  addDefaultToCart();
+}
+
+function addDefaultToCart() {
+  const cart = JSON.parse(localStorage.getItem("printify_cart") || "[]");
+
+  const existing = cart.find(item =>
+    item.productId === currentProduct.id &&
+    item.color === selectedColor &&
+    item.size === selectedSize &&
+    !item.designData
+  );
+
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({
+      cartItemId: "CI" + Date.now(),
+      productId: currentProduct.id,
+      name: currentProduct.name,
+      price: currentProduct.price,
+      color: selectedColor,
+      size: selectedSize,
+      qty: 1,
+      designData: null
+    });
+  }
+
+  localStorage.setItem("printify_cart", JSON.stringify(cart));
+  updateCartBadge();
+  showToast("Đã thêm vào giỏ hàng!");
+}
+
+function closeLoginModal() {
+  document.getElementById("login-required-modal").classList.remove("show");
+}
+
+/* ---------- VIEW HISTORY (DS7) ---------- */
+function recordViewHistory(productId) {
+  const session = getSession();
+  if (!session) return; // chỉ ghi khi đã đăng nhập
+
+  const key = `printify_viewhistory_${session.userId}`;
+>>>>>>> main
   let history = JSON.parse(localStorage.getItem(key) || "[]");
 
   history = history.filter(h => h.productId !== productId);
   history.unshift({ productId, viewedAt: new Date().toISOString() });
+<<<<<<< HEAD
   history = history.slice(0, 20);
+=======
+  history = history.slice(0, 20); // tối đa 20
+>>>>>>> main
 
   localStorage.setItem(key, JSON.stringify(history));
 }
 
+<<<<<<< HEAD
 /* ---------- SIMILAR PRODUCTS (NV12) ---------- */
+=======
+/* ---------- SIMILAR PRODUCTS (NV12) ----------
+   Gọi module recommendation.js (getSimilarProducts) */
+>>>>>>> main
 function renderSimilarProducts(product, allProducts) {
   const similar = getSimilarProducts(product, allProducts, 4);
   const grid = document.getElementById("similar-grid");
@@ -293,6 +423,14 @@ function renderSimilarProducts(product, allProducts) {
 }
 
 /* ---------- HELPERS ---------- */
+<<<<<<< HEAD
+=======
+function getSession() {
+  const raw = sessionStorage.getItem("printify_session");
+  return raw ? JSON.parse(raw) : null;
+}
+
+>>>>>>> main
 function formatVND(amount) {
   return amount.toLocaleString("vi-VN") + "₫";
 }

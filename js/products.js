@@ -24,11 +24,18 @@ const CATEGORY_LABELS = {
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
+<<<<<<< HEAD
     syncAuthUI();
     await loadProducts();
     buildCategoryFilters();
     applyFilters();
     updateCartBadge();
+=======
+  await loadProducts();
+  buildCategoryFilters();
+  applyFilters();
+  updateCartBadge();
+>>>>>>> main
 });
 
 /* ---------- LOAD DATA (fetch + flatten categories + cache) ---------- */
@@ -175,6 +182,7 @@ function renderProducts() {
 
         <!-- HOVER OVERLAY: hiện khi rê chuột -->
         <div class="hover-overlay">
+<<<<<<< HEAD
         <button class="hover-btn hover-btn-cart"
                   onclick="event.stopPropagation(); quickAddToCart('${p.id}')"
                   ${!p.inStock ? "disabled" : ""}>
@@ -184,6 +192,17 @@ function renderProducts() {
             onclick="event.stopPropagation(); startDesign('${p.id}')">
             🎨 Bắt đầu thiết kế
         </button>
+=======
+          <button class="hover-btn hover-btn-cart"
+                  onclick="event.stopPropagation(); quickAddToCart('${p.id}')"
+                  ${!p.inStock ? "disabled" : ""}>
+            🛒 Thêm giỏ hàng
+          </button>
+          <button class="hover-btn hover-btn-design"
+                  onclick="event.stopPropagation(); goToDetail('${p.id}')">
+            🎨 Bắt đầu thiết kế
+          </button>
+>>>>>>> main
         </div>
       </div>
       <div class="product-info" onclick="goToDetail('${p.id}')">
@@ -197,6 +216,7 @@ function renderProducts() {
   `).join("");
 }
 
+<<<<<<< HEAD
 function startDesign(productId) {
 
     const product = ALL_PRODUCTS.find(p => p.id === productId);
@@ -231,6 +251,8 @@ function startDesign(productId) {
         `editor.html?productId=${productId}&color=${color}&size=${size}`;
 }
 
+=======
+>>>>>>> main
 /* ---------- QUICK ADD TO CART (từ hover trên grid) ---------- */
 function quickAddToCart(productId) {
   const product = ALL_PRODUCTS.find(p => p.id === productId);
@@ -241,6 +263,7 @@ function quickAddToCart(productId) {
     return;
   }
 
+<<<<<<< HEAD
   const defaultColor = (product.colors && product.colors[0]) || null;
   const defaultSize = (product.sizes && product.sizes[0]) || null;
   const user=getCurrentUser();
@@ -255,6 +278,18 @@ function quickAddToCart(productId) {
     key,
     JSON.stringify(cart)
   );
+=======
+  const session = sessionStorage.getItem("printify_session");
+  if (!session) {
+    showToast("Vui lòng đăng nhập để thêm vào giỏ hàng.");
+    return;
+  }
+
+  const defaultColor = (product.colors && product.colors[0]) || null;
+  const defaultSize = (product.sizes && product.sizes[0]) || null;
+
+  const cart = JSON.parse(localStorage.getItem("printify_cart") || "[]");
+>>>>>>> main
 
   const existing = cart.find(item =>
     item.productId === product.id &&
@@ -302,6 +337,7 @@ function formatVND(amount) {
   return amount.toLocaleString("vi-VN") + "₫";
 }
 
+<<<<<<< HEAD
 function updateCartBadge(){
     const user=getCurrentUser();
     if(!user){
@@ -323,4 +359,16 @@ function updateCartBadge(){
     }else{
         badge.style.display="none";
     }
+=======
+function updateCartBadge() {
+  const cart = JSON.parse(localStorage.getItem("printify_cart") || "[]");
+  const totalQty = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
+  const badge = document.getElementById("cart-badge");
+  if (totalQty > 0) {
+    badge.textContent = totalQty;
+    badge.style.display = "flex";
+  } else {
+    badge.style.display = "none";
+  }
+>>>>>>> main
 }

@@ -1,4 +1,4 @@
-// chatbot.js — widget chatbot nổi, không chuyển tab
+// chatbot.js — Floating chatbot widget, does not switch tabs.
 const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
 
 const CHAT_KEY = 'printify_chat';

@@ -4,13 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PrintiFy — Admin</title>
-  <link rel="stylesheet" href="../css/maincss.css" />
-  <link rel="stylesheet" href="../css/admincss.css" />
+  <link rel="stylesheet" type="text/css" href="../css/maincss.css" />
+  <link rel="stylesheet" type="text/css" href="../css/admincss.css">
 </head>
 <body class="admin-page">
   <div id="adminLoginWrap" class="admin-login-wrap">
     <div class="admin-login-card">
-      <h1 class="admin-login-title">PrintiFy Admin</h1>
+      <h1>PrintiFy Admin</h1>
+      <p>Đăng nhập để vào khu vực quản trị.</p>
+
       <form id="adminLoginForm">
         <label>Email / Username</label>
         <input id="adminEmail" type="text" placeholder="Nhập email hoặc username">
@@ -129,7 +131,6 @@
           <div class="page-hero">
             <div>
               <h1>Quản lý sản phẩm</h1>
-              <p>Đọc/sửa DS3 Products, hiển thị catalog, ẩn/hiện sản phẩm không xóa cứng.</p>
             </div>
             <div class="page-hero-actions">
               <button class="btn-primary" id="btnAddProduct" type="button">+ Thêm sản phẩm</button>
@@ -181,7 +182,6 @@
           <div class="page-hero">
             <div>
               <h1>Quản lý đơn hàng</h1>
-              <p>Đọc/sửa DS6 Orders, theo dõi timeline và cập nhật trạng thái xử lý.</p>
             </div>
           </div>
 
@@ -227,7 +227,6 @@
           <div class="page-hero">
             <div>
               <h1>Xét duyệt yêu cầu hoàn hàng</h1>
-              <p>Đọc/sửa DS11 ReturnRequests, đối chiếu đơn gốc và xử lý chấp nhận / từ chối.</p>
             </div>
           </div>
 
@@ -268,7 +267,6 @@
           <div class="page-hero">
             <div>
               <h1>Quản lý khảo sát TAM</h1>
-              <p>Đọc/sửa DS13 SurveyQuestions, DS14 SurveyResponses và thống kê PU / PEOU / SAT / PI.</p>
             </div>
             <div class="page-hero-actions">
               <button class="btn-primary" id="btnAddQuestion" type="button">+ Thêm câu hỏi</button>
@@ -326,7 +324,7 @@
             <section class="grid-2">
               <div class="section-card">
                 <div class="section-head">
-                  <h2>Điểm trung bình theo dimension</h2>
+                  <h2>Điểm trung bình theo chiều TAM</h2>
                   <span class="section-sub">PU / PEOU / SAT / PI</span>
                 </div>
                 <div id="tamAverageBars" class="chart-list"></div>
@@ -334,17 +332,27 @@
 
               <div class="section-card">
                 <div class="section-head">
-                  <h2>Phân phối điểm 1–5</h2>
-                  <span class="section-sub">Tổng hợp toàn bộ phản hồi</span>
+                  <h2>Radar tổng quan 4 chiều</h2>
+                  <span class="section-sub">PU / PEOU / SAT / PI</span>
                 </div>
-                <div id="tamDistribution" class="distribution-chart"></div>
+                <div style="position:relative;width:100%;height:220px;">
+                  <canvas id="tamRadarChart" role="img" aria-label="Bieu do radar 4 chieu TAM: PU, EOU, SAT, PI"></canvas>
+                </div>
               </div>
             </section>
 
             <section class="section-card">
               <div class="section-head">
-                <h2>Comment gần đây</h2>
-                <span class="section-sub">Phản hồi người dùng</span>
+                <h2>Phân phối điểm 1–5</h2>
+                <span class="section-sub">Tổng hợp toàn bộ phản hồi</span>
+              </div>
+              <div id="tamDistribution" class="distribution-chart"></div>
+            </section>
+
+            <section class="section-card">
+              <div class="section-head">
+                <h2>Góp ý từ người dùng</h2>
+                <span class="section-sub">Phản hồi mới nhất</span>
               </div>
               <div id="tamCommentList" class="comment-list"></div>
             </section>
@@ -365,6 +373,7 @@
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
   <script src="../js/admin.js"></script>
 </body>
 </html>

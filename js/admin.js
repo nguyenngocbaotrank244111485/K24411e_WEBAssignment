@@ -280,7 +280,6 @@ function getFilteredOrders() {
   const q = normalize($('orderSearch')?.value || '');
   const status = $('orderStatusFilter')?.value || '';
   const payment = $('orderPaymentFilter')?.value || '';
-
   return state.orders.filter(o => {
     const hay = [o.orderId, o.custId, o.userId, getCustomerName(o.custId || o.userId), o.payMethod, o.paymentMethod].join(' ').toLowerCase();
     const passQ = !q || hay.includes(q);
@@ -353,7 +352,10 @@ async function bootstrap() {
     readLS(KEYS.surveyOverride, asArray(surveyQ)),
     x => x.questionId
   );
-  state.surveyR = asArray(surveyR, 'responses');
+  state.surveyR = uniqueBy(
+    asArray(surveyR, 'responses'),
+    x => x.responseId
+  );
   state.marketplace = uniqueBy(asArray(marketplace), x => x.listingId);
   state.customers = asArray(customers);
 }
@@ -576,23 +578,87 @@ function renderTAMQuestions() {
   `).join('') : `<tr><td colspan="6" class="empty-inline">Không có câu hỏi phù hợp.</td></tr>`;
 }
 
+let tamRadarChartInstance = null;
+
+function timeAgo(dateStr) {
+  const then = parseDateSafe(dateStr);
+  if (!then) return '';
+  const diffMs = Date.now() - then.getTime();
+  const mins = Math.floor(diffMs / 60000);
+  if (mins < 60) return `${Math.max(mins, 0)} phút trước`;
+  const hours = Math.floor(mins / 60);
+  if (hours < 24) return `${hours} giờ trước`;
+  const days = Math.floor(hours / 24);
+  return `${days} ngày trước`;
+}
+
+function initialsOf(name) {
+  const parts = String(name || '?').trim().split(/\s+/);
+  const first = parts[0]?.[0] || '?';
+  const last = parts.length > 1 ? parts[parts.length - 1][0] : '';
+  return (first + last).toUpperCase();
+}
+
+const DIM_COLORS = {
+  PU: { bg: 'rgba(59,130,246,0.15)', fg: '#60a5fa' },
+  PEOU: { bg: 'rgba(16,185,129,0.15)', fg: '#34d399' },
+  SAT: { bg: 'rgba(168,85,247,0.15)', fg: '#c084fc' },
+  PI: { bg: 'rgba(249,115,22,0.15)', fg: '#fb923c' }
+};
+
+function dimTagHtml(dim, score) {
+  const c = DIM_COLORS[dim] || { bg: 'rgba(148,163,184,0.15)', fg: '#94a3b8' };
+  return `<span style="display:inline-block;background:${c.bg};color:${c.fg};font-size:11px;font-weight:500;padding:2px 8px;border-radius:999px;">${dim}:${score}</span>`;
+}
+
+// Điểm trung bình từng chiều TAM CHỈ TÍNH RIÊNG cho 1 response — dùng để gắn
+// tag màu lên mỗi comment (khác với averageForDimension() là tính trên toàn bộ phản hồi).
+function dimAveragesForResponse(r) {
+  const out = {};
+  ['PU', 'PEOU', 'SAT', 'PI'].forEach(dim => {
+    const qids = state.surveyQ.filter(q => q.dimension === dim).map(q => normalize(q.questionId));
+    const scores = (r.answers || [])
+      .filter(a => qids.includes(normalize(a.questionId)))
+      .map(a => Number(a.score || 0));
+    if (scores.length) out[dim] = Math.round((scores.reduce((s, n) => s + n, 0) / scores.length) * 10) / 10;
+  });
+  return out;
+}
+
 function renderTAMStats() {
   const dims = ['PU', 'PEOU', 'SAT', 'PI'];
+  const dimAverages = dims.map(dim => ({ dim, avg: averageForDimension(dim) }));
+  const answered = dimAverages.filter(d => d.avg > 0);
 
-  $('tamStatsCards').innerHTML = dims.map(dim => {
-    const avg = averageForDimension(dim);
-    const count = state.surveyR.reduce((sum, r) => sum + (r.answers || []).filter(a => normalize(getQuestionById(a.questionId)?.dimension) === normalize(dim)).length, 0);
-    return `
-      <article class="stat-card">
-        <div class="stat-label">${dim}</div>
-        <div class="stat-value">${avg ? avg.toFixed(2) : '—'}</div>
-        <div class="stat-hint">${count} câu trả lời</div>
-      </article>
-    `;
-  }).join('');
+  const overallAvg = answered.length
+    ? answered.reduce((s, d) => s + d.avg, 0) / answered.length
+    : 0;
+  const best = answered.length ? answered.reduce((a, b) => (b.avg > a.avg ? b : a)) : null;
+  const worst = answered.length ? answered.reduce((a, b) => (b.avg < a.avg ? b : a)) : null;
 
-  $('tamAverageBars').innerHTML = dims.map(dim => {
-    const avg = averageForDimension(dim);
+  $('tamStatsCards').innerHTML = `
+    <article class="stat-card">
+      <div class="stat-label">Tổng phản hồi</div>
+      <div class="stat-value">${state.surveyR.length}</div>
+    </article>
+    <article class="stat-card">
+      <div class="stat-label">Điểm TB tổng thể</div>
+      <div class="stat-value">${overallAvg ? overallAvg.toFixed(2) : '—'}</div>
+      <div class="stat-hint">/ 5 điểm</div>
+    </article>
+    <article class="stat-card">
+      <div class="stat-label">Chiều cao nhất</div>
+      <div class="stat-value">${best ? best.dim : '—'}</div>
+      <div class="stat-hint">${best ? `TB ${best.avg.toFixed(2)}` : ''}</div>
+    </article>
+    <article class="stat-card">
+      <div class="stat-label">Cần cải thiện</div>
+      <div class="stat-value">${worst ? worst.dim : '—'}</div>
+      <div class="stat-hint">${worst ? `TB ${worst.avg.toFixed(2)}` : ''}</div>
+    </article>
+  `;
+
+  $('tamAverageBars').innerHTML = dimAverages.map(({ dim, avg }) => {
     const pct = Math.round((avg / 5) * 100);
     return `
       <div class="chart-row">
@@ -604,6 +670,39 @@ function renderTAMStats() {
       </div>
     `;
   }).join('');
+
+  const radarCanvas = $('tamRadarChart');
+  if (radarCanvas && window.Chart) {
+    if (tamRadarChartInstance) tamRadarChartInstance.destroy();
+    tamRadarChartInstance = new Chart(radarCanvas, {
+      type: 'radar',
+      data: {
+        labels: dims,
+        datasets: [{
+          data: dimAverages.map(d => Number(d.avg.toFixed(2))),
+          backgroundColor: 'rgba(96,165,250,0.15)',
+          borderColor: '#60a5fa',
+          pointBackgroundColor: '#60a5fa',
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          r: {
+            min: 0,
+            max: 5,
+            ticks: { display: false },
+            grid: { color: 'rgba(148,163,184,0.25)' },
+            angleLines: { color: 'rgba(148,163,184,0.25)' },
+            pointLabels: { color: '#94a3b8', font: { size: 12 } }
+          }
+        }
+      }
+    });
+  }
 
   const distribution = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
   state.surveyR.forEach(r => (r.answers || []).forEach(a => {
@@ -621,15 +720,27 @@ function renderTAMStats() {
   `).join('');
 
   const comments = getSurveyComments().slice(0, 8);
-  $('tamCommentList').innerHTML = comments.length ? comments.map(r => `
-    <div class="comment-item">
-      <div class="comment-head">
-        <strong>${r.custId || r.userId || 'User'}</strong>
-        <span>${fmtDate(r.submittedAt)}</span>
+  $('tamCommentList').innerHTML = comments.length ? comments.map(r => {
+    const dimAvgs = dimAveragesForResponse(r);
+    const entries = Object.entries(dimAvgs);
+    const tags = entries.length
+      ? [entries.reduce((a, b) => (b[1] > a[1] ? b : a)), entries.reduce((a, b) => (b[1] < a[1] ? b : a))]
+      : [];
+    const custName = getCustomerName?.(r.custId || r.userId) || r.custId || r.userId || 'User';
+    return `
+      <div class="comment-item" style="display:flex;gap:10px;">
+        <div style="width:32px;height:32px;border-radius:50%;background:rgba(96,165,250,0.15);color:#60a5fa;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;flex-shrink:0;">${initialsOf(custName)}</div>
+        <div style="flex:1;min-width:0;">
+          <div class="comment-head" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <strong>${custName}</strong>
+            ${tags.map(([dim, score]) => dimTagHtml(dim, score)).join('')}
+            <span style="margin-left:auto;">${timeAgo(r.submittedAt)}</span>
+          </div>
+          <p>${r.comment || '—'}</p>
+        </div>
       </div>
-      <p>${r.comment || '—'}</p>
-    </div>
-  `).join('') : '<div class="empty-inline">Chưa có phản hồi.</div>';
+    `;
+  }).join('') : '<div class="empty-inline">Chưa có phản hồi.</div>';
 }
 
 function renderTAM() {
@@ -1159,7 +1270,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const stored = String(admin.password ?? admin.passwordHash ?? '');
     if (stored !== password) {
-      setLoginMessage('Mật khẩu không đúng. Vui lòng thử lại.');
+      setLoginMessage('Mật khẩu không đúng. Vui lòng thử lại hoặc liên hệ quản trị viên.');
       return;
     }
 

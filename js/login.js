@@ -10,6 +10,7 @@ const $ = (id) => document.getElementById(id);
 
 function showMessage(text, type = 'error') {
   const el = $('message');
+  if (!el) return;
   el.textContent = text;
   el.className = `message ${type}`;
 }
@@ -37,8 +38,11 @@ function closeModal() {
 }
 
 function getOverrides() {
-  try { return JSON.parse(localStorage.getItem(OVERRIDE_KEY) || '{}'); }
-  catch { return {}; }
+  try {
+    return JSON.parse(localStorage.getItem(OVERRIDE_KEY) || '{}');
+  } catch {
+    return {};
+  }
 }
 
 function setOverrides(obj) {
@@ -46,50 +50,138 @@ function setOverrides(obj) {
 }
 
 function sanitizeCustomer(customer) {
-  const { custPassword, custPasswordHash, ...safe } = customer;
+  const {
+    custPassword,
+    custPasswordHash,
+    password,
+    passwordHash,
+    ...safe
+  } = customer;
   return safe;
 }
 
 async function sha256Hex(text) {
   const bytes = new TextEncoder().encode(text);
   const hashBuffer = await crypto.subtle.digest('SHA-256', bytes);
-  return [...new Uint8Array(hashBuffer)].map(b => b.toString(16).padStart(2, '0')).join('');
+  return [...new Uint8Array(hashBuffer)]
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('');
 }
 
 function normalize(v) {
   return String(v ?? '').trim().toLowerCase();
 }
+
+function pickName(customer) {
+  return customer.custName || customer.name || customer.adName || '';
+}
+
+function pickEmail(customer) {
+  return customer.custEmail || customer.email || customer.adEmail || '';
+}
+
+function pickId(customer) {
+  return customer.custId || customer.userId || customer.adId || '';
+}
+
+function pickAvatar(customer) {
+  return customer.custAvatar || customer.avatar || customer.adAvatar || '';
+}
+
+function pickSecurityQuestion(customer) {
+  return customer.secQuestion || customer.securityQuestion || '';
+}
+
+function pickSecurityAnswer(customer) {
+  return customer.secAnswer || customer.secAnswers || customer.securityAnswer || '';
+}
+
+function pickPasswordHash(customer) {
+  return customer.custPasswordHash || customer.passwordHash || customer.password || '';
+}
+
 async function verifyPassword(customer, inputPassword) {
   const overrides = getOverrides();
-  const override = overrides[customer.custId];
+  const id = pickId(customer);
+  const override = overrides[id];
 
-  if (override?.custPasswordHash) {
+  if (override?.passwordHash) {
     const h = await sha256Hex(inputPassword);
-    return h === override.custPasswordHash;
+    return h === override.passwordHash;
   }
 
-  // Demo: ưu tiên plain password nếu có trong JSON
-  if (customer.custPassword) {
-    if (inputPassword === customer.custPassword) return true;
-  }
+  const rawPw = customer.custPassword || customer.password;
+  if (rawPw && inputPassword === rawPw) return true;
 
-  if (customer.custPasswordHash) {
+  const storedHash = pickPasswordHash(customer);
+  if (storedHash && storedHash !== rawPw) {
     const h = await sha256Hex(inputPassword);
-    return h === customer.custPasswordHash;
+    return h === storedHash;
   }
 
   return false;
 }
 
 async function loadCustomers() {
-  const res = await fetch(DATA_URL);
-  if (!res.ok) throw new Error('Không tải được customerSample.json');
-  customers = await res.json();
+  const list = [];
+
+  // 1) dữ liệu mẫu từ JSON
+  try {
+    const res = await fetch(DATA_URL);
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data)) list.push(...data);
+    }
+  } catch (err) {
+    console.warn('Không tải được customerSample.json:', err);
+  }
+
+  // 2) user đã đăng ký từ localStorage
+  try {
+    const reg = JSON.parse(localStorage.getItem('printify_users') || '[]');
+    if (Array.isArray(reg)) list.push(...reg);
+  } catch {}
+
+  // 3) loại trùng theo email (localStorage ưu tiên hơn JSON mẫu)
+  const map = new Map();
+  for (const c of list) {
+    const email = normalize(pickEmail(c));
+    if (!email) continue;
+    map.set(email, c);
+  }
+
+  customers = [...map.values()];
 }
 
 function findCustomerByEmail(email) {
   const n = normalize(email);
-  return customers.find(c => normalize(c.custEmail) === n) || null;
+  return customers.find(c => normalize(pickEmail(c)) === n) || null;
+}
+
+function updateRegisteredUserPassword(userIdOrEmail, newPasswordHash) {
+  try {
+    const users = JSON.parse(localStorage.getItem('printify_users') || '[]');
+    const idx = users.findIndex(u =>
+      pickId(u) === userIdOrEmail ||
+      normalize(pickEmail(u)) === normalize(userIdOrEmail)
+    );
+
+    if (idx >= 0) {
+      users[idx].passwordHash = newPasswordHash;
+      localStorage.setItem('printify_users', JSON.stringify(users));
+      return true;
+    }
+  } catch {}
+  return false;
+}
+
+function getLoginPayload(customer) {
+  return {
+    userId: pickId(customer),
+    name: pickName(customer),
+    email: pickEmail(customer),
+    avatar: pickAvatar(customer)
+  };
 }
 
 $('loginForm').addEventListener('submit', async (e) => {
@@ -117,16 +209,14 @@ $('loginForm').addEventListener('submit', async (e) => {
   }
 
   const rememberMe = $('rememberMe').checked;
-  const safeCustomer = sanitizeCustomer(customer);
+  const safeCustomer = sanitizeCustomer(getLoginPayload(customer));
 
-  if (rememberMe) {
-    localStorage.setItem(SESSION_KEY, JSON.stringify(safeCustomer));
-  } else {
-    sessionStorage.setItem(SESSION_KEY, JSON.stringify(safeCustomer));
-  }
+  setCurrentUser(safeCustomer, rememberMe);
 
   showMessage('Đăng nhập thành công. Đang chuyển trang...', 'success');
-  setTimeout(() => { window.location.href = '../interface/index.html'; }, 700);
+  setTimeout(() => {
+    window.location.href = getReturnTo('../interface/index.html');
+  }, 700);
 });
 
 $('forgotBtn').addEventListener('click', openModal);
@@ -139,26 +229,30 @@ $('lookupBtn').addEventListener('click', () => {
     alert('Vui lòng nhập email.');
     return;
   }
+
   const customer = findCustomerByEmail(email);
   if (!customer) {
     alert('Không tìm thấy tài khoản với email này.');
     return;
   }
+
   selectedCustomer = customer;
-  $('securityQuestion').textContent = customer.secQuestion;
+  $('securityQuestion').textContent = pickSecurityQuestion(customer) || 'Không có câu hỏi bảo mật.';
   $('stepEmail').classList.add('hidden');
   $('stepQuestion').classList.remove('hidden');
 });
 
 $('verifyAnswerBtn').addEventListener('click', () => {
   if (!selectedCustomer) return;
+
   const answer = normalize($('securityAnswer').value);
-  const correct = normalize(selectedCustomer.secAnswers);
+  const correct = normalize(pickSecurityAnswer(selectedCustomer));
 
   if (!answer) {
     alert('Vui lòng nhập câu trả lời.');
     return;
   }
+
   if (answer !== correct) {
     alert('Câu trả lời bảo mật chưa đúng.');
     return;
@@ -179,25 +273,36 @@ $('resetPasswordBtn').addEventListener('click', async () => {
     alert('Mật khẩu mới nên có ít nhất 6 ký tự.');
     return;
   }
+
   if (newPw !== confirmPw) {
     alert('Mật khẩu xác nhận không khớp.');
     return;
   }
 
   const hash = await sha256Hex(newPw);
-  const overrides = getOverrides();
-  overrides[verifiedForReset.custId] = {
-    custPasswordHash: hash,
-    updatedAt: new Date().toISOString()
-  };
-  setOverrides(overrides);
+  const id = pickId(verifiedForReset);
+
+  // ưu tiên cập nhật user đã đăng ký trong localStorage
+  const updatedInUsers = updateRegisteredUserPassword(id, hash);
+
+  // nếu không phải user localStorage thì lưu override cho dữ liệu mẫu
+  if (!updatedInUsers) {
+    const overrides = getOverrides();
+    overrides[id] = {
+      passwordHash: hash,
+      updatedAt: new Date().toISOString()
+    };
+    setOverrides(overrides);
+  }
 
   alert('Đổi mật khẩu thành công. Bạn có thể đăng nhập lại bằng mật khẩu mới.');
   closeModal();
 });
 
 window.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && !$('forgotModal').classList.contains('hidden')) closeModal();
+  if (e.key === 'Escape' && !$('forgotModal').classList.contains('hidden')) {
+    closeModal();
+  }
 });
 
 (async function init() {

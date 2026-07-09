@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrintiFy — Chi tiết sản phẩm</title>
+<link rel="stylesheet" type="text/css" href="../css/maincss.css">
+<link rel="stylesheet" type="text/css" href="../css/productDetail.css">
+<link rel="stylesheet" type="text/css" href="../css/chatbotcss.css">
+</head>
+<body class="detail-page">
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo-badge">
+    <span class="logo-black">Printi</span><span class="logo-purple">Fy</span>
+  </div>
+
+  <div class="nav-links">
+    <a class="nav-link" href="../interface/index.html">Trang chủ</a>
+    <a class="nav-link active" href="../interface/products.html">Sản phẩm</a>
+    <a class="nav-link" href="../interface/marketplace.html">Marketplace</a>
+    <a class="nav-link" href="../interface/orders.html">Đơn hàng</a>
+  </div>
+
+<div class="nav-actions">
+  <a class="nav-account" href="../interface/login.html" data-auth-guest data-go-login title="Tài khoản">
+    <span class="nav-user-icon">👤</span>
+    <span>Đăng nhập</span>
+  </a>
+
+  <a class="nav-account" href="../interface/profile.html" data-auth-user style="display:none" title="Tài khoản">
+    <span class="nav-user-icon">👤</span>
+    <span data-auth-name></span>
+  </a>
+
+  <a class="nav-cart" href="../interface/cart.html" title="Giỏ hàng">
+    🛒
+    <span class="cart-badge" id="cart-badge" style="display:none">0</span>
+  </a>
+</div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="../interface/index.html">Trang chủ</a> ›
+  <a href="../interface/products.html">Sản phẩm</a> ›
+  <span id="breadcrumb-name">Chi tiết sản phẩm</span>
+</div>
+
+<div class="main" id="detail-main">
+  <div class="empty-state">Đang tải sản phẩm...</div>
+</div>
+
+<!-- TEMPLATE nội dung chi tiết (render bằng JS) -->
+<template id="detail-template">
+  <div class="detail-layout">
+
+    <!-- ẢNH SẢN PHẨM -->
+    <div class="detail-gallery">
+      <div class="gallery-main">
+        <img id="gallery-main-img" src="" alt="">
+        <span class="gallery-outstock-badge" id="gallery-outstock-badge" style="display:none">Tạm hết hàng</span>
+      </div>
+      <div class="gallery-thumbs" id="gallery-thumbs"></div>
+    </div>
+
+    <!-- THÔNG TIN SẢN PHẨM -->
+    <div class="detail-info">
+      <span class="detail-cat-badge" id="detail-cat-badge"></span>
+      <h1 class="detail-name" id="detail-name"></h1>
+      <div class="detail-price" id="detail-price"></div>
+      <p class="detail-desc" id="detail-desc"></p>
+
+      <div class="detail-tags" id="detail-tags"></div>
+
+      <div class="detail-divider"></div>
+
+      <!-- Màu sắc -->
+      <div class="option-block" id="color-block">
+        <div class="option-label">Màu sắc <span id="selected-color-label"></span></div>
+        <div class="option-colors" id="option-colors"></div>
+      </div>
+
+      <!-- Kích thước -->
+      <div class="option-block" id="size-block">
+        <div class="option-label">Kích thước / Size</div>
+        <div class="option-sizes" id="option-sizes"></div>
+      </div>
+
+      <div class="detail-divider"></div>
+
+      <!-- Nút hành động -->
+      <div class="detail-actions" id="detail-actions">
+        <button class="btn-design" id="btn-start-design" onclick="handleStartDesign()">
+          🎨 Bắt đầu thiết kế
+        </button>
+        <button class="btn-default-design" id="btn-default-design" onclick="handleUseDefault()">
+          ⚡ Dùng thiết kế mặc định
+        </button>
+      </div>
+
+      <div class="detail-meta-info">
+        <div>🚚 Giao hàng 3-5 ngày làm việc</div>
+        <div>🔄 Đổi trả trong 7 ngày nếu lỗi in ấn</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Similar products (NV12) -->
+  <div class="similar-section">
+    <div class="similar-title">✨ Sản phẩm tương tự</div>
+    <div class="similar-grid" id="similar-grid"></div>
+  </div>
+</template>
+
+<!-- MODAL: login requirement-->
+<!-- MODAL: login requirement -->
+<div class="modal-overlay hidden" id="login-required-modal">
+  <div class="modal-box small">
+    <div class="modal-header">
+      <h3>Yêu cầu đăng nhập</h3>
+      <button class="modal-close" onclick="closeLoginModal()">✕</button>
+    </div>
+    <div class="modal-body center">
+      <div class="modal-icon">🔒</div>
+      <p>Bạn cần đăng nhập để bắt đầu thiết kế hoặc thêm sản phẩm vào giỏ hàng.</p>
+      <div class="modal-actions">
+        <a class="btn-secondary" href="#" data-go-login>Đăng nhập</a>
+        <a class="btn-primary" href="#" data-go-register>Đăng ký</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../js/storage.js"></script>
+<script src="../js/recommendation.js"></script>
+
+<script src="../js/auth.js"></script>
+<script src="../js/productDetail.js"></script>
+<script src="../js/chatbot.js"></script>
+</body>
+</html>

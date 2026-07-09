@@ -20,13 +20,18 @@
   </div>
 
   <div class="nav-actions">
-    <a class="nav-account" href="../interface/profile.html" title="Tài khoản">
-      <span class="nav-user-icon">👤</span>
-      <span>Tài khoản</span>
-    </a>
-    <a class="nav-cart" href="cart.html" title="Giỏ hàng">🛒</a>
+  <div data-auth-guest style="display:flex;gap:8px">
+    <a href="../interface/login.html" data-go-login class="btn-login">Đăng nhập</a>
+    <a href="../interface/register.html" data-go-register class="btn-register">Đăng ký</a>
   </div>
-</nav>
+
+  <div data-auth-user style="display:none;align-items:center;gap:12px">
+    <a href="../interface/profile.html" class="nav-profile">
+      👤 <span data-auth-name></span>
+    </a>
+    <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+  </div>
+</div>
 
 <!-- AUTH WARNING -->
 <div class="auth-warning" id="auth-warning">
@@ -265,7 +270,8 @@
     </div>
   </div>
 </div>
-
+<script src="../js/auth.js"></script>
+<script src="../js/chatbot.js"></script>
 <script src="../js/marketplace1.js"></script>
 <script src="../js/marketplace2.js"></script>
 </body>

@@ -1,7 +1,7 @@
 // ════════════════════════════════════════════════════════
 // editor-part1.js
-// Chứa: DATA, STATE, CANVAS INIT, BACKGROUND (ảnh thật + CSS filter),
-//        PRINT AREA, UNDO/REDO, TOOLS, addText, addShape (9 loại), UPLOAD
+// Include: DATA, STATE, CANVAS INIT, BACKGROUND,
+//        PRINT AREA, UNDO/REDO, TOOLS, addText, addShape, UPLOAD
 // ════════════════════════════════════════════════════════
 
 // ── DATA ──────────────────────────────────────────────

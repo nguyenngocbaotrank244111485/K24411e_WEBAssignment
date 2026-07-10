@@ -1,225 +1,222 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PrintiFy — Tài khoản của tôi</title>
-<link rel="stylesheet" type="text/css" href="../css/maincss.css">
-<link rel="stylesheet" type="text/css" href="../css/profilecss.css">
-<link rel="stylesheet" type="text/css" href="../css/chatbotcss.css">
-</head>
-<body class="profile-page">
+<html>
+  <head>
+    <title>PrintiFy — Tài khoản của tôi</title>
+    <link rel="stylesheet" type="text/css" href="../css/maincss.css">
+    <link rel="stylesheet" type="text/css" href="../css/profile.css">
+    <link rel="stylesheet" type="text/css" href="../css/chatbotcss.css">
+  </head>
+  <body class="profile-page">
 
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="nav-logo-badge">
-    <span class="logo-black">Printi</span><span class="logo-purple">Fy</span>
-  </div>
-
-  <div class="nav-links">
-    <a class="nav-link" href="../interface/index.html">Trang chủ</a>
-    <a class="nav-link" href="../interface/products.html">Sản phẩm</a>
-    <a class="nav-link" href="../interface/marketplace.html">Marketplace</a>
-    <a class="nav-link" href="../interface/orders.html">Đơn hàng</a>
-  </div>
-
-  <div class="nav-actions">
-    <div data-auth-guest style="display:flex;gap:8px">
-      <a href="../interface/login.html" data-go-login class="btn-login">Đăng nhập</a>
-      <a href="../interface/register.html" data-go-register class="btn-register">Đăng ký</a>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo-badge">
+      <span class="logo-black">Printi</span><span class="logo-purple">Fy</span>
     </div>
 
-    <div data-auth-user style="display:none;align-items:center;gap:12px">
-      <a href="../interface/profile.html" class="nav-profile">
-        👤 <span data-auth-name></span>
-      </a>
-      <button class="logout-btn" onclick="confirmLogout()">Đăng xuất</button>
+    <div class="nav-links">
+      <a class="nav-link" href="../interface/index.html">Trang chủ</a>
+      <a class="nav-link" href="../interface/products.html">Sản phẩm</a>
+      <a class="nav-link" href="../interface/marketplace.html">Marketplace</a>
+      <a class="nav-link" href="../interface/orders.html">Đơn hàng</a>
+    </div>
+
+    <div class="nav-actions">
+      <div data-auth-guest style="display:flex;gap:8px">
+        <a href="../interface/login.html" data-go-login class="btn-login">Đăng nhập</a>
+        <a href="../interface/register.html" data-go-register class="btn-register">Đăng ký</a>
+      </div>
+
+      <div data-auth-user style="display:none; align-items:center; gap:12px">
+        <a href="../interface/profile.html" class="nav-profile">
+          👤 <span data-auth-name></span>
+        </a>
+        <button class="logout-btn" onclick="confirmLogout()">Đăng xuất</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="main" id="profile-main">
+
+    <!-- ══════════NOT SIGNED IN══════════ -->
+    <div class="guest-block" id="guest-block" style="display:none">
+      <div class="guest-icon">🔒</div>
+      <h2>Bạn chưa đăng nhập</h2>
+      <p>Đăng nhập để xem thông tin tài khoản, lịch sử xem và đơn hàng.</p>
+      <div class="guest-actions">
+        <a class="btn-secondary" href="../interface/login.html" data-go-login>Đăng nhập</a>
+        <a class="btn-primary" href="../interface/register.html" data-go-register>Đăng ký</a>
+      </div>
+    </div>
+
+    <!-- ══════════SIGNED IN══════════ -->
+    <div class="profile-layout" id="profile-layout" style="display:none">
+
+      <!-- ══════════ SIDEBAR ══════════ -->
+      <aside class="profile-sidebar">
+        <div class="profile-card-header">
+          <div class="avatar-wrap">
+            <img id="sidebar-avatar" src="" alt="Avatar">
+          </div>
+          <div class="sidebar-name" id="sidebar-name">—</div>
+          <div class="sidebar-email" id="sidebar-email">—</div>
+        </div>
+
+        <nav class="profile-nav">
+          <button class="profile-nav-btn active" data-tab="info" onclick="switchTab('info')">
+            👤 Thông tin tài khoản
+          </button>
+          <button class="profile-nav-btn" data-tab="history" onclick="switchTab('history')">
+            🕘 Lịch sử xem sản phẩm
+          </button>
+          <button class="profile-nav-btn" data-tab="orders" onclick="switchTab('orders')">
+            📦 Đơn hàng gần đây
+          </button>
+          <button class="profile-nav-btn" data-tab="security" onclick="switchTab('security')">
+            🔐 Bảo mật
+          </button>
+        </nav>
+
+        <button class="btn-logout" onclick="confirmLogout()">🚪 Đăng xuất</button>
+      </aside>
+
+      <!-- ══════════ CONTENT ══════════ -->
+      <section class="profile-content">
+
+        <!-- TAB: THÔNG TIN TÀI KHOẢN -->
+        <div class="profile-tab-panel active" id="tab-info">
+          <div class="panel-card">
+            <div class="panel-title">👤 Thông tin tài khoản</div>
+
+            <div class="avatar-edit-row">
+              <img id="info-avatar" src="" alt="Avatar">
+              <div>
+                <button class="btn-change-avatar" onclick="document.getElementById('avatar-file-input').click()">
+                  📷 Đổi ảnh đại diện
+                </button>
+                <input type="file" id="avatar-file-input" accept="image/jpeg,image/png,image/webp" style="display:none" onchange="handleAvatarChange(event)">
+                <div class="avatar-hint">JPG, PNG, WebP. Tối đa 5MB.</div>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label">Họ và tên *</label>
+                <input class="form-input" id="edit-name" type="text">
+                <span class="field-error" id="err-edit-name"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Email</label>
+                <input class="form-input" id="edit-email" type="email" disabled>
+                <span class="form-hint">Email không thể thay đổi</span>
+              </div>
+            </div>
+
+            <button class="btn-save-info" onclick="saveProfileInfo()">💾 Lưu thay đổi</button>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-title">📍 Thông tin giao hàng đã lưu</div>
+            <div id="saved-shipping-display">
+              <div class="empty-mini">Chưa có thông tin giao hàng nào được lưu.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: LỊCH SỬ XEM SẢN PHẨM -->
+        <div class="profile-tab-panel" id="tab-history">
+          <div class="panel-card">
+            <div class="panel-title">🕘 Lịch sử xem sản phẩm (tối đa 20)</div>
+            <div class="history-grid" id="history-grid">
+              <div class="empty-mini">Đang tải...</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: ĐƠN HÀNG GẦN ĐÂY -->
+        <div class="profile-tab-panel" id="tab-orders">
+          <div class="panel-card">
+            <div class="panel-title-row">
+              <div class="panel-title">📦 Đơn hàng gần đây</div>
+              <a class="link-view-all" href="../interface/orders.html">Xem tất cả →</a>
+            </div>
+            <div class="recent-orders-list" id="recent-orders-list">
+              <div class="empty-mini">Đang tải...</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: BẢO MẬT -->
+        <div class="profile-tab-panel" id="tab-security">
+          <div class="panel-card">
+            <div class="panel-title">🔐 Đổi mật khẩu</div>
+
+            <div class="form-grid">
+              <div class="form-group full">
+                <label class="form-label">Mật khẩu hiện tại *</label>
+                <input class="form-input" id="current-password" type="password">
+                <span class="field-error" id="err-current-password"></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Mật khẩu mới *</label>
+                <input class="form-input" id="new-password" type="password">
+                <span class="form-hint">Tối thiểu 8 ký tự, có chữ và số</span>
+                <span class="field-error" id="err-new-password"></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Xác nhận mật khẩu mới *</label>
+                <input class="form-input" id="confirm-password" type="password">
+                <span class="field-error" id="err-confirm-password"></span>
+              </div>
+            </div>
+
+            <button class="btn-save-info" onclick="changePassword()">🔒 Đổi mật khẩu</button>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-title">❓ Câu hỏi bảo mật</div>
+            <p class="panel-desc">Dùng để khôi phục mật khẩu khi quên.</p>
+            <div class="form-grid">
+              <div class="form-group full">
+                <label class="form-label">Câu hỏi</label>
+                <select class="form-select" id="sec-question">
+                  <option value="pet">Tên thú cưng đầu tiên của bạn?</option>
+                  <option value="school">Trường tiểu học bạn theo học?</option>
+                  <option value="city">Thành phố bạn sinh ra?</option>
+                  <option value="nickname">Biệt danh thời thơ ấu?</option>
+                </select>
+              </div>
+              <div class="form-group full">
+                <label class="form-label">Câu trả lời</label>
+                <input class="form-input" id="sec-answer" type="text" placeholder="Nhập câu trả lời của bạn">
+              </div>
+            </div>
+            <button class="btn-save-info" onclick="saveSecurityQuestion()">💾 Lưu câu hỏi bảo mật</button>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </div><!-- end main -->
+
+  <!-- CONFIRM MODAL: đăng xuất -->
+  <div class="confirm-modal-backdrop" id="confirm-modal" style="display:none">
+    <div class="confirm-modal">
+      <h3>Đăng xuất</h3>
+      <p>Bạn có chắc muốn đăng xuất khỏi PrintiFy?</p>
+      <div class="confirm-modal-actions">
+        <button class="confirm-btn-cancel" onclick="closeConfirmModal()">Hủy</button>
+        <button class="confirm-btn-ok" onclick="doLogout()">Đăng xuất</button>
+      </div>
     </div>
   </div>
-</nav>
 
-<div class="main" id="profile-main">
-
-  <!-- ══════════NOT SIGNED IN══════════ -->
-  <div class="guest-block" id="guest-block" style="display:none">
-    <div class="guest-icon">🔒</div>
-    <h2>Bạn chưa đăng nhập</h2>
-    <p>Đăng nhập để xem thông tin tài khoản, lịch sử xem và đơn hàng.</p>
-    <div class="guest-actions">
-      <a class="btn-secondary" href="../interface/login.html" data-go-login>Đăng nhập</a>
-      <a class="btn-primary" href="../interface/register.html" data-go-register>Đăng ký</a>
-    </div>
-  </div>
-
-  <!-- ══════════SIGNED IN══════════ -->
-  <div class="profile-layout" id="profile-layout" style="display:none">
-
-    <!-- ══════════ SIDEBAR ══════════ -->
-    <aside class="profile-sidebar">
-      <div class="profile-card-header">
-        <div class="avatar-wrap">
-          <img id="sidebar-avatar" src="" alt="Avatar">
-        </div>
-        <div class="sidebar-name" id="sidebar-name">—</div>
-        <div class="sidebar-email" id="sidebar-email">—</div>
-      </div>
-
-      <nav class="profile-nav">
-        <button class="profile-nav-btn active" data-tab="info" onclick="switchTab('info')">
-          👤 Thông tin tài khoản
-        </button>
-        <button class="profile-nav-btn" data-tab="history" onclick="switchTab('history')">
-          🕘 Lịch sử xem sản phẩm
-        </button>
-        <button class="profile-nav-btn" data-tab="orders" onclick="switchTab('orders')">
-          📦 Đơn hàng gần đây
-        </button>
-        <button class="profile-nav-btn" data-tab="security" onclick="switchTab('security')">
-          🔐 Bảo mật
-        </button>
-      </nav>
-
-      <button class="btn-logout" onclick="confirmLogout()">🚪 Đăng xuất</button>
-    </aside>
-
-    <!-- ══════════ CONTENT ══════════ -->
-    <section class="profile-content">
-
-      <!-- TAB: THÔNG TIN TÀI KHOẢN -->
-      <div class="profile-tab-panel active" id="tab-info">
-        <div class="panel-card">
-          <div class="panel-title">👤 Thông tin tài khoản</div>
-
-          <div class="avatar-edit-row">
-            <img id="info-avatar" src="" alt="Avatar">
-            <div>
-              <button class="btn-change-avatar" onclick="document.getElementById('avatar-file-input').click()">
-                📷 Đổi ảnh đại diện
-              </button>
-              <input type="file" id="avatar-file-input" accept="image/jpeg,image/png,image/webp" style="display:none" onchange="handleAvatarChange(event)">
-              <div class="avatar-hint">JPG, PNG, WebP. Tối đa 5MB.</div>
-            </div>
-          </div>
-
-          <div class="form-grid">
-            <div class="form-group">
-              <label class="form-label">Họ và tên *</label>
-              <input class="form-input" id="edit-name" type="text">
-              <span class="field-error" id="err-edit-name"></span>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Email</label>
-              <input class="form-input" id="edit-email" type="email" disabled>
-              <span class="form-hint">Email không thể thay đổi</span>
-            </div>
-          </div>
-
-          <button class="btn-save-info" onclick="saveProfileInfo()">💾 Lưu thay đổi</button>
-        </div>
-
-        <div class="panel-card">
-          <div class="panel-title">📍 Thông tin giao hàng đã lưu</div>
-          <div id="saved-shipping-display">
-            <div class="empty-mini">Chưa có thông tin giao hàng nào được lưu.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- TAB: LỊCH SỬ XEM SẢN PHẨM -->
-      <div class="profile-tab-panel" id="tab-history">
-        <div class="panel-card">
-          <div class="panel-title">🕘 Lịch sử xem sản phẩm (tối đa 20)</div>
-          <div class="history-grid" id="history-grid">
-            <div class="empty-mini">Đang tải...</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- TAB: ĐƠN HÀNG GẦN ĐÂY -->
-      <div class="profile-tab-panel" id="tab-orders">
-        <div class="panel-card">
-          <div class="panel-title-row">
-            <div class="panel-title">📦 Đơn hàng gần đây</div>
-            <a class="link-view-all" href="../interface/orders.html">Xem tất cả →</a>
-          </div>
-          <div class="recent-orders-list" id="recent-orders-list">
-            <div class="empty-mini">Đang tải...</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- TAB: BẢO MẬT -->
-      <div class="profile-tab-panel" id="tab-security">
-        <div class="panel-card">
-          <div class="panel-title">🔐 Đổi mật khẩu</div>
-
-          <div class="form-grid">
-            <div class="form-group full">
-              <label class="form-label">Mật khẩu hiện tại *</label>
-              <input class="form-input" id="current-password" type="password">
-              <span class="field-error" id="err-current-password"></span>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Mật khẩu mới *</label>
-              <input class="form-input" id="new-password" type="password">
-              <span class="form-hint">Tối thiểu 8 ký tự, có chữ và số</span>
-              <span class="field-error" id="err-new-password"></span>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Xác nhận mật khẩu mới *</label>
-              <input class="form-input" id="confirm-password" type="password">
-              <span class="field-error" id="err-confirm-password"></span>
-            </div>
-          </div>
-
-          <button class="btn-save-info" onclick="changePassword()">🔒 Đổi mật khẩu</button>
-        </div>
-
-        <div class="panel-card">
-          <div class="panel-title">❓ Câu hỏi bảo mật</div>
-          <p class="panel-desc">Dùng để khôi phục mật khẩu khi quên.</p>
-          <div class="form-grid">
-            <div class="form-group full">
-              <label class="form-label">Câu hỏi</label>
-              <select class="form-select" id="sec-question">
-                <option value="pet">Tên thú cưng đầu tiên của bạn?</option>
-                <option value="school">Trường tiểu học bạn theo học?</option>
-                <option value="city">Thành phố bạn sinh ra?</option>
-                <option value="nickname">Biệt danh thời thơ ấu?</option>
-              </select>
-            </div>
-            <div class="form-group full">
-              <label class="form-label">Câu trả lời</label>
-              <input class="form-input" id="sec-answer" type="text" placeholder="Nhập câu trả lời của bạn">
-            </div>
-          </div>
-          <button class="btn-save-info" onclick="saveSecurityQuestion()">💾 Lưu câu hỏi bảo mật</button>
-        </div>
-      </div>
-
-    </section>
-  </div>
-</div><!-- end main -->
-
-<!-- CONFIRM MODAL: đăng xuất -->
-<div class="confirm-modal-backdrop" id="confirm-modal" style="display:none">
-  <div class="confirm-modal">
-    <h3>Đăng xuất</h3>
-    <p>Bạn có chắc muốn đăng xuất khỏi PrintiFy?</p>
-    <div class="confirm-modal-actions">
-      <button class="confirm-btn-cancel" onclick="closeConfirmModal()">Hủy</button>
-      <button class="confirm-btn-ok" onclick="doLogout()">Đăng xuất</button>
-    </div>
-  </div>
-</div>
-
-<script src="../js/auth.js"></script>
-<script src="../js/chatbot.js"></script>
-<script src="../js/storage.js"></script>
-<script src="../js/profile.js"></script>
-</body>
+  <script src="../js/auth.js"></script>
+  <script src="../js/chatbot.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/profile.js"></script>
+  </body>
 </html>

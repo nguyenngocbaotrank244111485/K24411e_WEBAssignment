@@ -1,9 +1,11 @@
 // chatbot.js — Floating chatbot widget, does not switch tabs.
-const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
+
+const GEMINI_MODEL = 'gemini-2.5-flash';
+const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent';
 
 const CHAT_KEY = 'printify_chat';
 const CHAT_KEY_API = 'printify_gemini_key';
-const PRODUCTS_KEY = 'printify_products';
+const PRODUCTS_KEY = 'printify_products_cache';
 const MAX_MESSAGES = 20;
 
 const QUICK_PROMPTS = [
@@ -20,11 +22,18 @@ function isEditorPage() {
 }
 
 function getApiKey() {
-  let key = sessionStorage.getItem(CHAT_KEY_API);
+  let key = localStorage.getItem(CHAT_KEY_API);
+
   if (!key) {
     key = prompt('Nhập Gemini API Key để dùng chatbot:');
-    if (key) sessionStorage.setItem(CHAT_KEY_API, key);
+    if (key && key.trim()) {
+      key = key.trim();
+      localStorage.setItem(CHAT_KEY_API, key);
+    } else {
+      key = '';
+    }
   }
+
   return key;
 }
 
@@ -44,11 +53,23 @@ function saveHistory(history) {
   return trimmed;
 }
 
+function flattenProductsData(data) {
+  if (Array.isArray(data)) return data;
+
+  if (data && Array.isArray(data.categories)) {
+    return data.categories.flatMap(cat =>
+      Array.isArray(cat.products) ? cat.products : []
+    );
+  }
+
+  return [];
+}
+
 function getProductsFromStorage() {
   try {
     const raw = localStorage.getItem(PRODUCTS_KEY);
     const data = raw ? JSON.parse(raw) : [];
-    return Array.isArray(data) ? data : [];
+    return flattenProductsData(data);
   } catch {
     return [];
   }
@@ -57,8 +78,6 @@ function getProductsFromStorage() {
 async function fetchProductsFallback() {
   const candidates = [
     '../dataset/products.json',
-    '../dataset/products.json',
-    '../data/products.json',
     '../data/products.json'
   ];
 
@@ -66,13 +85,19 @@ async function fetchProductsFallback() {
     try {
       const res = await fetch(url, { cache: 'no-store' });
       if (!res.ok) continue;
+
       const data = await res.json();
-      if (Array.isArray(data) && data.length) {
-        localStorage.setItem(PRODUCTS_KEY, JSON.stringify(data));
-        return data;
+      const flat = flattenProductsData(data);
+
+      if (flat.length) {
+        localStorage.setItem(PRODUCTS_KEY, JSON.stringify(flat));
+        return flat;
       }
-    } catch {}
+    } catch {
+      // thử nguồn tiếp theo
+    }
   }
+
   return [];
 }
 
@@ -93,6 +118,7 @@ function escapeHTML(str) {
 
 async function buildSystemPrompt() {
   const products = await getProducts();
+
   const list = products.slice(0, 40).map(p => {
     const name = p.name || p.productName || 'Sản phẩm';
     const category = p.category || 'Khác';
@@ -104,26 +130,35 @@ async function buildSystemPrompt() {
 Chỉ tư vấn về sản phẩm in ấn, thiết kế, chất liệu, giá và ý tưởng in.
 Nếu câu hỏi ngoài phạm vi, hãy trả lời lịch sự và kéo người dùng về chủ đề PrintiFy.
 Luôn trả lời ngắn gọn, dễ hiểu, thân thiện.
+Nếu có thể, đưa ra gợi ý cụ thể theo nhu cầu của người dùng.
+
 Danh sách sản phẩm hiện có:
 ${list || '- Chưa có dữ liệu sản phẩm'}`;
 }
 
-async function sendMessage(userText, history) {
+async function sendMessage(userText, historyBeforeCurrentUser) {
   const key = getApiKey();
-  if (!key) return 'Vui lòng nhập API key để dùng chatbot.';
+  if (!key) return 'Bạn chưa nhập Gemini API Key.';
 
   const systemPrompt = await buildSystemPrompt();
 
   const body = {
-    system_instruction: { parts: [{ text: systemPrompt }] },
+    system_instruction: {
+      parts: [{ text: systemPrompt }]
+    },
     contents: [
-      ...history,
+      ...historyBeforeCurrentUser,
       { role: 'user', parts: [{ text: userText }] }
-    ]
+    ],
+    generationConfig: {
+      temperature: 0.7,
+      topP: 0.95,
+      maxOutputTokens: 512
+    }
   };
 
   try {
-    const res = await fetch(`${GEMINI_URL}?key=${key}`, {
+    const res = await fetch(`${GEMINI_URL}?key=${encodeURIComponent(key)}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
@@ -131,11 +166,16 @@ async function sendMessage(userText, history) {
 
     const data = await res.json();
 
-    if (data.error) {
-      throw new Error(data.error.message || 'API error');
+    if (!res.ok || data.error) {
+      const msg = data?.error?.message || `HTTP ${res.status}`;
+      throw new Error(msg);
     }
 
-    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    const text = data?.candidates?.[0]?.content?.parts
+      ?.map(p => p.text || '')
+      .join('')
+      .trim();
+
     return text || 'Mình chưa nhận được phản hồi từ Gemini.';
   } catch (err) {
     return `Lỗi kết nối: ${err.message}. Vui lòng thử lại.`;
@@ -217,14 +257,16 @@ function initChatbotWidget() {
   const sendBtn = panel.querySelector('#pf-chat-send');
   const closeBtn = panel.querySelector('#pf-chat-close');
 
-  const history = saveHistory(loadHistory());
-
   function openChat() {
     panel.classList.add('open');
     input.focus();
 
     if (messages.childElementCount === 0) {
-      addMessage('bot', 'Xin chào! Tôi là trợ lý PrintiFy. Tôi có thể giúp bạn chọn sản phẩm, kiểu in hoặc ý tưởng thiết kế. Bạn cần tư vấn gì?', messages);
+      addMessage(
+        'bot',
+        'Xin chào! Tôi là trợ lý PrintiFy. Tôi có thể giúp bạn chọn sản phẩm, kiểu in hoặc ý tưởng thiết kế. Bạn cần tư vấn gì?',
+        messages
+      );
       renderQuickPrompts(quickBox, ask);
     }
   }
@@ -240,24 +282,22 @@ function initChatbotWidget() {
     addMessage('user', userText, messages);
     input.value = '';
 
-    const historyItems = saveHistory([
-      ...loadHistory(),
-      { role: 'user', parts: [{ text: userText }] }
-    ]);
+    const priorHistory = loadHistory();
 
     const typing = addTyping(messages);
-    const botText = await sendMessage(userText, historyItems);
+    const botText = await sendMessage(userText, priorHistory);
     typing.remove();
 
     addMessage('bot', botText, messages);
 
-    const updatedHistory = saveHistory([
-      ...loadHistory(),
+    const nextHistory = saveHistory([
+      ...priorHistory,
+      { role: 'user', parts: [{ text: userText }] },
       { role: 'model', parts: [{ text: botText }] }
     ]);
 
+    sessionStorage.setItem(CHAT_KEY, JSON.stringify(nextHistory));
     renderQuickPrompts(quickBox, ask);
-    sessionStorage.setItem(CHAT_KEY, JSON.stringify(updatedHistory.slice(-MAX_MESSAGES)));
   }
 
   launcher.addEventListener('click', () => {
@@ -266,18 +306,22 @@ function initChatbotWidget() {
   });
 
   closeBtn.addEventListener('click', closeChat);
-
   sendBtn.addEventListener('click', () => ask(input.value));
+
   input.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') ask(input.value);
   });
 
   renderQuickPrompts(quickBox, ask);
 
+  const history = loadHistory();
   if (history.length) {
-    // giữ lịch sử cũ khi reload trang
     history.forEach(item => {
-      addMessage(item.role === 'user' ? 'user' : 'bot', item.parts?.[0]?.text || '', messages);
+      addMessage(
+        item.role === 'user' ? 'user' : 'bot',
+        item.parts?.[0]?.text || '',
+        messages
+      );
     });
   }
 }

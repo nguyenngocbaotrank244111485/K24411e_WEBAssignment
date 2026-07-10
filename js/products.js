@@ -347,3 +347,41 @@ function updateCartBadge(){
     }
   }
 
+/* =========================
+   Footer Categories
+========================= */
+function renderFooterCategories() {
+    const ul = document.getElementById("footer-category-list");
+    if (!ul) return;
+
+    const categories = [...new Set(allProducts.map(p => p.category).filter(Boolean))];
+
+    ul.innerHTML = categories.map(cat => `
+        <li>
+            <a href="../interface/products.html?cat=${cat}">
+                ${CAT_META[cat]?.name || cat}
+            </a>
+        </li>
+    `).join("");
+}
+
+/* ---------- LOGOUT ---------- */
+function confirmLogout() {
+  const modal = document.getElementById("confirm-modal");
+  if (modal) modal.style.display = "flex";
+}
+
+function closeConfirmModal() {
+  const modal = document.getElementById("confirm-modal");
+  if (modal) modal.style.display = "none";
+}
+
+function doLogout() {
+  if (typeof clearCurrentUser === "function") {
+    clearCurrentUser();
+  } else {
+    sessionStorage.removeItem("printify_current_customer");
+    localStorage.removeItem("printify_current_customer");
+  }
+  window.location.href = "index.html";
+}

@@ -2,24 +2,24 @@
   <head>
     <title>PrintiFy — Sản phẩm</title>
     <link rel="stylesheet" type="text/css" href="../css/maincss.css">
+    <link rel="stylesheet" type="text/css" href="../css/introductioncss.css">
     <link rel="stylesheet" type="text/css" href="../css/productscss.css">
     <link rel="stylesheet" type="text/css" href="../css/chatbotcss.css">
-    <link rel="stylesheet" type="text/css" href="../css/indexcss.css">
   </head>
   <body class="products-page">
 
-  <!-- TOAST -->
   <div class="toast" id="toast"></div>
 
-  <!-- NAVBAR -->
   <nav class="navbar">
-    <div class="nav-logo">Printi<span>Fy</span></div>
-
-    <div class="nav-links">
-      <a class="nav-link" href="../interface/index.html">Trang chủ</a>
-      <a class="nav-link active" href="../interface/products.html">Sản phẩm</a>
-      <a class="nav-link" href="../interface/marketplace.html">Marketplace</a>
-      <a class="nav-link" href="../interface/orders.html">Đơn hàng</a>
+    <div class="container navbar-inner">
+      <a class="brand" href="../interface/index.html">Printi<span>Fy</span> VN</a>
+      <div class="nav-links">
+        <a href="../interface/index.html">Trang chủ</a>
+        <a href="../interface/products.html">Sản phẩm</a>
+        <a href="../interface/marketplace.html">Marketplace</a>
+        <a href="../interface/profile.html">Trang cá nhân</a>
+        <a href="../interface/gioithieu.html" class="active">Giới thiệu</a>
+      </div>
     </div>
 
     <div class="nav-actions">
@@ -37,29 +37,16 @@
           </a>
       </div>
       <!-- User -->
-      <div data-auth-user
-          class="user-actions"
-          style="display:none">
-
-          <a href="../interface/profile.html" class="nav-account">
-              👤
-              <span data-auth-name></span>
-          </a>
-
-          <button
-              class="logout-btn"
-              onclick="logout()">
-              Đăng xuất
-          </button>
+      <div data-auth-user style="display:none; align-items:center; gap:12px">
+        <a href="../interface/profile.html" class="nav-profile">
+          👤 <span data-auth-name></span>
+        </a>
+        <button class="logout-btn" onclick="confirmLogout()">Đăng xuất</button>
       </div>
       <a class="nav-cart"
         href="../interface/cart.html">
           🛒
-          <span id="cart-badge"
-                class="cart-badge"
-                style="display:none">
-              0
-          </span>
+        <span id="cart-badge" class="cart-badge" style="display:none"> 0</span>
       </a>
 
     </div>
@@ -175,7 +162,7 @@
   </footer>
   <div id="toast-container" aria-live="polite"></div>
 
-  <script src="../js/chatbot.js"></script>
+  <script src="../js/chatbotAI.js"></script>
   <script src="../js/storage.js"></script>
   <script src="../js/auth.js"></script>
   <script src="../js/products.js"></script>

@@ -1,13 +1,13 @@
 // ════════════════════════════════════════════════════════
 // editor-part2.js
-// Chứa: OBJECT PROPS, TEXT FORMAT, SHAPE COLOR,
+// Include: OBJECT PROPS, TEXT FORMAT, SHAPE COLOR,
 //        DELETE, OOB CHECK, ZOOM, COLOR/SIZE PANEL,
 //        LAYERS, RIGHT PANEL, TABS,
-//        SAVE / PREVIEW (không có khung in) / CONFIRM,
+//        SAVE / PREVIEW/ CONFIRM,
 //        TOAST, EVENTS, KEYBOARD, INIT
 // ════════════════════════════════════════════════════════
 
-// ── CẬP NHẬT THUỘC TÍNH OBJECT (x, y, góc, opacity) ──
+// ── UPDATE OBJECT (x, y, góc, opacity) ──
 function updateObjProp(prop, val) {
   const obj = canvas.getActiveObject();
   if (!obj) return;

@@ -7,9 +7,7 @@ body.products-page{
   color: var(--mp-text);
 }
 
-/* ===== LOGO BADGE "PrintiFy" =====
-   Nền gradient hồng-tím bo tròn, chữ "Printi" trắng + "Fy" tím đậm
-   (áp dụng thống nhất, thay cho .nav-logo cũ dạng text thường) */
+/* ===== LOGO BADGE "PrintiFy" ===== */
 .nav-logo-badge{
   display: inline-flex;
   align-items: center;
@@ -24,9 +22,7 @@ body.products-page{
   box-shadow: 0 4px 10px rgba(150, 50, 150, .18);
 
 }
-/* ===== LOGO BADGE "PrintiFy" =====
-   Nền gradient hồng-tím bo tròn
-   "Printi" = đen, "Fy" = tím đậm */
+/* ===== LOGO BADGE "PrintiFy" =====*/
 .nav-logo-badge{
   display: inline-flex;
   align-items: center;
@@ -41,7 +37,7 @@ body.products-page{
 }
 .nav-logo-badge .logo-black{ color: #1a1a1a; }
 .nav-logo-badge .logo-purple{ color: #7a1fb0; }
-/* ===== Cart badge trên navbar ===== */
+/* ===== Cart badge ===== */
 .nav-cart{
   position: relative;
 }
@@ -336,7 +332,11 @@ body.products-page{
   opacity: 1;
   pointer-events: auto;
 }
-
+.navbar .btn-logout{
+background: #fff;
+color: #c2358c;
+box-shadow: 0 10px 20px rgba(255,255,255,.12);
+}
 .hover-btn{
   width: 80%;
   max-width: 200px;

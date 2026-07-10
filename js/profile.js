@@ -1,10 +1,5 @@
 /* =========================
    PROFILE PAGE LOGIC
-   Dùng auth.js mới:
-   - getCurrentUser()
-   - isLoggedIn()
-   - setCurrentUser()
-   - clearCurrentUser()
    ========================= */
 
 let currentUser = null;
@@ -179,7 +174,7 @@ function renderSidebar() {
   if (sidebarEmail) sidebarEmail.textContent = getUserEmail(currentUser);
 }
 
-/* ---------- TAB: THÔNG TIN TÀI KHOẢN ---------- */
+/* ---------- TAB: ACCOUNT INFORMATION ---------- */
 function renderInfoTab() {
   const infoAvatar = document.getElementById("info-avatar");
   if (infoAvatar) {
@@ -282,7 +277,7 @@ function renderSavedShipping() {
   `;
 }
 
-/* ---------- TAB: LỊCH SỬ XEM SẢN PHẨM ---------- */
+/* ---------- TAB: HISTORY OF PRODUCTS VIEWED ---------- */
 async function renderHistoryTab() {
   const grid = document.getElementById("history-grid");
   if (!grid || !currentUser) return;
@@ -326,7 +321,7 @@ async function renderHistoryTab() {
   grid.innerHTML = html || `<div class="empty-mini" style="grid-column:1/-1">Bạn chưa xem sản phẩm nào.</div>`;
 }
 
-/* ---------- TAB: ĐƠN HÀNG GẦN ĐÂY ---------- */
+/* ---------- TAB: CURRENT ORDERS ---------- */
 function renderRecentOrdersTab() {
   const container = document.getElementById("recent-orders-list");
   if (!container || !currentUser) return;
@@ -422,7 +417,7 @@ function setError(errId, inputId, message) {
   if (input) input.classList.add("field-invalid");
 }
 
-/* ---------- SECURITY: CÂU HỎI BẢO MẬT ---------- */
+/* ---------- SECURITY QUESTION ---------- */
 function saveSecurityQuestion() {
   if (!currentUser) return;
 

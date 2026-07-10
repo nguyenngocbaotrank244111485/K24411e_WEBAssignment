@@ -1,7 +1,5 @@
 // marketplace1.js
-// Chứa: CONFIG, STATE, DATA HELPERS, WATERMARK,
-//       5.1 ĐĂNG BÁN THIẾT KẾ, 5.2 ĐĂNG BÁN SẢN PHẨM,
-//       5.3 MUA THIẾT KẾ / SP
+// INCLUDE: CONFIG, STATE, DATA HELPERS, WATERMARK, sell design, sell designed products, buy design/produtcs//
 
 const PLATFORM_CONFIG = {
   feePercent: 20,
@@ -9,6 +7,8 @@ const PLATFORM_CONFIG = {
 };
 
 const MARKETPLACE_JSON_URL = '../dataset/marketplace.json';
+const PLACEHOLDER_IMG = '../images/marketplace/placeholder.png';
+
 const STORAGE_KEYS = {
   market: 'printify_market',
   orders: 'printify_orders',
@@ -130,7 +130,25 @@ async function loadSeedMarketplace() {
   }
 }
 
+/**
+ * Cảnh báo khi trang được mở trực tiếp bằng file:// (double-click file)
+ * thay vì qua local server. Với file://, fetch() JSON cục bộ sẽ bị trình
+ * duyệt chặn (CORS) → marketplace.json không tải được → không có listing/ảnh nào hiện.
+ */
+function checkFileProtocolWarning() {
+  if (window.location.protocol === 'file:') {
+    console.warn(
+      '[PrintiFy] Trang đang mở qua file:// — fetch() dữ liệu JSON sẽ bị trình duyệt chặn. ' +
+      'Vui lòng chạy qua local server (VD: VSCode Live Server, `python -m http.server`) để trang hoạt động đúng.'
+    );
+    if (typeof showToast === 'function') {
+      showToast('⚠️ Hãy mở trang qua local server (không double-click file) để tải được dữ liệu & ảnh Marketplace.', 6000);
+    }
+  }
+}
+
 async function initMarketplace() {
+  checkFileProtocolWarning();
   refreshCurrentUser();
 
   await loadSeedMarketplace();
@@ -168,107 +186,90 @@ function getRequestedTab() {
   return ['5.1', '5.2', '5.3', 'my'].includes(tab) ? tab : '5.3';
 }
 
-async function submitDesignListing() {
-  if (!requireMarketplaceAuth(`../interface/marketplace.html?tab=5.1`)) return;
-
-  const sellerId = getCurrentUserId();
-  const sellerName = getCurrentUserName();
-
-  const designId = document.getElementById('design-select').value;
-  const title = document.getElementById('listing-title-51').value.trim();
-  const desc = document.getElementById('listing-desc-51').value.trim();
-  const tags = document.getElementById('listing-tags-51').value
-    .split(',')
-    .map(s => s.trim())
-    .filter(Boolean);
-  const sellerPrice = parseFloat(document.getElementById('seller-price-51').value);
-
-  if (!designId) { showToast('⚠️ Vui lòng chọn thiết kế!'); return; }
-  if (!title) { showToast('⚠️ Vui lòng nhập tiêu đề!'); return; }
-  if (!desc) { showToast('⚠️ Vui lòng nhập mô tả!'); return; }
-  if (!sellerPrice || sellerPrice < 10000) { showToast('⚠️ Giá bán không hợp lệ!'); return; }
-
-  const design = allDesigns.find(d => d.designId === designId);
-  if (!design) { showToast('⚠️ Không tìm thấy thiết kế đã lưu!'); return; }
-
-  const watermarkedBase64 = await addWatermark(
-    design.thumbnailBase64,
-    sellerId,
-    sellerName
-  );
-
-  const platformFee = calcDisplayPrice(sellerPrice) - sellerPrice;
-
-  const listing = {
-    listingId: genId('MAR'),
-    type: 'design',
-    sellerId,
-    sellerName,
-    productId: design.productId,
-    designId: design.designId,
-    orderId: null,
-    color: null,
-    size: null,
-    title,
-    description: desc,
-    tags,
-    thumbnailBase64: design.thumbnailBase64,
-    watermarkedBase64,
-    sellerPrice,
-    displayPrice: calcDisplayPrice(sellerPrice),
-    platformFee,
-    quantity: null,
-    soldQuantity: 0,
-    income: 0,
-    status: 'Đang bán',
-    reportCount: 0,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString()
-  };
-
-  saveListing(listing);
-  showToast('✅ Đã đăng bán thiết kế thành công!');
-  showSuccessCard('design', listing);
-  loadMyDesigns();
-  renderBuyTab();
-  renderMyListings();
-}
-
-function addWatermark(thumbnailBase64, userId, userName) {
+/**
+ * addWatermarkFromUrl — Canvas API watermark, hỗ trợ cả URL tương đối lẫn base64.
+ * Không cần tạo file ảnh, xử lý hoàn toàn trên trình duyệt.
+ * @param {string} src       - URL tương đối (../images/...) hoặc chuỗi data:image/...
+ * @param {string} userId    - ID người bán (nhúng vào watermark)
+ * @param {string} userName  - Tên người bán (nhúng vào watermark)
+ * @param {number} [w=500]   - Chiều rộng canvas output (px)
+ * @param {number} [h=500]   - Chiều cao canvas output (px)
+ * @returns {Promise<string>} - Data URL (PNG) đã có watermark, hoặc '' nếu lỗi
+ */
+function addWatermarkFromUrl(src, userId, userName, w = 500, h = 500) {
   return new Promise((resolve) => {
+    if (!src) { resolve(''); return; }
+
     const cvs = document.createElement('canvas');
-    cvs.width = 500;
-    cvs.height = 500;
-    const ctx = cvs.getContext('2d');
+    cvs.width  = w;
+    cvs.height = h;
+    const ctx  = cvs.getContext('2d');
 
     const img = new Image();
+
+    // CHỈ set crossOrigin khi ảnh là URL tuyệt đối http(s) (VD: ảnh từ CDN khác domain).
+    // Với ảnh local/relative (kể cả khi chạy qua file://) KHÔNG set crossOrigin,
+    // vì làm vậy sẽ khiến trình duyệt từ chối tải ảnh (onerror) — đây là nguyên nhân
+    // chính khiến ảnh thiết kế (type: 'design') không hiện được trong bản cũ.
+    const isAbsoluteHttp = /^https?:\/\//i.test(src);
+    if (isAbsoluteHttp) {
+      img.crossOrigin = 'anonymous';
+    }
+
     img.onload = function () {
-      ctx.drawImage(img, 0, 0, 500, 500);
+      // 1. Vẽ ảnh gốc scale vừa canvas
+      ctx.drawImage(img, 0, 0, w, h);
 
-      const wmText = `${userId} · ${userName}`;
-      ctx.font = 'bold 15px Arial';
-      ctx.textAlign = 'center';
-      ctx.shadowColor = 'rgba(0,0,0,0.5)';
-      ctx.shadowBlur = 3;
+      // 2. Lớp phủ mờ giúp watermark nổi hơn trên mọi nền ảnh
+      ctx.fillStyle = 'rgba(0,0,0,0.08)';
+      ctx.fillRect(0, 0, w, h);
 
-      for (let row = 0; row < 3; row++) {
-        for (let col = 0; col < 2; col++) {
+      // 3. Text watermark: userId · userName
+      const wmText   = `${userId} · ${userName}`;
+      const fontSize = Math.max(12, Math.round(w * 0.032));
+      ctx.font        = `bold ${fontSize}px Arial, sans-serif`;
+      ctx.textAlign   = 'center';
+      ctx.shadowColor = 'rgba(0,0,0,0.55)';
+      ctx.shadowBlur  = 4;
+
+      // Lưới 3 hàng × 2 cột, mỗi ô xoay nghiêng −30°
+      const rows = 3, cols = 2;
+      const cellW = w / cols;
+      const cellH = h / rows;
+
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
           ctx.save();
-          ctx.translate(125 + col * 250, 100 + row * 150);
+          ctx.translate(cellW * (c + 0.5), cellH * (r + 0.5));
           ctx.rotate(-Math.PI / 6);
-          ctx.fillStyle = 'rgba(255,255,255,0.40)';
+          ctx.fillStyle = 'rgba(255,255,255,0.42)';
           ctx.fillText(wmText, 0, 0);
           ctx.restore();
         }
       }
 
-      ctx.strokeStyle = 'rgba(255,255,255,0.15)';
-      ctx.lineWidth = 1;
-      ctx.strokeRect(1, 1, 498, 498);
+      // 4. Viền nhẹ
+      ctx.shadowBlur  = 0;
+      ctx.strokeStyle = 'rgba(255,255,255,0.18)';
+      ctx.lineWidth   = 1;
+      ctx.strokeRect(1, 1, w - 2, h - 2);
 
-      resolve(cvs.toDataURL('image/png', 0.75));
+      try {
+        resolve(cvs.toDataURL('image/png', 0.80));
+      } catch (e) {
+        // Canvas bị "tainted" (ảnh cross-origin không có header CORS phù hợp)
+        // → fallback: không watermark, để renderBuyTab dùng ảnh gốc thay thế.
+        console.warn('[WM] toDataURL lỗi (tainted canvas), dùng ảnh gốc:', src, e);
+        resolve('');
+      }
     };
-    img.src = thumbnailBase64;
+
+    img.onerror = () => {
+      console.warn('[WM] Không load được ảnh để watermark:', src);
+      resolve(''); // fallback: không watermark, dùng src gốc
+    };
+
+    img.src = src;
   });
 }
 
@@ -320,6 +321,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// NOTE: trước đây hàm này bị định nghĩa 2 lần trong file (1 bản dùng addWatermark
+// theo base64, 1 bản dùng addWatermarkFromUrl). JS chỉ giữ bản định nghĩa sau cùng,
+// khiến bản đầu thành code chết. Đã gộp lại còn đúng 1 bản duy nhất dưới đây.
 function submitDesignListing() {
   if (!requireMarketplaceAuth(`../interface/marketplace.html?tab=5.1`)) return;
 
@@ -343,43 +347,51 @@ function submitDesignListing() {
   const design = allDesigns.find(d => d.designId === designId);
   if (!design) { showToast('⚠️ Không tìm thấy thiết kế đã lưu!'); return; }
 
-  addWatermark(design.thumbnailBase64, sellerId, sellerName).then((watermarkedBase64) => {
-    const platformFee = calcDisplayPrice(sellerPrice) - sellerPrice;
+  const rawSrc = design.thumbnailBase64 || design.thumbnail || '';
 
-    const listing = {
-      listingId: genId('MAR'),
-      type: 'design',
-      sellerId,
-      sellerName,
-      productId: design.productId,
-      designId,
-      orderId: null,
-      color: null,
-      size: null,
-      title,
-      description: desc,
-      tags,
-      thumbnailBase64: design.thumbnailBase64,
-      watermarkedBase64,
-      sellerPrice,
-      displayPrice: calcDisplayPrice(sellerPrice),
-      platformFee,
-      quantity: null,
-      soldQuantity: 0,
-      income: 0,
-      status: 'Đang bán',
-      reportCount: 0,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
-    };
+  // addWatermarkFromUrl hỗ trợ cả base64 lẫn URL tương đối
+  addWatermarkFromUrl(rawSrc, sellerId, sellerName)
+    .then((watermarkedBase64) => {
+      // Nếu watermark thất bại (ảnh lỗi CORS/tainted canvas), fallback dùng
+      // ảnh gốc để listing vẫn có ảnh hiển thị thay vì trống trơn.
+      const finalThumb = watermarkedBase64 || rawSrc;
 
-    saveListing(listing);
-    showToast('✅ Đã đăng bán thiết kế thành công!');
-    showSuccessCard('design', listing);
-    loadMyDesigns();
-    renderBuyTab();
-    renderMyListings();
-  });
+      const platformFee = calcDisplayPrice(sellerPrice) - sellerPrice;
+
+      const listing = {
+        listingId: genId('MAR'),
+        type: 'design',
+        sellerId,
+        sellerName,
+        productId: design.productId,
+        designId,
+        orderId: null,
+        color: null,
+        size: null,
+        title,
+        description: desc,
+        tags,
+        thumbnailBase64: rawSrc,
+        watermarkedBase64: finalThumb,
+        sellerPrice,
+        displayPrice: calcDisplayPrice(sellerPrice),
+        platformFee,
+        quantity: null,
+        soldQuantity: 0,
+        income: 0,
+        status: 'Đang bán',
+        reportCount: 0,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      };
+
+      saveListing(listing);
+      showToast('✅ Đã đăng bán thiết kế thành công!');
+      showSuccessCard('design', listing);
+      loadMyDesigns();
+      renderBuyTab();
+      renderMyListings();
+    });
 }
 
 function loadMyOrders() {
@@ -420,8 +432,9 @@ function loadMyOrders() {
 
       return `
         <div class="order-item-card ${canSell ? '' : 'exhausted'}">
-          <img src="${item.thumbnailBase64 || 'images/products/placeholder.png'}"
-               alt="${item.productName}" class="order-item-thumb">
+          <img src="${item.thumbnailBase64 || PLACEHOLDER_IMG}"
+               alt="${item.productName}" class="order-item-thumb"
+               onerror="this.onerror=null;this.src='${PLACEHOLDER_IMG}'">
           <div class="order-item-info">
             <div class="oi-name">${item.productName || item.productId}</div>
             <div class="oi-meta">Đơn: ${order.orderId}</div>
@@ -557,7 +570,7 @@ function seedDemoOrders() {
           productId: 'p001',
           productName: 'Áo Thun Unisex Basic',
           designId: 'DSN-DEMO-001',
-          thumbnailBase64: 'images/products/tshirt-demo.png',
+          thumbnailBase64: '../images/marketplace/flower_shirt.jpg',
           qty: 2,
           price: 150000,
           color: 'white',
@@ -567,7 +580,7 @@ function seedDemoOrders() {
           productId: 'p005',
           productName: 'Tote Bag Canvas',
           designId: 'DSN-DEMO-002',
-          thumbnailBase64: 'images/products/tote-demo.png',
+          thumbnailBase64: '../images/products/tote-demo.png',
           qty: 1,
           price: 85000,
           color: 'natural',
@@ -617,12 +630,28 @@ function renderBuyTab() {
       ? Math.max(0, (l.quantity || 0) - (l.soldQuantity || 0))
       : null;
 
-    const previewImg = l.watermarkedBase64 || l.thumbnailBase64 || 'images/products/placeholder.png';
+    // Ưu tiên: watermarkedBase64 (đã cache) → watermarked URL (seed JSON) → thumbnail → placeholder
+    const srcForWm   = l.watermarkedBase64 || l.watermarked || l.thumbnailBase64 || l.thumbnail || '';
+    const displaySrc = srcForWm || PLACEHOLDER_IMG;
+
+    // Design listing chưa có watermarkedBase64 → cần watermark on-the-fly qua Canvas API
+    const needsWm = l.type === 'design' && !l.watermarkedBase64 && srcForWm;
+    const cardImgId  = `wm-card-${l.listingId}`;
 
     return `
       <div class="listing-card" onclick="openListingDetail('${l.listingId}')">
         <div class="listing-img-wrap">
-          <img src="${previewImg}" alt="${l.title}" class="listing-img">
+          <img
+            id="${cardImgId}"
+            src="${displaySrc}"
+            alt="${l.title}"
+            class="listing-img"
+            data-needs-wm="${needsWm ? '1' : '0'}"
+            data-wm-src="${srcForWm}"
+            data-seller-id="${l.sellerId}"
+            data-listing-id="${l.listingId}"
+            onerror="this.onerror=null;this.src='${PLACEHOLDER_IMG}'"
+          >
           <span class="listing-type-badge ${l.type === 'design' ? 'badge-design' : 'badge-product'}">
             ${l.type === 'design' ? '🎨 Thiết kế' : '📦 Sản phẩm'}
           </span>
@@ -639,6 +668,29 @@ function renderBuyTab() {
       </div>
     `;
   }).join('');
+
+  // Sau khi render HTML xong, áp watermark async cho từng design card chưa có cache
+  container.querySelectorAll('img[data-needs-wm="1"]').forEach(async (imgEl) => {
+    const src        = imgEl.dataset.wmSrc;
+    const sellerId   = imgEl.dataset.sellerId;
+    const listingId  = imgEl.dataset.listingId;
+    const listing    = allListings.find(l => l.listingId === listingId);
+    const sellerName = getSellerName(sellerId);
+
+    try {
+      const wm = await addWatermarkFromUrl(src, sellerId, sellerName);
+      if (wm && imgEl.isConnected) {
+        imgEl.src = wm;
+        // Cache vào object listing để lần render sau dùng lại, không re-compute
+        if (listing) listing.watermarkedBase64 = wm;
+      }
+      // Nếu wm rỗng (lỗi watermark), giữ nguyên ảnh gốc đã set sẵn trong displaySrc
+      // (không cần làm gì thêm — imgEl.src vẫn còn giá trị hợp lệ ban đầu).
+    } catch (e) {
+      // Giữ nguyên src gốc nếu Canvas API lỗi
+      console.warn('[WM] renderBuyTab watermark error:', e);
+    }
+  });
 }
 
 function reportListing(listingId) {
@@ -689,9 +741,12 @@ function renderMyListings() {
     return;
   }
 
-  container.innerHTML = myListings.map(l => `
+  container.innerHTML = myListings.map(l => {
+    const thumb = l.watermarkedBase64 || l.watermarked || l.thumbnailBase64 || l.thumbnail || PLACEHOLDER_IMG;
+    return `
     <div class="my-listing-row">
-      <img src="${l.thumbnailBase64 || ''}" alt="${l.title}" class="my-listing-thumb">
+      <img src="${thumb}" alt="${l.title}" class="my-listing-thumb"
+           onerror="this.onerror=null;this.src='${PLACEHOLDER_IMG}'">
       <div class="my-listing-info">
         <div class="my-listing-title">${l.title}</div>
         <div class="my-listing-meta">
@@ -707,7 +762,8 @@ function renderMyListings() {
         ? `<button class="btn-remove" onclick="removeListing('${l.listingId}')">Gỡ bán</button>`
         : '<span style="font-size:12px;color:#94A3B8">Đã gỡ</span>'}
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
 function getSellerName(sellerId) {
@@ -720,7 +776,29 @@ function openListingDetail(listingId) {
   const l = allListings.find(x => x.listingId === listingId);
   if (!l) return;
 
-  document.getElementById('modal-img').src = l.watermarkedBase64 || l.thumbnailBase64 || '';
+  const modalImg = document.getElementById('modal-img');
+  // Ưu tiên watermarkedBase64 đã cache; fallback về URL hoặc base64 gốc
+  const modalInitSrc = l.watermarkedBase64 || l.watermarked || l.thumbnailBase64 || l.thumbnail || PLACEHOLDER_IMG;
+  modalImg.src = modalInitSrc;
+  modalImg.onerror = function () {
+    this.onerror = null;
+    this.src = PLACEHOLDER_IMG;
+  };
+
+  // Nếu là design listing chưa có watermarkedBase64 → watermark on-the-fly, cập nhật modal img
+  if (l.type === 'design' && !l.watermarkedBase64) {
+    const rawSrc = l.thumbnail || l.thumbnailBase64 || '';
+    if (rawSrc) {
+      addWatermarkFromUrl(rawSrc, l.sellerId, getSellerName(l.sellerId))
+        .then(wm => {
+          if (wm) {
+            modalImg.src = wm;
+            l.watermarkedBase64 = wm; // cache để lần sau dùng lại
+          }
+        })
+        .catch(e => console.warn('[WM] openListingDetail watermark error:', e));
+    }
+  }
   document.getElementById('modal-title').textContent = l.title;
   document.getElementById('modal-desc').textContent = l.description || 'Không có mô tả';
   document.getElementById('modal-type').textContent = l.type === 'design' ? '🎨 Thiết kế' : '📦 Sản phẩm in';

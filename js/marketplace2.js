@@ -1,9 +1,4 @@
-// ════════════════════════════════════════════════════════
-// marketplace-part2.js
-// Chứa: TAB SWITCHING, MODAL, SEARCH/FILTER,
-//        SUCCESS CARD, TOAST, UI HELPERS, INIT CALL
-// ════════════════════════════════════════════════════════
-
+// marketplace2.js
 let toastTimer;
 let activeFilter53 = 'all';
 let searchQuery53 = '';
@@ -90,6 +85,7 @@ function closeModal() {
   modal.classList.add('hidden');
   document.body.style.overflow = '';
 }
+
 function showSuccessCard(type, listing) {
   const panel = type === 'design' ? 'panel-51' : 'panel-52';
   const cardId = type === 'design' ? 'success-51' : 'success-52';
@@ -179,4 +175,4 @@ window.addEventListener('printify-auth-changed', () => {
       renderMyListingsSafe();
       break;
   }
-})
+});

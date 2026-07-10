@@ -1,18 +1,41 @@
 const QUESTION_URL = '../dataset/surveyQuestion.json';
-const SESSION_KEY = 'printify_session';
 const RESPONSE_KEY = 'printify_survey_r';
 const QUESTION_CACHE_KEY = 'printify_survey_q';
-
 const $ = (id) => document.getElementById(id);
 
 let questions = [];
 
-function getSessionUser() {
+function normalizeDimension(dim) {
+  const d = String(dim || "").trim().toUpperCase();
+
+  if (d === "EOU") return "PEOU";
+  if (d === "PEOU") return "PEOU";
+
+  if (d === "SA") return "SAT";
+  if (d === "SAT") return "SAT";
+
+  return d;
+}
+
+function getCurrentSurveyUser() {
+  if (typeof getCurrentUser === 'function') {
+    return getCurrentUser();
+  }
+
   try {
-    return JSON.parse(sessionStorage.getItem(SESSION_KEY) || 'null');
+    const raw = sessionStorage.getItem('printify_session');
+    return raw ? JSON.parse(raw) : null;
   } catch {
     return null;
   }
+}
+
+function getUserId(user) {
+  return user?.userId || user?.custId || user?.adId || '';
+}
+
+function getUserName(user) {
+  return user?.name || user?.custName || user?.adName || 'người dùng';
 }
 
 function setMessage(msg, isSuccess = false) {
@@ -48,8 +71,18 @@ function saveStoredResponses(responses) {
   window.dispatchEvent(new CustomEvent('printifySurveyUpdated'));
 }
 
+function normalizeDimension(dim) {
+  const d = String(dim || '').trim().toUpperCase();
+
+  if (d === 'EOU' || d === 'PEOU') return 'PEOU';
+  if (d === 'SAT' || d === 'SA') return 'SAT';
+
+  return d;
+}
+
 function groupQuestionsByDimension(list) {
-  const order = ['PU', 'PEOU', 'SA', 'PI'];
+  const order = ['PU', 'PEOU', 'SAT', 'PI'];
+
   const labels = {
     PU: {
       title: 'Cảm nhận hữu ích (PU)',
@@ -59,8 +92,8 @@ function groupQuestionsByDimension(list) {
       title: 'Cảm nhận dễ sử dụng (PEOU)',
       desc: 'Đánh giá mức độ dễ hiểu, dễ thao tác.'
     },
-    SA: {
-      title: 'Sự hài lòng (SA)',
+    SAT: {
+      title: 'Sự hài lòng (SAT)',
       desc: 'Đánh giá mức độ hài lòng với sản phẩm và hệ thống.'
     },
     PI: {
@@ -73,21 +106,24 @@ function groupQuestionsByDimension(list) {
   order.forEach(dim => (groups[dim] = []));
 
   list.forEach(q => {
-    if (groups[q.dimension]) groups[q.dimension].push(q);
+    const dim = normalizeDimension(q.dimension);
+    if (groups[dim]) groups[dim].push(q);
   });
 
   return { groups, labels, order };
 }
 
-function renderSurvey() {
-  const user = getSessionUser();
+function updateSurveyAuthUI() {
+  const user = getCurrentSurveyUser();
   const userLabel = $('surveyUserLabel');
   const authNotice = $('surveyAuthNotice');
   const formWrap = $('surveyFormWrap');
   const questionsWrap = $('surveyQuestions');
 
   if (userLabel) {
-    userLabel.textContent = user ? `Xin chào, ${user.name || user.custName || 'người dùng'}` : 'Chưa đăng nhập';
+    userLabel.textContent = user
+      ? `Xin chào, ${getUserName(user)}`
+      : 'Chưa đăng nhập';
   }
 
   if (!user) {
@@ -97,17 +133,26 @@ function renderSurvey() {
     }
     if (formWrap) formWrap.classList.add('hidden');
     if (questionsWrap) questionsWrap.innerHTML = '';
-    return;
+    return false;
   }
 
   if (authNotice) authNotice.classList.add('hidden');
   if (formWrap) formWrap.classList.remove('hidden');
+  return true;
+}
 
+function renderSurvey() {
+  const user = getCurrentSurveyUser();
+  if (!user) {
+    updateSurveyAuthUI();
+    return;
+  }
   const activeQuestions = questions
-    .filter(q => q.isActive !== false)
-    .sort((a, b) => Number(a.orderIndex || 0) - Number(b.orderIndex || 0));
+      .filter(q=>q.isActive!==false)
+      .sort((a,b)=>Number(a.orderIndex)-Number(b.orderIndex));
 
   const { groups, labels, order } = groupQuestionsByDimension(activeQuestions);
+  const questionsWrap = $('surveyQuestions');
 
   if (questionsWrap) {
     questionsWrap.innerHTML = order.map(dim => {
@@ -151,15 +196,7 @@ function renderSurvey() {
 
 async function loadQuestions() {
   try {
-    const cached = JSON.parse(localStorage.getItem(QUESTION_CACHE_KEY) || 'null');
-
-    if (Array.isArray(cached) && cached.length) {
-      questions = cached;
-      renderSurvey();
-      return;
-    }
-
-    const res = await fetch(QUESTION_URL);
+    const res = await fetch(QUESTION_URL, { cache: 'no-store' });
     if (!res.ok) throw new Error('Không tải được surveyQuestion.json');
 
     const data = await res.json();
@@ -167,8 +204,19 @@ async function loadQuestions() {
 
     localStorage.setItem(QUESTION_CACHE_KEY, JSON.stringify(questions));
     renderSurvey();
+    return;
   } catch (err) {
     console.error(err);
+
+    try {
+      const cached = JSON.parse(localStorage.getItem(QUESTION_CACHE_KEY) || 'null');
+      if (Array.isArray(cached) && cached.length) {
+        questions = cached;
+        renderSurvey();
+        return;
+      }
+    } catch {}
+
     const questionsWrap = $('surveyQuestions');
     if (questionsWrap) {
       questionsWrap.innerHTML = `
@@ -200,9 +248,11 @@ function collectAnswers() {
 function submitSurvey(e) {
   e.preventDefault();
 
-  const user = getSessionUser();
+  const user = getCurrentSurveyUser();
   if (!user) {
     setMessage('Bạn cần đăng nhập để gửi khảo sát.');
+    if (typeof setReturnTo === 'function') setReturnTo(window.location.href);
+    if (typeof redirectToLogin === 'function') redirectToLogin(window.location.href);
     return;
   }
 
@@ -214,8 +264,8 @@ function submitSurvey(e) {
 
   const response = {
     responseId: 'SR-' + Date.now(),
-    userId: user.userId || user.custId || '',
-    userName: user.name || user.custName || '',
+    userId: getUserId(user),
+    userName: getUserName(user),
     answers,
     comment: $('surveyComment')?.value.trim() || '',
     submittedAt: new Date().toISOString()
@@ -237,12 +287,20 @@ function resetSurvey() {
   setMessage('');
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  loadQuestions();
+document.addEventListener('DOMContentLoaded', async () => {
+  if (typeof initAuthUI === 'function') initAuthUI();
+
+  updateSurveyAuthUI();
+  await loadQuestions();
 
   const form = $('surveyForm');
   const resetBtn = $('btnResetSurvey');
 
   if (form) form.addEventListener('submit', submitSurvey);
   if (resetBtn) resetBtn.addEventListener('click', resetSurvey);
+});
+
+window.addEventListener('printify-auth-changed', () => {
+  updateSurveyAuthUI();
+  if (getCurrentSurveyUser()) renderSurvey();
 });

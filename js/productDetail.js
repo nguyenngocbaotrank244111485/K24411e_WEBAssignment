@@ -1,16 +1,12 @@
 /* =========================
-   PRODUCT DETAIL PAGE LOGIC (NV03 phần chi tiết)
-   Đọc DS3 (products.json/cache), ghi DS7 (viewHistory),
-   gọi module recommendation (NV12) để lấy 4 SP tương tự
+   PRODUCT DETAIL PAGE LOGIC
+   - Public xem sản phẩm
+   - Chỉ yêu cầu login khi:
+     + Bắt đầu thiết kế
+     + Thêm vào giỏ hàng
+   - Không phụ thuộc storage.js / recommendation.js
    ========================= */
 
-<<<<<<< HEAD
-=======
-let currentProduct = null;
-let selectedColor = null;
-let selectedSize = null;
-
->>>>>>> main
 const CATEGORY_LABELS = {
   clothing: "Quần áo",
   stationery: "Văn phòng phẩm",
@@ -21,18 +17,14 @@ const CATEGORY_LABELS = {
   office: "Văn phòng"
 };
 
-<<<<<<< HEAD
 let currentProduct = null;
 let selectedColor = null;
 let selectedSize = null;
 
 document.addEventListener("DOMContentLoaded", async () => {
+  if (typeof initAuthUI === "function") initAuthUI();
+
   updateCartBadge();
-  bindLoginModalLinks();
-=======
-document.addEventListener("DOMContentLoaded", async () => {
-  updateCartBadge();
->>>>>>> main
 
   const productId = getProductIdFromURL();
   if (!productId) {
@@ -41,74 +33,62 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   const products = await loadAllProducts();
-  const product = products.find(p => p.id === productId);
+  const product = products.find(p => (p.id || p.productId) === productId);
 
   if (!product) {
     renderNotFound();
     return;
   }
 
-  currentProduct = product;
-<<<<<<< HEAD
-  renderDetail(product);          // ✅ luôn hiển thị, không cần đăng nhập
-  recordViewHistory(product.id);  // chỉ ghi nếu đã đăng nhập, không chặn hiển thị
-  renderSimilarProducts(product, products);
+  currentProduct = {
+    ...product,
+    id: product.id || product.productId
+  };
+
+  renderDetail(currentProduct);
+  recordViewHistory(currentProduct.id);
+  renderSimilarProducts(currentProduct, products);
 });
 
-/* ---------- LOGIN MODAL: chỉ dùng khi user bấm hành động cần auth ---------- */
-function bindLoginModalLinks() {
-  const modal = document.getElementById('login-required-modal');
-  if (!modal) return; // tránh crash nếu thiếu phần tử
-
-  modal.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => setReturnTo(window.location.href));
-  });
-}
-
+/* ---------- AUTH MODAL ---------- */
 function openLoginModal() {
-  const modal = document.getElementById('login-required-modal');
-  if (modal) modal.classList.add('show');
+  const modal = document.getElementById("login-required-modal");
+  if (!modal) return;
+  modal.classList.remove("hidden");
+  modal.classList.add("show");
 }
 
-function closeLoginModalDetail() {
-  const modal = document.getElementById('login-required-modal');
-  if (modal) modal.classList.remove('show');
-}
-
-// Dùng chung getCurrentUser() từ auth.js, KHÔNG định nghĩa lại ở đây
-function getUserId(user) {
-  return user?.userId || user?.custId || user?.adId || null;
+function closeLoginModal() {
+  const modal = document.getElementById("login-required-modal");
+  if (!modal) return;
+  modal.classList.remove("show");
+  modal.classList.add("hidden");
 }
 
 function ensureAuthForAction() {
-  if (getCurrentUser()) return true;   // hàm này lấy từ auth.js
-  setReturnTo(window.location.href);   // hàm này cũng lấy từ auth.js
+  if (typeof getCurrentUser === "function" && getCurrentUser()) return true;
+
+  if (typeof setReturnTo === "function") {
+    setReturnTo(window.location.href);
+  }
+
   openLoginModal();
   return false;
 }
 
-=======
-  renderDetail(product);
-  recordViewHistory(product.id);
-  renderSimilarProducts(product, products);
-});
-
->>>>>>> main
-/* ---------- LOAD DATA (fetch + flatten categories + cache) ---------- */
+/* ---------- DATA ---------- */
 async function loadAllProducts() {
   try {
     const res = await fetch("../dataset/products.json");
     const data = await res.json();
 
     const flat = (data.categories || []).flatMap(cat => cat.products || []);
-
     const active = flat
       .filter(p => p.isActive !== false)
-<<<<<<< HEAD
-      .map(p => ({ ...p, id: p.productId }));
-=======
-      .map(p => ({ ...p, id: p.productId })); // chuẩn hóa productId -> id
->>>>>>> main
+      .map(p => ({
+        ...p,
+        id: p.productId || p.id
+      }));
 
     localStorage.setItem("printify_products_cache", JSON.stringify(active));
     return active;
@@ -133,6 +113,40 @@ function renderNotFound() {
     </div>`;
 }
 
+/* ---------- IMAGE HELPERS ---------- */
+function resolveImageUrl(path) {
+  if (!path) return "../images/placeholder.png";
+  if (
+    path.startsWith("http://") ||
+    path.startsWith("https://") ||
+    path.startsWith("data:") ||
+    path.startsWith("../") ||
+    path.startsWith("./") ||
+    path.startsWith("/")
+  ) {
+    return path;
+  }
+  return `../${path}`;
+}
+
+function getAllImages(product) {
+  const images = [];
+  if (product.image) images.push(product.image);
+  if (Array.isArray(product.images)) {
+    product.images.forEach(img => images.push(img));
+  }
+
+  const unique = [];
+  const seen = new Set();
+  images.forEach(img => {
+    if (!img || seen.has(img)) return;
+    seen.add(img);
+    unique.push(img);
+  });
+
+  return unique.length ? unique : ["../images/placeholder.png"];
+}
+
 /* ---------- RENDER DETAIL ---------- */
 function renderDetail(p) {
   const template = document.getElementById("detail-template");
@@ -141,112 +155,73 @@ function renderDetail(p) {
   mainEl.innerHTML = "";
   mainEl.appendChild(clone);
 
-  document.getElementById("breadcrumb-name").textContent = p.name;
-  document.title = `PrintiFy — ${p.name}`;
+  document.getElementById("breadcrumb-name").textContent = p.name || "Chi tiết sản phẩm";
+  document.title = `PrintiFy — ${p.name || "Chi tiết sản phẩm"}`;
 
-<<<<<<< HEAD
-  const images = p.images?.length
-    ? [p.image, ...p.images]
-    : [p.image];
-=======
- // Gallery — chỉ dùng p.image (local, đáng tin cậy).
-  // Bỏ p.images vì hiện là link trang Unsplash (không phải file ảnh trực tiếp) → luôn lỗi.
-  const images = [p.image];
->>>>>>> main
-  document.getElementById("gallery-main-img").src = `../${images[0]}`;
-  document.getElementById("gallery-main-img").onerror = function () {
+  const images = getAllImages(p);
+
+  const mainImg = document.getElementById("gallery-main-img");
+  mainImg.src = resolveImageUrl(images[0]);
+  mainImg.onerror = function () {
     this.src = "../images/placeholder.png";
   };
+
   if (!p.inStock) {
     document.getElementById("gallery-outstock-badge").style.display = "block";
+    document.getElementById("btn-start-design").innerHTML = "🎨 Bắt đầu thiết kế (Tạm hết hàng)";
+    document.getElementById("btn-add-cart").innerHTML = "🛒 Thêm vào giỏ hàng (Tạm hết hàng)";
   }
 
   const thumbsWrap = document.getElementById("gallery-thumbs");
-<<<<<<< HEAD
-=======
-  // Chỉ 1 ảnh -> ẩn khu vực thumbnail luôn cho gọn (thay vì hiện 1 thumb trùng ảnh chính)
->>>>>>> main
   if (images.length <= 1) {
     thumbsWrap.style.display = "none";
   } else {
     thumbsWrap.style.display = "flex";
     thumbsWrap.innerHTML = images.map((img, i) => `
-      <div class="gallery-thumb ${i === 0 ? "active" : ""}" onclick="switchGalleryImage('${img}', this)">
-        <img src="../${img}" onerror="this.src='../images/placeholder.png'">
+      <div class="gallery-thumb ${i === 0 ? "active" : ""}" onclick="switchGalleryImage('${escapeForAttr(img)}', this)">
+        <img src="${resolveImageUrl(img)}" onerror="this.src='../images/placeholder.png'">
       </div>
     `).join("");
   }
 
-<<<<<<< HEAD
-=======
-  // Info
->>>>>>> main
-  document.getElementById("detail-cat-badge").textContent = CATEGORY_LABELS[p.category] || p.category;
-  document.getElementById("detail-name").textContent = p.name;
-  document.getElementById("detail-price").textContent = formatVND(p.price);
+  document.getElementById("detail-cat-badge").textContent = CATEGORY_LABELS[p.category] || p.category || "";
+  document.getElementById("detail-name").textContent = p.name || "";
+  document.getElementById("detail-price").textContent = formatVND(p.price || 0);
   document.getElementById("detail-desc").textContent = p.description || "";
+
   document.getElementById("detail-tags").innerHTML =
     (p.tags || []).map(t => `<span class="tag">${t}</span>`).join("");
 
-<<<<<<< HEAD
-=======
-  // Colors
->>>>>>> main
   if (p.colors && p.colors.length) {
     selectedColor = p.colors[0];
     document.getElementById("option-colors").innerHTML = p.colors.map((c, i) => `
       <div class="color-swatch ${i === 0 ? "active" : ""}"
            style="background:${colorToCSS(c)}"
            title="${c}"
-           onclick="selectColor('${c}', this)"></div>
+           onclick="selectColor('${escapeForAttr(c)}', this)"></div>
     `).join("");
     document.getElementById("selected-color-label").textContent = `— ${selectedColor}`;
   } else {
     document.getElementById("color-block").style.display = "none";
   }
 
-<<<<<<< HEAD
-=======
-  // Sizes
->>>>>>> main
   if (p.sizes && p.sizes.length) {
     selectedSize = p.sizes[0];
     document.getElementById("option-sizes").innerHTML = p.sizes.map((s, i) => `
-      <div class="size-chip ${i === 0 ? "active" : ""}" onclick="selectSize('${s}', this)">${s}</div>
+      <div class="size-chip ${i === 0 ? "active" : ""}" onclick="selectSize('${escapeForAttr(s)}', this)">${s}</div>
     `).join("");
   } else {
     document.getElementById("size-block").style.display = "none";
   }
-
-<<<<<<< HEAD
-=======
-  // Out of stock: disable "bắt đầu thiết kế" nhưng vẫn cho xem/thiết kế theo mô tả NV03
-  // (mô tả gốc: "vẫn cho phép xem và thiết kế" -> giữ nút bật, chỉ cảnh báo)
->>>>>>> main
-  if (!p.inStock) {
-    const btn = document.getElementById("btn-start-design");
-    btn.innerHTML = "🎨 Bắt đầu thiết kế (Tạm hết hàng)";
-  }
 }
-<<<<<<< HEAD
-function getImagePath(path) {
-    if (!path) return "../images/placeholder.png";
-    if (path.startsWith("http")) {
-        return path;
-    }
-    return path;
-}
-=======
 
->>>>>>> main
-/* ---------- GALLERY SWITCH ---------- */
+/* ---------- GALLERY / OPTIONS ---------- */
 function switchGalleryImage(img, thumbEl) {
-  document.getElementById("gallery-main-img").src = `../${img}`;
+  document.getElementById("gallery-main-img").src = resolveImageUrl(img);
   document.querySelectorAll(".gallery-thumb").forEach(t => t.classList.remove("active"));
   thumbEl.classList.add("active");
 }
 
-/* ---------- SELECT COLOR / SIZE ---------- */
 function selectColor(color, el) {
   selectedColor = color;
   document.querySelectorAll(".color-swatch").forEach(c => c.classList.remove("active"));
@@ -260,87 +235,26 @@ function selectSize(size, el) {
   el.classList.add("active");
 }
 
-<<<<<<< HEAD
-/* ---------- ACTIONS: bắt đầu thiết kế / dùng mặc định (CẦN đăng nhập) ---------- */
+/* ---------- ACTIONS ---------- */
 function handleStartDesign() {
   if (!ensureAuthForAction()) return;
 
-=======
-/* ---------- ACTIONS: bắt đầu thiết kế / dùng mặc định ---------- */
-function handleStartDesign() {
-  const session = getSession();
-  if (!session) {
-    document.getElementById("login-required-modal").classList.add("show");
-    return;
-  }
->>>>>>> main
+  const productId = currentProduct.id;
   const params = new URLSearchParams({
-    productId: currentProduct.id,
+    productId,
     color: selectedColor || "",
     size: selectedSize || ""
   });
-<<<<<<< HEAD
+
   window.location.href = `../interface/editor.html?${params.toString()}`;
 }
 
-function handleUseDefault() {
-    addDefaultToCart();
-}
+function handleAddToCart() {
+  if (!ensureAuthForAction()) return;
 
-function addDefaultToCart() {
-    if (!ensureAuthForAction()) return;
-    const cart =
-        JSON.parse(localStorage.getItem("printify_cart") || "[]");
-    const existing = cart.find(item =>
-        item.productId === currentProduct.id &&
-        item.color === selectedColor &&
-        item.size === selectedSize &&
-        !item.designData
-    );
-    if (existing) {
-        existing.qty++;
-    } else {
-        cart.push({
-            cartItemId: "CI" + Date.now(),
-            productId: currentProduct.id,
-            name: currentProduct.name,
-            image: currentProduct.image,
-            price: currentProduct.price,
-            color: selectedColor,
-            size: selectedSize,
-            qty: 1,
-            designData: null
-        });
-    }
-    localStorage.setItem(
-        "printify_cart",
-        JSON.stringify(cart)
-    );
-    updateCartBadge();
-    showToast("Đã thêm vào giỏ hàng!");
-}
-/* ---------- VIEW HISTORY (DS7) — không đăng nhập thì bỏ qua, không chặn trang ---------- */
-function recordViewHistory(productId) {
-  const session = getCurrentUser();
-  const userId = getUserId(session);
-  if (!userId) return;
+  const user = typeof getCurrentUser === "function" ? getCurrentUser() : null;
+  if (!user) return;
 
-  const key = `printify_viewhistory_${userId}`;
-=======
-  window.location.href = `editor.html?${params.toString()}`;
-}
-
-function handleUseDefault() {
-  const session = getSession();
-  if (!session) {
-    document.getElementById("login-required-modal").classList.add("show");
-    return;
-  }
-  // Bỏ qua thiết kế, thêm thẳng vào giỏ với designData = null
-  addDefaultToCart();
-}
-
-function addDefaultToCart() {
   const cart = JSON.parse(localStorage.getItem("printify_cart") || "[]");
 
   const existing = cart.find(item =>
@@ -357,6 +271,7 @@ function addDefaultToCart() {
       cartItemId: "CI" + Date.now(),
       productId: currentProduct.id,
       name: currentProduct.name,
+      image: currentProduct.image,
       price: currentProduct.price,
       color: selectedColor,
       size: selectedSize,
@@ -370,36 +285,28 @@ function addDefaultToCart() {
   showToast("Đã thêm vào giỏ hàng!");
 }
 
-function closeLoginModal() {
-  document.getElementById("login-required-modal").classList.remove("show");
+/* alias để nếu HTML cũ còn gọi hàm này */
+function handleUseDefault() {
+  handleAddToCart();
 }
 
-/* ---------- VIEW HISTORY (DS7) ---------- */
+/* ---------- VIEW HISTORY ---------- */
 function recordViewHistory(productId) {
-  const session = getSession();
-  if (!session) return; // chỉ ghi khi đã đăng nhập
+  const user = typeof getCurrentUser === "function" ? getCurrentUser() : null;
+  const userId = user?.userId || user?.custId || user?.adId || null;
+  if (!userId) return;
 
-  const key = `printify_viewhistory_${session.userId}`;
->>>>>>> main
+  const key = `printify_viewhistory_${userId}`;
   let history = JSON.parse(localStorage.getItem(key) || "[]");
 
   history = history.filter(h => h.productId !== productId);
   history.unshift({ productId, viewedAt: new Date().toISOString() });
-<<<<<<< HEAD
   history = history.slice(0, 20);
-=======
-  history = history.slice(0, 20); // tối đa 20
->>>>>>> main
 
   localStorage.setItem(key, JSON.stringify(history));
 }
 
-<<<<<<< HEAD
-/* ---------- SIMILAR PRODUCTS (NV12) ---------- */
-=======
-/* ---------- SIMILAR PRODUCTS (NV12) ----------
-   Gọi module recommendation.js (getSimilarProducts) */
->>>>>>> main
+/* ---------- SIMILAR PRODUCTS ---------- */
 function renderSimilarProducts(product, allProducts) {
   const similar = getSimilarProducts(product, allProducts, 4);
   const grid = document.getElementById("similar-grid");
@@ -412,7 +319,7 @@ function renderSimilarProducts(product, allProducts) {
   grid.innerHTML = similar.map(p => `
     <div class="similar-card" onclick="window.location.href='productDetail.html?id=${p.id}'">
       <div class="similar-img-wrap">
-        <img src="../${p.image}" onerror="this.src='../images/placeholder.png'">
+        <img src="${resolveImageUrl(p.image)}" onerror="this.src='../images/placeholder.png'">
       </div>
       <div class="similar-info">
         <div class="similar-name">${p.name}</div>
@@ -422,33 +329,66 @@ function renderSimilarProducts(product, allProducts) {
   `).join("");
 }
 
-/* ---------- HELPERS ---------- */
-<<<<<<< HEAD
-=======
-function getSession() {
-  const raw = sessionStorage.getItem("printify_session");
-  return raw ? JSON.parse(raw) : null;
+function getSimilarProducts(product, allProducts, limit = 4) {
+  const sameCategory = allProducts.filter(p =>
+    p.id !== product.id &&
+    p.category === product.category
+  );
+
+  const sameTags = allProducts.filter(p => {
+    if (p.id === product.id) return false;
+    const tagsA = new Set((product.tags || []).map(t => String(t).toLowerCase()));
+    return (p.tags || []).some(t => tagsA.has(String(t).toLowerCase()));
+  });
+
+  const merged = [];
+  const seen = new Set();
+
+  [...sameCategory, ...sameTags, ...allProducts]
+    .forEach(p => {
+      if (!p || seen.has(p.id)) return;
+      seen.add(p.id);
+      if (p.id !== product.id) merged.push(p);
+    });
+
+  return merged.slice(0, limit);
 }
 
->>>>>>> main
+/* ---------- HELPERS ---------- */
 function formatVND(amount) {
-  return amount.toLocaleString("vi-VN") + "₫";
+  return Number(amount || 0).toLocaleString("vi-VN") + "₫";
 }
 
 function colorToCSS(name) {
   const map = {
-    white: "#ffffff", black: "#000000", navy: "#1e2a52", red: "#dc2626",
-    gray: "#9ca3af", beige: "#e8dcc8", natural: "#e8dcc8", kraft: "#c39b6a",
+    white: "#ffffff",
+    black: "#000000",
+    navy: "#1e2a52",
+    red: "#dc2626",
+    gray: "#9ca3af",
+    beige: "#e8dcc8",
+    natural: "#e8dcc8",
+    kraft: "#c39b6a",
     transparent: "repeating-linear-gradient(45deg,#eee,#eee 4px,#fff 4px,#fff 8px)",
     gold: "#d4af37"
   };
   return map[name] || "#cccccc";
 }
 
+function escapeForAttr(text) {
+  return String(text)
+    .replaceAll("\\", "\\\\")
+    .replaceAll("'", "\\'")
+    .replaceAll('"', '\\"');
+}
+
 function updateCartBadge() {
   const cart = JSON.parse(localStorage.getItem("printify_cart") || "[]");
-  const totalQty = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
+  const totalQty = cart.reduce((sum, item) => sum + (Number(item.qty) || 0), 0);
   const badge = document.getElementById("cart-badge");
+
+  if (!badge) return;
+
   if (totalQty > 0) {
     badge.textContent = totalQty;
     badge.style.display = "flex";

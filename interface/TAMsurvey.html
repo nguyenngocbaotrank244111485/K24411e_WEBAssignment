@@ -1,16 +1,29 @@
 <html>
 <head>
   <title>PrintiFy — Khảo sát TAM</title>
-  <link rel="stylesheet" type="text/css" href="../css/TAMsurveycss.css">
+  <link rel="stylesheet" type="text/css" href="../css/TAMsurveycss.css" />
+  <link rel="stylesheet" type="text/css" href="../css/chatbotcss.css" />
 </head>
 <body class="survey-page">
 
   <header class="survey-topbar">
     <div class="survey-brand">Printi<span>Fy</span></div>
+
     <div class="survey-topbar-right">
       <span id="surveyUserLabel">Chưa đăng nhập</span>
-      <a href="../interface/login.html" class="survey-link-btn">Đăng nhập</a>
-    </div>
+
+      <div class="nav-actions">
+        <div data-auth-guest style="display:flex;gap:8px">
+          <a href="../interface/login.html" data-go-login class="btn-login">Đăng nhập</a>
+          <a href="../interface/register.html" data-go-register class="btn-register">Đăng ký</a>
+        </div>
+
+        <div data-auth-user style="display:none;align-items:center;gap:12px">
+          <span>Xin chào, <span data-auth-name></span></span>
+          <a href="../interface/profile.html" class="nav-profile">👤</a>
+          <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+        </div>
+      </div>
   </header>
 
   <main class="survey-shell">
@@ -48,5 +61,6 @@
 
   <script src="../js/auth.js"></script>
   <script src="../js/TAMsurvey.js"></script>
+  <script src="../js/chatbot.js"></script>
 </body>
 </html>

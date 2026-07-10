@@ -1,9 +1,7 @@
-// ════════════════════════════════════════════════════════
-// marketplace-part1.js
+// marketplace1.js
 // Chứa: CONFIG, STATE, DATA HELPERS, WATERMARK,
-//        5.1 ĐĂNG BÁN THIẾT KẾ, 5.2 ĐĂNG BÁN SẢN PHẨM,
-//        5.3 MUA THIẾT KẾ / SP
-// ════════════════════════════════════════════════════════
+//       5.1 ĐĂNG BÁN THIẾT KẾ, 5.2 ĐĂNG BÁN SẢN PHẨM,
+//       5.3 MUA THIẾT KẾ / SP
 
 const PLATFORM_CONFIG = {
   feePercent: 20,
@@ -274,10 +272,6 @@ function addWatermark(thumbnailBase64, userId, userName) {
   });
 }
 
-// ══════════════════════════════════════════════════════
-// 5.1 — ĐĂNG BÁN THIẾT KẾ
-// ══════════════════════════════════════════════════════
-
 function loadMyDesigns() {
   const container = document.getElementById('design-select');
   if (!container) return;
@@ -326,7 +320,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Submit đăng bán thiết kế
 function submitDesignListing() {
   if (!requireMarketplaceAuth(`../interface/marketplace.html?tab=5.1`)) return;
 
@@ -388,10 +381,6 @@ function submitDesignListing() {
     renderMyListings();
   });
 }
-
-// ══════════════════════════════════════════════════════
-// 5.2 — ĐĂNG BÁN SẢN PHẨM ĐÃ IN ẤN
-// ══════════════════════════════════════════════════════
 
 function loadMyOrders() {
   const container = document.getElementById('order-list-52');
@@ -592,10 +581,6 @@ function seedDemoOrders() {
   showToast('✅ Đã tạo dữ liệu demo đơn hoàn tất');
 }
 
-// ══════════════════════════════════════════════════════
-// 5.3 — MUA THIẾT KẾ / SẢN PHẨM CỦA NGƯỜI KHÁC
-// ══════════════════════════════════════════════════════
-
 function renderBuyTab() {
   const container = document.getElementById('buy-listing-grid');
   if (!container) return;
@@ -656,7 +641,6 @@ function renderBuyTab() {
   }).join('');
 }
 
-// ── BÁO CÁO VI PHẠM ────────────────────────────────────
 function reportListing(listingId) {
   if (!requireMarketplaceAuth(`../interface/marketplace.html?tab=5.3`)) return;
 
@@ -680,7 +664,6 @@ function reportListing(listingId) {
   renderBuyTab();
 }
 
-// ── GỠ BÁN (người bán tự gỡ) ──────────────────────────
 function removeListing(listingId) {
   if (!requireMarketplaceAuth(`../interface/marketplace.html?tab=my`)) return;
 
@@ -691,7 +674,6 @@ function removeListing(listingId) {
   renderMyListings();
 }
 
-// ── DANH SÁCH CỦA TÔI (người bán xem) ────────────────
 function renderMyListings() {
   const container = document.getElementById('my-listings-container');
   if (!container) return;
@@ -734,7 +716,6 @@ function getSellerName(sellerId) {
   return user ? (user.name || user.custName || user.adName || 'Người dùng') : 'Người dùng ẩn danh';
 }
 
-// Mở chi tiết listing
 function openListingDetail(listingId) {
   const l = allListings.find(x => x.listingId === listingId);
   if (!l) return;
@@ -778,7 +759,6 @@ function openListingDetail(listingId) {
   openModal();
 }
 
-// Mua để mở trong editor (5.3 → NV04)
 function buyAndOpenEditor(listing) {
   if (!requireMarketplaceAuth(`../interface/marketplace.html?tab=5.3`)) return;
 
@@ -807,7 +787,6 @@ function buyAndOpenEditor(listing) {
   }, 1200);
 }
 
-// Mua và thêm vào giỏ (5.3 → NV06)
 function buyAndAddToCart(listing) {
   if (!requireMarketplaceAuth(`../interface/marketplace.html?tab=5.3`)) return;
 
@@ -846,7 +825,6 @@ function buyAndAddToCart(listing) {
   closeModal();
 }
 
-// Xử lý giao dịch: lưu DS9, cập nhật DS8 soldQuantity
 function processPurchase(listing, qty) {
   const tx = {
     txId: genId('TX'),

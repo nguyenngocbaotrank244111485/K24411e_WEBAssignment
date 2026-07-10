@@ -1,9 +1,10 @@
-<html>
+<!-- marketplace.html -->
+<!DOCTYPE html>
+<html lang="vi">
 <head>
-  <title>PrintiFy — Marketplace</title>
+  <link rel="stylesheet" type="text/css" href="../css/maincss.css">
   <link rel="stylesheet" type="text/css" href="../css/marketplacecss.css">
   <link rel="stylesheet" type="text/css" href="../css/chatbotcss.css">
-  <link rel="icon" href="../images/favicon.png">
 </head>
 <body class="marketplace-page">
 
@@ -31,7 +32,7 @@
       <a href="../interface/profile.html" class="nav-profile">
         👤 <span data-auth-name></span>
       </a>
-      <button class="logout-btn" onclick="logout()">Đăng xuất</button>
+      <button class="logout-btn" onclick="clearCurrentUser(); location.reload()">Đăng xuất</button>
     </div>
   </div>
 </nav>
@@ -57,11 +58,8 @@
 
 <div class="main">
 
-  <!-- ══════════════════════════════════════════════
-       PANEL 5.1 — SELLING DESIGNS
-  ══════════════════════════════════════════════ -->
+  <!-- PANEL 5.1 -->
   <div id="panel-51" class="tab-panel" style="display:none">
-
     <div class="info-box">
       💡 Thiết kế của bạn sẽ được nhúng watermark tự động để bảo vệ bản quyền.
       Người mua chỉ nhận được ảnh gốc sau khi thanh toán thành công.
@@ -82,7 +80,6 @@
           </select>
           <span class="form-hint">Thiết kế được lưu từ trang Editor (NV04)</span>
 
-          <!-- Preview design image -->
           <div class="design-preview-wrap" id="design-preview-wrap">
             <img id="design-preview-img" src="" alt="Preview">
             <div style="font-size:12px;color:#64748B">
@@ -141,11 +138,8 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════════
-       PANEL 5.2 — SELLING PRINTED PRODUCTS
-  ══════════════════════════════════════════════ -->
+  <!-- PANEL 5.2 -->
   <div id="panel-52" class="tab-panel" style="display:none">
-
     <div class="info-box">
       📦 Chọn sản phẩm từ các đơn hàng <strong>đã hoàn tất</strong> để đăng bán lại.
       Số lượng đăng bán không được vượt quá số lượng bạn đã nhận.
@@ -158,8 +152,7 @@
       </div>
     </div>
 
-    <!-- SELLING FORM -->
-    <div id="form-52-wrap">
+    <div id="form-52-wrap" style="display:none">
       <div class="section-title" style="margin-bottom:14px">📝 Thông tin đăng bán</div>
 
       <div class="form-grid">
@@ -199,12 +192,8 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════════
-       PANEL 5.3 — PURCHASE DESIGNS / PRODUCTS
-  ══════════════════════════════════════════════ -->
+  <!-- PANEL 5.3 -->
   <div id="panel-53" class="tab-panel" style="display:none">
-
-    <!-- Toolbar: search + filter -->
     <div class="buy-toolbar">
       <input class="search-input" type="text" placeholder="🔍 Tìm thiết kế, tags..."
              oninput="handleSearch53(this.value)">
@@ -213,15 +202,12 @@
       <button class="filter-btn"        data-filter="product" onclick="handleFilter53('product')">📦 Sản phẩm</button>
     </div>
 
-    <!-- Listing grid -->
     <div class="listing-grid" id="buy-listing-grid">
       <div class="empty-state" style="grid-column:1/-1">Đang tải...</div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════════
-       PANEL MY — MY LISTINGS
-  ══════════════════════════════════════════════ -->
+  <!-- PANEL MY -->
   <div id="panel-my" class="tab-panel" style="display:none">
     <div class="section-card">
       <div class="section-title">📋 Listing của tôi</div>
@@ -230,11 +216,10 @@
       </div>
     </div>
   </div>
-
 </div>
 
 <!-- DETAIL MODAL -->
-<div class="modal-overlay" id="listing-modal">
+<div class="modal-overlay hidden" id="listing-modal">
   <div class="modal-box">
     <div class="modal-header">
       <h3>Chi tiết thiết kế</h3>
@@ -259,7 +244,6 @@
 
       <div class="modal-price" id="modal-price">—</div>
 
-      <!-- Số lượng (chỉ hiện với type=product) -->
       <div class="modal-qty-wrap" id="modal-qty-wrap">
         <span class="modal-qty-label" id="modal-qty-label">Còn lại: —</span>
         <input type="number" class="modal-qty-input" id="modal-qty-input" min="1" value="1">
@@ -273,6 +257,7 @@
     </div>
   </div>
 </div>
+
 <script src="../js/auth.js"></script>
 <script src="../js/chatbot.js"></script>
 <script src="../js/marketplace1.js"></script>

@@ -1,5 +1,10 @@
 /* =========================
    ORDERS PAGE LOGIC (NV10 — Theo dõi đơn hàng, NV11 — Yêu cầu hoàn hàng)
+   Dùng auth.js chung:
+   - getCurrentUser()
+   - clearCurrentUser()
+   - redirectToLogin()
+   - printify-auth-changed
    Đọc/ghi DS6 'printify_orders', ghi DS11 'printify_returns'
    ========================= */
 
@@ -10,17 +15,78 @@ let returnImagesBase64 = [];
 
 const RETURN_WINDOW_DAYS = 7;
 
+/* ---------- AUTH HELPERS ---------- */
+function getSession() {
+  try {
+    if (typeof getCurrentUser === "function") {
+      const user = getCurrentUser();
+      if (user) return user;
+    }
+  } catch (err) {
+    // ignore
+  }
+
+  try {
+    const raw =
+      sessionStorage.getItem("printify_session") ||
+      localStorage.getItem("printify_session") ||
+      sessionStorage.getItem("printify_current_customer") ||
+      localStorage.getItem("printify_current_customer");
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+function getActiveUser() {
+  return getSession();
+}
+
+function getCurrentUserIdSafe(user) {
+  return user?.userId || user?.custId || "";
+}
+
+function configureGuestAuthLinks() {
+  const loginBtn = document.querySelector("#guest-block .guest-actions .btn-secondary");
+  const registerBtn = document.querySelector("#guest-block .guest-actions .btn-primary");
+
+  const loginUrl = "../interface/login.html?returnTo=../interface/orders.html";
+  const registerUrl = "../interface/register.html?returnTo=../interface/orders.html";
+
+  if (loginBtn) loginBtn.setAttribute("href", loginUrl);
+  if (registerBtn) registerBtn.setAttribute("href", registerUrl);
+}
+
+/* ---------- INIT ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   updateCartBadge();
+  configureGuestAuthLinks();
 
-  const session = getSession();
+  const session = getActiveUser();
   if (!session) {
     showGuestState();
     return;
   }
 
   showOrdersState();
-  loadOrders(session.userId);
+  loadOrders(getCurrentUserIdSafe(session));
+  renderOrders();
+});
+
+window.addEventListener("printify-auth-changed", () => {
+  updateCartBadge();
+  configureGuestAuthLinks();
+
+  const session = getActiveUser();
+  if (!session) {
+    allOrders = [];
+    showGuestState();
+    renderOrders();
+    return;
+  }
+
+  showOrdersState();
+  loadOrders(getCurrentUserIdSafe(session));
   renderOrders();
 });
 
@@ -38,17 +104,20 @@ function showOrdersState() {
 /* ---------- LOAD DATA ---------- */
 function loadOrders(userId) {
   const orders = JSON.parse(localStorage.getItem("printify_orders") || "[]");
+
   allOrders = orders
-    .filter(o => o.userId === userId)
+    .filter(o => (o.userId || o.custId) === userId)
     .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 }
 
 /* ---------- FILTER BY STATUS ---------- */
 function filterByStatus(status) {
   currentFilterStatus = status;
+
   document.querySelectorAll(".status-tab").forEach(tab => {
     tab.classList.toggle("active", tab.dataset.status === status);
   });
+
   renderOrders();
 }
 
@@ -56,6 +125,8 @@ function filterByStatus(status) {
 function renderOrders() {
   const listEl = document.getElementById("orders-list");
   const emptyEl = document.getElementById("empty-orders");
+
+  if (!listEl || !emptyEl) return;
 
   const filtered = currentFilterStatus === "all"
     ? allOrders
@@ -83,15 +154,18 @@ function renderOrders() {
   const products = getProductsCache();
 
   listEl.innerHTML = filtered.map(order => {
-    const thumbs = order.items.slice(0, 4).map(item => {
+    const items = Array.isArray(order.items) ? order.items : [];
+
+    const thumbs = items.slice(0, 4).map(item => {
       const product = products.find(p => p.id === item.productId);
       const src = item.designData?.thumbnailBase64
         ? item.designData.thumbnailBase64
         : `../${product?.image || "images/placeholder.png"}`;
+
       return `<img class="order-thumb" src="${src}" onerror="this.src='../images/placeholder.png'">`;
     }).join("");
 
-    const moreCount = order.items.length - 4;
+    const moreCount = items.length - 4;
     const moreThumb = moreCount > 0 ? `<div class="order-thumb-more">+${moreCount}</div>` : "";
 
     return `
@@ -132,7 +206,6 @@ function openOrderDetail(orderId) {
   renderModalShipping(currentOrder);
 
   document.getElementById("modal-total").textContent = formatVND(currentOrder.payment?.amount || 0);
-
   renderModalActions(currentOrder);
 
   document.getElementById("order-detail-modal").classList.add("show");
@@ -146,6 +219,8 @@ function closeOrderDetailModal() {
 function renderTimeline(order) {
   const timeline = order.timeline || [];
   const container = document.getElementById("order-timeline");
+
+  if (!container) return;
 
   if (timeline.length === 0) {
     container.innerHTML = `<div class="timeline-step"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-status">${order.status}</div></div></div>`;
@@ -169,7 +244,11 @@ function renderModalItems(order) {
   const products = getProductsCache();
   const container = document.getElementById("modal-items-list");
 
-  container.innerHTML = order.items.map(item => {
+  if (!container) return;
+
+  const items = Array.isArray(order.items) ? order.items : [];
+
+  container.innerHTML = items.map(item => {
     const product = products.find(p => p.id === item.productId);
     const thumbSrc = item.designData?.thumbnailBase64
       ? item.designData.thumbnailBase64
@@ -203,6 +282,8 @@ function renderModalShipping(order) {
 /* ---------- RENDER ACTION BUTTONS THEO TRẠNG THÁI ---------- */
 function renderModalActions(order) {
   const container = document.getElementById("modal-actions");
+  if (!container) return;
+
   let buttons = "";
 
   if (order.status === "Chờ xác nhận") {
@@ -266,9 +347,12 @@ function doCancelOrder(orderId) {
   closeConfirmModal();
   closeOrderDetailModal();
 
-  const session = getSession();
-  loadOrders(session.userId);
-  renderOrders();
+  const session = getActiveUser();
+  if (session) {
+    loadOrders(getCurrentUserIdSafe(session));
+    renderOrders();
+  }
+
   showToast("Đã hủy đơn hàng.");
 }
 
@@ -334,7 +418,8 @@ function handleReturnImages(event) {
 
 function clearReturnErrors() {
   ["return-reason", "return-description", "return-images"].forEach(id => {
-    document.getElementById("err-" + id).textContent = "";
+    const el = document.getElementById("err-" + id);
+    if (el) el.textContent = "";
   });
 }
 
@@ -400,26 +485,23 @@ function submitReturnRequest() {
 
   closeReturnModal();
 
-  const session = getSession();
-  loadOrders(session.userId);
-  renderOrders();
+  const session = getActiveUser();
+  if (session) {
+    loadOrders(getCurrentUserIdSafe(session));
+    renderOrders();
+  }
 
   showToast("Yêu cầu hoàn hàng đã được ghi nhận. Chúng tôi sẽ phản hồi trong vòng 24-48 giờ.");
 }
 
 /* ---------- HELPERS ---------- */
-function getSession() {
-  const raw = sessionStorage.getItem("printify_session");
-  return raw ? JSON.parse(raw) : null;
-}
-
 function getProductsCache() {
   const cached = localStorage.getItem("printify_products_cache");
   return cached ? JSON.parse(cached) : [];
 }
 
 function formatVND(amount) {
-  return amount.toLocaleString("vi-VN") + "₫";
+  return Number(amount || 0).toLocaleString("vi-VN") + "₫";
 }
 
 function formatDate(isoString) {
@@ -444,8 +526,10 @@ function statusToClass(status) {
 
 function updateCartBadge() {
   const cart = JSON.parse(localStorage.getItem("printify_cart") || "[]");
-  const totalQty = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
+  const totalQty = cart.reduce((sum, item) => sum + (item.qty || item.quantity || 0), 0);
   const badge = document.getElementById("cart-badge");
+  if (!badge) return;
+
   if (totalQty > 0) {
     badge.textContent = totalQty;
     badge.style.display = "flex";

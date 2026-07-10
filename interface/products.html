@@ -1,184 +1,183 @@
-<<<<<<< HEAD
-<html>
-<head>
-<title>PrintiFy — Sản phẩm</title>
-<link rel="stylesheet" type="text/css" href="../css/maincss.css">
-<link rel="stylesheet" type="text/css" href="../css/productscss.css">
-<link rel="stylesheet" type="text/css" href="../css/chatbotcss.css">
-=======
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PrintiFy — Sản phẩm</title>
-<link rel="stylesheet" type="text/css" href="../css/maincss.css">
-<link rel="stylesheet" type="text/css" href="../css/products.css">
->>>>>>> main
-</head>
-<body class="products-page">
+  <html>
+  <head>
+    <title>PrintiFy — Sản phẩm</title>
+    <link rel="stylesheet" type="text/css" href="../css/maincss.css">
+    <link rel="stylesheet" type="text/css" href="../css/productscss.css">
+    <link rel="stylesheet" type="text/css" href="../css/chatbotcss.css">
+    <link rel="stylesheet" type="text/css" href="../css/indexcss.css">
+  </head>
+  <body class="products-page">
 
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="nav-logo">Printi<span>Craft</span></div>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">Printi<span>Fy</span></div>
 
-  <div class="nav-links">
-<<<<<<< HEAD
-    <a class="nav-link" href="../interface/index.html">Trang chủ</a>
-    <a class="nav-link active" href="../interface/products.html">Sản phẩm</a>
-    <a class="nav-link" href="../interface/marketplace.html">Marketplace</a>
-    <a class="nav-link" href="../interface/orders.html">Đơn hàng</a>
-  </div>
-
-  <div class="nav-actions">
-    <!-- Guest -->
-    <div data-auth-guest class="guest-actions">
-        <a href="../interface/login.html"
-           data-go-login
-           class="btn-login">
-            Đăng nhập
-        </a>
-        <a href="../interface/register.html"
-           data-go-register
-           class="btn-register">
-            Đăng ký
-        </a>
+    <div class="nav-links">
+      <a class="nav-link" href="../interface/index.html">Trang chủ</a>
+      <a class="nav-link active" href="../interface/products.html">Sản phẩm</a>
+      <a class="nav-link" href="../interface/marketplace.html">Marketplace</a>
+      <a class="nav-link" href="../interface/orders.html">Đơn hàng</a>
     </div>
-    <!-- User -->
-    <div data-auth-user
-         class="user-actions"
-         style="display:none">
 
-        <a href="../interface/profile.html" class="nav-account">
-            👤
-            <span data-auth-name></span>
-        </a>
+    <div class="nav-actions">
+      <!-- Guest -->
+      <div data-auth-guest class="guest-actions">
+          <a href="../interface/login.html"
+            data-go-login
+            class="btn-login">
+              Đăng nhập
+          </a>
+          <a href="../interface/register.html"
+            data-go-register
+            class="btn-register">
+              Đăng ký
+          </a>
+      </div>
+      <!-- User -->
+      <div data-auth-user
+          class="user-actions"
+          style="display:none">
 
-        <button
-            class="logout-btn"
-            onclick="logout()">
-            Đăng xuất
-        </button>
+          <a href="../interface/profile.html" class="nav-account">
+              👤
+              <span data-auth-name></span>
+          </a>
+
+          <button
+              class="logout-btn"
+              onclick="logout()">
+              Đăng xuất
+          </button>
+      </div>
+      <a class="nav-cart"
+        href="../interface/cart.html">
+          🛒
+          <span id="cart-badge"
+                class="cart-badge"
+                style="display:none">
+              0
+          </span>
+      </a>
+
     </div>
-    <a class="nav-cart"
-       href="../interface/cart.html">
-        🛒
-        <span id="cart-badge"
-              class="cart-badge"
-              style="display:none">
-            0
-        </span>
-    </a>
+  </nav>
 
-=======
-    <a class="nav-link" href="index.html">Trang chủ</a>
-    <a class="nav-link active" href="products.html">Sản phẩm</a>
-    <a class="nav-link" href="marketplace.html">Marketplace</a>
-    <a class="nav-link" href="orders.html">Đơn hàng</a>
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>🛒 Sản phẩm PrintiFy</h1>
+    <p>Khám phá & tùy chỉnh thiết kế trên hàng trăm sản phẩm in ấn</p>
   </div>
 
-  <div class="nav-actions">
-    <a class="nav-account" href="profile.html" title="Tài khoản">
-      <span class="nav-user-icon">👤</span>
-      <span>Tài khoản</span>
-    </a>
-    <a class="nav-cart" href="cart.html" title="Giỏ hàng">
-      🛒
-      <span class="cart-badge" id="cart-badge" style="display:none">0</span>
-    </a>
->>>>>>> main
+  <div class="main">
+
+    <!-- ══════════ TOOLBAR: SEARCH + SORT ══════════ -->
+    <div class="products-toolbar">
+      <input class="search-input" type="text" id="search-input"
+            placeholder="🔍 Tìm theo tên, tag sản phẩm..."
+            oninput="handleSearch(this.value)">
+
+      <select class="sort-select" id="sort-select" onchange="handleSort(this.value)">
+        <option value="default">Sắp xếp: Mặc định</option>
+        <option value="price-asc">Giá: Thấp → Cao</option>
+        <option value="price-desc">Giá: Cao → Thấp</option>
+        <option value="name-asc">Tên: A → Z</option>
+      </select>
+    </div>
+
+    <div class="products-layout">
+
+      <!-- ══════════ SIDEBAR FILTER ══════════ -->
+      <aside class="filter-sidebar">
+
+        <div class="filter-block">
+          <div class="filter-block-title">Danh mục</div>
+          <div class="filter-options" id="category-filters">
+            <label class="filter-checkbox">
+              <input type="checkbox" value="all" checked onchange="handleCategoryFilter(this)">
+              <span>Tất cả</span>
+            </label>
+            <!-- category checkboxes injected by JS -->
+          </div>
+        </div>
+
+        <div class="filter-block">
+          <div class="filter-block-title">Khoảng giá</div>
+          <div class="filter-options" id="price-filters">
+            <label class="filter-radio">
+              <input type="radio" name="price-range" value="all" checked onchange="handlePriceFilter(this)">
+              <span>Tất cả</span>
+            </label>
+            <label class="filter-radio">
+              <input type="radio" name="price-range" value="0-20000" onchange="handlePriceFilter(this)">
+              <span>Dưới 20.000₫</span>
+            </label>
+            <label class="filter-radio">
+              <input type="radio" name="price-range" value="20000-100000" onchange="handlePriceFilter(this)">
+              <span>20.000₫ - 100.000₫</span>
+            </label>
+            <label class="filter-radio">
+              <input type="radio" name="price-range" value="100000-999999999" onchange="handlePriceFilter(this)">
+              <span>Trên 100.000₫</span>
+            </label>
+          </div>
+        </div>
+
+        <button class="btn-clear-filter" onclick="clearAllFilters()">✕ Xóa bộ lọc</button>
+      </aside>
+
+      <!-- ══════════ PRODUCT GRID ══════════ -->
+      <section class="products-content">
+
+        <div class="results-bar">
+          <span id="results-count">Đang tải...</span>
+        </div>
+
+        <div class="products-grid" id="products-grid">
+          <div class="empty-state" style="grid-column:1/-1">Đang tải sản phẩm...</div>
+        </div>
+
+      </section>
+      </div>
   </div>
-</nav>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Printi<span>Fy</span> VN</div>
+          <p class="footer-desc">
+            Nền tảng thiết kế và in ấn sản phẩm theo yêu cầu.
+            Thiết kế trực tuyến, đặt in nhanh và bán thiết kế của riêng bạn.
+          </p>
+        </div>
 
-<!-- PAGE HEADER -->
-<div class="page-header">
-  <h1>🛒 Sản phẩm PrintiFy</h1>
-  <p>Khám phá & tùy chỉnh thiết kế trên hàng trăm sản phẩm in ấn</p>
-</div>
+        <div class="footer-col">
+          <h4>Danh mục</h4>
+          <ul id="footer-category-list"></ul>
+        </div>
 
-<div class="main">
-
-  <!-- ══════════ TOOLBAR: SEARCH + SORT ══════════ -->
-  <div class="products-toolbar">
-    <input class="search-input" type="text" id="search-input"
-           placeholder="🔍 Tìm theo tên, tag sản phẩm..."
-           oninput="handleSearch(this.value)">
-
-    <select class="sort-select" id="sort-select" onchange="handleSort(this.value)">
-      <option value="default">Sắp xếp: Mặc định</option>
-      <option value="price-asc">Giá: Thấp → Cao</option>
-      <option value="price-desc">Giá: Cao → Thấp</option>
-      <option value="name-asc">Tên: A → Z</option>
-    </select>
-  </div>
-
-  <div class="products-layout">
-
-    <!-- ══════════ SIDEBAR FILTER ══════════ -->
-    <aside class="filter-sidebar">
-
-      <div class="filter-block">
-        <div class="filter-block-title">Danh mục</div>
-        <div class="filter-options" id="category-filters">
-          <label class="filter-checkbox">
-            <input type="checkbox" value="all" checked onchange="handleCategoryFilter(this)">
-            <span>Tất cả</span>
-          </label>
-          <!-- category checkboxes injected by JS -->
+        <div class="footer-col">
+          <h4>Hỗ trợ</h4>
+          <ul>
+            <li>☎ 1900 1234</li>
+            <li>✉ support@printify.vn</li>
+            <li>🕗 08:00 - 22:00</li>
+          </ul>
         </div>
       </div>
 
-      <div class="filter-block">
-        <div class="filter-block-title">Khoảng giá</div>
-        <div class="filter-options" id="price-filters">
-          <label class="filter-radio">
-            <input type="radio" name="price-range" value="all" checked onchange="handlePriceFilter(this)">
-            <span>Tất cả</span>
-          </label>
-          <label class="filter-radio">
-            <input type="radio" name="price-range" value="0-20000" onchange="handlePriceFilter(this)">
-            <span>Dưới 20.000₫</span>
-          </label>
-          <label class="filter-radio">
-            <input type="radio" name="price-range" value="20000-100000" onchange="handlePriceFilter(this)">
-            <span>20.000₫ - 100.000₫</span>
-          </label>
-          <label class="filter-radio">
-            <input type="radio" name="price-range" value="100000-999999999" onchange="handlePriceFilter(this)">
-            <span>Trên 100.000₫</span>
-          </label>
-        </div>
+      <div class="footer-bottom">
+        © 2026 PrintiFy VN — Group 4's BUSINESS WEB DEVELOPMENT PROJECT.
       </div>
+    </div>
+  </footer>
+  <div id="toast-container" aria-live="polite"></div>
 
-      <button class="btn-clear-filter" onclick="clearAllFilters()">✕ Xóa bộ lọc</button>
-    </aside>
-
-    <!-- ══════════ PRODUCT GRID ══════════ -->
-    <section class="products-content">
-
-      <div class="results-bar">
-        <span id="results-count">Đang tải...</span>
-      </div>
-
-      <div class="products-grid" id="products-grid">
-        <div class="empty-state" style="grid-column:1/-1">Đang tải sản phẩm...</div>
-      </div>
-
-    </section>
-
-  </div>
-</div><!-- end main -->
-
-<<<<<<< HEAD
-<script src="../js/chatbot.js"></script>
-<script src="../js/storage.js"></script>
-<script src="../js/auth.js"></script>
-=======
-<script src="../js/storage.js"></script>
->>>>>>> main
-<script src="../js/products.js"></script>
+  <script src="../js/chatbot.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/products.js"></script>
 </body>
 </html>

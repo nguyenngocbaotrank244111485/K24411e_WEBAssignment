@@ -15,8 +15,10 @@ const PROMO_CODES = {
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
+  if (typeof syncAuthUI === "function") syncAuthUI();
   loadCart();
   await loadProductsCache();
+  restorePendingCheckoutSelection();
   renderCart();
   updateCartBadge();
 });
@@ -26,6 +28,23 @@ function loadCart() {
   cart = JSON.parse(localStorage.getItem("printify_cart") || "[]");
   // all items are default-selected when entering the page
   selectedItemIds = new Set(cart.map(item => item.cartItemId));
+}
+
+function restorePendingCheckoutSelection() {
+  const raw = sessionStorage.getItem("printify_pending_cart_selection");
+  if (!raw) return;
+
+  try {
+    const pending = JSON.parse(raw);
+    if (Array.isArray(pending.selectedItemIds) && pending.selectedItemIds.length) {
+      selectedItemIds = new Set(pending.selectedItemIds.filter(id => cart.some(item => item.cartItemId === id)));
+    }
+    if (pending.promo) {
+      appliedPromo = pending.promo;
+    }
+  } catch (err) {
+    console.error("Không khôi phục được lựa chọn giỏ hàng:", err);
+  }
 }
 
 async function loadProductsCache() {
@@ -211,7 +230,7 @@ function showConfirmModal(title, desc, onConfirm) {
   const modal = document.getElementById("confirm-modal");
   const okBtn = document.getElementById("confirm-btn-ok");
 
-// Reattach the handle each time you open it to avoid overlapping the old listener.
+  // Reattach the handle each time you open it to avoid overlapping the old listener.
   const newOkBtn = okBtn.cloneNode(true);
   okBtn.parentNode.replaceChild(newOkBtn, okBtn);
   newOkBtn.id = "confirm-btn-ok";
@@ -286,9 +305,26 @@ function proceedToCheckout() {
     return;
   }
 
-  // Save the list of selected items and discount codes for checkout.html to review later.
+  const currentUser = typeof getCurrentUser === "function" ? getCurrentUser() : null;
+  if (!currentUser) {
+    sessionStorage.setItem("printify_pending_cart_selection", JSON.stringify({
+      selectedItemIds: [...selectedItemIds],
+      promo: appliedPromo
+    }));
+
+    showToast("Vui lòng đăng nhập hoặc đăng ký để tiếp tục đặt hàng.");
+    if (typeof redirectToLogin === "function") {
+      redirectToLogin(window.location.href);
+    } else {
+      sessionStorage.setItem("printify_return_to", window.location.href);
+      window.location.href = "login.html";
+    }
+    return;
+  }
+
   sessionStorage.setItem("printify_checkout_items", JSON.stringify(selectedItems));
   sessionStorage.setItem("printify_checkout_promo", JSON.stringify(appliedPromo));
+  sessionStorage.removeItem("printify_pending_cart_selection");
 
   window.location.href = "checkout.html";
 }

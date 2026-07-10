@@ -1,6 +1,5 @@
 /* =========================
    PRODUCTS PAGE THEME
-   (kế thừa biến màu từ maincss.css)
    ========================= */
 
 body.products-page{
@@ -170,6 +169,7 @@ body.products-page{
   border-color: var(--mp-primary);
   color: var(--mp-primary-dark);
 }
+
 
 /* ===== Results bar ===== */
 .results-bar{

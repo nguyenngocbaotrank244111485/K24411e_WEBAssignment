@@ -68,7 +68,7 @@ function startOtpFlow(email) {
 
   popupClose.onclick = () => popup.classList.add('hidden');
 
-  setMessage(`OTP đã được gửi đến email của bạn.`, 'success');
+  setMessage(`OTP đã được hiển thị lên giao diện của bạn.`, 'success');
   console.log('OTP đăng ký:', otp);
 }
 

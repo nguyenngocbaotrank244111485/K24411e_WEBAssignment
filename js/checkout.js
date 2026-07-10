@@ -10,6 +10,21 @@ let appliedPromo = null;
 const SHIPPING_FEE = 20000;
 
 document.addEventListener("DOMContentLoaded", () => {
+  if (typeof syncAuthUI === "function") syncAuthUI();
+
+  // Nếu người dùng mở thẳng checkout mà chưa đăng nhập thì chuyển về login,
+  // sau đăng nhập sẽ quay lại cart.
+  const currentUser = getCurrentUser();
+  if (!currentUser) {
+    if (typeof redirectToLogin === "function") {
+      redirectToLogin("../interface/cart.html");
+    } else {
+      sessionStorage.setItem("printify_return_to", "../interface/cart.html");
+      window.location.href = "login.html";
+    }
+    return;
+  }
+
   updateCartBadge();
   loadCheckoutData();
   prefillSavedInfo();
@@ -31,9 +46,9 @@ function loadCheckoutData() {
   }
 }
 
-/* ---------- PREFILL THÔNG TIN ĐÃ LƯU (nếu user đã đăng nhập & có info) ---------- */
+/* ---------- PREFILL THÔNG TIN ĐÃ LƯU ---------- */
 function prefillSavedInfo() {
-  const session = getSession();
+  const session = getCurrentUser();
   if (!session) return;
 
   const users = JSON.parse(localStorage.getItem("printify_users") || "[]");
@@ -47,7 +62,7 @@ function prefillSavedInfo() {
 function toggleUseSavedInfo(checkbox) {
   if (!checkbox.checked) return;
 
-  const session = getSession();
+  const session = getCurrentUser();
   const users = JSON.parse(localStorage.getItem("printify_users") || "[]");
   const user = users.find(u => u.userId === session.userId);
   const info = user?.savedShippingInfo;
@@ -188,10 +203,15 @@ function handleConfirmOrder() {
     return;
   }
 
-  const session = getSession();
+  const session = getCurrentUser();
   if (!session) {
     showToast("Vui lòng đăng nhập để đặt hàng.");
-    setTimeout(() => window.location.href = "login.html", 1200);
+    if (typeof redirectToLogin === "function") {
+      redirectToLogin("../interface/cart.html");
+    } else {
+      sessionStorage.setItem("printify_return_to", "../interface/cart.html");
+      window.location.href = "login.html";
+    }
     return;
   }
 
@@ -234,22 +254,15 @@ function handleConfirmOrder() {
     ]
   };
 
-  // Lưu vào DS6 'printify_orders'
   const orders = JSON.parse(localStorage.getItem("printify_orders") || "[]");
   orders.push(order);
   localStorage.setItem("printify_orders", JSON.stringify(orders));
 
-  // Xóa các item đã đặt khỏi giỏ hàng (DS4)
   removeCheckedOutItemsFromCart();
-
-  // Lưu thông tin giao hàng vào hồ sơ user để lần sau dùng lại
   saveShippingInfoToProfile(session.userId, shippingInfo);
 
-  // Dọn sessionStorage tạm
   sessionStorage.removeItem("printify_checkout_items");
   sessionStorage.removeItem("printify_checkout_promo");
-
-  // Lưu orderId để order-success.html hiển thị
   sessionStorage.setItem("printify_last_order_id", orderId);
 
   showToast("Đặt hàng thành công!");
@@ -275,9 +288,20 @@ function saveShippingInfoToProfile(userId, shippingInfo) {
 }
 
 /* ---------- HELPERS ---------- */
-function getSession() {
-  const raw = sessionStorage.getItem("printify_session");
-  return raw ? JSON.parse(raw) : null;
+function getCurrentUser() {
+  if (typeof window.getCurrentUser === "function" && window.getCurrentUser !== getCurrentUser) {
+    return window.getCurrentUser();
+  }
+
+  try {
+    const raw =
+      sessionStorage.getItem("printify_current_customer") ||
+      localStorage.getItem("printify_current_customer") ||
+      sessionStorage.getItem("printify_session");
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
 }
 
 function formatVND(amount) {

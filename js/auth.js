@@ -84,6 +84,11 @@ function syncAuthUI() {
   });
 }
 
+function logoutCurrentUser({ redirectTo = 'index.html' } = {}) {
+  clearCurrentUser();
+  if (redirectTo) window.location.href = redirectTo;
+}
+
 function bindAuthLinks() {
   document.querySelectorAll('[data-go-login]').forEach(el => {
     el.addEventListener('click', (e) => {
@@ -98,10 +103,32 @@ function bindAuthLinks() {
       redirectToRegister();
     });
   });
+
+  document.querySelectorAll('[data-go-logout], [data-auth-logout]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      logoutCurrentUser();
+    });
+  });
 }
+
 function initAuthUI() {
   syncAuthUI();
   bindAuthLinks();
 }
+
 document.addEventListener('DOMContentLoaded', initAuthUI);
 window.addEventListener('printify-auth-changed', syncAuthUI);
+
+window.getCurrentUser = getCurrentUser;
+window.isLoggedIn = isLoggedIn;
+window.setCurrentUser = setCurrentUser;
+window.clearCurrentUser = clearCurrentUser;
+window.setReturnTo = setReturnTo;
+window.getReturnTo = getReturnTo;
+window.redirectToLogin = redirectToLogin;
+window.redirectToRegister = redirectToRegister;
+window.requireAuth = requireAuth;
+window.syncAuthUI = syncAuthUI;
+window.logoutCurrentUser = logoutCurrentUser;
+window.handleLogout = () => logoutCurrentUser();

@@ -233,7 +233,23 @@ function startDesign(productId) {
 }
 
 /* ---------- QUICK ADD TO CART (từ hover trên grid) ---------- */
+const CART_KEY = "printify_cart";
+
+function getCart() {
+  return JSON.parse(localStorage.getItem(CART_KEY) || "[]");
+}
+
+function saveCart(cart) {
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+}
+
 function quickAddToCart(productId) {
+  const user = typeof getCurrentUser === "function" ? getCurrentUser() : null;
+  if (!user) {
+    if (typeof redirectToLogin === "function") redirectToLogin(window.location.href);
+    return;
+  }
+
   const product = ALL_PRODUCTS.find(p => p.id === productId);
   if (!product) return;
 
@@ -242,20 +258,10 @@ function quickAddToCart(productId) {
     return;
   }
 
-  const defaultColor = (product.colors && product.colors[0]) || null;
-  const defaultSize = (product.sizes && product.sizes[0]) || null;
-  const user=getCurrentUser();
+  const defaultColor = product.colors?.[0] || null;
+  const defaultSize = product.sizes?.[0] || null;
 
-  const key=`printify_cart_${user.userId}`;
-
-  const cart=
-  JSON.parse(
-  localStorage.getItem(key)||"[]"
-  );
-  localStorage.setItem(
-    key,
-    JSON.stringify(cart)
-  );
+  const cart = getCart();
 
   const existing = cart.find(item =>
     item.productId === product.id &&
@@ -268,7 +274,7 @@ function quickAddToCart(productId) {
     existing.qty += 1;
   } else {
     cart.push({
-      cartItemId: "CI" + Date.now(),
+      cartItemId: "CI_" + Date.now(),
       productId: product.id,
       name: product.name,
       price: product.price,
@@ -279,9 +285,23 @@ function quickAddToCart(productId) {
     });
   }
 
-  localStorage.setItem("printify_cart", JSON.stringify(cart));
+  saveCart(cart);
   updateCartBadge();
   showToast("Đã thêm vào giỏ hàng!");
+}
+
+function updateCartBadge() {
+  const cart = getCart();
+  const totalQty = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
+  const badge = document.getElementById("cart-badge");
+  if (!badge) return;
+
+  if (totalQty > 0) {
+    badge.textContent = totalQty > 99 ? "99+" : totalQty;
+    badge.style.display = "flex";
+  } else {
+    badge.style.display = "none";
+  }
 }
 
 /* ---------- TOAST (bổ sung, dùng chung style .toast có sẵn) ---------- */
@@ -327,14 +347,3 @@ function updateCartBadge(){
     }
   }
 
-function updateCartBadge() {
-  const cart = JSON.parse(localStorage.getItem("printify_cart") || "[]");
-  const totalQty = cart.reduce((sum, item) => sum + (item.qty || 0), 0);
-  const badge = document.getElementById("cart-badge");
-  if (totalQty > 0) {
-    badge.textContent = totalQty;
-    badge.style.display = "flex";
-  } else {
-    badge.style.display = "none";
-  }
-}
